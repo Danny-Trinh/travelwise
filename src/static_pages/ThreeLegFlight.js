@@ -25,36 +25,36 @@ export default class ThreeLegFlight extends Component {
               <td>LCY</td>
               <td>Unlisted</td>
               <td>AMS</td>
-              <td>S</td>
+              <td>Unlisted</td>
               <td>Round-trip</td>
               <td>1739.92</td>
               <td>9</td>
-              <td>2020-10-03T18:05:00</td>
-              <td>2020-10-03T21:12:00</td>
+              <td>2020-10-03T08:40:00</td>
+              <td>2020-10-03T11:00:00</td>
             </tr>
             <tr>
               <th scope="row">2</th>
+              <td>AMS</td>
+              <td>Unlisted</td>
               <td>ATL</td>
-              <td>S</td>
-              <td>JFK</td>
-              <td>4</td>
+              <td>I</td>
               <td>Round-trip</td>
               <td>1739.92</td>
               <td>9</td>
-              <td>2020-10-03T21:52:00</td>
-              <td>2020-10-04T00:05:00</td>
+              <td>2020-10-03T14:30:00</td>
+              <td>2020-10-03T18:09:00</td>
             </tr>
             <tr>
               <th scope="row">3</th>
               <td>ATL</td>
               <td>S</td>
-              <td>JFK</td>
-              <td>4</td>
+              <td>DFW</td>
+              <td>E</td>
               <td>Round-trip</td>
               <td>1739.92</td>
               <td>9</td>
-              <td>2020-10-03T21:52:00</td>
-              <td>2020-10-04T00:05:00</td>
+              <td>2020-10-03T21:03:00</td>
+              <td>2020-10-03T22:20:00</td>
             </tr>
           </tbody>
         </table>
