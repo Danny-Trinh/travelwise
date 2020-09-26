@@ -1,0 +1,114 @@
+{
+  "type": "flight-offer",
+  "id": "1",
+  "source": "GDS",
+  "instantTicketingRequired": false,
+  "nonHomogeneous": false,
+  "oneWay": false,
+  "lastTicketingDate": "2020-09-26",
+  "numberOfBookableSeats": 9,
+  "itineraries": [
+    {
+      "duration": "PT14H20M",
+      "segments": [
+        {
+          "departure": {
+            "iataCode": "JFK",
+            "terminal": "4",
+            "at": "2020-10-03T22:00:00"
+          },
+          "arrival": {
+            "iataCode": "AMS",
+            "at": "2020-10-04T11:20:00"
+          },
+          "carrierCode": "VS",
+          "number": "6829",
+          "aircraft": {
+            "code": "789"
+          },
+          "operating": {
+            "carrierCode": "KL"
+          },
+          "duration": "PT7H20M",
+          "id": "7",
+          "numberOfStops": 0,
+          "blacklistedInEU": false
+        },
+        {
+          "departure": {
+            "iataCode": "AMS",
+            "at": "2020-10-04T17:15:00"
+          },
+          "arrival": {
+            "iataCode": "LCY",
+            "at": "2020-10-04T17:20:00"
+          },
+          "carrierCode": "VS",
+          "number": "6990",
+          "aircraft": {
+            "code": "E90"
+          },
+          "duration": "PT1H5M",
+          "id": "8",
+          "numberOfStops": 0,
+          "blacklistedInEU": false
+        }
+      ]
+    }
+  ],
+  "price": {
+    "currency": "EUR",
+    "total": "774.43",
+    "base": "564.00",
+    "fees": [
+      {
+        "amount": "0.00",
+        "type": "SUPPLIER"
+      },
+      {
+        "amount": "0.00",
+        "type": "TICKETING"
+      }
+    ],
+    "grandTotal": "774.43"
+  },
+  "pricingOptions": {
+    "fareType": ["PUBLISHED"],
+    "includedCheckedBagsOnly": false
+  },
+  "validatingAirlineCodes": ["VS"],
+  "travelerPricings": [
+    {
+      "travelerId": "1",
+      "fareOption": "STANDARD",
+      "travelerType": "ADULT",
+      "price": {
+        "currency": "EUR",
+        "total": "774.43",
+        "base": "564.00"
+      },
+      "fareDetailsBySegment": [
+        {
+          "segmentId": "7",
+          "cabin": "ECONOMY",
+          "fareBasis": "UL1X79B3",
+          "brandedFare": "LIGHT",
+          "class": "T",
+          "includedCheckedBags": {
+            "quantity": 0
+          }
+        },
+        {
+          "segmentId": "8",
+          "cabin": "ECONOMY",
+          "fareBasis": "UL1X79B3",
+          "brandedFare": "LIGHT",
+          "class": "T",
+          "includedCheckedBags": {
+            "quantity": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -29,44 +29,77 @@ export default class Navbar extends Component {
                   Static Pages
                 </a>
                 <div className="dropdown-menu">
-                  <Link className="dropdown-item" to="/page1">
-                    Link 1
+                  <Link className="dropdown-item" to="/Cities">
+                    Cities
                   </Link>
-                  <Link className="dropdown-item" to="/page2">
-                    Link 2
+                  <Link className="dropdown-item" to="/Travel">
+                    Travel
                   </Link>
-                  <Link className="dropdown-item" to="/page3">
-                    Link 3
+                  <Link className="dropdown-item" to="/Covid">
+                    COVID
                   </Link>
-                  <Link className="dropdown-item" to="/page4">
-                    Link 4
+                  <Link className="dropdown-item" to="/Flights">
+                    Flights
                   </Link>
-                  <Link className="dropdown-item" to="/page5">
-                    Link 5
+                  <Link className="dropdown-item" to="/Hotels">
+                    Hotels
                   </Link>
-                  <Link className="dropdown-item" to="/page6">
-                    Link 6
+                  <Link className="dropdown-item" to="/Dallas">
+                    City: Dallas
                   </Link>
-                  <Link className="dropdown-item" to="/page7">
-                    Link 7
+                  <Link className="dropdown-item" to="/New_York">
+                    City: New York
                   </Link>
-                  <Link className="dropdown-item" to="/page8">
-                    Link 8
+                  <Link className="dropdown-item" to="/London">
+                    City: London
                   </Link>
-                  <Link className="dropdown-item" to="/page9">
-                    Link 9
+                  <Link className="dropdown-item" to="/Single_Leg_Flight">
+                    Single Leg Flight
                   </Link>
-                  <Link className="dropdown-item" to="/page10">
-                    Link 10
+                  <Link className="dropdown-item" to="/Two_Leg_Flight">
+                    Two Leg Flight
                   </Link>
                   <Link className="dropdown-item" to="/page11">
                     Link 11
+                  </Link>
+                  <Link className="dropdown-item" to="/HotelOne">
+                    Hotel One
+                  </Link>
+                  <Link className="dropdown-item" to="/HotelTwo">
+                    Hotel Two
+                  </Link>
+                  <Link className="dropdown-item" to="/HotelThree">
+                    Hotel Three
+                  </Link>
+                  <Link className="dropdown-item" to="/CovidOne">
+                    Covid One
+                  </Link>
+                  <Link className="dropdown-item" to="/CovidTwo">
+                    Covid Two
+                  </Link>
+                  <Link className="dropdown-item" to="/CovidThree">
+                    Coivd Three
                   </Link>
                 </div>
               </li>
               <li className="nav-item active">
                 <Link className="nav-link" to="/about">
                   About
+                </Link>
+              </li>
+              <li className="nav-item active">
+                <Link className="nav-link" to="/Cities">
+                  Cities
+                </Link>
+              </li>
+              <li className="nav-item active">
+                <Link className="nav-link" to="/Flights">
+                  Flights
+                </Link>
+              </li>
+              <li className="nav-item active">
+                <Link className="nav-link" to="/Covid">
+                  COVID-19
                 </Link>
               </li>
             </ul>
