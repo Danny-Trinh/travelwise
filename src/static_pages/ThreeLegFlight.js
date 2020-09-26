@@ -3,7 +3,12 @@ export default class ThreeLegFlight extends Component {
   render() {
     return (
       <div class="container">
-        <div>Flight Three</div>
+        <h2 className="text-center">
+          <a href="/London">London</a> to <a href="/Dallas">Dallas</a>
+        </h2>
+        <h5 className="text-center">
+          London(LCY) -> Amsterdam(AMS) -> Atlanta(ATL) -> Dallas(DFW)
+        </h5>
         <table class="table">
           <thead class="thead-dark">
             <tr>

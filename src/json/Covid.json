@@ -1,0 +1,41 @@
+[
+  {
+    "Country": "China",
+    "CountryCode": "CN",
+    "Slug": "china",
+    "NewConfirmed": 17,
+    "TotalConfirmed": 90441,
+    "NewDeaths": 1,
+    "TotalDeaths": 4739,
+    "NewRecovered": 20,
+    "TotalRecovered": 85343,
+    "Date": "2020-09-26T22:50:55Z",
+    "Premium": {}
+  },
+  {
+    "Country": "United States of America",
+    "CountryCode": "US",
+    "Slug": "united-states",
+    "NewConfirmed": 55054,
+    "TotalConfirmed": 7032712,
+    "NewDeaths": 952,
+    "TotalDeaths": 203750,
+    "NewRecovered": 17152,
+    "TotalRecovered": 2727335,
+    "Date": "2020-09-26T22:50:55Z",
+    "Premium": {}
+  },
+  {
+    "Country": "Thailand",
+    "CountryCode": "TH",
+    "Slug": "thailand",
+    "NewConfirmed": 3,
+    "TotalConfirmed": 3522,
+    "NewDeaths": 0,
+    "TotalDeaths": 59,
+    "NewRecovered": 2,
+    "TotalRecovered": 3362,
+    "Date": "2020-09-26T22:50:55Z",
+    "Premium": {}
+  }
+]

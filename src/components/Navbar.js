@@ -77,7 +77,7 @@ export default class Navbar extends Component {
                     Covid Two
                   </Link>
                   <Link className="dropdown-item" to="/CovidThree">
-                    Coivd Three
+                    Covid Three
                   </Link>
                 </div>
               </li>

@@ -3,7 +3,12 @@ export default class TwoLegFlight extends Component {
   render() {
     return (
       <div class="container">
-        <div>Flight Two</div>
+        <h2 className="text-center">
+          <a href="/NewYork">New York City</a> to <a href="/London">London</a>
+        </h2>
+        <h5 className="text-center">
+          New York(JFK) -> Amsterdam(AMS) -> London(LCY)
+        </h5>
         <table class="table">
           <thead class="thead-dark">
             <tr>

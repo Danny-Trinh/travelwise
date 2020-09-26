@@ -3,7 +3,10 @@ export default class SingleLegFlight extends Component {
   render() {
     return (
       <div class="container">
-        <div>Flight One</div>
+        <h2 className="text-center">
+          <a href="/Dallas">Dallas</a> to <a href="/NewYork">New York City</a>
+        </h2>
+        <h5 className="text-center">Dallas(DFW) -> New York(JFK)</h5>
         <table class="table">
           <thead class="thead-dark">
             <tr>

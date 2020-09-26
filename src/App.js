@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import * as Index from "./static_pages/Index";
 import Error from "./components/Error";
 import Navbar from "./components/Navbar";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/CovidOne" component={Index.CovidOne} exact></Route>
           <Route path="/CovidTwo" component={Index.CovidTwo} exact></Route>
           <Route path="/CovidThree" component={Index.CovidThree} exact></Route>
+          <Route path="/About" component={About} exact></Route>
 
           <Route component={Error}></Route>
         </Switch>
