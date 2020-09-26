@@ -19,15 +19,14 @@ export default class Navbar extends Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item dropdown">
-                <a
+                <span
                   className="nav-link dropdown-toggle"
-                  href="#"
                   id="navbarDropdown"
                   role="button"
                   data-toggle="dropdown"
                 >
                   Static Pages
-                </a>
+                </span>
                 <div className="dropdown-menu">
                   <Link className="dropdown-item" to="/Cities">
                     Cities
@@ -36,7 +35,7 @@ export default class Navbar extends Component {
                     Travel
                   </Link>
                   <Link className="dropdown-item" to="/Covid">
-                    COVID
+                    COVID-19
                   </Link>
                   <Link className="dropdown-item" to="/Flights">
                     Flights
@@ -47,20 +46,20 @@ export default class Navbar extends Component {
                   <Link className="dropdown-item" to="/Dallas">
                     City: Dallas
                   </Link>
-                  <Link className="dropdown-item" to="/New_York">
+                  <Link className="dropdown-item" to="/NewYork">
                     City: New York
                   </Link>
                   <Link className="dropdown-item" to="/London">
                     City: London
                   </Link>
-                  <Link className="dropdown-item" to="/Single_Leg_Flight">
+                  <Link className="dropdown-item" to="/SingleLegFlight">
                     Single Leg Flight
                   </Link>
-                  <Link className="dropdown-item" to="/Two_Leg_Flight">
+                  <Link className="dropdown-item" to="/TwoLegFlight">
                     Two Leg Flight
                   </Link>
-                  <Link className="dropdown-item" to="/page11">
-                    Link 11
+                  <Link className="dropdown-item" to="/ThreeLegFlight">
+                    Three Leg Flight
                   </Link>
                   <Link className="dropdown-item" to="/HotelOne">
                     Hotel One
