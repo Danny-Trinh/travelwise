@@ -4,14 +4,20 @@ export default class Travel extends Component {
     return (
       <div class="container">
         <h1>Travel</h1>
-        <li>
-          {" "}
-          <a href="/Flights">Flights</a>
-        </li>
-        <li>
-          {" "}
-          <a href="/Hotels">Hotels</a>
-        </li>
+        <div className="row">
+          <div className="col">
+            {" "}
+            <h3>
+              <a href="/Flights">Flights</a>
+            </h3>
+          </div>
+          <div className="col">
+            {" "}
+            <h3>
+              <a href="/Hotels">Hotels</a>
+            </h3>
+          </div>
+        </div>
       </div>
     );
   }

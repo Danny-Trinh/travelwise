@@ -3,7 +3,6 @@ export default class London extends Component {
   render() {
     return (
       <div class="container">
-        <div>City 2</div>
         <table class="table">
           <thead class="thead-dark">
             <tr>

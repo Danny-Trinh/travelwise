@@ -3,7 +3,6 @@ export default class CovidTwo extends Component {
   render() {
     return (
       <div class="container">
-        <div>COVID Two</div>
         <table class="table">
           <thead class="thead-dark">
             <tr>
