@@ -8,5 +8,12 @@ cache:
   paths:
     - node_modules/
 
+placeholder:
+  stage: deploy
+  only:
+    variables:
+      - $FOO == "bar"
+  script:
+    - echo
 
 #From https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Nodejs.gitlab-ci.yml
