@@ -25,7 +25,7 @@ Estimated Completion Time (hrs):
 Actual Completion Time (hrs):
 
 1. Dung Trinh:
-2. Mitchell Watkins:
+2. Mitchell Watkins: 20
 3. Maximus Chu:
 4. Jesse Huang:
 5. Adam Gluch:
