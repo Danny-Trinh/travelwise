@@ -6,13 +6,7 @@ import Max from "../images/Maximus.jpg";
 import Jesse from "../images/Jesse.jpg";
 import Adam from "../images/Adam.jpg";
 import MemberCard from "../components/MemberCard";
-const names = [
-  "Mitchell Watkins",
-  "Danny Trinh",
-  "Adam Gluch",
-  "Jesse Huang",
-  "Maximus Chu",
-];
+
 export default class page1 extends Component {
   state = {
     isLoading: false,
