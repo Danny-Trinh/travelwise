@@ -66,7 +66,8 @@ export default class page1 extends Component {
     try {
       const json = await Axios({
         method: "get",
-        url: "https://gitlab.com/api/v4/projects/21350537/repository/commits",
+        url:
+          "https://gitlab.com/api/v4/projects/21350537/repository/commits?per_page=200",
       });
       let temp = this.state.members;
       for (let i = 0; i < this.state.members.length; i++) {
@@ -87,7 +88,7 @@ export default class page1 extends Component {
     try {
       const json = await Axios({
         method: "get",
-        url: "https://gitlab.com/api/v4/projects/21350537/issues",
+        url: "https://gitlab.com/api/v4/projects/21350537/issues?per_page=200",
         headers: { "PRIVATE-TOKEN": "AN4QaAJ4prpZTcDzJCxg" },
       });
       let temp = this.state.members;
