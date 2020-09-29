@@ -13,11 +13,15 @@ export default class page1 extends Component {
     error: null,
     testin: "aye",
     members: [
-      { name: "Mitchell Watkins", gitlab: "mitchellwatkins125" },
-      { name: "Dung Trinh (Danny)", gitlab: "Danny-Trinh" },
-      { name: "Jesse Huang", gitlab: "jessehuang" },
-      { name: "Maximus Chu", gitlab: "maximuschu" },
-      { name: "Adam Gluch", gitlab: "amgluch" },
+      {
+        name: "Mitchell Watkins",
+        gitlab: "mitchellwatkins125",
+        image: Mitchell,
+      },
+      { name: "Dung Trinh (Danny)", gitlab: "Danny-Trinh", image: Danny },
+      { name: "Jesse Huang", gitlab: "jessehuang", image: Jesse },
+      { name: "Maximus Chu", gitlab: "maximuschu", image: Max },
+      { name: "Adam Gluch", gitlab: "amgluch", image: Adam },
     ],
   };
   async componentDidMount() {
@@ -61,13 +65,13 @@ export default class page1 extends Component {
       <React.Fragment>
         <div className="container">
           <div className="row">
-            <MemberCard image={Danny}></MemberCard>
-            <MemberCard image={Jesse}></MemberCard>
-            <MemberCard image={Max}></MemberCard>
+            <MemberCard member={this.state.members[0]}></MemberCard>
+            <MemberCard member={this.state.members[1]}></MemberCard>
+            <MemberCard member={this.state.members[2]}></MemberCard>
           </div>
           <div className="row">
-            <MemberCard image={Mitchell}></MemberCard>
-            <MemberCard image={Adam}></MemberCard>
+            <MemberCard member={this.state.members[3]}></MemberCard>
+            <MemberCard member={this.state.members[4]}></MemberCard>
           </div>
         </div>
       </React.Fragment>
