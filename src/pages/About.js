@@ -8,7 +8,7 @@ import Adam from "../images/Adam.jpg";
 import MemberCard from "../components/MemberCard";
 const dannyDesc =
   "A Junior Web Developer that wanted to get into Artificial Intelligence but had too many React" +
-  " projects on his resume. He now crys on every React project he works on.";
+  " projects on his resume. He now cries on every React project he works on.";
 const adamDesc = "I like to play League";
 const maxDesc = "AYE";
 const mitchellDesc = "I like to do menly things but I also like to do men";
@@ -68,18 +68,6 @@ export default class page1 extends Component {
         method: "get",
         url: "https://gitlab.com/api/v4/projects/21350537/repository/commits",
       });
-      // // let temp = this.state["Danny Trinh"];
-      // let numCommits = json.data.filter(
-      //   (commit) => commit.committer_name.localeCompare("Danny-Trinh") === 0
-      // ).length;
-      // // // this.setState({ "Danny Trinh": temp });
-      // console.log(numCommits);
-      // let numCommits2 = json.data.filter(
-      //   (commit) => commit.committer_name.localeCompare("amgluch") === 0
-      // ).length;
-      // // // this.setState({ "Danny Trinh": temp });
-      // console.log(numCommits2);
-      // console.log(json);
       let temp = this.state.members;
       for (let i = 0; i < this.state.members.length; i++) {
         temp[i]["commits"] = json.data.filter(
@@ -103,7 +91,6 @@ export default class page1 extends Component {
         headers: { "PRIVATE-TOKEN": "AN4QaAJ4prpZTcDzJCxg" },
       });
       let temp = this.state.members;
-      console.log(json.data);
       for (let i = 0; i < this.state.members.length; i++) {
         temp[i]["issues"] = json.data.filter(
           (issue) =>
