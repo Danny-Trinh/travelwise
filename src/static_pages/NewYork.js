@@ -3,10 +3,12 @@ export default class NewYork extends Component {
   render() {
     return (
       <div class="container">
+        <h2 className="text-center">
+          New York
+        </h2>
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">City</th>
               <th scope="col">Country</th>
               <th scope="col">Region</th>
               <th scope="col">LGBTQ</th>
@@ -20,7 +22,6 @@ export default class NewYork extends Component {
           </thead>
           <tbody>
             <tr>
-              <th scope="row">New York City</th>
               <td>United States of America</td>
               <td>New York</td>
               <td>35</td>

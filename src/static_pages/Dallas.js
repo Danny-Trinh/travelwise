@@ -4,10 +4,12 @@ export default class Dallas extends Component {
     return (
       <div class="container">
         <div></div>
+        <h2 className="text-center">
+          Dallas
+        </h2>
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">City</th>
               <th scope="col">Country</th>
               <th scope="col">Region</th>
               <th scope="col">LGBTQ</th>
@@ -21,7 +23,6 @@ export default class Dallas extends Component {
           </thead>
           <tbody>
             <tr>
-              <th scope="row">Dallas</th>
               <td>United States of America</td>
               <td>Texas</td>
               <td>51</td>

@@ -3,10 +3,12 @@ export default class London extends Component {
   render() {
     return (
       <div class="container">
+        <h2 className="text-center">
+          London
+        </h2>
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">City</th>
               <th scope="col">Country</th>
               <th scope="col">Region</th>
               <th scope="col">LGBTQ</th>
@@ -20,7 +22,6 @@ export default class London extends Component {
           </thead>
           <tbody>
             <tr>
-              <th scope="row">London</th>
               <td>United Kingdom</td>
               <td>England</td>
               <td>39</td>
