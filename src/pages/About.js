@@ -11,7 +11,7 @@ const dannyDesc =
 const adamDesc = "I like to play League";
 const maxDesc = "AYE";
 const mitchellDesc = "You can't code away all your probelms in life ~_~";
-const jesseDesc = "I like eating crayons";
+const jesseDesc = "Jesse also wanted to get into AI but has pushed off learning any technologies for mobile development. Given enough free time he would make cool phone games.";
 
 export default class page1 extends Component {
   state = {
