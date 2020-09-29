@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import Danny from "../images/danny.jpg";
+import Danny from "../images/Danny.jpg";
+import Mitchell from "../images/Mitchell.jpg";
+import Max from "../images/Maximus.jpg";
+import Jesse from "../images/Jesse.jpg";
+import Adam from "../images/Adam.jpg";
 import MemberCard from "../components/MemberCard";
 const names = [
   "Mitchell Watkins",
@@ -17,9 +21,9 @@ export default class page1 extends Component {
     members: [
       { name: "Mitchell Watkins", gitlab: "mitchellwatkins125" },
       { name: "Dung Trinh (Danny)", gitlab: "Danny-Trinh" },
-      { name: "Adam Gluch", gitlab: "amgluch" },
       { name: "Jesse Huang", gitlab: "jessehuang" },
       { name: "Maximus Chu", gitlab: "maximuschu" },
+      { name: "Adam Gluch", gitlab: "amgluch" },
     ],
   };
   async componentDidMount() {
@@ -61,7 +65,17 @@ export default class page1 extends Component {
   render() {
     return (
       <React.Fragment>
-        <MemberCard image={Danny}></MemberCard>
+        <div className="container">
+          <div className="row">
+            <MemberCard image={Danny}></MemberCard>
+            <MemberCard image={Jesse}></MemberCard>
+            <MemberCard image={Max}></MemberCard>
+          </div>
+          <div className="row">
+            <MemberCard image={Mitchell}></MemberCard>
+            <MemberCard image={Adam}></MemberCard>
+          </div>
+        </div>
       </React.Fragment>
     );
   }

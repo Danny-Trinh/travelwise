@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Danny from "../images/danny.jpg";
 export default class Navbar extends Component {
   render() {
     return (
@@ -7,6 +6,7 @@ export default class Navbar extends Component {
         <div className="card" style={{ width: "18rem" }}>
           <img
             className="card-img-top"
+            style={{ height: "18rem" }}
             src={this.props.image}
             alt="Card image cap"
           ></img>
