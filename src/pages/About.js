@@ -6,22 +6,54 @@ import Max from "../images/Maximus.jpg";
 import Jesse from "../images/Jesse.jpg";
 import Adam from "../images/Adam.jpg";
 import MemberCard from "../components/MemberCard";
+const dannyDesc =
+  "A Junior Web Developer that wanted to get into Artificial Intelligence but had too many React" +
+  " projects on his resume. He now crys on every React project he works on.";
+const adamDesc = "I like to play League";
+const maxDesc = "AYE";
+const mitchellDesc = "I like to do menly things but I also like to do men";
+const jesseDesc = "I like to hide the bodies in my closet";
 
 export default class page1 extends Component {
   state = {
     isLoading: false,
     error: null,
-    testin: "aye",
     members: [
       {
         name: "Mitchell Watkins",
         gitlab: "mitchellwatkins125",
         image: Mitchell,
+        desc: mitchellDesc,
+        jobs: "Full-Stack Developer",
       },
-      { name: "Dung Trinh (Danny)", gitlab: "Danny-Trinh", image: Danny },
-      { name: "Jesse Huang", gitlab: "jessehuang", image: Jesse },
-      { name: "Maximus Chu", gitlab: "maximuschu", image: Max },
-      { name: "Adam Gluch", gitlab: "amgluch", image: Adam },
+      {
+        name: "Dung Trinh (Danny)",
+        gitlab: "Danny-Trinh",
+        image: Danny,
+        desc: dannyDesc,
+        jobs: "Full-Stack Developer",
+      },
+      {
+        name: "Jesse Huang",
+        gitlab: "jessehuang",
+        image: Jesse,
+        desc: adamDesc,
+        jobs: "Full-Stack Developer",
+      },
+      {
+        name: "Maximus Chu",
+        gitlab: "maximuschu",
+        image: Max,
+        desc: maxDesc,
+        jobs: "Full-Stack Developer",
+      },
+      {
+        name: "Adam Gluch",
+        gitlab: "amgluch",
+        image: Adam,
+        desc: jesseDesc,
+        jobs: "Full-Stack Developer",
+      },
     ],
   };
   async componentDidMount() {
