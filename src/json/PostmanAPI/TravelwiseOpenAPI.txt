@@ -1,0 +1,199 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Travelwise
+servers:
+  - url: 'http://api.travelwise.live'
+paths:
+  /cities:
+    get:
+      summary: 'City'
+      operationId: listUser
+      tags:
+        - user
+      parameters:
+        - name: City Name
+          in: query
+          description: City Name
+          required: true
+          schema:
+            type: string
+            format: string
+        - name: Country
+          in: query
+          description: Country
+          required: false
+          schema:
+            type: string
+            format: string
+        - name: Safety
+          in: query
+          description: Returns cities that have overall safety score equal to or greater than entered value
+          required: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          headers:
+            x-next:
+              description: A link to the next page of responses
+              schema:
+                type: string
+          description: Successfully returned city
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    city_name:
+                      type: string
+                    country:
+                      type: string
+                    Region:
+                      type: string
+                    lgbtq_safety_score:
+                        type: integer
+                    medical_safety_score:  
+                        type: integer
+                    overall_safety_score:
+                        type: integer
+                    physical_harm_safety_score:
+                        type: integer
+                    political_freedom_safety_score:
+                        type: integer
+                    theft_safety_score:
+                        type: integer
+                    women_safety_score:
+                        type: integer
+  /flights:
+    get:
+      summary: 'Flights'
+      operationId: listUser
+      tags:
+        - user
+      parameters:
+        - name: Departure IATA
+          in: query
+          description: Departure Airport IATA Code
+          required: true
+          schema:
+            type: string
+            format: string
+        - name: Destination IATA
+          in: query
+          description: Destination Airport IATA Code
+          required: true
+          schema:
+            type: string
+            format: string
+      responses:
+        '200':
+          headers:
+            x-next:
+              description: A link to the next page of responses
+              schema:
+                type: string
+          description: Successfully returned flights
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    departure_airport:
+                      type: string
+                    departure_terminal:
+                      type: string
+                    destination_terminal:
+                      type: string
+                    one_way:
+                        type: boolean
+                    price:  
+                        type: integer
+                    seats_remaining:
+                        type: integer
+                    departure_time:
+                        type: integer
+                    arrival_time:
+                        type: integer
+  /COVID-stats:
+    get:
+      summary: 'COVID-stats'
+      operationId: listUser
+      tags:
+        - user
+      parameters:
+        - name: Country
+          in: query
+          description: Country
+          required: true
+          schema:
+            type: string
+            format: string
+        - name: Total Cases
+          in: query
+          description: Returns countries with total cases equal to or less than entered value
+          required: false
+          schema:
+            type: string
+            format: string
+      responses:
+        '200':
+          headers:
+            x-next:
+              description: A link to the next page of responses
+              schema:
+                type: string
+          description: Successfully returned COVID statistics for country
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    country_name:
+                      type: string
+                    total_cases:
+                      type: integer
+                    total_deaths:
+                      type: integer
+                    total_recoveries:
+                        type: integer
+                    new_cases:  
+                        type: integer
+                    new_deaths:
+                        type: integer
+                    new_recoveries:
+                        type: integer
+
+components:
+  schemas:
+    User:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        tag:
+          type: string
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
