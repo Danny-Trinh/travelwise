@@ -9,7 +9,7 @@ import MemberCard from "../components/MemberCard";
 const dannyDesc =
   "Danny wanted to get into AI but ended up specializing in web development. He now cries on every React project he works on.";
 const adamDesc = "I like to play League";
-const maxDesc = "AYE";
+const maxDesc = "3rd Year CS Major";
 const mitchellDesc = "You can't code away all your probelms in life ~_~";
 const jesseDesc = "Jesse also wanted to get into AI but has pushed off learning any technologies for mobile development. Given enough free time he would make cool phone games.";
 
