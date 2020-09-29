@@ -9,7 +9,7 @@ import MemberCard from "../components/MemberCard";
 const dannyDesc =
   "Danny wanted to get into AI but ended up specializing in web development. He now cries on every React project he works on.";
 const adamDesc = "I like to play League";
-const maxDesc = "Third Year CS Major";
+const maxDesc = "AYE";
 const mitchellDesc = "You can't code away all your probelms in life ~_~";
 const jesseDesc = "I like to hide the bodies in my closet";
 
@@ -71,7 +71,6 @@ export default class page1 extends Component {
         url:
           "https://gitlab.com/api/v4/projects/21350537/repository/commits?per_page=200",
       });
-      let commits_temp = 0;
       let temp = this.state.members;
       for (let i = 0; i < this.state.members.length; i++) {
         temp[i]["commits"] = json.data.filter(
@@ -80,10 +79,8 @@ export default class page1 extends Component {
               this.state.members[i]["gitlab"]
             ) === 0
         ).length;
-        commits_temp += temp[i]["commits"];
       }
-      this.setState({ members: temp });
-      this.setState({ commits: commits_temp });
+      this.setState({ members: temp, commits: json.data.length });
     } catch (error) {
       console.log(
         "NO STOP, WHY DO YOU BREAK OUR WEBSITE! (fetching data for gitlab commits not working)"
@@ -96,7 +93,6 @@ export default class page1 extends Component {
         url: "https://gitlab.com/api/v4/projects/21350537/issues?per_page=200",
         headers: { "PRIVATE-TOKEN": "AN4QaAJ4prpZTcDzJCxg" },
       });
-      let issues_temp = 0;
       let temp = this.state.members;
       for (let i = 0; i < this.state.members.length; i++) {
         temp[i]["issues"] = json.data.filter(
@@ -105,10 +101,8 @@ export default class page1 extends Component {
               this.state.members[i]["gitlab"]
             ) === 0
         ).length;
-        issues_temp += temp[i]["issues"];
       }
-      this.setState({ members: temp });
-      this.setState({ issues: issues_temp });
+      this.setState({ members: temp, issues: json.data.length });
     } catch (error) {
       console.log("fetching data for issues is not working");
     }
@@ -146,7 +140,7 @@ export default class page1 extends Component {
               <strong>Issues</strong>: {this.state.issues}
             </li>
             <li>
-              <strong>Unit Tests</strong>: 0
+              <strong>Unit Tests</strong>: {this.state.tests}
             </li>
           </ul>
           <h2>Technologies Used</h2>
