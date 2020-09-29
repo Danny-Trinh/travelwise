@@ -4,6 +4,7 @@ import * as Index from "./static_pages/Index";
 import Error from "./components/Error";
 import Navbar from "./components/Navbar";
 import About from "./pages/About";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Router>
         <Navbar></Navbar>
         <Switch>
-          <Route path="/" component={this} exact></Route>
+          <Route path="/" component={Home} exact></Route>
           <Route path="/Cities" component={Index.Cities} exact></Route>
           <Route path="/Travel" component={Index.Travel} exact></Route>
           <Route path="/Covid" component={Index.Covid} exact></Route>
