@@ -11,7 +11,7 @@ const dannyDesc =
   " projects on his resume. He now cries on every React project he works on.";
 const adamDesc = "I like to play League";
 const maxDesc = "AYE";
-const mitchellDesc = "I like to do menly things but I also like to do men";
+const mitchellDesc = "You can't code away all your probelms in life •~•";
 const jesseDesc = "I like to hide the bodies in my closet";
 
 export default class page1 extends Component {
