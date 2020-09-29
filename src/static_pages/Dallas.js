@@ -4,9 +4,7 @@ export default class Dallas extends Component {
     return (
       <div class="container">
         <div></div>
-        <h2 className="text-center">
-          Dallas
-        </h2>
+        <h2 className="text-center">Dallas</h2>
         <table class="table">
           <thead class="thead-dark">
             <tr>

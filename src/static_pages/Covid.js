@@ -49,7 +49,9 @@ export default class Covid extends Component {
           </thead>
           <tbody>
             <tr>
-              <td><a href="/CovidOne">China</a></td>
+              <td>
+                <a href="/CovidOne">China</a>
+              </td>
               <td>CN</td>
               <td>17</td>
               <td>90441</td>
@@ -60,7 +62,9 @@ export default class Covid extends Component {
               <td>September 26, 10:50:55PM</td>
             </tr>
             <tr>
-              <td><a href="/CovidTwo">United States of America</a></td>
+              <td>
+                <a href="/CovidTwo">United States of America</a>
+              </td>
               <td>US</td>
               <td>55054</td>
               <td>7032712</td>
@@ -71,7 +75,9 @@ export default class Covid extends Component {
               <td>September 26, 10:50:55PM</td>
             </tr>
             <tr>
-              <td><a href="/CovidThree">Thailand</a></td>
+              <td>
+                <a href="/CovidThree">Thailand</a>
+              </td>
               <td>TH</td>
               <td>3</td>
               <td>3522</td>
@@ -82,7 +88,7 @@ export default class Covid extends Component {
               <td>September 26, 10:50:55PM</td>
             </tr>
           </tbody>
-          </table>
+        </table>
       </div>
     );
   }

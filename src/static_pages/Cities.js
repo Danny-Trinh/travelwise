@@ -50,7 +50,9 @@ export default class page1 extends Component {
           </thead>
           <tbody>
             <tr>
-              <td><a href="/Dallas">Dallas</a></td>
+              <td>
+                <a href="/Dallas">Dallas</a>
+              </td>
               <td>United States of America</td>
               <td>Texas</td>
               <td>51</td>
@@ -62,7 +64,9 @@ export default class page1 extends Component {
               <td>35</td>
             </tr>
             <tr>
-              <td><a href="/NewYork">New York</a></td>
+              <td>
+                <a href="/NewYork">New York</a>
+              </td>
               <td>United States of America</td>
               <td>New York</td>
               <td>35</td>
@@ -74,7 +78,9 @@ export default class page1 extends Component {
               <td>26</td>
             </tr>
             <tr>
-              <td><a href="/London">London</a></td>
+              <td>
+                <a href="/London">London</a>
+              </td>
               <td>United Kingdom</td>
               <td>England</td>
               <td>39</td>
@@ -86,7 +92,7 @@ export default class page1 extends Component {
               <td>38</td>
             </tr>
           </tbody>
-          </table>
+        </table>
       </div>
     );
   }

@@ -42,7 +42,7 @@ export default class Flights extends Component {
               <th scope="col">Seats Remaining</th>
               <th scope="col">Departure Time</th>
               <th scope="col">Arrival Time</th>
-              <th scope='col'>More Information</th>
+              <th scope="col">More Information</th>
             </tr>
           </thead>
           <tbody>
@@ -56,7 +56,9 @@ export default class Flights extends Component {
               <td>9</td>
               <td>2020-10-03T18:05:00</td>
               <td>2020-10-04T00:05:00</td>
-              <td><a href="/SingleLegFlight">Flight Information</a></td>
+              <td>
+                <a href="/SingleLegFlight">Flight Information</a>
+              </td>
             </tr>
             <tr>
               <td>JFK</td>
@@ -68,7 +70,9 @@ export default class Flights extends Component {
               <td>9</td>
               <td>2020-10-03T22:00:00</td>
               <td>2020-10-04T17:20:00</td>
-              <td><a href="/TwoLegFlight">Flight Information</a></td>
+              <td>
+                <a href="/TwoLegFlight">Flight Information</a>
+              </td>
             </tr>
             <tr>
               <td>LCY</td>
@@ -80,10 +84,12 @@ export default class Flights extends Component {
               <td>9</td>
               <td>2020-10-03T21:03:00</td>
               <td>2020-10-03T22:20:00</td>
-              <td><a href="/ThreeLegFlight">Flight Information</a></td>
+              <td>
+                <a href="/ThreeLegFlight">Flight Information</a>
+              </td>
             </tr>
           </tbody>
-          </table>
+        </table>
       </div>
     );
   }

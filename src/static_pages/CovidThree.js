@@ -3,9 +3,7 @@ export default class CovidThree extends Component {
   render() {
     return (
       <div class="container">
-        <h2 className="text-center">
-          Thailand
-        </h2>
+        <h2 className="text-center">Thailand</h2>
         <table class="table">
           <thead class="thead-dark">
             <tr>
