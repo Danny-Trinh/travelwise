@@ -25,6 +25,7 @@ export default class page1 extends Component {
         image: Mitchell,
         desc: mitchellDesc,
         jobs: "Full-Stack Developer",
+        tests: 0,
       },
       {
         name: "Dung Trinh (Danny)",
@@ -32,6 +33,7 @@ export default class page1 extends Component {
         image: Danny,
         desc: dannyDesc,
         jobs: "Full-Stack Developer",
+        tests: 0,
       },
       {
         name: "Jesse Huang",
@@ -39,6 +41,7 @@ export default class page1 extends Component {
         image: Jesse,
         desc: adamDesc,
         jobs: "Full-Stack Developer",
+        tests: 0,
       },
       {
         name: "Maximus Chu",
@@ -46,6 +49,7 @@ export default class page1 extends Component {
         image: Max,
         desc: maxDesc,
         jobs: "Full-Stack Developer",
+        tests: 0,
       },
       {
         name: "Adam Gluch",
@@ -53,6 +57,7 @@ export default class page1 extends Component {
         image: Adam,
         desc: jesseDesc,
         jobs: "Full-Stack Developer",
+        tests: 0,
       },
     ],
   };
@@ -62,34 +67,55 @@ export default class page1 extends Component {
       const json = await Axios({
         method: "get",
         url: "https://gitlab.com/api/v4/projects/21350537/repository/commits",
+      });
+      // // let temp = this.state["Danny Trinh"];
+      // let numCommits = json.data.filter(
+      //   (commit) => commit.committer_name.localeCompare("Danny-Trinh") === 0
+      // ).length;
+      // // // this.setState({ "Danny Trinh": temp });
+      // console.log(numCommits);
+      // let numCommits2 = json.data.filter(
+      //   (commit) => commit.committer_name.localeCompare("amgluch") === 0
+      // ).length;
+      // // // this.setState({ "Danny Trinh": temp });
+      // console.log(numCommits2);
+      // console.log(json);
+      let temp = this.state.members;
+      for (let i = 0; i < this.state.members.length; i++) {
+        temp[i]["commits"] = json.data.filter(
+          (commit) =>
+            commit.committer_name.localeCompare(
+              this.state.members[i]["gitlab"]
+            ) === 0
+        ).length;
+      }
+      this.setState({ members: temp });
+    } catch (error) {
+      console.log(
+        "NO STOP, WHY DO YOU BREAK OUR WEBSITE! (fetching data for gitlab commits not working)"
+      );
+    }
+    this.setState({ isLoading: true });
+    try {
+      const json = await Axios({
+        method: "get",
+        url: "https://gitlab.com/api/v4/projects/21350537/issues",
         headers: { "PRIVATE-TOKEN": "AN4QaAJ4prpZTcDzJCxg" },
       });
-      // let temp = this.state["Danny Trinh"];
-      let numCommits = json.data.filter(
-        (commit) => commit.committer_name.localeCompare("Danny-Trinh") === 0
-      ).length;
-      // // this.setState({ "Danny Trinh": temp });
-      console.log(numCommits);
-      let numCommits2 = json.data.filter(
-        (commit) => commit.committer_name.localeCompare("amgluch") === 0
-      ).length;
-      // // this.setState({ "Danny Trinh": temp });
-      console.log(numCommits2);
-      console.log(json);
+      let temp = this.state.members;
+      console.log(json.data);
+      for (let i = 0; i < this.state.members.length; i++) {
+        temp[i]["issues"] = json.data.filter(
+          (issue) =>
+            issue.author.username.localeCompare(
+              this.state.members[i]["gitlab"]
+            ) === 0
+        ).length;
+      }
+      this.setState({ members: temp });
     } catch (error) {
       this.setState({ error, isLoading: false });
     }
-    // this.setState({ isLoading: true });
-    // try {
-    //   const json = await Axios({
-    //     method: "get",
-    //     url: "https://gitlab.com/api/v4/projects/21350537/issues",
-    //     headers: { "PRIVATE-TOKEN": "AN4QaAJ4prpZTcDzJCxg" },
-    //   });
-    //   console.log(json);
-    // } catch (error) {
-    //   this.setState({ error, isLoading: false });
-    // }
   }
   // comment
   render() {
