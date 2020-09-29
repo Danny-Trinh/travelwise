@@ -22,7 +22,7 @@ export default class Covid extends Component {
         <div className="row">
           <div className="col"></div>
           <div className="col-3">
-            <select className="form-control">
+            <select className="form-control mb-2">
               <option value="">Name</option>
               <option value="">Elevation Meters</option>
               <option value="">LBGTQ Score</option>
