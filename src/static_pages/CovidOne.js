@@ -3,6 +3,9 @@ export default class CovidOne extends Component {
   render() {
     return (
       <div class="container">
+        <h2 className="text-center">
+          China
+        </h2>
         <table class="table">
           <thead class="thead-dark">
             <tr>
