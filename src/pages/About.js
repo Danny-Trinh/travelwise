@@ -11,7 +11,7 @@ const dannyDesc =
 const adamDesc = "I like to play League";
 const maxDesc = "AYE";
 const mitchellDesc = "You can't code away all your probelms in life ~_~";
-const jesseDesc = "I like to hide the bodies in my closet";
+const jesseDesc = "I like eating crayons";
 
 export default class page1 extends Component {
   state = {
@@ -41,7 +41,7 @@ export default class page1 extends Component {
         name: "Jesse Huang",
         gitlab: "jessehuang",
         image: Jesse,
-        desc: adamDesc,
+        desc: jesseDesc,
         jobs: "Full-Stack Developer",
         tests: 0,
       },
@@ -57,7 +57,7 @@ export default class page1 extends Component {
         name: "Adam Gluch",
         gitlab: "amgluch",
         image: Adam,
-        desc: jesseDesc,
+        desc: adamDesc,
         jobs: "Full-Stack Developer",
         tests: 0,
       },

@@ -3,6 +3,9 @@ export default class CovidTwo extends Component {
   render() {
     return (
       <div class="container">
+        <h2 className="text-center">
+          United States of America
+        </h2>
         <table class="table">
           <thead class="thead-dark">
             <tr>
