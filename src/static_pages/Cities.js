@@ -33,18 +33,60 @@ export default class page1 extends Component {
             </select>
           </div>
         </div>
-        <li>
-          {" "}
-          <a href="/Dallas">Dallas</a>
-        </li>
-        <li>
-          {" "}
-          <a href="/NewYork">New York</a>
-        </li>
-        <li>
-          {" "}
-          <a href="/London">London</a>
-        </li>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">City</th>
+              <th scope="col">Country</th>
+              <th scope="col">Region</th>
+              <th scope="col">LGBTQ</th>
+              <th scope="col">Medical</th>
+              <th scope="col">Overall</th>
+              <th scope="col">Physical Harm</th>
+              <th scope="col">Political Freedom</th>
+              <th scope="col">Theft</th>
+              <th scope="col">Women</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="/Dallas">Dallas</a></td>
+              <td>United States of America</td>
+              <td>Texas</td>
+              <td>51</td>
+              <td>70</td>
+              <td>50</td>
+              <td>50</td>
+              <td>42</td>
+              <td>50</td>
+              <td>35</td>
+            </tr>
+            <tr>
+              <td><a href="/NewYork">New York</a></td>
+              <td>United States of America</td>
+              <td>New York</td>
+              <td>35</td>
+              <td>73</td>
+              <td>39</td>
+              <td>30</td>
+              <td>40</td>
+              <td>27</td>
+              <td>26</td>
+            </tr>
+            <tr>
+              <td><a href="/London">London</a></td>
+              <td>United Kingdom</td>
+              <td>England</td>
+              <td>39</td>
+              <td>Unlisted</td>
+              <td>42</td>
+              <td>39</td>
+              <td>26</td>
+              <td>36</td>
+              <td>38</td>
+            </tr>
+          </tbody>
+          </table>
       </div>
     );
   }
