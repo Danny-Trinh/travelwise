@@ -7,8 +7,7 @@ import Jesse from "../images/Jesse.jpg";
 import Adam from "../images/Adam.jpg";
 import MemberCard from "../components/MemberCard";
 const dannyDesc =
-  "A Junior Web Developer that wanted to get into Artificial Intelligence but had too many React" +
-  " projects on his resume. He now cries on every React project he works on.";
+  "Danny wanted to get into AI but ended up specializing in web development. He now cries on every React project he works on.";
 const adamDesc = "I like to play League";
 const maxDesc = "AYE";
 const mitchellDesc = "You can't code away all your probelms in life ~_~";
@@ -66,7 +65,8 @@ export default class page1 extends Component {
     try {
       const json = await Axios({
         method: "get",
-        url: "https://gitlab.com/api/v4/projects/21350537/repository/commits",
+        url:
+          "https://gitlab.com/api/v4/projects/21350537/repository/commits?per_page=200",
       });
       let temp = this.state.members;
       for (let i = 0; i < this.state.members.length; i++) {
@@ -87,7 +87,7 @@ export default class page1 extends Component {
     try {
       const json = await Axios({
         method: "get",
-        url: "https://gitlab.com/api/v4/projects/21350537/issues",
+        url: "https://gitlab.com/api/v4/projects/21350537/issues?per_page=200",
         headers: { "PRIVATE-TOKEN": "AN4QaAJ4prpZTcDzJCxg" },
       });
       let temp = this.state.members;
