@@ -83,7 +83,7 @@ export default class page1 extends Component {
         commits_temp += temp[i]["commits"];
       }
       this.setState({ members: temp });
-      this.setState({ commits: commits_temp});
+      this.setState({ commits: commits_temp });
     } catch (error) {
       console.log(
         "NO STOP, WHY DO YOU BREAK OUR WEBSITE! (fetching data for gitlab commits not working)"
@@ -108,7 +108,7 @@ export default class page1 extends Component {
         issues_temp += temp[i]["issues"];
       }
       this.setState({ members: temp });
-      this.setState({ issues: issues_temp});
+      this.setState({ issues: issues_temp });
     } catch (error) {
       console.log("fetching data for issues is not working");
     }
