@@ -33,14 +33,11 @@ export default class Navbar extends Component {
                   <Link className="dropdown-item" to="/Cities">
                     Cities
                   </Link>
-                  <Link className="dropdown-item" to="/Covid">
-                    COVID-19
-                  </Link>
                   <Link className="dropdown-item" to="/Flights">
                     Flights
                   </Link>
-                  <Link className="dropdown-item" to="/Hotels">
-                    Hotels
+                  <Link className="dropdown-item" to="/Covid">
+                    COVID-19
                   </Link>
                   <Link className="dropdown-item" to="/Dallas">
                     City: Dallas
@@ -59,15 +56,6 @@ export default class Navbar extends Component {
                   </Link>
                   <Link className="dropdown-item" to="/ThreeLegFlight">
                     Three Leg Flight
-                  </Link>
-                  <Link className="dropdown-item" to="/HotelOne">
-                    Hotel One
-                  </Link>
-                  <Link className="dropdown-item" to="/HotelTwo">
-                    Hotel Two
-                  </Link>
-                  <Link className="dropdown-item" to="/HotelThree">
-                    Hotel Three
                   </Link>
                   <Link className="dropdown-item" to="/CovidOne">
                     Covid One
