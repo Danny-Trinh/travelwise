@@ -11,7 +11,7 @@ const dannyDesc =
 const adamDesc = "I like to play League";
 const maxDesc = "AYE";
 const mitchellDesc = "You can't code away all your probelms in life ~_~";
-const jesseDesc = "I like to hide the bodies in my closet";
+const jesseDesc = "I like eating crayons";
 
 export default class page1 extends Component {
   state = {
