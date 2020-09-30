@@ -20,4 +20,4 @@ cache:
 
 test_pipeline:
   script:
-    - echo "placeholder"
+    - echo "placeholder" 
