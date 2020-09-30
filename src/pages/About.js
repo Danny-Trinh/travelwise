@@ -11,7 +11,7 @@ const dannyDesc =
 const adamDesc =
   "Hi! I'm a senior that's into videogames, and playing the piano. I find joy in the little things like cleaning, basking in fresh air, or 12-hour debugging sessions.";
 const maxDesc = "3rd Year CS Major";
-const mitchellDesc = "You can't code away all your probelms in life ~_~";
+const mitchellDesc = "You can't code away all your problems in life ~_~";
 const jesseDesc =
   "Jesse also wanted to get into AI but has pushed off learning any technologies for mobile development. Given enough free time he would make cool phone games.";
 
