@@ -8,6 +8,7 @@ paths:
   /cities:
     get:
       summary: 'City'
+      description: returns data on safety score of city
       operationId: listUser
       tags:
         - user
@@ -166,9 +167,70 @@ paths:
                         type: integer
                     new_cases:  
                         type: integer
+                        value: 10
                     new_deaths:
                         type: integer
                     new_recoveries:
+                        type: integer
+  /safearrivals:
+    get:
+      summary: 'Safe Arrivals'
+      description: returns flights arriving at cities within a certain safety threshold
+      operationId: listUser
+      tags:
+        - user
+      parameters:
+        - name: City Name
+          in: query
+          description: City Name
+          required: true
+          schema:
+            type: string
+            format: string
+        - name: Safety Category
+          in: query
+          description: Safety Category
+          required: true
+          schema:
+            type: string
+            format: string
+        - name: Safety Threshold
+          in: query
+          description: Minimum Threshold for Safety Category
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          headers:
+            x-next:
+              description: A link to the next page of responses
+              schema:
+                type: string
+          description: Successfully returned flights
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    departure_airport:
+                      type: string
+                    departure_terminal:
+                      type: string
+                    destination_terminal:
+                      type: string
+                    one_way:
+                        type: boolean
+                    price:  
+                        type: integer
+                    seats_remaining:
+                        type: integer
+                    departure_time:
+                        type: integer
+                    arrival_time:
                         type: integer
 
 components:
