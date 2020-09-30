@@ -8,10 +8,12 @@ import Adam from "../images/Adam.jpg";
 import MemberCard from "../components/MemberCard";
 const dannyDesc =
   "Danny wanted to get into AI but ended up specializing in web development. He now cries on every React project he works on.";
-const adamDesc = "Hi! I'm a senior that's into videogames, and playing the piano. I find joy in the little things like cleaning, basking in fresh air, or 12-hour debugging sessions.";
+const adamDesc =
+  "Hi! I'm a senior that's into videogames, and playing the piano. I find joy in the little things like cleaning, basking in fresh air, or 12-hour debugging sessions.";
 const maxDesc = "3rd Year CS Major";
 const mitchellDesc = "You can't code away all your probelms in life ~_~";
-const jesseDesc = "Jesse also wanted to get into AI but has pushed off learning any technologies for mobile development. Given enough free time he would make cool phone games.";
+const jesseDesc =
+  "Jesse also wanted to get into AI but has pushed off learning any technologies for mobile development. Given enough free time he would make cool phone games.";
 
 export default class page1 extends Component {
   state = {
@@ -91,7 +93,6 @@ export default class page1 extends Component {
       const json = await Axios({
         method: "get",
         url: "https://gitlab.com/api/v4/projects/21350537/issues?per_page=200",
-        headers: { "PRIVATE-TOKEN": "AN4QaAJ4prpZTcDzJCxg" },
       });
       let temp = this.state.members;
       for (let i = 0; i < this.state.members.length; i++) {
@@ -230,7 +231,7 @@ export default class page1 extends Component {
             <li>
               <strong>Postman</strong>:{" "}
               <a href="https://documenter.getpostman.com/view/12799472/TVRd8Axg">
-              https://documenter.getpostman.com/view/12799472/TVRd8Axg
+                https://documenter.getpostman.com/view/12799472/TVRd8Axg
               </a>
             </li>
           </ul>
