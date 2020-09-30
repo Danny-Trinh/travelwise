@@ -9,7 +9,8 @@ export default class ThreeLegFlight extends Component {
         <h5 className="text-center">
           London(LCY) -> Amsterdam(AMS) -> Atlanta(ATL) -> Dallas(DFW)
         </h5>
-        <table class="table">
+        <div className="card">
+        <table class="table table-hover">
           <thead class="thead-dark">
             <tr>
               <th scope="col">Leg</th>
@@ -63,6 +64,7 @@ export default class ThreeLegFlight extends Component {
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
     );
   }

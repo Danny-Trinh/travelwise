@@ -21,6 +21,7 @@ export default class Flights extends Component {
         </div>
         <div className="row">
           <div className="col"></div>
+          <div className="mt-2">Sort by</div>
           <div className="col-3">
             <select className="form-control mb-2">
               <option value="">Departure Time</option>
@@ -30,7 +31,8 @@ export default class Flights extends Component {
             </select>
           </div>
         </div>
-        <table class="table">
+        <div className="card">
+        <table class="table table-hover">
           <thead class="thead-dark">
             <tr>
               <th scope="col">Departure Location</th>
@@ -90,6 +92,7 @@ export default class Flights extends Component {
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
     );
   }

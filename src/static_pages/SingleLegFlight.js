@@ -7,7 +7,8 @@ export default class SingleLegFlight extends Component {
           <a href="/Dallas">Dallas</a> to <a href="/NewYork">New York City</a>
         </h2>
         <h5 className="text-center">Dallas(DFW) -> New York(JFK)</h5>
-        <table class="table">
+        <div className="card">
+        <table class="table table-hover">
           <thead class="thead-dark">
             <tr>
               <th scope="col">Departing From</th>
@@ -35,6 +36,7 @@ export default class SingleLegFlight extends Component {
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
     );
   }

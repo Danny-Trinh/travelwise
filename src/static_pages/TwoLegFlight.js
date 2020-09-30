@@ -9,7 +9,8 @@ export default class TwoLegFlight extends Component {
         <h5 className="text-center">
           New York(JFK) -> Amsterdam(AMS) -> London(LCY)
         </h5>
-        <table class="table">
+        <div className="card">
+        <table class="table table-hover">
           <thead class="thead-dark">
             <tr>
               <th scope="col">Leg</th>
@@ -51,6 +52,7 @@ export default class TwoLegFlight extends Component {
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
     );
   }

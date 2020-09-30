@@ -5,7 +5,8 @@ export default class Dallas extends Component {
       <div class="container">
         <div></div>
         <h2 className="text-center">Dallas</h2>
-        <table class="table">
+        <div className="card">
+        <table class="table table-hover">
           <thead class="thead-dark">
             <tr>
               <th scope="col">Country</th>
@@ -33,6 +34,7 @@ export default class Dallas extends Component {
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
     );
   }

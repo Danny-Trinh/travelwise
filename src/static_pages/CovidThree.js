@@ -4,7 +4,8 @@ export default class CovidThree extends Component {
     return (
       <div class="container">
         <h2 className="text-center">Thailand</h2>
-        <table class="table">
+        <div className="card">
+        <table class="table table-hover">
           <thead class="thead-dark">
             <tr>
               <th scope="col">Country</th>
@@ -32,6 +33,7 @@ export default class CovidThree extends Component {
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
     );
   }

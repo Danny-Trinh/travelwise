@@ -21,6 +21,7 @@ export default class Hotels extends Component {
         </div>
         <div className="row">
           <div className="col"></div>
+          <div className="mt-2">Sort by</div>
           <div className="col-3">
             <select className="form-control">
               <option value="">Name</option>
