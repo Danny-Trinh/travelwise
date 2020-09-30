@@ -6,7 +6,7 @@ Members by Names/EID/Gitlab:
 4. Jesse Huang/jh69268/jessehuang
 5. Adam Gluch/amg6796/amgluch
 
-Git SHA: a4dd6e9fd36288e975d01e63f51671a61da21ab6
+Git SHA: a73f93ffc7db2ead4cef3ee1f2c937da6b4d3625
 
 Project Leader: Dung Trinh
 
@@ -25,7 +25,7 @@ Estimated Completion Time (hrs):
 Actual Completion Time (hrs):
 
 1. Dung Trinh:
-2. Mitchell Watkins: 20
+2. Mitchell Watkins: 20 (phase 1)
 3. Maximus Chu:
 4. Jesse Huang:
 5. Adam Gluch:
