@@ -24,19 +24,11 @@ Estimated Completion Time (hrs):
 
 Actual Completion Time (hrs):
 
-<<<<<<< HEAD
-1. Dung Trinh: 20
-2. Mitchell Watkins: 20
-3. Maximus Chu: 20
-4. Jesse Huang: 20
-5. Adam Gluch: 20
-=======
-1. Dung Trinh:
+1. Dung Trinh: 20 (phase 1)
 2. Mitchell Watkins: 20 (phase 1)
-3. Maximus Chu:
-4. Jesse Huang:
-5. Adam Gluch:
->>>>>>> 631161b19fec61a01a111244c2608677701f8a3b
+3. Maximus Chu: 20 (phase 1)
+4. Jesse Huang: 20 (phase 1)
+5. Adam Gluch: 20 (phase 1)
 
 Comments:
 
