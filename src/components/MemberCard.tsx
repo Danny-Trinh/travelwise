@@ -1,5 +1,17 @@
 import React, { Component } from "react";
-export default class Navbar extends Component {
+type myProps = {
+  member: {
+    image: any;
+    name: string;
+    desc: string;
+    jobs: string;
+    gitlab: number;
+    commits: number;
+    issues: number;
+    tests: number;
+  };
+};
+export default class Navbar extends Component<myProps> {
   render() {
     const {
       image,

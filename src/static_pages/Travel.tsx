@@ -2,7 +2,7 @@ import React, { Component } from "react";
 export default class Travel extends Component {
   render() {
     return (
-      <div class="container">
+      <div className="container">
         <h1>Travel</h1>
         <div className="row">
           <div className="col">

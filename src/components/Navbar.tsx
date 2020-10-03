@@ -5,7 +5,7 @@ export default class Navbar extends Component {
     return (
       <React.Fragment>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <div className="navbar-brand" href="#">
+          <div className="navbar-brand">
             <Link className="nav-link navbar-brand" to="/">
               Travelwise
             </Link>

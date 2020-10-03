@@ -21,7 +21,7 @@ function App() {
           <Route path="/Dallas" component={Index.Dallas} exact></Route>
           <Route path="/NewYork" component={Index.NewYork} exact></Route>
           <Route path="/London" component={Index.London} exact></Route>
-          <Route
+          {/* <Route
             path="/SingleLegFlight"
             component={Index.SingleLegFlight}
             exact
@@ -35,7 +35,7 @@ function App() {
             path="/ThreeLegFlight"
             component={Index.ThreeLegFlight}
             exact
-          ></Route>
+          ></Route> */}
           <Route path="/HotelOne" component={Index.HotelOne} exact></Route>
           <Route path="/HotelTwo" component={Index.HotelTwo} exact></Route>
           <Route path="/HotelThree" component={Index.HotelThree} exact></Route>

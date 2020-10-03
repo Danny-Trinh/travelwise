@@ -2,7 +2,7 @@ import React, { Component } from "react";
 export default class Hotels extends Component {
   render() {
     return (
-      <div class="container">
+      <div className="container">
         <div className="row">
           <div className="col">
             <h1>Hotels</h1>
@@ -12,7 +12,7 @@ export default class Hotels extends Component {
               <div className="form-group row">
                 <input
                   placeholder="Search for Hotel"
-                  class="form-control mt-2 mr-sm-2"
+                  className="form-control mt-2 mr-sm-2"
                 ></input>
                 <a className="btn btn-primary mt-2">Search</a>
               </div>

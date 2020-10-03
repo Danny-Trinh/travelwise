@@ -14,11 +14,15 @@ const maxDesc = "3rd Year CS Major";
 const mitchellDesc = "You can't code away all your problems in life ~_~";
 const jesseDesc =
   "Jesse also wanted to get into AI but has pushed off learning any technologies for mobile development. Given enough free time he would make cool phone games.";
-
-export default class page1 extends Component {
-  state = {
-    isLoading: false,
-    error: null,
+type MyProps = {};
+type myState = {
+  commits: number;
+  issues: number;
+  tests: number;
+  members: any;
+};
+export default class page1 extends Component<myState> {
+  state: myState = {
     commits: 0,
     issues: 0,
     tests: 0,
@@ -66,7 +70,6 @@ export default class page1 extends Component {
     ],
   };
   async componentDidMount() {
-    this.setState({ isLoading: true });
     try {
       const json = await Axios({
         method: "get",
@@ -76,7 +79,7 @@ export default class page1 extends Component {
       let temp = this.state.members;
       for (let i = 0; i < this.state.members.length; i++) {
         temp[i]["commits"] = json.data.filter(
-          (commit) =>
+          (commit: any) =>
             commit.committer_name.localeCompare(
               this.state.members[i]["gitlab"]
             ) === 0
@@ -97,7 +100,7 @@ export default class page1 extends Component {
       let temp = this.state.members;
       for (let i = 0; i < this.state.members.length; i++) {
         temp[i]["issues"] = json.data.filter(
-          (issue) =>
+          (issue: any) =>
             issue.author.username.localeCompare(
               this.state.members[i]["gitlab"]
             ) === 0
