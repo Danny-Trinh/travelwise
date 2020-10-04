@@ -1,4 +1,4 @@
-holder: 
+placeholder: 
 	echo "I AM THE PLACEHOLDER"
 
 docker:

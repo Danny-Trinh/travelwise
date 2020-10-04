@@ -21,4 +21,4 @@ cache:
 test_pipeline:
   script:
     - echo "placeholder" 
-    - make holder
+    - make placeholder
