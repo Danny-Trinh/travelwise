@@ -17,9 +17,8 @@ cache:
   paths:
     - node_modules/
 
-test_pipeline:
+test_pipeline_frontend:
   image: mitchellwatkins125/travelwise
-  
   script:
     - echo "placeholder!" 
     - cat makefile
@@ -27,7 +26,7 @@ test_pipeline:
     - echo "BACKEND TIME!!!"
     - echo node --version
 
-test_pipeline2:
+test_pipeline_backend:
   image: mitchellwatkins125/travelwiseflask
   script:
     - echo "Backend Time!"
