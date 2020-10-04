@@ -1,5 +1,5 @@
 placeholder: 
-	echo "I AM THE PLACEHOLDER"
+	echo "I AM THE PLACEHOLDER!"
 
 docker:
 	docker pull mitchellwatkins125/travelwise
