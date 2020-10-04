@@ -21,4 +21,4 @@ cache:
 test_pipeline:
   script:
     - echo "placeholder" 
-    - docker images
+    - make holder
