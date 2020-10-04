@@ -23,3 +23,5 @@ test_pipeline:
     - echo "placeholder!" 
     - cat makefile
     - make placeholder
+  image: mitchellwatkins125/travelwiseflask
+    - echo "BACKEND TIME!!!"
