@@ -19,10 +19,15 @@ cache:
 
 test_pipeline:
   image: mitchellwatkins125/travelwise
-  image: mitchellwatkins125/travelwiseflask
+  
   script:
     - echo "placeholder!" 
     - cat makefile
     - make placeholder
-  
     - echo "BACKEND TIME!!!"
+    - echo node --version
+
+test_pipeline2:
+  image: mitchellwatkins125/travelwiseflask
+  script:
+    - echo "Backend Time!"
