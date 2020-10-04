@@ -2,7 +2,7 @@
 
 # Official framework image. Look for the different tagged releases at:
 # https://hub.docker.com/r/library/node/tags/
-image: node:latest
+image: mitchellwatkins125/travelwise
 
 # Pick zero or more services to be used on all builds.
 # Only needed when using a docker container to run your tests in.
