@@ -15,7 +15,7 @@ services:
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
 cache:
   paths:
-    - node_modules/
+    - usr/src/app/node_modules/.bin
 
 test_pipeline:
   image: mitchellwatkins125/travelwise
