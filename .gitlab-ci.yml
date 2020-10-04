@@ -19,9 +19,10 @@ cache:
 
 test_pipeline:
   image: mitchellwatkins125/travelwise
+  image: mitchellwatkins125/travelwiseflask
   script:
     - echo "placeholder!" 
     - cat makefile
     - make placeholder
-  image: mitchellwatkins125/travelwiseflask
+  
     - echo "BACKEND TIME!!!"
