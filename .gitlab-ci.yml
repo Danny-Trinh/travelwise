@@ -32,4 +32,4 @@ Backend:
   script:
     - echo "Backend Time!"
     - pip show unittest2
-    - python travelwiseBackend/TravelwiseBackendUnitTest.py
+    - python travelwiseBackend/TravelwiseBackendUnitTests.py
