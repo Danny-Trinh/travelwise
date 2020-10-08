@@ -1,15 +1,11 @@
 from flask import Flask
-from flask_restless import manager
-from sqlalchemy import create_engine
-from sqlalchemy.orm.session import sessionmaker
-
-engine = create_engine('')
-Session = sessionmaker(bind=engine)
-mysession = Session()
+#from flask_restless import manager
+#from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
-manager = manager(app, session=mysession)
+# db = SQLAlchemy(app)
+# manager = manager(app, flask_sqlalchemy_db=db)
 
 
 
@@ -19,6 +15,7 @@ appA = 10
 @app.route('/')
 def hello_world():
     return "Hello World!"
+
 
 
 if __name__=="__main__":
