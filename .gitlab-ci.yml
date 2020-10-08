@@ -32,3 +32,5 @@ Backend:
   script:
     - echo "Backend Time!"
     - pip show unittest2
+    - ls
+    - python TravelwiseBackendUnitTest.py
