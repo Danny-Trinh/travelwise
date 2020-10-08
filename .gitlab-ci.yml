@@ -29,3 +29,4 @@ Backend:
   image: mitchellwatkins125/travelwiseflask
   script:
     - echo "Backend Time!"
+    - pip show unittest2
