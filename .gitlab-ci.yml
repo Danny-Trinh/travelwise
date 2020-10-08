@@ -23,7 +23,9 @@ Frontend:
     - echo "placeholder!" 
     - cat makefile
     - make placeholder
-    - echo node --version
+    - node --version
+    - npm view mocha
+
 
 Backend:
   image: mitchellwatkins125/travelwiseflask
