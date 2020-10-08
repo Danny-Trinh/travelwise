@@ -23,9 +23,13 @@ Frontend:
     - echo "placeholder!" 
     - cat makefile
     - make placeholder
-    - echo node --version
+    - node --version
+    - npm view mocha
+
 
 Backend:
   image: mitchellwatkins125/travelwiseflask
   script:
     - echo "Backend Time!"
+    - pip show unittest2
+    - python travelwiseBackend/TravelwiseBackendUnitTests.py
