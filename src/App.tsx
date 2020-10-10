@@ -5,6 +5,10 @@ import Error from "./components/Error";
 import Navbar from "./components/Navbar";
 import About from "./pages/About";
 import Home from "./pages/Home";
+import Cities from "./pages/Cities";
+import Covid from "./pages/Covid";
+import Flights from "./pages/Flights";
+import Hotels from "./pages/Hotels";
 
 function App() {
   return (
@@ -13,29 +17,14 @@ function App() {
         <Navbar></Navbar>
         <Switch>
           <Route path="/" component={Home} exact></Route>
-          <Route path="/Cities" component={Index.Cities} exact></Route>
-          <Route path="/Travel" component={Index.Travel} exact></Route>
-          <Route path="/Covid" component={Index.Covid} exact></Route>
-          <Route path="/Flights" component={Index.Flights} exact></Route>
-          <Route path="/Hotels" component={Index.Hotels} exact></Route>
+          <Route path="/Cities" component={Cities} exact></Route>
+          <Route path="/Travel" component={Covid} exact></Route>
+          <Route path="/Covid" component={Covid} exact></Route>
+          <Route path="/Flights" component={Flights} exact></Route>
+          <Route path="/Hotels" component={Hotels} exact></Route>
           <Route path="/Dallas" component={Index.Dallas} exact></Route>
           <Route path="/NewYork" component={Index.NewYork} exact></Route>
           <Route path="/London" component={Index.London} exact></Route>
-          {/* <Route
-            path="/SingleLegFlight"
-            component={Index.SingleLegFlight}
-            exact
-          ></Route>
-          <Route
-            path="/TwoLegFlight"
-            component={Index.TwoLegFlight}
-            exact
-          ></Route>
-          <Route
-            path="/ThreeLegFlight"
-            component={Index.ThreeLegFlight}
-            exact
-          ></Route> */}
           <Route path="/HotelOne" component={Index.HotelOne} exact></Route>
           <Route path="/HotelTwo" component={Index.HotelTwo} exact></Route>
           <Route path="/HotelThree" component={Index.HotelThree} exact></Route>

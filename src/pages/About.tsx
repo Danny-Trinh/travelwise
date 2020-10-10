@@ -150,8 +150,8 @@ export default class page1 extends Component<myState> {
           <h2>Technologies Used</h2>
           <ul>
             <li>
-              <strong>Bootstrap</strong> Creates a docker image that packages
-              our tool-chain and dependencies into one container.
+              <strong>Docker</strong>: Creates a docker image that packages our
+              tool-chain and dependencies into one container.
             </li>
             <li>
               <strong>Postman</strong>: Streamlines the creation and management
