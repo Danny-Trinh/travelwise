@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 import './StaticStyles.css'
+import GoogleMapReact from 'google-map-react';
+
 export default class NewYork extends Component {
+  static defaultProps = {
+    center: {
+      lat: 40.77,
+      lng: -70.80
+    },
+    zoom: 11
+  };
   render() {
     return (
       <div className="container">
@@ -40,6 +49,14 @@ export default class NewYork extends Component {
         src="https://images.unsplash.com/photo-1534430480872-3498386e7856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjE2OTUzNX0"
         alt="newyerk"
         />
+        <div style={{ height: '100vh', width: '100%' }}>
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: 'AIzaSyCDLGn-VIAxyzFxcPlHYNy0VzY__2ySRJc' }}
+          defaultCenter={NewYork.defaultProps.center}
+          defaultZoom={NewYork.defaultProps.zoom}
+        >
+        </GoogleMapReact>
+      </div>
       </div>
     );
   }
