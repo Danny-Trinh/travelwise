@@ -1,0 +1,72 @@
+{
+  "Cities": [
+    {
+      "id": 118355,
+      "wikiDataId": "Q16557",
+      "type": "CITY",
+      "city": "Dallas",
+      "name": "Dallas",
+      "country": "United States of America",
+      "countryCode": "US",
+      "region": "Texas",
+      "regionCode": "TX",
+      "latitude": 32.779166666,
+      "longitude": -96.808888888,
+
+      "safetyScores": {
+        "lgbtq": 51,
+        "medical": 70,
+        "overall": 50,
+        "physicalHarm": 50,
+        "politicalFreedom": 42,
+        "theft": 50,
+        "women": 35
+      }
+    },
+    {
+      "id": 45633,
+      "wikiDataId": "Q84",
+      "type": "CITY",
+      "city": "London",
+      "name": "London",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "region": "England",
+      "regionCode": "ENG",
+      "latitude": 51.507222222,
+      "longitude": -0.1275,
+      "safetyScores": {
+        "lgbtq": 39,
+        "medical": 0,
+        "overall": 42,
+        "physicalHarm": 39,
+        "politicalFreedom": 26,
+        "theft": 36,
+        "women": 38
+      }
+    },
+    {
+      "id": 123214,
+      "wikiDataId": "Q60",
+      "type": "CITY",
+      "city": "New York City",
+      "name": "New York City",
+      "country": "United States of America",
+      "countryCode": "US",
+      "region": "New York",
+      "regionCode": "NY",
+      "latitude": 40.67,
+      "longitude": -73.94,
+
+      "safetyScores": {
+        "lgbtq": 35,
+        "medical": 73,
+        "overall": 39,
+        "physicalHarm": 30,
+        "politicalFreedom": 40,
+        "theft": 27,
+        "women": 26
+      }
+    }
+  ]
+}
