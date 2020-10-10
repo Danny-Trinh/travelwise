@@ -1,9 +1,9 @@
 import React, { Component } from "react";
+import './StaticStyles.css';
 export default class Dallas extends Component {
   render() {
     return (
       <div className="container">
-        <div></div>
         <h2 className="text-center">Dallas</h2>
         <div className="card">
           <table className="table table-hover">
@@ -35,6 +35,11 @@ export default class Dallas extends Component {
             </tbody>
           </table>
         </div>
+        <img 
+        className="photo"
+        src="https://images.unsplash.com/photo-1545194445-dddb8f4487c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjE2OTUzNX0"
+        alt="new"
+        />
       </div>
     );
   }
