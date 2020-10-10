@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './StaticStyles.css'
 export default class London extends Component {
   render() {
     return (
@@ -34,6 +35,11 @@ export default class London extends Component {
             </tbody>
           </table>
         </div>
+        <img 
+        className="photo"
+        src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjE2OTUzNX0"
+        alt="lendnen"
+        />
       </div>
     );
   }
