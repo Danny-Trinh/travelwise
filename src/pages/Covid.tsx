@@ -7,10 +7,11 @@ import Paginate from "react-paginate";
 export default class Covid extends Component {
   state = {
     offset: 0,
-    postData: [],
+    data: [],
     perPage: 5,
     currentPage: 0,
     pageCount: 0,
+    sortType: 1,
   };
 
   componentDidMount() {
@@ -22,11 +23,10 @@ export default class Covid extends Component {
     // make api call like this when we actually have data
     // let json = await Axios.get(`https://jsonplaceholder.typicode.com/photos`);
     // use json.data instead of CovidData and voila
-    const ostData = this.setState({
+    this.setState({
       pageCount: Math.ceil(CovidData.Countries.length / this.state.perPage),
-      postData: CovidData.Countries,
+      data: CovidData.Countries,
     });
-    console.log(this.state.postData[0]);
   }
 
   handlePageClick = (e: any) => {
@@ -39,7 +39,7 @@ export default class Covid extends Component {
   };
 
   renderData() {
-    let chunk = this.state.postData.slice(
+    let chunk = this.state.data.slice(
       this.state.offset,
       this.state.offset + this.state.perPage
     );
@@ -64,11 +64,42 @@ export default class Covid extends Component {
     });
     return result;
   }
+  sortData(sortInput: number) {
+    // makes it so each consecutive click reverses/cancels the filter
+    if (this.state.sortType === sortInput) sortInput *= -1;
+    else if (this.state.sortType === -sortInput) sortInput = 1;
+    this.setState({ sortType: sortInput });
+    let reverse = sortInput < 0 ? -1 : 1; // reverse filter if needed
+    let sortedData;
+    switch (Math.abs(sortInput)) {
+      case 1:
+        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
+          return reverse * obj1.Country.localeCompare(obj2.Country);
+        });
+        break;
+      case 2:
+        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
+          return reverse * (obj2.TotalConfirmed - obj1.TotalConfirmed);
+        });
+        break;
+      case 3:
+        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
+          return reverse * (obj2.TotalDeaths - obj1.TotalDeaths);
+        });
+        break;
+      case 4:
+        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
+          return reverse * (obj2.TotalRecovered - obj1.TotalRecovered);
+        });
+        break;
+    }
+    this.setState({ data: sortedData });
+  }
 
   render() {
     return (
       <React.Fragment>
-        <div className="container">
+        <div className="container m-4">
           <table className="table table-hover">
             <thead className="thead-dark">
               <tr>
@@ -103,23 +134,35 @@ export default class Covid extends Component {
             nextLinkClassName={"page-link"}
             activeClassName={"active"}
           />
+          <div className="btn-group-vertical">
+            <button
+              onClick={() => this.sortData(1)}
+              className="btn btn-success"
+            >
+              Sort By Name
+            </button>
 
-          {/* <button onClick={() => this.sortByDate()}type="button" className="btn btn-success">
-            Sort
-          </button> */}
+            <button
+              onClick={() => this.sortData(2)}
+              className="btn btn-success"
+            >
+              Sort By TotalConfirmed
+            </button>
+            <button
+              onClick={() => this.sortData(3)}
+              className="btn btn-success"
+            >
+              Sort By Total Deaths
+            </button>
+            <button
+              onClick={() => this.sortData(4)}
+              className="btn btn-success"
+            >
+              Sort By Total Recovered
+            </button>
+          </div>
         </div>
       </React.Fragment>
     );
   }
 }
-
-// function calcCritical() {
-//   if (randRange(1, 100) > 6) {
-//     return 1;
-//   } else {
-//     return 2;
-//   }
-// }
-// function compareNumbers(a, b) {
-//   return a - b;
-// }
