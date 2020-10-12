@@ -71,52 +71,32 @@ export default class Flights extends Component {
     switch (Math.abs(sortInput)) {
       case 1:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * obj1.city.localeCompare(obj2.city);
+          return reverse * obj1.itineraries[0].segments[0].departure.iataCode.localeCompare(obj2.itineraries[0].segments[0].departure.iataCode);
         });
         break;
       case 2:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * obj1.country.localeCompare(obj2.country);
+          return reverse * obj1.itineraries[0].segments[obj1.itineraries[0].segments.length-1].arrival.iataCode.localeCompare(obj2.itineraries[0].segments[obj2.itineraries[0].segments.length-1].arrival.iataCode);
         });
         break;
       case 3:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * obj1.region.localeCompare(obj2.region);
+          return reverse * (obj1.price.total - obj2.price.total);
         });
         break;
       case 4:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.safetyScores.lgbtq - obj1.safetyScores.lgbtq);
+          return reverse * (obj1.numberOfBookableSeats - obj2.numberOfBookableSeats);
         });
         break;
       case 5:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.safetyScores.medical - obj1.safetyScores.medical);
+          return reverse * obj1.itineraries[0].segments[0].departure.at.localeCompare(obj2.itineraries[0].segments[0].departure.at);
         });
         break;
       case 6:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.safetyScores.overall - obj1.safetyScores.overall);
-        });
-        break;
-      case 7:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.safetyScores.physicalHarm - obj1.safetyScores.physicalHarm);
-        });
-        break;
-      case 8:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.safetyScores.politicalFreedom - obj1.safetyScores.politicalFreedom);
-        });
-        break;
-      case 9:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.safetyScores.theft - obj1.safetyScores.theft);
-        });
-        break;
-      case 10:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.safetyScores.women - obj1.safetyScores.women);
+          return reverse * obj1.itineraries[0].segments[obj1.itineraries[0].segments.length-1].arrival.at.localeCompare(obj2.itineraries[0].segments[obj2.itineraries[0].segments.length-1].arrival.at);
         });
         break;
     }
@@ -167,62 +147,38 @@ export default class Flights extends Component {
               onClick={() => this.sortData(1)}
               className="btn btn-success"
             >
-              Sort By Name
+              Sort By Departure Location
             </button>
 
             <button
               onClick={() => this.sortData(2)}
               className="btn btn-success"
             >
-              Sort By Country
+              Sort By Destination
             </button>
             <button
               onClick={() => this.sortData(3)}
               className="btn btn-success"
             >
-              Sort By Region
+              Sort By Price
             </button>
             <button
               onClick={() => this.sortData(4)}
               className="btn btn-success"
             >
-              Sort By LGBTQ Score
+              Sort By Number of Bookable Seats
             </button>
             <button
               onClick={() => this.sortData(5)}
               className="btn btn-success"
             >
-              Sort By Medical Score
+              Sort By Departure Time
             </button>
             <button
               onClick={() => this.sortData(6)}
               className="btn btn-success"
             >
-              Sort By Overall Score
-            </button>
-            <button
-              onClick={() => this.sortData(7)}
-              className="btn btn-success"
-            >
-              Sort By Physical Harm Score
-            </button>
-            <button
-              onClick={() => this.sortData(8)}
-              className="btn btn-success"
-            >
-              Sort By Political Freedom Score
-            </button>
-            <button
-              onClick={() => this.sortData(9)}
-              className="btn btn-success"
-            >
-              Sort By Theft Score
-            </button>
-            <button
-              onClick={() => this.sortData(10)}
-              className="btn btn-success"
-            >
-              Sort By Women Score
+              Sort By Arrival Time
             </button>
           </div>
         </div>
