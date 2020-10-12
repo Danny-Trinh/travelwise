@@ -56,6 +56,7 @@ export default class Cities extends Component {
             <td>{i.safetyScores.physicalHarm}</td>
             <td>{i.safetyScores.politicalFreedom}</td>
             <td>{i.safetyScores.theft}</td>
+            <td>{i.safetyScores.women}</td>
           </tr>
         </React.Fragment>
       );
@@ -72,22 +73,52 @@ export default class Cities extends Component {
     switch (Math.abs(sortInput)) {
       case 1:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * obj1.Country.localeCompare(obj2.Country);
+          return reverse * obj1.city.localeCompare(obj2.city);
         });
         break;
       case 2:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.TotalConfirmed - obj1.TotalConfirmed);
+          return reverse * obj1.country.localeCompare(obj2.country);
         });
         break;
       case 3:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.TotalDeaths - obj1.TotalDeaths);
+          return reverse * obj1.region.localeCompare(obj2.region);
         });
         break;
       case 4:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.TotalRecovered - obj1.TotalRecovered);
+          return reverse * (obj2.safetyScores.lgbtq - obj1.safetyScores.lgbtq);
+        });
+        break;
+      case 5:
+        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
+          return reverse * (obj2.safetyScores.medical - obj1.safetyScores.medical);
+        });
+        break;
+      case 6:
+        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
+          return reverse * (obj2.safetyScores.overall - obj1.safetyScores.overall);
+        });
+        break;
+      case 7:
+        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
+          return reverse * (obj2.safetyScores.physicalHarm - obj1.safetyScores.physicalHarm);
+        });
+        break;
+      case 8:
+        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
+          return reverse * (obj2.safetyScores.politicalFreedom - obj1.safetyScores.politicalFreedom);
+        });
+        break;
+      case 9:
+        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
+          return reverse * (obj2.safetyScores.theft - obj1.safetyScores.theft);
+        });
+        break;
+      case 10:
+        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
+          return reverse * (obj2.safetyScores.women - obj1.safetyScores.women);
         });
         break;
     }
@@ -110,6 +141,7 @@ export default class Cities extends Component {
                 <th scope="col">Physical Harm</th>
                 <th scope="col">Political Freedom</th>
                 <th scope="col">Theft</th>
+                <th scope="col">Women</th>
               </tr>
             </thead>
             <tbody>{this.renderData()}</tbody>
@@ -144,19 +176,55 @@ export default class Cities extends Component {
               onClick={() => this.sortData(2)}
               className="btn btn-success"
             >
-              Sort By TotalConfirmed
+              Sort By Country
             </button>
             <button
               onClick={() => this.sortData(3)}
               className="btn btn-success"
             >
-              Sort By Total Deaths
+              Sort By Region
             </button>
             <button
               onClick={() => this.sortData(4)}
               className="btn btn-success"
             >
-              Sort By Total Recovered
+              Sort By LGBTQ Score
+            </button>
+            <button
+              onClick={() => this.sortData(5)}
+              className="btn btn-success"
+            >
+              Sort By Medical Score
+            </button>
+            <button
+              onClick={() => this.sortData(6)}
+              className="btn btn-success"
+            >
+              Sort By Overall Score
+            </button>
+            <button
+              onClick={() => this.sortData(7)}
+              className="btn btn-success"
+            >
+              Sort By Physical Harm Score
+            </button>
+            <button
+              onClick={() => this.sortData(8)}
+              className="btn btn-success"
+            >
+              Sort By Political Freedom Score
+            </button>
+            <button
+              onClick={() => this.sortData(9)}
+              className="btn btn-success"
+            >
+              Sort By Theft Score
+            </button>
+            <button
+              onClick={() => this.sortData(10)}
+              className="btn btn-success"
+            >
+              Sort By Women Score
             </button>
           </div>
         </div>
