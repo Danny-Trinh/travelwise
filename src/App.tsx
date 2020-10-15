@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useParams,
+} from "react-router-dom";
 import * as Index from "./static_pages/Index";
 import Error from "./components/Error";
 import Navbar from "./components/Navbar";
@@ -9,7 +14,12 @@ import Cities from "./pages/Cities";
 import Covid from "./pages/Covid";
 import Flights from "./pages/Flights";
 import Hotels from "./pages/Hotels";
-
+import CovidDetail from "./components/CovidDetail";
+import Testing from "./components/Testing";
+function BlogPost() {
+  let tempObject: { id: string } = useParams();
+  return <div>Now showing post {tempObject.id}</div>;
+}
 function App() {
   return (
     <React.Fragment>
@@ -32,7 +42,7 @@ function App() {
           <Route path="/CovidTwo" component={Index.CovidTwo} exact></Route>
           <Route path="/CovidThree" component={Index.CovidThree} exact></Route>
           <Route path="/About" component={About} exact></Route>
-
+          <Route path="/test/:id" component={Testing} exact></Route>
           <Route component={Error}></Route>
         </Switch>
       </Router>

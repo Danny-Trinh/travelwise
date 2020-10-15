@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-export default class page1 extends Component {
+export default class Home extends Component {
   render() {
     return (
       <div className="container">
@@ -14,7 +14,11 @@ export default class page1 extends Component {
             flights, hotels, and the most up-to-date statistics on COVID-19, all
             in the same place.
           </div>
-          <div className="row text-center align-middle justify-content-center"><a href="/Cities" className="btn btn-primary mt-2">Get Started</a></div>
+          <div className="row text-center align-middle justify-content-center">
+            <a href="/Cities" className="btn btn-primary mt-2">
+              Get Started
+            </a>
+          </div>
         </div>
       </div>
     );

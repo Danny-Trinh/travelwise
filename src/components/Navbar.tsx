@@ -88,6 +88,11 @@ export default class Navbar extends Component {
                   COVID-19
                 </Link>
               </li>
+              <li className="nav-item active">
+                <Link className="nav-link" to="/test/1">
+                  Danny Test
+                </Link>
+              </li>
             </ul>
           </div>
         </nav>
