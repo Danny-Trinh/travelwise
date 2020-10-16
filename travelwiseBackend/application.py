@@ -12,12 +12,19 @@ from sqlalchemy.ext.declarative import declarative_base
 application = Flask(__name__)
 
 
-driver = 'postgresql+psycopg2://'
+driver = "postgresql+psycopg2://"
 
-url = driver \
-    + os.environ['RDS_USERNAME'] + ':' + os.environ['RDS_PASSWORD'] \
-    +'@' + os.environ['RDS_HOSTNAME']  +  ':' + os.environ['RDS_PORT'] \
-    + '/travel_wise_db' 
+url = (
+    driver
+    + os.environ["RDS_USERNAME"]
+    + ":"
+    + os.environ["RDS_PASSWORD"]
+    + "@"
+    + os.environ["RDS_HOSTNAME"]
+    + ":"
+    + os.environ["RDS_PORT"]
+    + "/travel_wise_db"
+)
 
 
 engine = create_engine(url)
@@ -30,7 +37,7 @@ base = declarative_base()
 
 
 class CountryEntry(base):
-    __tablename__ = 'cities'
+    __tablename__ = "cities"
     city_id = Column(Integer, primary_key=True)
     name = Column(Text)
     country = Column(Text)
@@ -48,7 +55,7 @@ class CountryEntry(base):
 
 
 class CovidEntry(base):
-    __tablename__ = 'covid'
+    __tablename__ = "covid"
     country_code = Column(Text, primary_key=True)
     country = Column(Text)
     new_cases = Column(BigInteger)
@@ -60,11 +67,9 @@ class CovidEntry(base):
     def __hash__(self):
         return hash(self.str(country_code))
 
-        
-
 
 class AirportEntry(base):
-    __tablename__ = 'airports'
+    __tablename__ = "airports"
     iata_code = Column(Text, primary_key=True)
     airport_name = Column(Text)
     city_name = Column(Text)
@@ -75,31 +80,32 @@ class AirportEntry(base):
     latitude = Column(Float)
 
 
-
-
-
-#testing for connecting unit tests to app
+# testing for connecting unit tests to app
 appA = 10
 
-@application.route('/')
+
+@application.route("/")
 def hello_world():
     return "Hello World"
 
-@application.route('/cities')
+
+@application.route("/cities")
 def cities():
     allCities = engine.execute("select * from public.cities")
     return json.dumps([dict(r) for r in allCities])
-    
-@application.route('/covid')
+
+
+@application.route("/covid")
 def covid():
     allCovid = engine.execute("select * from public.covid")
     return json.dumps([dict(r) for r in allCovid])
 
-@application.route('/airport')
+
+@application.route("/airport")
 def airport():
     allAirports = engine.execute("select * from public.airports")
     return json.dumps([dict(r) for r in allAirports])
 
-if __name__=="__main__":
-    application.run()
 
+if __name__ == "__main__":
+    application.run()
