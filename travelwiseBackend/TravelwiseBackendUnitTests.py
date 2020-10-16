@@ -24,7 +24,7 @@ class DummyTests(unittest.TestCase):
     def test_four_covid(self):
         response = requests.get(base_url + "covid").json()
         first_covid = str(response[0]['country'])
-        first_covid = first_covid[3 : len(first_covid) - 2]
+        first_covid = first_covid[:len(first_covid) - 2]
         self.assertEqual("Afghanistan", first_covid)
 
 
