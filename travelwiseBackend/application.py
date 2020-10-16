@@ -1,28 +1,33 @@
+import os
 import json
 from flask import Flask
 from flask_restless import manager
 from flask_sqlalchemy import SQLAlchemy
-
 import requests
-import psycopg2
+import requests
 from sqlalchemy import *
 from sqlalchemy.orm import *
 from sqlalchemy.ext.declarative import declarative_base
 
-
-app = Flask(__name__)
-
+application = Flask(__name__)
 
 
+driver = 'postgresql+psycopg2://'
+
+url = driver \
+    + os.environ['RDS_USERNAME'] + ':' + os.environ['RDS_PASSWORD'] \
+    +'@' + os.environ['RDS_HOSTNAME']  +  ':' + os.environ['RDS_PORT'] \
+    + '/travel_wise_db' 
 
 
-engine = create_engine('postgresql+psycopg2://postgres:HYDHYDHYD@database.cs9x2xgy9ls3.us-east-2.rds.amazonaws.com:6463/travel_wise_db')
+engine = create_engine(url)
 engine.connect()
 
 Session = sessionmaker(bind=engine)
 session = Session()
 
 base = declarative_base()
+
 
 class CountryEntry(base):
     __tablename__ = 'cities'
@@ -71,31 +76,30 @@ class AirportEntry(base):
 
 
 
-allCities = engine.execute("select * from public.cities")
-allCovid = engine.execute("select * from public.covid")
-allAirports = engine.execute("select * from public.airports")
-
-
 
 
 #testing for connecting unit tests to app
 appA = 10
 
-@app.route('/')
+@application.route('/')
 def hello_world():
     return "Hello World"
 
-@app.route('/cities')
+@application.route('/cities')
 def cities():
+    allCities = engine.execute("select * from public.cities")
     return json.dumps([dict(r) for r in allCities])
     
-@app.route('/covid')
+@application.route('/covid')
 def covid():
+    allCovid = engine.execute("select * from public.covid")
     return json.dumps([dict(r) for r in allCovid])
 
-@app.route('/airport')
+@application.route('/airport')
 def airport():
+    allAirports = engine.execute("select * from public.airports")
     return json.dumps([dict(r) for r in allAirports])
 
 if __name__=="__main__":
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    application.run()
+
