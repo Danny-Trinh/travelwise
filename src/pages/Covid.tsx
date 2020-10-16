@@ -8,6 +8,7 @@ export default class Covid extends Component {
   state = {
     offset: 0,
     data: [],
+    data2: [],
     perPage: 5,
     currentPage: 0,
     pageCount: 0,
@@ -21,11 +22,14 @@ export default class Covid extends Component {
   async getData() {
     // IMPORTANT TODO!!!!!!
     // make api call like this when we actually have data
-    // let json = await Axios.get(`https://jsonplaceholder.typicode.com/photos`);
+    // let json = await Axios.get(
+    //   `http://travelwisebackend.us-east-2.elasticbeanstalk.com/covid`
+    // );
     // use json.data instead of CovidData and voila
     this.setState({
       pageCount: Math.ceil(CovidData.Countries.length / this.state.perPage),
       data: CovidData.Countries,
+      // data2: json.data,
     });
   }
 

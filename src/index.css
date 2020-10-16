@@ -12,6 +12,10 @@ code {
     monospace;
 }
 #mapId {
+  height: 100%;
+  width: 100%;
+}
+#randomDiv {
   height: 40rem;
   width: 40rem;
 }
