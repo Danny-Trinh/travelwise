@@ -1,5 +1,5 @@
 import unittest
-from app import appA
+from application import appA
 
 class DummyTests(unittest.TestCase):
 
