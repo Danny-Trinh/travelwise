@@ -90,7 +90,7 @@ export default class Navbar extends Component {
               </li>
               <li className="nav-item active">
                 <Link className="nav-link" to="/test/1">
-                  Danny Test
+                  Experimental
                 </Link>
               </li>
             </ul>

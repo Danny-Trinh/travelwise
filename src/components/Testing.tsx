@@ -1,36 +1,30 @@
 import React, { Component } from "react";
-import { Map, TileLayer } from "leaflet";
+import { LatLngTuple } from "leaflet";
+import {
+  Circle,
+  CircleMarker,
+  Map,
+  Polygon,
+  Polyline,
+  Popup,
+  Rectangle,
+  TileLayer,
+} from "react-leaflet";
 
-type State = {
-  animate: boolean;
-  latlng: {
-    lat: number;
-    lng: number;
-  };
-};
+const center: LatLngTuple = [0, 0];
+const url: string = "styles/dtrinh403/ckgbqpaav1i1e19pjrjq33ish/tiles";
+const access_token: string =
+  "pk.eyJ1IjoiZHRyaW5oNDAzIiwiYSI6ImNrZ2JjczlwbDAzb3Myem1xbTBhMm52bngifQ.O7QWKvMIxecgJ7j53oZPOw";
 
-export default class AnimateExample extends Component<{}, State> {
-  state = {
-    animate: false,
-    latlng: {
-      lat: 51.505,
-      lng: -0.09,
-    },
-  };
-
-  handleClick = (e: any) => {
-    this.setState({
-      latlng: e.latlng,
-    });
-  };
-
-  toggleAnimate = () => {
-    this.setState({
-      animate: !this.state.animate,
-    });
-  };
-
+export default class VectorLayersExample extends Component<{}> {
   render() {
-    return <div>HIIII</div>;
+    return (
+      <React.Fragment>
+        <div></div>
+        <Map id="mapId" center={center} zoom={2}>
+          <TileLayer url="https://api.mapbox.com/styles/v1/dtrinh403/ckgbqpaav1i1e19pjrjq33ish/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZHRyaW5oNDAzIiwiYSI6ImNrZ2JjczlwbDAzb3Myem1xbTBhMm52bngifQ.O7QWKvMIxecgJ7j53oZPOw"></TileLayer>
+        </Map>
+      </React.Fragment>
+    );
   }
 }
