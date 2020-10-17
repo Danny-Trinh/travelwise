@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Link} from "react-router-dom";
 export default class Travel extends Component {
   render() {
     return (
@@ -8,13 +9,13 @@ export default class Travel extends Component {
           <div className="col">
             {" "}
             <h3>
-              <a href="/Flights">Flights</a>
+              <Link to="/Flights">Flights</Link>
             </h3>
           </div>
           <div className="col">
             {" "}
             <h3>
-              <a href="/Hotels">Hotels</a>
+              <Link to="/Hotels">Hotels</Link>
             </h3>
           </div>
         </div>

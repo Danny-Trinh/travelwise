@@ -14,7 +14,7 @@ export default class page1 extends Component {
                   placeholder="Search for City"
                   className="form-control mt-2 mr-sm-2"
                 ></input>
-                <a className="btn btn-primary mt-2">Search</a>
+                <p className="btn btn-primary mt-2">Search</p>
               </div>
             </form>
           </div>

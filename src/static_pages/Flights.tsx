@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Link} from "react-router-dom";
 export default class Flights extends Component {
   render() {
     return (
@@ -14,7 +15,7 @@ export default class Flights extends Component {
                   placeholder="Search for Flight"
                   className="form-control mt-2 mr-sm-2"
                 ></input>
-                <a className="btn btn-primary mt-2">Search</a>
+                <p className="btn btn-primary mt-2">Search</p>
               </div>
             </form>
           </div>
@@ -59,7 +60,7 @@ export default class Flights extends Component {
                 <td>2020-10-03T18:05:00</td>
                 <td>2020-10-04T00:05:00</td>
                 <td>
-                  <a href="/SingleLegFlight">Flight Information</a>
+                  <Link to="/SingleLegFlight">Flight Information</Link>
                 </td>
               </tr>
               <tr>
@@ -73,7 +74,7 @@ export default class Flights extends Component {
                 <td>2020-10-03T22:00:00</td>
                 <td>2020-10-04T17:20:00</td>
                 <td>
-                  <a href="/TwoLegFlight">Flight Information</a>
+                  <Link to="/TwoLegFlight">Flight Information</Link>
                 </td>
               </tr>
               <tr>
@@ -87,7 +88,7 @@ export default class Flights extends Component {
                 <td>2020-10-03T21:03:00</td>
                 <td>2020-10-03T22:20:00</td>
                 <td>
-                  <a href="/ThreeLegFlight">Flight Information</a>
+                  <Link to="/ThreeLegFlight">Flight Information</Link>
                 </td>
               </tr>
             </tbody>

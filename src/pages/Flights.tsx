@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import FlightsData from "../json/Flights.json";
 import Paginate from "react-paginate";
+import {Link} from "react-router-dom";
 
 export default class Flights extends Component {
   state = {
@@ -54,7 +55,8 @@ export default class Flights extends Component {
             <td>{i.numberOfBookableSeats}</td>
             <td>{i.itineraries[0].segments[0].departure.at}</td>
             <td>{i.itineraries[0].segments[i.itineraries[0].segments.length-1].arrival.at}</td>
-            <td><a href="/">More Information</a></td>
+            
+            <td><Link to="/">More Information</Link></td>
           </tr>
         </React.Fragment>
       );

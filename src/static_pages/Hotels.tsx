@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Link} from "react-router-dom";
 export default class Hotels extends Component {
   render() {
     return (
@@ -14,7 +15,7 @@ export default class Hotels extends Component {
                   placeholder="Search for Hotel"
                   className="form-control mt-2 mr-sm-2"
                 ></input>
-                <a className="btn btn-primary mt-2">Search</a>
+                <p className="btn btn-primary mt-2">Search</p>
               </div>
             </form>
           </div>
@@ -33,15 +34,15 @@ export default class Hotels extends Component {
         </div>
         <li>
           {" "}
-          <a href="/HotelOne">Hotel One</a>
+          <Link to="/HotelOne">Hotel One</Link>
         </li>
         <li>
           {" "}
-          <a href="/HotelTwo">Hotel Two</a>
+          <Link to="/HotelTwo">Hotel Two</Link>
         </li>
         <li>
           {" "}
-          <a href="/HotelThree">Hotel Three</a>
+          <Link to="/HotelThree">Hotel Three</Link>
         </li>
       </div>
     );

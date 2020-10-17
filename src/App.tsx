@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  useParams,
 } from "react-router-dom";
 import * as Index from "./static_pages/Index";
 import Error from "./components/Error";
@@ -14,12 +13,8 @@ import Cities from "./pages/Cities";
 import Covid from "./pages/Covid";
 import Flights from "./pages/Flights";
 import Hotels from "./pages/Hotels";
-import CovidDetail from "./components/CovidDetail";
+// import CovidDetail from "./components/CovidDetail";
 import Testing from "./components/Testing";
-function BlogPost() {
-  let tempObject: { id: string } = useParams();
-  return <div>Now showing post {tempObject.id}</div>;
-}
 function App() {
   return (
     <React.Fragment>

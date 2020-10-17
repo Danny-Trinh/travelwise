@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Link} from "react-router-dom";
 export default class Covid extends Component {
   render() {
     return (
@@ -14,7 +15,7 @@ export default class Covid extends Component {
                   placeholder="Search for Country"
                   className="form-control mt-2 mr-sm-2"
                 ></input>
-                <a className="btn btn-primary mt-2">Search</a>
+                <p className="btn btn-primary mt-2">Search</p>
               </div>
             </form>
           </div>
@@ -52,7 +53,7 @@ export default class Covid extends Component {
             <tbody>
               <tr>
                 <td>
-                  <a href="/CovidOne">China</a>
+                  <Link to="/CovidOne">China</Link>
                 </td>
                 <td>CN</td>
                 <td>17</td>
@@ -65,7 +66,7 @@ export default class Covid extends Component {
               </tr>
               <tr>
                 <td>
-                  <a href="/CovidTwo">United States of America</a>
+                  <Link to="/CovidTwo">United States of America</Link>
                 </td>
                 <td>US</td>
                 <td>55054</td>
@@ -78,7 +79,7 @@ export default class Covid extends Component {
               </tr>
               <tr>
                 <td>
-                  <a href="/CovidThree">Thailand</a>
+                  <Link to="/CovidThree">Thailand</Link>
                 </td>
                 <td>TH</td>
                 <td>3</td>

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import CovidData from "../json/Covid.json";
-import Axios from "axios";
+// import Axios from "axios";
 // import Pagination from 'react-bootstrap/Pagination';
 import Paginate from "react-paginate";
+import {Link} from "react-router-dom";
 
 export default class Covid extends Component {
   state = {
@@ -52,7 +53,7 @@ export default class Covid extends Component {
         <React.Fragment>
           <tr>
             <td>
-              <a href="/">{i.Country}</a>
+              <Link to="/">{i.Country}</Link>
             </td>
             <td>{i.CountryCode}</td>
             <td>{i.NewConfirmed}</td>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CityData from "../json/Cities.json";
 import Paginate from "react-paginate";
+import {Link} from "react-router-dom";
 
 export default class Cities extends Component {
   state = {
@@ -46,7 +47,7 @@ export default class Cities extends Component {
         <React.Fragment>
           <tr>
             <td>
-              <a href="/">{i.city}</a>
+              <Link to="/">{i.city}</Link>
             </td>
             <td>{i.country}</td>
             <td>{i.region}</td>
