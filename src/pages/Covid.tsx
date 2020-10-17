@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CovidData from "../json/Covid.json";
+// import CovidData from "../json/Covid.json";
 import Axios from "axios";
 // import Pagination from 'react-bootstrap/Pagination';
 import Paginate from "react-paginate";
@@ -12,7 +12,7 @@ export default class Covid extends Component {
     perPage: 5,
     currentPage: 0,
     pageCount: 0,
-    sortType: 1,
+    sortType: 0,
   };
 
   componentDidMount() {
@@ -27,9 +27,10 @@ export default class Covid extends Component {
     );
     // use json.data instead of CovidData and voila
     this.setState({
-      pageCount: Math.ceil(CovidData.Countries.length / this.state.perPage),
+      pageCount: Math.ceil(json.data.length / this.state.perPage),
       data: json.data,
     });
+    this.sortData(1)
     console.log(json.data);
   }
 

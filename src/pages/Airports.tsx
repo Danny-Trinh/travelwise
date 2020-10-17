@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import FlightsData from "../json/Flights.json";
+// import FlightsData from "../json/Flights.json";
 import Paginate from "react-paginate";
 import {Link} from "react-router-dom";
+import Axios from "axios";
 
 export default class Flights extends Component {
   state = {
@@ -10,7 +11,7 @@ export default class Flights extends Component {
     perPage: 5,
     currentPage: 0,
     pageCount: 0,
-    sortType: 1,
+    sortType: 0,
   };
 
   componentDidMount() {
@@ -20,12 +21,13 @@ export default class Flights extends Component {
   async getData() {
     // IMPORTANT TODO!!!!!!
     // make api call like this when we actually have data
-    // let json = await Axios.get(`https://jsonplaceholder.typicode.com/photos`);
-    // use json.data instead of CovidData and voila
+    let json = await Axios.get(`http://travelwisebackend.us-east-2.elasticbeanstalk.com/airport`);
     this.setState({
-      pageCount: Math.ceil(FlightsData.Flights.length / this.state.perPage),
-      data: FlightsData.Flights,
+      pageCount: Math.ceil(json.data.length / this.state.perPage),
+      data: json.data,
     });
+    this.sortData(1);
+    console.log(json.data);
   }
 
   handlePageClick = (e: any) => {
@@ -46,17 +48,14 @@ export default class Flights extends Component {
       return (
         <React.Fragment>
           <tr>
-            <td>{i.itineraries[0].segments[0].departure.iataCode}</td>
-            <td>{i.itineraries[0].segments[0].departure.terminal}</td>
-            <td>{i.itineraries[0].segments[i.itineraries[0].segments.length-1].arrival.iataCode}</td>
-            <td>{i.itineraries[0].segments[i.itineraries[0].segments.length-1].arrival.terminal}</td>
-            <td>{i.oneWay.toString()}</td>
-            <td>{i.price.total}</td>
-            <td>{i.numberOfBookableSeats}</td>
-            <td>{i.itineraries[0].segments[0].departure.at}</td>
-            <td>{i.itineraries[0].segments[i.itineraries[0].segments.length-1].arrival.at}</td>
-            
-            <td><Link to="/">More Information</Link></td>
+          <td>{i.airport_name}</td>
+          <td>{i.iata_code}</td>
+          <td>{i.city_name}</td>
+          <td>{i.country_name}</td>
+          <td>{i.latitude}</td>
+          <td>{i.longitude}</td>
+          <td>{i.time_offset}</td>
+          <td><Link to="/">More Information</Link></td>
           </tr>
         </React.Fragment>
       );
@@ -73,32 +72,38 @@ export default class Flights extends Component {
     switch (Math.abs(sortInput)) {
       case 1:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * obj1.itineraries[0].segments[0].departure.iataCode.localeCompare(obj2.itineraries[0].segments[0].departure.iataCode);
+          return reverse * obj1.airport_name[0].localeCompare(obj2.airport_name[0]);
         });
         break;
       case 2:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * obj1.itineraries[0].segments[obj1.itineraries[0].segments.length-1].arrival.iataCode.localeCompare(obj2.itineraries[0].segments[obj2.itineraries[0].segments.length-1].arrival.iataCode);
+          return reverse * obj1.iata_code[0].localeCompare(obj2.iata_code[0]);
         });
         break;
       case 3:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj1.price.total - obj2.price.total);
+          
+          return reverse * obj1.city_name[0].localeCompare(obj2.city_name[0]);
         });
         break;
       case 4:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj1.numberOfBookableSeats - obj2.numberOfBookableSeats);
+          return reverse * obj1.country_name[0].localeCompare(obj2.country_name[0]);
         });
         break;
       case 5:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * obj1.itineraries[0].segments[0].departure.at.localeCompare(obj2.itineraries[0].segments[0].departure.at);
+          return reverse * (obj2.latitude -obj1.latitude);
         });
         break;
       case 6:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * obj1.itineraries[0].segments[obj1.itineraries[0].segments.length-1].arrival.at.localeCompare(obj2.itineraries[0].segments[obj2.itineraries[0].segments.length-1].arrival.at);
+          return reverse * (obj2.longitude - obj1.longitude);
+        });
+        break;
+      case 7:
+        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
+          return reverse * obj1.time_offset[0].localeCompare(obj2.time_offset[0]);
         });
         break;
     }
@@ -112,16 +117,14 @@ export default class Flights extends Component {
           <table className="table table-hover">
             <thead className="thead-dark">
               <tr>
-                <th scope="col">Departure Location</th>
-                <th scope="col">Departure Terminal</th>
-                <th scope="col">Destination</th>
-                <th scope="col">Destination Terminal</th>
-                <th scope="col">One-way?</th>
-                <th scope="col">Price</th>
-                <th scope="col">Seats Remaining</th>
-                <th scope="col">Departure Time</th>
-                <th scope="col">Arrival Time</th>
-                <th scope="col">More Information</th>
+                <th scope="col">Airport</th>
+                <th scope="col">Airport Code</th>
+                <th scope="col">City</th>
+                <th scope="col">Country</th>
+                <th scope="col">Latitude</th>
+                <th scope="col">Longitude</th>
+                <th scope="col">Timezone</th>
+                <th scope="col">Link</th>
               </tr>
             </thead>
             <tbody>{this.renderData()}</tbody>
@@ -149,38 +152,44 @@ export default class Flights extends Component {
               onClick={() => this.sortData(1)}
               className="btn btn-success"
             >
-              Sort By Departure Location
+              Sort By Airport
             </button>
 
             <button
               onClick={() => this.sortData(2)}
               className="btn btn-success"
             >
-              Sort By Destination
+              Sort By Airport Code
             </button>
             <button
               onClick={() => this.sortData(3)}
               className="btn btn-success"
             >
-              Sort By Price
+              Sort By City
             </button>
             <button
               onClick={() => this.sortData(4)}
               className="btn btn-success"
             >
-              Sort By Number of Bookable Seats
+              Sort By Country
             </button>
             <button
               onClick={() => this.sortData(5)}
               className="btn btn-success"
             >
-              Sort By Departure Time
+              Sort By Latitude
             </button>
             <button
               onClick={() => this.sortData(6)}
               className="btn btn-success"
             >
-              Sort By Arrival Time
+              Sort By Longitude
+            </button>
+            <button
+              onClick={() => this.sortData(7)}
+              className="btn btn-success"
+            >
+              Sort By Timezone
             </button>
           </div>
         </div>

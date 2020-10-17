@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import CityData from "../json/Cities.json";
+// import CityData from "../json/Cities.json";
 import Paginate from "react-paginate";
 import {Link} from "react-router-dom";
+import Axios from "axios";
 
 export default class Cities extends Component {
   state = {
@@ -10,7 +11,7 @@ export default class Cities extends Component {
     perPage: 5,
     currentPage: 0,
     pageCount: 0,
-    sortType: 1,
+    sortType: 0,
   };
 
   componentDidMount() {
@@ -20,12 +21,14 @@ export default class Cities extends Component {
   async getData() {
     // IMPORTANT TODO!!!!!!
     // make api call like this when we actually have data
-    // let json = await Axios.get(`https://jsonplaceholder.typicode.com/photos`);
+    let json = await Axios.get(`http://travelwisebackend.us-east-2.elasticbeanstalk.com/cities`);
     // use json.data instead of CovidData and voila
     this.setState({
-      pageCount: Math.ceil(CityData.Cities.length / this.state.perPage),
-      data: CityData.Cities,
+      pageCount: Math.ceil(json.data.length / this.state.perPage),
+      data: json.data
     });
+    this.sortData(1);
+    console.log(json.data);
   }
 
   handlePageClick = (e: any) => {
@@ -47,17 +50,17 @@ export default class Cities extends Component {
         <React.Fragment>
           <tr>
             <td>
-              <Link to="/">{i.city}</Link>
+              <Link to="/">{i.name}</Link>
             </td>
             <td>{i.country}</td>
             <td>{i.region}</td>
-            <td>{i.safetyScores.lgbtq}</td>
-            <td>{i.safetyScores.medical}</td>
-            <td>{i.safetyScores.overall}</td>
-            <td>{i.safetyScores.physicalHarm}</td>
-            <td>{i.safetyScores.politicalFreedom}</td>
-            <td>{i.safetyScores.theft}</td>
-            <td>{i.safetyScores.women}</td>
+            <td>{i.overall ? i.overall : 0}</td>
+            <td>{i.lgbtq ? i.lgbtq: 0}</td>
+            <td>{i.medical ? i.medical: 0}</td>
+            <td>{i.physical ? i.physical: 0}</td>
+            <td>{i.political ? i.political : 0}</td>
+            <td>{i.theft ? i.theft : 0}</td>
+            <td>{i.women ? i.women : 0}</td>
           </tr>
         </React.Fragment>
       );
@@ -74,52 +77,52 @@ export default class Cities extends Component {
     switch (Math.abs(sortInput)) {
       case 1:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * obj1.city.localeCompare(obj2.city);
+          return reverse * obj1.name[0].localeCompare(obj2.name[0]);
         });
         break;
       case 2:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * obj1.country.localeCompare(obj2.country);
+          return reverse * obj1.country[0].localeCompare(obj2.country[0]);
         });
         break;
       case 3:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * obj1.region.localeCompare(obj2.region);
+          return reverse * obj1.region[0].localeCompare(obj2.region[0]);
         });
         break;
       case 4:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.safetyScores.lgbtq - obj1.safetyScores.lgbtq);
+          return reverse * (obj2.lgbtq - obj1.lgbtq);
         });
         break;
       case 5:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.safetyScores.medical - obj1.safetyScores.medical);
+          return reverse * (obj2.medical - obj1.medical);
         });
         break;
       case 6:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.safetyScores.overall - obj1.safetyScores.overall);
+          return reverse * (obj2.overall - obj1.overall);
         });
         break;
       case 7:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.safetyScores.physicalHarm - obj1.safetyScores.physicalHarm);
+          return reverse * (obj2.physical - obj1.physical);
         });
         break;
       case 8:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.safetyScores.politicalFreedom - obj1.safetyScores.politicalFreedom);
+          return reverse * (obj2.political - obj1.political);
         });
         break;
       case 9:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.safetyScores.theft - obj1.safetyScores.theft);
+          return reverse * (obj2.theft - obj1.theft);
         });
         break;
       case 10:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.safetyScores.women - obj1.safetyScores.women);
+          return reverse * (obj2.women - obj1.women);
         });
         break;
     }
@@ -136,9 +139,9 @@ export default class Cities extends Component {
                 <th scope="col">City</th>
                 <th scope="col">Country</th>
                 <th scope="col">Region</th>
+                <th scope="col">Overall</th>
                 <th scope="col">LGBTQ</th>
                 <th scope="col">Medical</th>
-                <th scope="col">Overall</th>
                 <th scope="col">Physical Harm</th>
                 <th scope="col">Political Freedom</th>
                 <th scope="col">Theft</th>
