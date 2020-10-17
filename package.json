@@ -19,7 +19,7 @@
     "bootstrap": "^4.5.2",
     "google-map-react": "^2.1.7",
     "leaflet": "^1.7.1",
-    "mocha": "^8.1.3",
+    "mocha": "^8.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-leaflet": "^2.7.0",
@@ -31,7 +31,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "mocha 'test/**/*.ts' --recursive --timeout 60000 --exit",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
