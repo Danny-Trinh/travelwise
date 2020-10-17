@@ -11,7 +11,7 @@ import About from "./pages/About";
 import Home from "./pages/Home";
 import Cities from "./pages/Cities";
 import Covid from "./pages/Covid";
-import Flights from "./pages/Flights";
+import Airports from "./pages/Airports";
 import Hotels from "./pages/Hotels";
 // import CovidDetail from "./components/CovidDetail";
 import Testing from "./components/Testing";
@@ -25,7 +25,7 @@ function App() {
           <Route path="/Cities" component={Cities} exact></Route>
           <Route path="/Travel" component={Covid} exact></Route>
           <Route path="/Covid" component={Covid} exact></Route>
-          <Route path="/Flights" component={Flights} exact></Route>
+          <Route path="/Airports" component={Airports} exact></Route>
           <Route path="/Hotels" component={Hotels} exact></Route>
           <Route path="/Dallas" component={Index.Dallas} exact></Route>
           <Route path="/NewYork" component={Index.NewYork} exact></Route>

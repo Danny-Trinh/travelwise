@@ -79,8 +79,8 @@ export default class Navbar extends Component {
                 </Link>
               </li>
               <li className="nav-item active">
-                <Link className="nav-link" to="/Flights">
-                  Flights
+                <Link className="nav-link" to="/Airports">
+                  Airports
                 </Link>
               </li>
               <li className="nav-item active">
