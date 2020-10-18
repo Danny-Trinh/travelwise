@@ -30,7 +30,7 @@ export default class Covid extends Component {
       pageCount: Math.ceil(json.data.length / this.state.perPage),
       data: json.data,
     });
-    this.sortData(1)
+    this.sortData(1);
     console.log(json.data);
   }
 
@@ -48,6 +48,9 @@ export default class Covid extends Component {
       this.state.offset,
       this.state.offset + this.state.perPage
     );
+    
+    console.log("HELLLLLLOOOO");
+    console.log(this.state.data);
     let result = chunk.map((i: any) => {
       return (
           // IMPORTANT remove country_code with unique key
