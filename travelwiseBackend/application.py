@@ -1,6 +1,7 @@
 import os
 import json
 from flask import Flask, request
+from flask_cors import CORS
 from flask_restless import manager
 from flask_sqlalchemy import SQLAlchemy
 import requests
@@ -10,7 +11,7 @@ from sqlalchemy.orm import *
 from sqlalchemy.ext.declarative import declarative_base
 
 application = Flask(__name__)
-
+CORS(application)
 
 driver = "postgresql+psycopg2://"
 
