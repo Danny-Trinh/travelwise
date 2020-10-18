@@ -14,6 +14,7 @@ export default class NewYork extends Component {
     return (
       <div className="container">
         <h2 className="text-center">New York</h2>
+        <h3 className="text-center">scores are out of 100 for threat level of dangers or against subject groups</h3>
         <div className="card">
           <table className="table table-hover">
             <thead className="thead-dark">
