@@ -37,7 +37,7 @@ function App() {
           <Route path="/CovidTwo" component={Index.CovidTwo} exact></Route>
           <Route path="/CovidThree" component={Index.CovidThree} exact></Route>
           <Route path="/About" component={About} exact></Route>
-          <Route path="/test/:id" component={Testing} exact></Route>
+          <Route path="/Test/:id" component={Testing} exact></Route>
           <Route component={Error}></Route>
         </Switch>
       </Router>

@@ -47,10 +47,10 @@ export default class Cities extends Component {
     );
     let result = chunk.map((i: any) => {
       return (
-        <React.Fragment>
-          <tr>
+          // IMPORTANT remove name with unique key
+          <tr key={i.name}>
             <td>
-              <Link to="/">{i.name}</Link>
+              <Link to="/Cities">{i.name}</Link>
             </td>
             <td>{i.country}</td>
             <td>{i.region}</td>
@@ -62,7 +62,6 @@ export default class Cities extends Component {
             <td>{i.theft ? i.theft : 0}</td>
             <td>{i.women ? i.women : 0}</td>
           </tr>
-        </React.Fragment>
       );
     });
     return result;

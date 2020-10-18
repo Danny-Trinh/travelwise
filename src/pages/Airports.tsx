@@ -46,18 +46,17 @@ export default class Flights extends Component {
     );
     let result = chunk.map((i: any) => {
       return (
-        <React.Fragment>
-          <tr>
-          <td>{i.airport_name}</td>
-          <td>{i.iata_code}</td>
-          <td>{i.city_name}</td>
-          <td>{i.country_name}</td>
-          <td>{i.latitude}</td>
-          <td>{i.longitude}</td>
-          <td>{i.time_offset}</td>
-          <td><Link to="/">More Information</Link></td>
+          // IMPORTANT remove iata with unique key
+          <tr key={`${i.iata_code}`}> 
+            <td>{i.airport_name}</td>
+            <td>{i.iata_code}</td>
+            <td>{i.city_name}</td>
+            <td>{i.country_name}</td>
+            <td>{i.latitude}</td>
+            <td>{i.longitude}</td>
+            <td>{i.time_offset}</td>
+            <td><Link to="/">More Information</Link></td>
           </tr>
-        </React.Fragment>
       );
     });
     return result;

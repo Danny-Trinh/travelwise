@@ -50,10 +50,10 @@ export default class Covid extends Component {
     );
     let result = chunk.map((i: any) => {
       return (
-        <React.Fragment>
-          <tr>
+          // IMPORTANT remove country_code with unique key
+          <tr key={i.country_code}>
             <td>
-              <Link to="/">{i.country}</Link>
+              <Link to="/Covid">{i.country}</Link>
             </td>
             <td>{i.country_code}</td>
             <td>{i.new_cases}</td>
@@ -63,7 +63,6 @@ export default class Covid extends Component {
             {/* <td>{i.NewRecovered}</td>
             <td>{i.TotalRecovered}</td> */}
           </tr>
-        </React.Fragment>
       );
     });
     return result;
