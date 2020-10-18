@@ -3,37 +3,15 @@ info:
   version: 1.0.0
   title: Travelwise
 servers:
-  - url: 'http://api.travelwise.live'
+  - url: 'https://api.travelwise.live'
 paths:
-  /cities:
+  cities:
     get:
-      summary: 'City'
-      description: returns data on safety score of city
+      summary: 'City Safety - all'
+      description: returns data on safety score of city along with country, coordinates, and region
       operationId: listUser
       tags:
         - user
-      parameters:
-        - name: City Name
-          in: query
-          description: City Name
-          required: true
-          schema:
-            type: string
-            format: string
-        - name: Country
-          in: query
-          description: Country
-          required: false
-          schema:
-            type: string
-            format: string
-        - name: Safety
-          in: query
-          description: Returns cities that have overall safety score equal to or greater than entered value
-          required: false
-          schema:
-            type: integer
-            format: int32
       responses:
         '200':
           headers:
@@ -41,7 +19,7 @@ paths:
               description: A link to the next page of responses
               schema:
                 type: string
-          description: Successfully returned city
+          description: Successfully returned cities
           content:
             application/json:
               schema:
@@ -69,27 +47,55 @@ paths:
                         type: integer
                     women_safety_score:
                         type: integer
-  /flights:
+  cities/search?name=<name>:
     get:
-      summary: 'Flights'
+      summary: 'City Safety - search'
+      description: returns data on safety score of given city along with country, coordinates, and region
       operationId: listUser
       tags:
         - user
-      parameters:
-        - name: Departure IATA
-          in: query
-          description: Departure Airport IATA Code
-          required: true
-          schema:
-            type: string
-            format: string
-        - name: Destination IATA
-          in: query
-          description: Destination Airport IATA Code
-          required: true
-          schema:
-            type: string
-            format: string
+    responses:
+        '200':
+          headers:
+            x-next:
+              description: A link to the next page of responses
+              schema:
+                type: string
+    description: Successfully returned cities
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+                city_name:
+                    type: string
+                country:
+                    type: string
+                Region:
+                    type: string
+                lgbtq_safety_score:
+                    type: integer
+                medical_safety_score:  
+                    type: integer
+                overall_safety_score:
+                    type: integer
+                physical_harm_safety_score:
+                    type: integer
+                political_freedom_safety_score:
+                    type: integer
+                theft_safety_score:
+                    type: integer
+                women_safety_score:
+                    type: integer
+  airport:
+    get:
+      summary: 'Airports - all'
+      description: returns coordinates, country, and time offset of all airports
+      operationId: listUser
+      tags:
+        - user
       responses:
         '200':
           headers:
@@ -97,7 +103,7 @@ paths:
               description: A link to the next page of responses
               schema:
                 type: string
-          description: Successfully returned flights
+          description: Successfully returned airports
           content:
             application/json:
               schema:
@@ -105,110 +111,105 @@ paths:
                 items:
                   type: object
                   properties:
-                    departure_airport:
+                    iata_code:
                       type: string
-                    departure_terminal:
+                    airport_name:
                       type: string
-                    destination_terminal:
+                    city_name:
                       type: string
-                    one_way:
-                        type: boolean
-                    price:  
-                        type: integer
-                    seats_remaining:
-                        type: integer
-                    departure_time:
-                        type: integer
-                    arrival_time:
-                        type: integer
-  /COVID-stats:
-    get:
-      summary: 'COVID-stats'
-      operationId: listUser
-      tags:
-        - user
-      parameters:
-        - name: Country
-          in: query
-          description: Country
-          required: true
-          schema:
-            type: string
-            format: string
-        - name: Total Cases
-          in: query
-          description: Returns countries with total cases equal to or less than entered value
-          required: false
-          schema:
-            type: string
-            format: string
-      responses:
-        '200':
-          headers:
-            x-next:
-              description: A link to the next page of responses
-              schema:
-                type: string
-          description: Successfully returned COVID statistics for country
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
                     country_name:
+                        type: string
+                    latitude:  
+                        type: string
+                    longitude:
+                        type: string
+                    time_offset:
+                        type: string
+  airport/search?city_name=<City>:
+    get:
+      summary: 'Airports - search'
+      description: returns coordinates, and time offset of all airports in given city
+      operationId: listUser
+      tags:
+        - user
+    responses:
+        '200':
+          headers:
+            x-next:
+              description: A link to the next page of responses
+              schema:
+                type: string
+          description: Successfully returned airports
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    iata_code:
+                      type: string
+                    airport_name:
+                      type: string
+                    city_name:
+                      type: string
+                    country_name:
+                        type: string
+                    latitude:  
+                        type: string
+                    longitude:
+                        type: string
+                    time_offset:
+                        type: string
+  covid:
+    get:
+      summary: 'COVID-stats - all'
+      description: returns covid statistics on all countries
+      operationId: listUser
+      tags:
+        - user
+      responses:
+        '200':
+          headers:
+            x-next:
+              description: A link to the next page of responses
+              schema:
+                type: string
+          description: Successfully returned COVID statistics for each country
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    country_code:
+                      type: string
+                    country:
                       type: string
                     total_cases:
                       type: integer
                     total_deaths:
                       type: integer
-                    total_recoveries:
-                        type: integer
                     new_cases:  
                         type: integer
-                        value: 10
                     new_deaths:
                         type: integer
-                    new_recoveries:
-                        type: integer
-  /safearrivals:
+  covid/search?country_code=<Country Code>:
     get:
-      summary: 'Safe Arrivals'
-      description: returns flights arriving at cities within a certain safety threshold
+      summary: 'COVID-stats - country'
+      description: returns covid statistics on specified country
       operationId: listUser
       tags:
         - user
-      parameters:
-        - name: City Name
-          in: query
-          description: City Name
-          required: true
-          schema:
-            type: string
-            format: string
-        - name: Safety Category
-          in: query
-          description: Safety Category
-          required: true
-          schema:
-            type: string
-            format: string
-        - name: Safety Threshold
-          in: query
-          description: Minimum Threshold for Safety Category
-          required: true
-          schema:
-            type: integer
-            format: int32
-      responses:
+    responses:
         '200':
           headers:
             x-next:
               description: A link to the next page of responses
               schema:
                 type: string
-          description: Successfully returned flights
+          description: Successfully returned COVID statistics for each country
           content:
             application/json:
               schema:
@@ -216,22 +217,19 @@ paths:
                 items:
                   type: object
                   properties:
-                    departure_airport:
+                    country_code:
                       type: string
-                    departure_terminal:
+                    country:
                       type: string
-                    destination_terminal:
-                      type: string
-                    one_way:
-                        type: boolean
-                    price:  
+                    total_cases:
+                      type: integer
+                    total_deaths:
+                      type: integer
+                    new_cases:  
                         type: integer
-                    seats_remaining:
+                    new_deaths:
                         type: integer
-                    departure_time:
-                        type: integer
-                    arrival_time:
-                        type: integer
+
 
 components:
   schemas:
