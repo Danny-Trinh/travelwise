@@ -19,10 +19,10 @@ export default class Covid extends Component {
     this.getData();
   }
 
-  async getData() {
+  getData() {
     // IMPORTANT TODO!!!!!!
     // make api call like this when we actually have data
-    let json = await Axios.get(
+    let json : any = Axios.get(
       `https://api.travelwise.live/covid`
     );
     // use json.data instead of CovidData and voila

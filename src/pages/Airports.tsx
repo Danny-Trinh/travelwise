@@ -17,11 +17,10 @@ export default class Flights extends Component {
   componentDidMount() {
     this.getData();
   }
-
-  async getData() {
+  getData() {
     // IMPORTANT TODO!!!!!!
     // make api call like this when we actually have data
-    let json = await Axios.get(`https://api.travelwise.live/airport`);
+    let json: any = Axios.get(`https://api.travelwise.live/airport`);
     this.setState({
       pageCount: Math.ceil(json.data.length / this.state.perPage),
       data: json.data,

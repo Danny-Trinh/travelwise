@@ -18,10 +18,10 @@ export default class Cities extends Component {
     this.getData();
   }
 
-  async getData() {
+  getData() {
     // IMPORTANT TODO!!!!!!
     // make api call like this when we actually have data
-    let json = await Axios.get(`https://api.travelwise.live/cities`);
+    let json : any = Axios.get(`https://api.travelwise.live/cities`);
     // use json.data instead of CovidData and voila
     this.setState({
       pageCount: Math.ceil(json.data.length / this.state.perPage),
