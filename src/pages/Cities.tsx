@@ -21,7 +21,7 @@ export default class Cities extends Component {
   async getData() {
     // IMPORTANT TODO!!!!!!
     // make api call like this when we actually have data
-    let json = await Axios.get(`http://travelwisebackend.us-east-2.elasticbeanstalk.com/cities`);
+    let json = await Axios.get(`https://api.travelwise.live/cities`);
     // use json.data instead of CovidData and voila
     this.setState({
       pageCount: Math.ceil(json.data.length / this.state.perPage),

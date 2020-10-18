@@ -23,7 +23,7 @@ export default class Covid extends Component {
     // IMPORTANT TODO!!!!!!
     // make api call like this when we actually have data
     let json = await Axios.get(
-      `http://travelwisebackend.us-east-2.elasticbeanstalk.com/covid`
+      `https://api.travelwise.live/covid`
     );
     // use json.data instead of CovidData and voila
     this.setState({
