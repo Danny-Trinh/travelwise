@@ -51,7 +51,7 @@ export default class Covid extends Component {
     let result = chunk.map((i: any) => {
       return (
           // IMPORTANT remove country_code with unique key
-          <tr key={i.country_code}>
+          <tr>
             <td>
               <Link to="/Covid">{i.country}</Link>
             </td>

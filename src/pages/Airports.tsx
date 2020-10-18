@@ -47,7 +47,7 @@ export default class Flights extends Component {
     let result = chunk.map((i: any) => {
       return (
           // IMPORTANT remove iata with unique key
-          <tr key={`${i.iata_code}`}> 
+          <tr > 
             <td>{i.airport_name}</td>
             <td>{i.iata_code}</td>
             <td>{i.city_name}</td>

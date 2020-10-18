@@ -48,7 +48,7 @@ export default class Cities extends Component {
     let result = chunk.map((i: any) => {
       return (
           // IMPORTANT remove name with unique key
-          <tr key={i.name}>
+          <tr >
             <td>
               <Link to="/Cities">{i.name}</Link>
             </td>
