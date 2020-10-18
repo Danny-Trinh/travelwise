@@ -1,7 +1,7 @@
 import unittest
 import requests
 
-base_url = "http://travelwisebackend.us-east-2.elasticbeanstalk.com/"
+base_url = "https://api.travelwise.live/"
 
 
 class DummyTests(unittest.TestCase):
