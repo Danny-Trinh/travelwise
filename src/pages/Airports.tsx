@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import FlightsData from "../json/Flights.json";
 import Paginate from "react-paginate";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Axios from "axios";
 
 export default class Flights extends Component {
@@ -17,10 +17,11 @@ export default class Flights extends Component {
   componentDidMount() {
     this.getData();
   }
-  getData() {
+
+  async getData() {
     // IMPORTANT TODO!!!!!!
     // make api call like this when we actually have data
-    let json: any = Axios.get(`https://api.travelwise.live/airport`);
+    let json = await Axios.get(`https://api.travelwise.live/airport`);
     this.setState({
       pageCount: Math.ceil(json.data.length / this.state.perPage),
       data: json.data,
@@ -43,19 +44,21 @@ export default class Flights extends Component {
       this.state.offset,
       this.state.offset + this.state.perPage
     );
-    let result = chunk.map((i: any) => {
-      return (
-          // IMPORTANT remove iata with unique key
-          <tr > 
-            <td>{i.airport_name}</td>
-            <td>{i.iata_code}</td>
-            <td>{i.city_name}</td>
-            <td>{i.country_name}</td>
-            <td>{i.latitude}</td>
-            <td>{i.longitude}</td>
-            <td>{i.time_offset}</td>
-            <td><Link to="/">More Information</Link></td>
-          </tr>
+    let result: Array<any> = [];
+    chunk.forEach((i: any) => {
+      result.push(
+        <tr key={`${i.iata_code}`}>
+          <td>{i.airport_name}</td>
+          <td>{i.iata_code}</td>
+          <td>{i.city_name}</td>
+          <td>{i.country_name}</td>
+          <td>{i.latitude}</td>
+          <td>{i.longitude}</td>
+          <td>{i.time_offset}</td>
+          <td>
+            <Link to="/">More Information</Link>
+          </td>
+        </tr>
       );
     });
     return result;
@@ -70,7 +73,9 @@ export default class Flights extends Component {
     switch (Math.abs(sortInput)) {
       case 1:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * obj1.airport_name[0].localeCompare(obj2.airport_name[0]);
+          return (
+            reverse * obj1.airport_name[0].localeCompare(obj2.airport_name[0])
+          );
         });
         break;
       case 2:
@@ -80,18 +85,19 @@ export default class Flights extends Component {
         break;
       case 3:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          
           return reverse * obj1.city_name[0].localeCompare(obj2.city_name[0]);
         });
         break;
       case 4:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * obj1.country_name[0].localeCompare(obj2.country_name[0]);
+          return (
+            reverse * obj1.country_name[0].localeCompare(obj2.country_name[0])
+          );
         });
         break;
       case 5:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.latitude -obj1.latitude);
+          return reverse * (obj2.latitude - obj1.latitude);
         });
         break;
       case 6:
@@ -101,7 +107,9 @@ export default class Flights extends Component {
         break;
       case 7:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * obj1.time_offset[0].localeCompare(obj2.time_offset[0]);
+          return (
+            reverse * obj1.time_offset[0].localeCompare(obj2.time_offset[0])
+          );
         });
         break;
     }

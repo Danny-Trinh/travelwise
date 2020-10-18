@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 // import Pagination from 'react-bootstrap/Pagination';
 import Paginate from "react-paginate";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class Covid extends Component {
   state = {
@@ -15,16 +15,14 @@ export default class Covid extends Component {
     sortType: 0,
   };
 
-  componentDidMount() {
-    this.getData();
-  }
+  // componentDidMount() {
+  //   this.getData();
+  // }
 
-  getData() {
+  async componentDidMount() {
     // IMPORTANT TODO!!!!!!
     // make api call like this when we actually have data
-    let json : any = Axios.get(
-      `https://api.travelwise.live/covid`
-    );
+    let json = await Axios.get(`https://api.travelwise.live/covid`);
     // use json.data instead of CovidData and voila
     this.setState({
       pageCount: Math.ceil(json.data.length / this.state.perPage),
@@ -48,26 +46,23 @@ export default class Covid extends Component {
       this.state.offset,
       this.state.offset + this.state.perPage
     );
-    
+
     console.log("HELLLLLLOOOO");
     console.log(this.state.data);
-    let result = chunk.map((i: any) => {
-      return (
-          // IMPORTANT remove country_code with unique key
-          <React.Fragment>
-            <tr>
-              <td>
-                <Link to="/Covid">{i.country}</Link>
-              </td>
-              <td>{i.country_code}</td>
-              <td>{i.new_cases}</td>
-              <td>{i.total_cases}</td>
-              <td>{i.new_deaths}</td>
-              <td>{i.total_deaths}</td>
-              {/* <td>{i.NewRecovered}</td>
-              <td>{i.TotalRecovered}</td> */}
-            </tr>
-          </React.Fragment>
+    console.log(chunk);
+    let result: Array<any> = [];
+    chunk.forEach((i: any) => {
+      result.push(
+        <tr>
+          <td>
+            <Link to="/Covid">{i.country}</Link>
+          </td>
+          <td>{i.country_code}</td>
+          <td>{i.new_cases}</td>
+          <td>{i.total_cases}</td>
+          <td>{i.new_deaths}</td>
+          <td>{i.total_deaths}</td>
+        </tr>
       );
     });
     return result;
@@ -106,7 +101,6 @@ export default class Covid extends Component {
           return reverse * (obj2.total_deaths - obj1.total_deaths);
         });
         break;
-      
     }
     this.setState({ data: sortedData });
   }
@@ -180,7 +174,6 @@ export default class Covid extends Component {
             >
               Sort By Total Cases
             </button>
-            
           </div>
         </div>
       </React.Fragment>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import CityData from "../json/Cities.json";
 import Paginate from "react-paginate";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Axios from "axios";
 
 export default class Cities extends Component {
@@ -18,14 +18,14 @@ export default class Cities extends Component {
     this.getData();
   }
 
-  getData() {
+  async getData() {
     // IMPORTANT TODO!!!!!!
     // make api call like this when we actually have data
-    let json : any = Axios.get(`https://api.travelwise.live/cities`);
+    let json = await Axios.get(`https://api.travelwise.live/cities`);
     // use json.data instead of CovidData and voila
     this.setState({
       pageCount: Math.ceil(json.data.length / this.state.perPage),
-      data: json.data
+      data: json.data,
     });
     this.sortData(1);
     console.log(json.data);
@@ -45,23 +45,23 @@ export default class Cities extends Component {
       this.state.offset,
       this.state.offset + this.state.perPage
     );
-    let result = chunk.map((i: any) => {
-      return (
-          // IMPORTANT remove name with unique key
-          <tr >
-            <td>
-              <Link to="/Cities">{i.name}</Link>
-            </td>
-            <td>{i.country}</td>
-            <td>{i.region}</td>
-            <td>{i.overall ? i.overall : 0}</td>
-            <td>{i.lgbtq ? i.lgbtq: 0}</td>
-            <td>{i.medical ? i.medical: 0}</td>
-            <td>{i.physical ? i.physical: 0}</td>
-            <td>{i.political ? i.political : 0}</td>
-            <td>{i.theft ? i.theft : 0}</td>
-            <td>{i.women ? i.women : 0}</td>
-          </tr>
+    let result: Array<any> = [];
+    chunk.forEach((i: any) => {
+      result.push(
+        <tr>
+          <td>
+            <Link to="/Cities">{i.name}</Link>
+          </td>
+          <td>{i.country}</td>
+          <td>{i.region}</td>
+          <td>{i.overall ? i.overall : 0}</td>
+          <td>{i.lgbtq ? i.lgbtq : 0}</td>
+          <td>{i.medical ? i.medical : 0}</td>
+          <td>{i.physical ? i.physical : 0}</td>
+          <td>{i.political ? i.political : 0}</td>
+          <td>{i.theft ? i.theft : 0}</td>
+          <td>{i.women ? i.women : 0}</td>
+        </tr>
       );
     });
     return result;
