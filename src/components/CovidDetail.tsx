@@ -14,29 +14,36 @@ export default class CovidDetail extends Component<myProps> {
     },
     airportData: [],
     cityData: [],
+    found: true,
   };
 
   async componentDidMount() {
-    // IMPORTANT: make error catch if nothing is resulted from query or more than 1, make more error catches in general
     let json = await Axios.get(
       `https://api.travelwise.live/covid/search?country_code=${this.props.match.params.country_code}`
     );
-    let citiesJson = await Axios.get(`https://api.travelwise.live/cities`);
-    let airportJson = await Axios.get(`https://api.travelwise.live/airport`);
-    let cityData = citiesJson.data.filter(
-      (city: any) =>
-        city.country_code[0].localeCompare(json.data[0].country_code[0]) === 0
-    );
-    let airportData = airportJson.data.filter(
-      (airport: any) =>
-        airport.country_code[0].localeCompare(json.data[0].country_code[0]) ===
-        0
-    );
-    this.setState({
-      data: json.data[0],
-      cityData,
-      airportData,
-    });
+    if (json.data.length !== 0) {
+      let citiesJson = await Axios.get(`https://api.travelwise.live/cities`);
+      let airportJson = await Axios.get(`https://api.travelwise.live/airport`);
+      let cityData = citiesJson.data.filter(
+        (city: any) =>
+          city.country_code[0].localeCompare(json.data[0].country_code[0]) === 0
+      );
+      let airportData = airportJson.data.filter(
+        (airport: any) =>
+          airport.country_code[0].localeCompare(
+            json.data[0].country_code[0]
+          ) === 0
+      );
+      this.setState({
+        data: json.data[0],
+        cityData,
+        airportData,
+      });
+    } else {
+      this.setState({
+        found: false,
+      });
+    }
   }
   render() {
     let airportRender;
@@ -56,7 +63,11 @@ export default class CovidDetail extends Component<myProps> {
         </React.Fragment>
       );
     } else {
-      airportRender = <p>This country has no airports</p>;
+      airportRender = (
+        <p>
+          Currently our database has no airports for {this.state.data.country}
+        </p>
+      );
     }
 
     let cityRender;
@@ -76,7 +87,22 @@ export default class CovidDetail extends Component<myProps> {
         </React.Fragment>
       );
     } else {
-      cityRender = <p>This country has no cities</p>;
+      cityRender = (
+        <p>
+          Currently our database has no cities for {this.state.data.country}
+        </p>
+      );
+    }
+
+    if (!this.state.found) {
+      return (
+        <div className="container m-4">
+          <h3>
+            Our database does not currently support covid stats for this country
+          </h3>
+          <p>An error could have also occured, try refreshing the page</p>
+        </div>
+      );
     }
     return (
       <React.Fragment>

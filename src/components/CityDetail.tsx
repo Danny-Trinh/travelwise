@@ -20,9 +20,9 @@ export default class CityDetail extends Component<myProps> {
       women: null,
     },
     airportData: [],
+    found: true,
   };
   async componentDidMount() {
-    // COMMENT ALL THIS BACK IN ONCE MITCHELL AND ADAM ARE READY
     // let json = await Axios.get(
     //   `https://api.travelwise.live/cities/search?name=${this.props.match.params.city}`
     // );
@@ -46,15 +46,21 @@ export default class CityDetail extends Component<myProps> {
           .localeCompare(this.props.match.params.city.toLowerCase()) === 0
       );
     });
-    let airportJson = await Axios.get(
-      `https://api.travelwise.live/airport/search?city_name=${curCity[0].name}`
-    );
+    if (curCity.length !== 0) {
+      let airportJson = await Axios.get(
+        `https://api.travelwise.live/airport/search?city_name=${curCity[0].name}`
+      );
 
-    this.setState({
-      data: curCity[0],
-      airportData: airportJson.data,
-    });
-    console.log(json.data);
+      this.setState({
+        data: curCity[0],
+        airportData: airportJson.data,
+      });
+      console.log(json.data);
+    } else {
+      this.setState({
+        found: false,
+      });
+    }
   }
   render() {
     let airportRender;
@@ -74,7 +80,20 @@ export default class CityDetail extends Component<myProps> {
         </React.Fragment>
       );
     } else {
-      airportRender = <p>This city has no airports</p>;
+      airportRender = (
+        <p>Currently our database has no airports for {this.state.data.name}</p>
+      );
+    }
+
+    if (!this.state.found) {
+      return (
+        <div className="container m-4">
+          <h3>
+            Our database does not currently support safety stats for this city
+          </h3>
+          <p>An error could have also occured, try refreshing the page</p>
+        </div>
+      );
     }
     return (
       <React.Fragment>

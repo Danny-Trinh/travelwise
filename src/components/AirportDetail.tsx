@@ -15,22 +15,34 @@ export default class AirportDetail extends Component<myProps> {
       time_offset: null,
       country_code: null,
     },
+    found: true,
   };
 
   async componentDidMount() {
-    // IMPORTANT: make error catch if nothing is resulted from query or more than 1, make more error catches in general
     let json = await Axios.get(`https://api.travelwise.live/airport`);
     let curAirport = json.data.filter(
       (airport: any) =>
         airport.iata_code[0].localeCompare(this.props.match.params.iata) === 0
     );
-    this.setState({
-      data: curAirport[0],
-    });
-    console.log(json.data);
-    console.log(curAirport);
+    if (curAirport.length !== 0) {
+      this.setState({
+        data: curAirport[0],
+      });
+      console.log(json.data);
+      console.log(curAirport);
+    } else {
+      this.setState({ found: false });
+    }
   }
   render() {
+    if (!this.state.found) {
+      return (
+        <div className="container m-4">
+          <h3>Our database does not currently support data for this airport</h3>
+          <p>An error could have also occured, try refreshing the page</p>
+        </div>
+      );
+    }
     return (
       <React.Fragment>
         <div className="container m-4">

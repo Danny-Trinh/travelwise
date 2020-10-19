@@ -34,6 +34,7 @@ export default class page1 extends Component<myState> {
         desc: mitchellDesc,
         jobs: "Full-Stack Developer",
         tests: 0,
+        email: "mitchellwatkins125@gmail.com",
       },
       {
         name: "Dung Trinh (Danny)",
@@ -42,6 +43,7 @@ export default class page1 extends Component<myState> {
         desc: dannyDesc,
         jobs: "Full-Stack Developer",
         tests: 0,
+        email: "dtrinh403@yahoo.com",
       },
       {
         name: "Jesse Huang",
@@ -50,6 +52,7 @@ export default class page1 extends Component<myState> {
         desc: jesseDesc,
         jobs: "Full-Stack Developer",
         tests: 0,
+        email: "jesse17huang@gmail.com",
       },
       {
         name: "Maximus Chu",
@@ -58,6 +61,7 @@ export default class page1 extends Component<myState> {
         desc: maxDesc,
         jobs: "Full-Stack Developer",
         tests: 0,
+        email: "maximuschu@utexas.edu",
       },
       {
         name: "Adam Gluch",
@@ -66,6 +70,7 @@ export default class page1 extends Component<myState> {
         desc: adamDesc,
         jobs: "Full-Stack Developer",
         tests: 0,
+        email: "adammgluch@gmail.com",
       },
     ],
   };
@@ -74,14 +79,14 @@ export default class page1 extends Component<myState> {
       const json = await Axios({
         method: "get",
         url:
-          "https://gitlab.com/api/v4/projects/21350537/repository/commits?per_page=200",
+          "https://gitlab.com/api/v4/projects/21350537/repository/commits?per_page=400",
       });
       let temp = this.state.members;
       for (let i = 0; i < this.state.members.length; i++) {
         temp[i]["commits"] = json.data.filter(
           (commit: any) =>
-            commit.committer_name.localeCompare(
-              this.state.members[i]["gitlab"]
+            commit.committer_email.localeCompare(
+              this.state.members[i]["email"]
             ) === 0
         ).length;
       }
