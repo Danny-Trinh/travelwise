@@ -14,6 +14,7 @@ import CityDetail from "./components/CityDetail";
 import AirportDetail from "./components/AirportDetail";
 // import CovidDetail from "./components/CovidDetail";
 import Testing from "./components/Testing";
+
 function App() {
   return (
     <React.Fragment>
@@ -37,9 +38,27 @@ function App() {
           <Route path="/CovidThree" component={Index.CovidThree} exact></Route>
           <Route path="/About" component={About} exact></Route>
           <Route path="/Test/:id" component={Testing} exact></Route>
-          <Route path="/Covid/:id" component={CovidDetail} exact></Route>
-          <Route path="/City/:id" component={CityDetail} exact></Route>
-          <Route path="/Airport/:id" component={AirportDetail} exact></Route>
+          <Route
+            path="/Covid/:country_code"
+            component={CovidDetail}
+            exact
+          ></Route>
+          <Route
+            path="/City/:city/:country_code"
+            component={CityDetail}
+            exact
+          ></Route>
+          <Route path="/Airport/:iata" component={AirportDetail} exact></Route>
+          <Route
+            path="/Airports/:country_code"
+            component={CityDetail}
+            exact
+          ></Route>
+          <Route
+            path="/Cities/:country_code"
+            component={AirportDetail}
+            exact
+          ></Route>
           <Route component={Error}></Route>
         </Switch>
       </Router>

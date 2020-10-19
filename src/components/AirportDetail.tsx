@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import { Link } from "react-router-dom";
+
 type myProps = { match: any };
 export default class AirportDetail extends Component<myProps> {
   state = {
@@ -11,6 +13,7 @@ export default class AirportDetail extends Component<myProps> {
       latitude: null,
       longitude: null,
       time_offset: null,
+      country_code: null,
     },
   };
 
@@ -19,7 +22,7 @@ export default class AirportDetail extends Component<myProps> {
     let json = await Axios.get(`https://api.travelwise.live/airport`);
     let curAirport = json.data.filter(
       (airport: any) =>
-        airport.iata_code[0].localeCompare(this.props.match.params.id) === 0
+        airport.iata_code[0].localeCompare(this.props.match.params.iata) === 0
     );
     this.setState({
       data: curAirport[0],
@@ -41,16 +44,30 @@ export default class AirportDetail extends Component<myProps> {
                 <th scope="col">Latitude</th>
                 <th scope="col">Longitude</th>
                 <th scope="col">Timezone</th>
+                <th scope="col">Covid Stats</th>
               </tr>
             </thead>
             <tbody>
-              <td>{this.state.data.airport_name}</td>
-              <td>{this.state.data.iata_code}</td>
-              <td>{this.state.data.city_name}</td>
-              <td>{this.state.data.country_name}</td>
-              <td>{this.state.data.latitude}</td>
-              <td>{this.state.data.longitude}</td>
-              <td>{this.state.data.time_offset}</td>
+              <tr>
+                <td>{this.state.data.airport_name}</td>
+                <td>{this.state.data.iata_code}</td>
+                <td>
+                  <Link
+                    to={`/City/${this.state.data.city_name}/${this.state.data.country_code}`}
+                  >
+                    {this.state.data.city_name}
+                  </Link>
+                </td>
+                <td>{this.state.data.country_name}</td>
+                <td>{this.state.data.latitude}</td>
+                <td>{this.state.data.longitude}</td>
+                <td>{this.state.data.time_offset}</td>
+                <td>
+                  <Link to={`/Covid/${this.state.data.country_code}`}>
+                    Link
+                  </Link>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>

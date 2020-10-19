@@ -22,6 +22,7 @@ export default class Flights extends Component {
     // IMPORTANT TODO!!!!!!
     // make api call like this when we actually have data
     let json = await Axios.get(`https://api.travelwise.live/airport`);
+
     this.setState({
       pageCount: Math.ceil(json.data.length / this.state.perPage),
       data: json.data,
@@ -47,18 +48,22 @@ export default class Flights extends Component {
     let result: Array<any> = [];
     chunk.forEach((i: any) => {
       result.push(
-        <tr key={`${i.iata_code}`}>
+        <tr key={`${i.iata_code}`} style={{ height: "8rem" }}>
           <td>
             <Link to={`/Airport/${i.iata_code}`}>{i.airport_name}</Link>
           </td>
           <td>{i.iata_code}</td>
-          <td>{i.city_name}</td>
+          <td>
+            <Link to={`/City/${i.city_name}/${i.country_code}`}>
+              {i.city_name}
+            </Link>
+          </td>
           <td>{i.country_name}</td>
           <td>{i.latitude}</td>
           <td>{i.longitude}</td>
           <td>{i.time_offset}</td>
           <td>
-            <Link to="/">More Information</Link>
+            <Link to={`/Covid/${i.country_code}`}>Link</Link>
           </td>
         </tr>
       );
@@ -132,7 +137,7 @@ export default class Flights extends Component {
                 <th scope="col">Latitude</th>
                 <th scope="col">Longitude</th>
                 <th scope="col">Timezone</th>
-                <th scope="col">Link</th>
+                <th scope="col">Covid Stats</th>
               </tr>
             </thead>
             <tbody>{this.renderData()}</tbody>

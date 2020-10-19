@@ -48,9 +48,9 @@ export default class Cities extends Component {
     let result: Array<any> = [];
     chunk.forEach((i: any) => {
       result.push(
-        <tr>
+        <tr key={i.city_id} style={{ height: "8rem" }}>
           <td>
-            <Link to={`/City/${i.name}`}>{i.name}</Link>
+            <Link to={`/City/${i.name}/${i.country_code}`}>{i.name}</Link>
           </td>
           <td>{i.country}</td>
           <td>{i.region}</td>
@@ -61,6 +61,9 @@ export default class Cities extends Component {
           <td>{i.political ? i.political : 0}</td>
           <td>{i.theft ? i.theft : 0}</td>
           <td>{i.women ? i.women : 0}</td>
+          <td>
+            <Link to={`/Covid/${i.country_code}`}>Link</Link>
+          </td>
         </tr>
       );
     });
@@ -145,6 +148,7 @@ export default class Cities extends Component {
                 <th scope="col">Political Freedom</th>
                 <th scope="col">Theft</th>
                 <th scope="col">Women</th>
+                <th scope="col">Covid Stats</th>
               </tr>
             </thead>
             <tbody>{this.renderData()}</tbody>

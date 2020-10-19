@@ -49,7 +49,7 @@ export default class Covid extends Component {
     let result: Array<any> = [];
     chunk.forEach((i: any) => {
       result.push(
-        <tr>
+        <tr key={i.country_code} style={{ height: "8rem" }}>
           <td>
             <Link to={`/Covid/${i.country_code}`}>{i.country}</Link>
           </td>
