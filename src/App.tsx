@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import * as Index from "./static_pages/Index";
 import Error from "./components/Error";
 import Navbar from "./components/Navbar";
@@ -13,6 +9,9 @@ import Cities from "./pages/Cities";
 import Covid from "./pages/Covid";
 import Airports from "./pages/Airports";
 import Hotels from "./pages/Hotels";
+import CovidDetail from "./components/CovidDetail";
+import CityDetail from "./components/CityDetail";
+import AirportDetail from "./components/AirportDetail";
 // import CovidDetail from "./components/CovidDetail";
 import Testing from "./components/Testing";
 function App() {
@@ -38,6 +37,9 @@ function App() {
           <Route path="/CovidThree" component={Index.CovidThree} exact></Route>
           <Route path="/About" component={About} exact></Route>
           <Route path="/Test/:id" component={Testing} exact></Route>
+          <Route path="/Covid/:id" component={CovidDetail} exact></Route>
+          <Route path="/City/:id" component={CityDetail} exact></Route>
+          <Route path="/Airport/:id" component={AirportDetail} exact></Route>
           <Route component={Error}></Route>
         </Switch>
       </Router>

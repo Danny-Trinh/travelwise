@@ -48,7 +48,9 @@ export default class Flights extends Component {
     chunk.forEach((i: any) => {
       result.push(
         <tr key={`${i.iata_code}`}>
-          <td>{i.airport_name}</td>
+          <td>
+            <Link to={`/Airport/${i.iata_code}`}>{i.airport_name}</Link>
+          </td>
           <td>{i.iata_code}</td>
           <td>{i.city_name}</td>
           <td>{i.country_name}</td>

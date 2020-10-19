@@ -46,16 +46,12 @@ export default class Covid extends Component {
       this.state.offset,
       this.state.offset + this.state.perPage
     );
-
-    console.log("HELLLLLLOOOO");
-    console.log(this.state.data);
-    console.log(chunk);
     let result: Array<any> = [];
     chunk.forEach((i: any) => {
       result.push(
         <tr>
           <td>
-            <Link to="/Covid">{i.country}</Link>
+            <Link to={`/Covid/${i.country_code}`}>{i.country}</Link>
           </td>
           <td>{i.country_code}</td>
           <td>{i.new_cases}</td>

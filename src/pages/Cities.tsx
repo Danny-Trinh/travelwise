@@ -50,7 +50,7 @@ export default class Cities extends Component {
       result.push(
         <tr>
           <td>
-            <Link to="/Cities">{i.name}</Link>
+            <Link to={`/City/${i.name}`}>{i.name}</Link>
           </td>
           <td>{i.country}</td>
           <td>{i.region}</td>
