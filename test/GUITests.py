@@ -88,7 +88,7 @@ class Tests(unittest.TestCase):
         button_name = driver.find_element_by_link_text('Link')
         button_name.click()
         time.sleep(2)
-        expected = 28
+        expected = 27
         actual = driver.find_elements_by_tag_name('li')
         self.assertEqual(expected, len(actual))
 

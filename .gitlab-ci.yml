@@ -24,6 +24,7 @@ Frontend:
     - cat makefile
     - make placeholder
     - node --version
+    - python test/GUITests.py
     - npm test
 
 Backend:
