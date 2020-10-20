@@ -4,7 +4,10 @@ export default class Navbar extends Component {
   render() {
     return (
       <React.Fragment>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav
+          className="navbar navbar-expand-lg navbar-light bg-light"
+          // style={{ backgroundColor: "var(--blue-500)" }}
+        >
           <div className="navbar-brand">
             <Link className="nav-link navbar-brand" to="/">
               Travelwise
