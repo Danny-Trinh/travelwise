@@ -23,7 +23,7 @@ export default class Navbar extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item dropdown">
+              {/* <li className="nav-item dropdown">
                 <span
                   className="nav-link dropdown-toggle"
                   id="navbarDropdown"
@@ -70,6 +70,11 @@ export default class Navbar extends Component {
                     Covid Three
                   </Link>
                 </div>
+              </li> */}
+              <li className="nav-item active">
+                <Link className="nav-link" to="/">
+                  Home
+                </Link>
               </li>
               <li className="nav-item active">
                 <Link className="nav-link" to="/About">
@@ -91,11 +96,11 @@ export default class Navbar extends Component {
                   COVID-19
                 </Link>
               </li>
-              <li className="nav-item active">
+              {/* <li className="nav-item active">
                 <Link className="nav-link" to="/Test/1">
                   Experimental
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </nav>

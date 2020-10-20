@@ -20,12 +20,11 @@ cache:
 Frontend:
   image: mitchellwatkins125/travelwise
   script:
-    - echo "placeholder!" 
+    - echo "placeholder!"
     - cat makefile
     - make placeholder
     - node --version
-    - npm view mocha
-
+    - npm start
 
 Backend:
   image: mitchellwatkins125/travelwiseflask
