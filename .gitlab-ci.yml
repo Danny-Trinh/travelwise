@@ -24,7 +24,6 @@ Frontend:
     - cat makefile
     - make placeholder
     - node --version
-    - python test/GUITests.py
     - npm test
 
 Backend:
@@ -33,3 +32,4 @@ Backend:
     - echo "Backend Time!"
     - pip show unittest2
     - python travelwiseBackend/TravelwiseBackendUnitTests.py
+    - python test/GUITests.py
