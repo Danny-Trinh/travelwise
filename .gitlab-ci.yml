@@ -24,7 +24,7 @@ Frontend:
     - cat makefile
     - make placeholder
     - node --version
-    - npm start
+    - npm test
 
 Backend:
   image: mitchellwatkins125/travelwiseflask
