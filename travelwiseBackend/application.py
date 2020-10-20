@@ -95,21 +95,25 @@ def cities():
     allCities = engine.execute("select * from public.cities")
     return json.dumps([dict(r) for r in allCities])
 
+
 @application.route("/cities/search")
 def city_search():
-    city_name = request.args['name']
+    city_name = request.args["name"]
     city_name = "'{" + city_name + "}'"
     city_json = engine.execute("select * from public.cities where name = " + city_name)
     return json.dumps([dict(r) for r in city_json])
 
-    
+
 @application.route("/covid/search")
 def covid_search():
-    country_code = request.args['country_code']
+    country_code = request.args["country_code"]
     country_code = "'{" + country_code + "}'"
     country_code = country_code.upper()
-    covid_json = engine.execute("select * from public.covid where country_code = " + country_code)
+    covid_json = engine.execute(
+        "select * from public.covid where country_code = " + country_code
+    )
     return json.dumps([dict(r) for r in covid_json])
+
 
 @application.route("/covid")
 def covid():
@@ -119,17 +123,19 @@ def covid():
 
 @application.route("/airport/search")
 def airport_city_search():
-    airport_name = request.args['city_name']
+    airport_name = request.args["city_name"]
     airport_name = "'{" + airport_name + "}'"
     airport_name = airport_name.upper()
-    airport_json = engine.execute("select * from public.airports where city_name = " + airport_name)
+    airport_json = engine.execute(
+        "select * from public.airports where city_name = " + airport_name
+    )
     return json.dumps([dict(r) for r in airport_json])
+
 
 @application.route("/airport")
 def airport():
     allAirports = engine.execute("select * from public.airports")
     return json.dumps([dict(r) for r in allAirports])
-
 
 
 if __name__ == "__main__":
