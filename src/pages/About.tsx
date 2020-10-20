@@ -14,7 +14,6 @@ const maxDesc = "3rd Year CS Major";
 const mitchellDesc = "You can't code away all your problems in life ~_~";
 const jesseDesc =
   "Jesse also wanted to get into AI but has pushed off learning any technologies for mobile development. Given enough free time he would make cool phone games.";
-type MyProps = {};
 type myState = {
   commits: number;
   issues: number;

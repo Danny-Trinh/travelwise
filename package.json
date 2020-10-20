@@ -33,7 +33,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha 'test/**/*.ts' --recursive --timeout 60000 --exit",
+    "test":"react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

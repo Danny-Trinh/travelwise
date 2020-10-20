@@ -55,7 +55,7 @@ export default class CityDetail extends Component<myProps> {
         data: curCity[0],
         airportData: airportJson.data,
       });
-      console.log(json.data);
+      // console.log(json.data);
     } else {
       this.setState({
         found: false,
@@ -70,7 +70,7 @@ export default class CityDetail extends Component<myProps> {
           <h3>Airports</h3>
           <ul>
             {this.state.airportData.map((airport: any) => (
-              <li>
+              <li key={airport.iata_code}>
                 <Link to={`/Airport/${airport.iata_code}`}>
                   {airport.airport_name}
                 </Link>
