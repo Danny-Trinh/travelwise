@@ -25,7 +25,7 @@ Frontend:
     - make placeholder
     - node --version
     - python test/GUITests.py
-    - npm test
+    - npm run test
 
 Backend:
   image: mitchellwatkins125/travelwiseflask
