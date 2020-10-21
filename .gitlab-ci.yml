@@ -33,3 +33,12 @@ Backend:
     - pip show unittest2
     - python travelwiseBackend/TravelwiseBackendUnitTests.py
     - python travelwiseBackend/test/GUITests.py
+
+Postman_tests:
+    image: 
+        name: postman/newman_alpine33
+        entrypoint: [""]
+    script:
+        - newman --version
+        - newman run collection.json
+
