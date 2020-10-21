@@ -9,7 +9,7 @@ export default class Navbar extends Component {
           // style={{ backgroundColor: "var(--blue-500)" }}
         >
           <div className="navbar-brand">
-            <Link className="nav-link navbar-brand" to="/">
+            <Link className="nav-link t-teal-300" to="/">
               Travelwise
             </Link>
           </div>

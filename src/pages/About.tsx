@@ -119,7 +119,7 @@ export default class page1 extends Component<myState> {
   render() {
     return (
       <React.Fragment>
-        <div className="container">
+        <div className="container-fluid">
           <h1>About Page</h1>
           <p>
             This is travelwise, a group dedicated to getting you from point A to
