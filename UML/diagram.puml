@@ -1,56 +1,13 @@
 @startuml
-' this is very rough for now. should wait until database is finished to diagram
-/'
-class CountryEntry(base):
-    __tablename__ = "cities"
-    city_id = Column(Integer, primary_key=True)
-    name = Column(Text)
-    country = Column(Text)
-    country_code = Column(Text, ForeignKey("covid.country_code"))
-    region = Column(Text)
-    longitude = Column(Float)
-    latitude = Column(Float)
-    lgbtq = Column(Integer)
-    medical = Column(Integer)
-    overall = Column(Integer)
-    physical = Column(Integer)
-    political = Column(Integer)
-    theft = Column(Integer)
-    women = Column(Integer)
-
-
-class CovidEntry(base):
-    __tablename__ = "covid"
-    country_code = Column(Text, primary_key=True)
-    country = Column(Text)
-    new_cases = Column(BigInteger)
-    total_cases = Column(BigInteger)
-    new_deaths = Column(BigInteger)
-    total_deaths = Column(BigInteger)
-    date = Column(Text)
-
-    def __hash__(self):
-        return hash(self.str(country_code))
-
-
-class AirportEntry(base):
-    __tablename__ = "airports"
-    iata_code = Column(Text, primary_key=True)
-    airport_name = Column(Text)
-    city_name = Column(Text)
-    country_code = Column(Text, ForeignKey("covid.country_code"))
-    country_name = Column(Text)
-    time_offset = Column(Text)
-    longitude = Column(Float)
-    latitude = Column(Float)
-'/
-Object City{
-    city_id: int
+Entity City{
     name: string
-    country: string
+    --
+    city_id: int
     country_code: string
+    country: string
     region: string
     longitude: float
+    latitude: float 
     lgbtq: int
     medical: int
     overall: int
@@ -60,8 +17,9 @@ Object City{
     women: int
 }
 
-Object Covid{
+Entity Covid{
     country_code: string
+    --
     country: string
     new_cases: int
     total_cases: int
@@ -70,10 +28,11 @@ Object Covid{
     date: string
 }
 
-Object Airport{
+Entity Airport{
+    city_name: string
+    --
     iata_code: string
     airport_name: string
-    city_name: string
     country_code: string
     country_name: string
     time_offset: string
@@ -81,9 +40,13 @@ Object Airport{
     latitude: float
 }
 
-Airport <-- City : airport_city_search(city_name);
-Airport --> City : city_search(city_name);
-Covid <-- City : covid_search(country_code);
-Airport --> Covid : covid_search(country_code);
+Airport <.. City : airport_city_search(city_name);
+Airport ..> City : city_search(city_name);
+Covid <.. City : covid_search(country_code);
+Airport ..> Covid : covid_search(country_code);
+
+Airport }o--|| Covid
+Airport }o--|| City
+City }o--|| Covid
 
 @enduml
