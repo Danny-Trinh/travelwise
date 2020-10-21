@@ -1,0 +1,520 @@
+{
+	"info": {
+		"_postman_id": "e9e5eb99-d6fe-49df-9435-6f8fc6c7e0d6",
+		"name": "TravelWise Phase II",
+		"description": "Requests available for all cities' safely, all countries covid stats, and all airports",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "cities",
+			"item": [
+				{
+					"name": "City Safety - all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "39580d14-61d8-4e34-b4e4-e587516b5fd2",
+								"exec": [
+									"pm.test(\"response must be valid and have a body\", function () {",
+									"     pm.response.to.be.ok;",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"});",
+									"pm.test(\"first city should be Quezon City\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].name[0]).to.eql(\"Quezon City\");",
+									"    pm.expect(jsonData[0].country[0]).to.eql(\"Philippines\");",
+									"    pm.expect(jsonData[0].region[0]).to.eql(\"Metro Manila\");",
+									"});",
+									"pm.test(\"second city should be Davao City\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[1].name[0]).to.eql(\"Davao City\");",
+									"    pm.expect(jsonData[1].country[0]).to.eql(\"Philippines\");",
+									"    pm.expect(jsonData[1].region[0]).to.eql(\"Davao Region\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/cities",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cities"
+							]
+						},
+						"description": "returns data on safety score of city along with country, coordinates, and region"
+					},
+					"response": [
+						{
+							"name": "Successfully returned cities",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/cities",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"cities"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-next",
+									"value": "in fugiat consectetur mollit",
+									"description": "A link to the next page of responses"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"city_name\": \"Dallas\",\n  \"country\": \"United States\",\n  \"Region\": \"Texas\",\n  \"lgbtq_safety_score\": 12,\n  \"medical_safety_score\": 35,\n  \"overall_safety_score\": 99,\n  \"physical_harm_safety_score\": 22,\n  \"political_freedom_safety_score\": 12,\n  \"theft_safety_score\": 93,\n  \"women_safety_score\": 72\n },\n {\n  \"city_name\": \"London\",\n  \"country\": \"UK\",\n  \"Region\": \"Britain\",\n  \"lgbtq_safety_score\": 23,\n  \"medical_safety_score\": 63,\n  \"overall_safety_score\": 92,\n  \"physical_harm_safety_score\": 3,\n  \"political_freedom_safety_score\": 84,\n  \"theft_safety_score\": 3,\n  \"women_safety_score\": 14\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "City Safety - search",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9adc591d-e102-47df-94f7-b6f647430156",
+								"exec": [
+									"pm.test(\"response must be valid and have a body\", function () {",
+									"     pm.response.to.be.ok;",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"});",
+									"pm.test(\"London search should match London data\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].name[0]).to.eql(\"London\");",
+									"    pm.expect(jsonData[0].country[0]).to.eql(\"United Kingdom\");",
+									"    pm.expect(jsonData[0].region[0]).to.eql(\"England\");",
+									"    pm.expect(jsonData[0].overall).to.eql(46);",
+									"    pm.expect(jsonData[0].longitude).to.eql(-0.1275);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/cities/search?name=London",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cities",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "London"
+								}
+							]
+						},
+						"description": "returns data on safety score of given city along with country, coordinates, and region"
+					},
+					"response": [
+						{
+							"name": "Successfully returned cities - Dallas",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/cities/search?name=Dallas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"cities",
+										"search"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Dallas"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "[\n {\n  \"city_name\": \"Dallas\",\n  \"country\": \"United States\",\n  \"Region\": \"Texas\",\n  \"lgbtq_safety_score\": 12,\n  \"medical_safety_score\": 35,\n  \"overall_safety_score\": 99,\n  \"physical_harm_safety_score\": 22,\n  \"political_freedom_safety_score\": 12,\n  \"theft_safety_score\": 93,\n  \"women_safety_score\": 72\n }\n]"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "airport",
+			"item": [
+				{
+					"name": "Airports - all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "26c79f57-eb47-4604-aba7-c7e0d42092d8",
+								"exec": [
+									"pm.test(\"response must be valid and have a body\", function () {",
+									"     pm.response.to.be.ok;",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"});",
+									"pm.test(\"First airport should be BKK\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].iata_code[0]).to.eql(\"BKK\");",
+									"    pm.expect(jsonData[0].airport_name[0]).to.eql(\"SUVARNABHUMI INTL\");",
+									"    pm.expect(jsonData[0].city_name[0]).to.eql(\"BANGKOK\");",
+									"    pm.expect(jsonData[0].country_name[0]).to.eql(\"THAILAND\");",
+									"});",
+									"pm.test(\"Second airport should be HDY\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[1].iata_code[0]).to.eql(\"HDY\");",
+									"    pm.expect(jsonData[1].airport_name[0]).to.eql(\"INTERNATIONAL\");",
+									"    pm.expect(jsonData[1].city_name[0]).to.eql(\"HAT YAI\");",
+									"    pm.expect(jsonData[1].country_name[0]).to.eql(\"THAILAND\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airport",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airport"
+							]
+						},
+						"description": "returns coordinates, country, and time offset of all airports"
+					},
+					"response": [
+						{
+							"name": "Successfully returned airports",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airport",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airport"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-next",
+									"value": "in fugiat consectetur mollit",
+									"description": "A link to the next page of responses"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"iata_code\": \"NDK\",\n  \"airport_name\": \"Noo Doo Kairport\",\n  \"city_name\": \"Noodukoo\",\n  \"country_name\": \"Balringland\",\n  \"latitude\": \"92.22214\",\n  \"longitude\": \"-20.31444\",\n  \"time_offset\": \"+9:00\"\n },\n {\n  \"iata_code\": \"NNO\",\n  \"airport_name\": \"Aaaaairport\",\n  \"city_name\": \"Fearville\",\n  \"country_name\": \"Halloween Republic\",\n  \"latitude\": \"68.41999\",\n  \"longitude\": \"1.00001\",\n  \"time_offset\": \"+8:00\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Airports - search",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e6a0662b-47b6-44ac-877f-f668916d3422",
+								"exec": [
+									"pm.test(\"response must be valid and have a body\", function () {",
+									"     pm.response.to.be.ok;",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"});",
+									"pm.test(\"searched airport should be BJS\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].iata_code[0]).to.eql(\"BJS\");",
+									"    pm.expect(jsonData[0].airport_name[0]).to.eql(\"BEIJING\");",
+									"    pm.expect(jsonData[0].city_name[0]).to.eql(\"BEIJING\");",
+									"    pm.expect(jsonData[0].country_name[0]).to.eql(\"CHINA\");",
+									"    pm.expect(jsonData[0].longitude).to.eql(116.3972);",
+									"    pm.expect(jsonData[0].latitude).to.eql(39.9075);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airport/search?city_name=BEIJING",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airport",
+								"search"
+							],
+							"query": [
+								{
+									"key": "city_name",
+									"value": "BEIJING"
+								}
+							]
+						},
+						"description": "returns coordinates and time offset of all airports in given city"
+					},
+					"response": [
+						{
+							"name": "Successfully returned airports - Noodukoo",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airport/search?city_name=Noodukoo",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airport",
+										"search"
+									],
+									"query": [
+										{
+											"key": "city_name",
+											"value": "Noodukoo"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": " [\n {\n  \"iata_code\": \"NDK\",\n  \"airport_name\": \"Noo Doo Kairport\",\n  \"city_name\": \"Noodukoo\",\n  \"country_name\": \"Balringland\",\n  \"latitude\": \"92.22214\",\n  \"longitude\": \"-20.31444\",\n  \"time_offset\": \"+9:00\"\n }\n ]"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "covid",
+			"item": [
+				{
+					"name": "COVID-stats - all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3cf5e38b-112f-4363-8c25-2338e2b58439",
+								"exec": [
+									"pm.test(\"response must be valid and have a body\", function () {",
+									"     pm.response.to.be.ok;",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"});",
+									"pm.test(\"First country Afghanistan's data should line up\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].country_code[0]).to.eql(\"AF\");",
+									"    pm.expect(jsonData[0].country[0]).to.eql(\"Afghanistan\");",
+									"    pm.expect(jsonData[0].new_cases).to.eql(77);",
+									"    pm.expect(jsonData[0].total_cases).to.eql(39693);",
+									"    pm.expect(jsonData[0].new_deaths).to.eql(2);",
+									"    pm.expect(jsonData[0].total_deaths).to.eql(1472);",
+									"    pm.expect(jsonData[0].date[0]).to.eql(\"2020-10-10T19:36:09Z\");",
+									"});",
+									"pm.test(\"Second country Albania's data should line up\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[1].country_code[0]).to.eql(\"AL\");",
+									"    pm.expect(jsonData[1].country[0]).to.eql(\"Albania\");",
+									"    pm.expect(jsonData[1].new_cases).to.eql(167);",
+									"    pm.expect(jsonData[1].total_cases).to.eql(15066);",
+									"    pm.expect(jsonData[1].new_deaths).to.eql(2);",
+									"    pm.expect(jsonData[1].total_deaths).to.eql(413);",
+									"    pm.expect(jsonData[1].date[0]).to.eql(\"2020-10-10T19:36:09Z\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/covid",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"covid"
+							]
+						},
+						"description": "returns covid statistics on all countries"
+					},
+					"response": [
+						{
+							"name": "Successfully returned COVID statistics for each country",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/covid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"covid"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-next",
+									"value": "in fugiat consectetur mollit",
+									"description": "A link to the next page of responses"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"country_code\": \"US\",\n  \"country\": \"United States\",\n  \"total_cases\": 1337,\n  \"total_deaths\": 687877,\n  \"new_cases\": 0,\n  \"new_deaths\": 2\n },\n {\n  \"country_code\": \"CN\",\n  \"country\": \"China\",\n  \"total_cases\": 10,\n  \"total_deaths\": 9,\n  \"new_cases\": 1,\n  \"new_deaths\": 9\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "COVID-stats - country",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/covid/search?country_code=<Country Code>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"covid",
+								"search"
+							],
+							"query": [
+								{
+									"key": "country_code",
+									"value": "<Country Code>"
+								}
+							]
+						},
+						"description": "returns covid statistics on specified country"
+					},
+					"response": [
+						{
+							"name": "Successfully returned COVID statistics for country - CN",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/covid/search?country_code=CN",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"covid",
+										"search"
+									],
+									"query": [
+										{
+											"key": "country_code",
+											"value": "CN"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "[\n {\n  \"country_code\": \"CN\",\n  \"country\": \"China\",\n  \"total_cases\": 10,\n  \"total_deaths\": 9,\n  \"new_cases\": 1,\n  \"new_deaths\": 9\n }\n]"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1c321ed9-9ecf-4a24-84ea-8c102879fefa",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "fb98823f-c7ec-479e-89ea-70a7c73f0804",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "6ade2087-782d-4ad1-a1f1-f8255c6cb59f",
+			"key": "baseUrl",
+			"value": "https://api.travelwise.live"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
