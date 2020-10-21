@@ -2,7 +2,7 @@ from selenium import webdriver
 import time
 import unittest
 
-PATH = "test/chromedriver.exe"
+PATH = "travelwiseBackend/test/chromedriver.exe"
 driver = webdriver.Chrome(PATH)
 
 
