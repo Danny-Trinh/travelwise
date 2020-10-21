@@ -16,19 +16,19 @@ Website: https://www.travelwise.live/
 
 Estimated Completion Time (hrs):
 
-1. Dung Trinh: 16
-2. Mitchell Watkins: 16
-3. Maximus Chu: 16
-4. Jesse Huang: 16
-5. Adam Gluch: 16
+1. Dung Trinh: 24
+2. Mitchell Watkins: 24
+3. Maximus Chu: 24
+4. Jesse Huang: 24
+5. Adam Gluch: 24
 
 Actual Completion Time (hrs):
 
-1. Dung Trinh: 20 (phase 1)
-2. Mitchell Watkins: 20 (phase 1)
-3. Maximus Chu: 20 (phase 1)
-4. Jesse Huang: 20 (phase 1)
-5. Adam Gluch: 20 (phase 1)
+1. Dung Trinh: 36 (phase 2)
+2. Mitchell Watkins: 36 (phase 2)
+3. Maximus Chu: 36 (phase 2)
+4. Jesse Huang: 36 (phase 2)
+5. Adam Gluch: 36 (phase 2)
 
 Comments:
 
