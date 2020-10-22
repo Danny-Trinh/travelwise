@@ -5,7 +5,7 @@ export default class Navbar extends Component {
     return (
       <React.Fragment>
         <nav
-          className="navbar navbar-expand-lg navbar-light bg-light"
+          className="navbar navbar-expand-lg navbar-light bg-gray-100"
           // style={{ backgroundColor: "var(--blue-500)" }}
         >
           <div className="navbar-brand">
