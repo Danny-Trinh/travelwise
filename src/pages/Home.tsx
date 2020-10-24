@@ -12,7 +12,10 @@ export default class Home extends Component {
     return (
       <div className="container-fluid p-0">
         <div className="row p-0 bg-teal-400 pt-5 justify-content-md-center">
-          <div className="col-lg-5" style={{ marginTop: "5rem" }}>
+          <div
+            className="col-lg-5 order-last order-lg-first"
+            style={{ marginTop: "5rem" }}
+          >
             <h1 className="font-weight-bold text-center p-4">
               In an increasingly dangerous world, Travelwise is here to help you
               navigate.
@@ -27,14 +30,14 @@ export default class Home extends Component {
           <div className="col-lg-4">
             <img
               src={Sky}
-              className="rounded-circle mx-auto d-block mb-4"
+              className="rounded-circle mx-auto d-block mb-5 "
               alt="City"
               style={{ width: "24rem" }}
             ></img>
           </div>
         </div>
 
-        <div className="bg-teal-300">
+        <div className="bg-teal-300 mx-0">
           <svg viewBox="0 0 1500 50" width="100%" display="block">
             <polygon
               fill="var(--teal-400)"
@@ -44,10 +47,10 @@ export default class Home extends Component {
             />
           </svg>
           <div className="row p-0 pt-5 justify-content-md-center">
-            <div className="col-lg-4">
+            <div className="col-lg-5 ">
               <img
                 src={Sky}
-                className="rounded-circle mx-auto d-block mb-4"
+                className="rounded-circle mx-auto d-block mb-5"
                 alt="Airplane"
                 style={{ width: "24rem" }}
               ></img>
@@ -75,9 +78,12 @@ export default class Home extends Component {
             />
           </svg>
           <div className="row p-0 bg-teal-200 pt-5 justify-content-md-center">
-            <div className="col-lg-5" style={{ marginTop: "5rem" }}>
+            <div
+              className="col-lg-5 order-last order-lg-first"
+              style={{ marginTop: "5rem" }}
+            >
               <h1 className="font-weight-bold text-center p-4">
-                Our catalog has the latest COVID-19 data for every country.
+                Find the latest COVID-19 data for every country.
               </h1>
               <h5 className="text-center mt-4 t-black">
                 <Link to="/Cities" className="t-black">
@@ -86,10 +92,10 @@ export default class Home extends Component {
               </h5>
             </div>
 
-            <div className="col-lg-4">
+            <div className="col-lg-4 ">
               <img
                 src={Sky}
-                className="rounded-circle mx-auto d-block mb-4"
+                className="rounded-circle mx-auto d-block mb-5 "
                 alt="Covid"
                 style={{ width: "24rem" }}
               ></img>
