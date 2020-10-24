@@ -1,58 +1,100 @@
 import React, { Component } from "react";
-import Airplane from "../images/Airplane.jpg";
-import City from "../images/City.jpg";
-import PlaneScape from "../images/PlaneScape.jpg";
+// import Airplane from "../images/Airplane.jpg";
+// import City from "../images/City.jpg";
+
+import { Link } from "react-router-dom";
+// import PlaneScape from "../images/PlaneScape.jpg";
+
+import Sky from "../images/Sky.jpeg";
 // import Contagion from "../images/Contagion.jpg";
 export default class Home extends Component {
   render() {
     return (
       <div className="container-fluid p-0">
-        <div className="container-fluid p-0 bg-teal-400 pt-5">
-          <div className="col-6">
-            <div className="container">
-              <h1 className="font-weight-bold text-center">
-                Welcome to TravelWise!
+        <div className="row p-0 bg-teal-400 pt-5 justify-content-md-center">
+          <div className="col-lg-5" style={{ marginTop: "5rem" }}>
+            <h1 className="font-weight-bold text-center p-4">
+              In an increasingly dangerous world, Travelwise is here to help you
+              navigate.
+            </h1>
+            <h5 className="text-center mt-4 t-black">
+              <Link to="/Cities" className="t-black">
+                Find a City
+              </Link>
+            </h5>
+          </div>
+
+          <div className="col-lg-4">
+            <img
+              src={Sky}
+              className="rounded-circle mx-auto d-block mb-4"
+              alt="City"
+              style={{ width: "24rem" }}
+            ></img>
+          </div>
+        </div>
+
+        <div className="bg-teal-300">
+          <svg viewBox="0 0 1500 50" width="100%" display="block">
+            <polygon
+              fill="var(--teal-400)"
+              points="0,0 1500,0 0,50"
+              width="100%"
+              height="100%"
+            />
+          </svg>
+          <div className="row p-0 pt-5 justify-content-md-center">
+            <div className="col-lg-4">
+              <img
+                src={Sky}
+                className="rounded-circle mx-auto d-block mb-4"
+                alt="Airplane"
+                style={{ width: "24rem" }}
+              ></img>
+            </div>
+            <div className="col-lg-5" style={{ marginTop: "5rem" }}>
+              <h1 className="font-weight-bold text-center p-4">
+                Our extensive catalog features airports from all over the globe.
               </h1>
-              <span className="">Welcome!</span>
+              <h5 className="text-center mt-4 t-black">
+                <Link to="/Cities" className="t-black">
+                  Find an Airport
+                </Link>
+              </h5>
             </div>
           </div>
         </div>
-        <svg viewBox="0 0 1500 50" width="100%" display="block">
-          <polygon
-            fill="var(--teal-400)"
-            points="0,0 1500,0 0,50"
-            width="100%"
-            height="100%"
-          />
-        </svg>
 
-        <div className="font-weight-bold text-center align-middle justify-content-center">
-          Travelwise is a web app that enables consumers to make ideal travel
-          plans. Use Travelwise to find more information for your travel plans,
-          where users can search for destinations, corresponding flights,
-          hotels, and the most up-to-date statistics on COVID-19, all in the
-          same place.
-        </div>
-        <div className="row text-center align-middle justify-content-center">
-          <a href="/Cities" className="btn btn-primary mt-2">
-            Get Started
-          </a>
-        </div>
-        <div className="card-group mt-4">
-          <img
-            src={Airplane}
-            alt="Airplane"
-            height="50%"
-            width="50%"
-            className="card"
-          ></img>
-          <img
-            src={City}
-            alt="City"
-            height="50%"
-            width="50%"
-            className="card"
-          ></img>
+        <div className="bg-teal-200">
+          <svg viewBox="0 0 1500 50" width="100%" display="block">
+            <polygon
+              fill="var(--teal-300)"
+              points="0,0 1500,0 0,50"
+              width="100%"
+              height="100%"
+            />
+          </svg>
+          <div className="row p-0 bg-teal-200 pt-5 justify-content-md-center">
+            <div className="col-lg-5" style={{ marginTop: "5rem" }}>
+              <h1 className="font-weight-bold text-center p-4">
+                Our catalog has the latest COVID-19 data for every country.
+              </h1>
+              <h5 className="text-center mt-4 t-black">
+                <Link to="/Cities" className="t-black">
+                  Get Informed
+                </Link>
+              </h5>
+            </div>
+
+            <div className="col-lg-4">
+              <img
+                src={Sky}
+                className="rounded-circle mx-auto d-block mb-4"
+                alt="Covid"
+                style={{ width: "24rem" }}
+              ></img>
+            </div>
+          </div>
         </div>
       </div>
     );
