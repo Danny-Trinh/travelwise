@@ -11,7 +11,7 @@ export default class Home extends Component {
   render() {
     return (
       <div className="container-fluid p-0">
-        <div className="row p-0 bg-teal-400 pt-5 justify-content-md-center">
+        <div className="row bg-teal-400 pt-5 justify-content-md-center">
           <div
             className="col-lg-5 order-last order-lg-first"
             style={{ marginTop: "5rem" }}
@@ -46,25 +46,26 @@ export default class Home extends Component {
               height="100%"
             />
           </svg>
-          <div className="row p-0 pt-5 justify-content-md-center">
-            <div className="col-lg-5 ">
-              <img
-                src={Sky}
-                className="rounded-circle mx-auto d-block mb-5"
-                alt="Airplane"
-                style={{ width: "24rem" }}
-              ></img>
-            </div>
-            <div className="col-lg-5" style={{ marginTop: "5rem" }}>
-              <h1 className="font-weight-bold text-center p-4">
-                Our extensive catalog features airports from all over the globe.
-              </h1>
-              <h5 className="text-center mt-4 t-black">
-                <Link to="/Cities" className="t-black">
-                  Find an Airport
-                </Link>
-              </h5>
-            </div>
+        </div>
+
+        <div className="row  bg-teal-300 pt-5 justify-content-md-center mx-0">
+          <div className="col-lg-5 ">
+            <img
+              src={Sky}
+              className="rounded-circle mx-auto d-block mb-5"
+              alt="Airplane"
+              style={{ width: "24rem" }}
+            ></img>
+          </div>
+          <div className="col-lg-5" style={{ marginTop: "5rem" }}>
+            <h1 className="font-weight-bold text-center p-4">
+              Our extensive catalog features airports from all over the globe.
+            </h1>
+            <h5 className="text-center mt-4 t-black">
+              <Link to="/Cities" className="t-black">
+                Find an Airport
+              </Link>
+            </h5>
           </div>
         </div>
 
@@ -77,29 +78,30 @@ export default class Home extends Component {
               height="100%"
             />
           </svg>
-          <div className="row p-0 bg-teal-200 pt-5 justify-content-md-center">
-            <div
-              className="col-lg-5 order-last order-lg-first"
-              style={{ marginTop: "5rem" }}
-            >
-              <h1 className="font-weight-bold text-center p-4">
-                Find the latest COVID-19 data for every country.
-              </h1>
-              <h5 className="text-center mt-4 t-black">
-                <Link to="/Cities" className="t-black">
-                  Get Informed
-                </Link>
-              </h5>
-            </div>
+        </div>
 
-            <div className="col-lg-4 ">
-              <img
-                src={Sky}
-                className="rounded-circle mx-auto d-block mb-5 "
-                alt="Covid"
-                style={{ width: "24rem" }}
-              ></img>
-            </div>
+        <div className="row bg-teal-200 pt-5 justify-content-md-center">
+          <div
+            className="col-lg-5 order-last order-lg-first"
+            style={{ marginTop: "5rem" }}
+          >
+            <h1 className="font-weight-bold text-center p-4">
+              Find the latest COVID-19 data for every country.
+            </h1>
+            <h5 className="text-center mt-4 t-black">
+              <Link to="/Cities" className="t-black">
+                Get Informed
+              </Link>
+            </h5>
+          </div>
+
+          <div className="col-lg-4 ">
+            <img
+              src={Sky}
+              className="rounded-circle mx-auto d-block mb-5 "
+              alt="Covid"
+              style={{ width: "24rem" }}
+            ></img>
           </div>
         </div>
       </div>

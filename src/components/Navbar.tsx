@@ -5,12 +5,15 @@ export default class Navbar extends Component {
     return (
       <React.Fragment>
         <nav
-          className="navbar navbar-expand-lg navbar-light bg-gray-100"
+          className="navbar navbar-expand-lg navbar-light bg-teal-700 "
           // style={{ backgroundColor: "var(--blue-500)" }}
         >
-          <div className="navbar-brand">
-            <Link className="nav-link t-teal-300" to="/">
-              Travelwise
+          <div className=" navbar-brand">
+            <Link
+              className="font-weight-bold nav-link t-gray-200 active"
+              to="/"
+            >
+              TRAVELWISE
             </Link>
           </div>
           <button
@@ -22,77 +25,29 @@ export default class Navbar extends Component {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">
-              {/* <li className="nav-item dropdown">
-                <span
-                  className="nav-link dropdown-toggle"
-                  id="navbarDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                >
-                  Static Pages
-                </span>
-                <div className="dropdown-menu">
-                  <Link className="dropdown-item" to="/Cities">
-                    Cities
-                  </Link>
-                  <Link className="dropdown-item" to="/Flights">
-                    Flights
-                  </Link>
-                  <Link className="dropdown-item" to="/Covid">
-                    COVID-19
-                  </Link>
-                  <Link className="dropdown-item" to="/Dallas">
-                    City: Dallas
-                  </Link>
-                  <Link className="dropdown-item" to="/NewYork">
-                    City: New York
-                  </Link>
-                  <Link className="dropdown-item" to="/London">
-                    City: London
-                  </Link>
-                  <Link className="dropdown-item" to="/SingleLegFlight">
-                    Single Leg Flight
-                  </Link>
-                  <Link className="dropdown-item" to="/TwoLegFlight">
-                    Two Leg Flight
-                  </Link>
-                  <Link className="dropdown-item" to="/ThreeLegFlight">
-                    Three Leg Flight
-                  </Link>
-                  <Link className="dropdown-item" to="/CovidOne">
-                    Covid One
-                  </Link>
-                  <Link className="dropdown-item" to="/CovidTwo">
-                    Covid Two
-                  </Link>
-                  <Link className="dropdown-item" to="/CovidThree">
-                    Covid Three
-                  </Link>
-                </div>
-              </li> */}
+            <ul className="navbar-nav mr-auto ">
               <li className="nav-item active">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link navlink-custom" to="/">
                   Home
                 </Link>
               </li>
-              <li className="nav-item active">
-                <Link className="nav-link" to="/About">
+              <li className="nav-item active ">
+                <Link className="nav-link navlink-custom" to="/About">
                   About
                 </Link>
               </li>
               <li className="nav-item active">
-                <Link className="nav-link" to="/Cities">
+                <Link className="nav-link navlink-custom" to="/Cities">
                   Cities
                 </Link>
               </li>
               <li className="nav-item active">
-                <Link className="nav-link" to="/Airports">
+                <Link className="nav-link navlink-custom" to="/Airports">
                   Airports
                 </Link>
               </li>
               <li className="nav-item active">
-                <Link className="nav-link" to="/Covid">
+                <Link className="nav-link navlink-custom" to="/Covid">
                   COVID-19
                 </Link>
               </li>

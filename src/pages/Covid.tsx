@@ -51,7 +51,9 @@ export default class Covid extends Component {
       result.push(
         <tr key={i.country_code} style={{ height: "8rem" }}>
           <td>
-            <Link to={`/Covid/${i.country_code}`}>{i.country}</Link>
+            <Link to={`/Covid/${i.country_code}`}>
+              {getHighlightedText(i.country[0], "a")}
+            </Link>
           </td>
           <td>{i.country_code}</td>
           <td>{i.new_cases}</td>
@@ -175,4 +177,17 @@ export default class Covid extends Component {
       </React.Fragment>
     );
   }
+}
+function getHighlightedText(text: string, highlight: string) {
+  // Split on highlight term and include term into parts, ignore case
+  const parts = text.split(new RegExp(`(${highlight})`, "gi"));
+  return (
+    <span>
+      {parts.map((part, i) => {
+        if (part.toLowerCase() === highlight.toLowerCase())
+          return <span style={{ backgroundColor: "#ffb7b7" }}>{part}</span>;
+        else return <span>{part}</span>;
+      })}
+    </span>
+  );
 }

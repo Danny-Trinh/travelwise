@@ -92,6 +92,9 @@
   --pink-800: #97266d;
   --pink-900: #702459;
 }
+.navlink-custom {
+  color: var(--gray-300) !important;
+}
 .t-black {
   color: #000000;
 }
