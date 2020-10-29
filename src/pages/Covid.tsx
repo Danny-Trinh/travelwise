@@ -4,15 +4,27 @@ import Axios from "axios";
 // import Pagination from 'react-bootstrap/Pagination';
 import Paginate from "react-paginate";
 import { Link } from "react-router-dom";
-
+import Select from "react-select";
+const filterOptions = [
+  { value: 1, label: "Country" },
+  { value: 2, label: "Country Code" },
+  { value: 3, label: "Total Cases" },
+  { value: 4, label: "New Deaths" },
+  { value: 5, label: "Total Deaths" },
+];
+const orderOptions = [
+  { value: 1, label: "Ascending" },
+  { value: -1, label: "Descending" },
+];
 export default class Covid extends Component {
   state = {
     offset: 0,
     data: [],
-    perPage: 5,
+    perPage: 9,
     currentPage: 0,
     pageCount: 0,
     sortType: 0,
+    sortOrder: 1,
   };
 
   // componentDidMount() {
@@ -102,11 +114,22 @@ export default class Covid extends Component {
     }
     this.setState({ data: sortedData });
   }
-
+  handleChange = (opt: any) => {
+    console.log(opt.value);
+  };
   render() {
     return (
       <React.Fragment>
         <div className="container m-4">
+          <div className="row">
+            <Select
+              className="col-md-3"
+              onChange={this.handleChange}
+              options={filterOptions}
+            />
+            {/* <Select className="col-md-3" options={options} />
+            <Select className="col-md-3" options={options} /> */}
+          </div>
           <table className="table table-hover">
             <thead className="thead-dark">
               <tr>
@@ -185,8 +208,12 @@ function getHighlightedText(text: string, highlight: string) {
     <span>
       {parts.map((part, i) => {
         if (part.toLowerCase() === highlight.toLowerCase())
-          return <span style={{ backgroundColor: "#ffb7b7" }}>{part}</span>;
-        else return <span>{part}</span>;
+          return (
+            <span key={i} style={{ backgroundColor: "#ffb7b7" }}>
+              {part}
+            </span>
+          );
+        else return <span key={i}>{part}</span>;
       })}
     </span>
   );

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 type myProps = { match: any };
+
 export default class CovidDetail extends Component<myProps> {
   state = {
     data: {

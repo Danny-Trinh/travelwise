@@ -8,7 +8,7 @@ export default class Cities extends Component {
   state = {
     offset: 0,
     data: [],
-    perPage: 5,
+    perPage: 9,
     currentPage: 0,
     pageCount: 0,
     sortType: 0,
