@@ -27,6 +27,7 @@
     "react-paginate": "^6.5.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "react-select": "^3.1.0",
     "selenium": "^2.20.0",
     "typescript": "^4.0.3"
   },

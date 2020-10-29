@@ -23,7 +23,7 @@ export default class CovidDetail extends Component<myProps> {
     );
     if (json.data.length !== 0) {
       let citiesJson = await Axios.get(`https://api.travelwise.live/cities`);
-      let airportJson = await Axios.get(`https://api.travelwise.live/airport`);
+      let airportJson = await Axios.get(`https://api.travelwise.live/airports`);
       let cityData = citiesJson.data.filter(
         (city: any) =>
           city.country_code[0].localeCompare(json.data[0].country_code[0]) === 0

@@ -19,7 +19,7 @@ export default class AirportDetail extends Component<myProps> {
   };
 
   async componentDidMount() {
-    let json = await Axios.get(`https://api.travelwise.live/airport`);
+    let json = await Axios.get(`https://api.travelwise.live/airports`);
     let curAirport = json.data.filter(
       (airport: any) =>
         airport.iata_code[0].localeCompare(this.props.match.params.iata) === 0
