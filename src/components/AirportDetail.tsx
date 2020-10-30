@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
+import GoogleMapReact from 'google-map-react';
 
 type myProps = { match: any };
 export default class AirportDetail extends Component<myProps> {
@@ -16,6 +17,11 @@ export default class AirportDetail extends Component<myProps> {
       country_code: null,
     },
     found: true,
+    center: {
+      lat: 0,
+      lng: 0
+    },
+    zoom: 11
   };
 
   async componentDidMount() {
@@ -27,6 +33,7 @@ export default class AirportDetail extends Component<myProps> {
     if (curAirport.length !== 0) {
       this.setState({
         data: curAirport[0],
+        center: {lat: curAirport[0].latitude, lng: curAirport[0].longitude}
       });
       console.log(json.data);
       console.log(curAirport);
@@ -82,6 +89,14 @@ export default class AirportDetail extends Component<myProps> {
               </tr>
             </tbody>
           </table>
+          <div style={{ height: '100vh', width: '100%' }}>
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: 'AIzaSyCDLGn-VIAxyzFxcPlHYNy0VzY__2ySRJc' }}
+          defaultCenter={this.state.center}
+          defaultZoom={this.state.zoom}
+        >
+        </GoogleMapReact>
+      </div>
         </div>
       </React.Fragment>
     );
