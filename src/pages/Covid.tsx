@@ -8,9 +8,10 @@ import Select from "react-select";
 const filterOptions = [
   { value: 1, label: "Country" },
   { value: 2, label: "Country Code" },
-  { value: 3, label: "Total Cases" },
-  { value: 4, label: "New Deaths" },
-  { value: 5, label: "Total Deaths" },
+  { value: 3, label: "New Cases" },
+  { value: 4, label: "Total Cases" },
+  { value: 5, label: "New Deaths" },
+  { value: 6, label: "Total Deaths" },
 ];
 const orderOptions = [
   { value: 1, label: "Ascending" },
@@ -23,13 +24,9 @@ export default class Covid extends Component {
     perPage: 9,
     currentPage: 0,
     pageCount: 0,
-    sortType: 0,
+    sortType: 1,
     sortOrder: 1,
   };
-
-  // componentDidMount() {
-  //   this.getData();
-  // }
 
   async componentDidMount() {
     // IMPORTANT TODO!!!!!!
@@ -79,13 +76,9 @@ export default class Covid extends Component {
   }
 
   sortData(sortInput: number) {
-    // makes it so each consecutive click reverses/cancels the filter
-    if (this.state.sortType === sortInput) sortInput *= -1;
-    else if (this.state.sortType === -sortInput) sortInput = 1;
-    this.setState({ sortType: sortInput });
-    let reverse = sortInput < 0 ? -1 : 1; // reverse filter if needed
+    let reverse = this.state.sortOrder; // reverse filter if needed
     let sortedData;
-    switch (Math.abs(sortInput)) {
+    switch (sortInput) {
       case 1:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
           return reverse * obj1.country[0].localeCompare(obj2.country[0]);
@@ -93,30 +86,35 @@ export default class Covid extends Component {
         break;
       case 2:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.new_cases - obj1.new_cases);
+          return (
+            reverse * obj1.country_code[0].localeCompare(obj2.country_code[0])
+          );
         });
         break;
       case 3:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.total_cases - obj1.total_cases);
+          return reverse * (obj2.new_cases - obj1.new_cases);
         });
         break;
       case 4:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.new_deaths - obj1.new_deaths);
+          return reverse * (obj2.total_cases - obj1.total_cases);
         });
         break;
       case 5:
+        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
+          return reverse * (obj2.new_deaths - obj1.new_deaths);
+        });
+        break;
+      case 6:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
           return reverse * (obj2.total_deaths - obj1.total_deaths);
         });
         break;
     }
-    this.setState({ data: sortedData });
+    this.setState({ data: sortedData, sortType: sortInput });
   }
-  handleChange = (opt: any) => {
-    console.log(opt.value);
-  };
+
   render() {
     return (
       <React.Fragment>
@@ -124,11 +122,20 @@ export default class Covid extends Component {
           <div className="row">
             <Select
               className="col-md-3"
-              onChange={this.handleChange}
+              onChange={(x: any) => this.sortData(x.value)}
               options={filterOptions}
+              placeholder="Sort by: Country"
             />
-            {/* <Select className="col-md-3" options={options} />
-            <Select className="col-md-3" options={options} /> */}
+            <Select
+              className="col-md-2"
+              onChange={(x: any) => {
+                this.setState({ sortOrder: x.value }, () =>
+                  this.sortData(this.state.sortType)
+                );
+              }}
+              placeholder="Order: Ascend"
+              options={orderOptions}
+            />
           </div>
           <table className="table table-hover">
             <thead className="thead-dark">
