@@ -39,6 +39,19 @@ export default class Search extends Component<myProps> {
           covid.country[0].toLowerCase().includes(searchQuery) ||
           covid.country_code[0].toLowerCase().includes(searchQuery)
       );
+      dataCi = jsonCi.data.filter(
+        (city: any) =>
+          city.name[0].toLowerCase().includes(searchQuery) ||
+          city.country[0].toLowerCase().includes(searchQuery) ||
+          city.region[0].toLowerCase().includes(searchQuery)
+      );
+      dataA = jsonA.data.filter(
+        (airports: any) =>
+          airports.airport_name[0].toLowerCase().includes(searchQuery) ||
+          airports.iata_code[0].toLowerCase().includes(searchQuery) ||
+          airports.city_name[0].toLowerCase().includes(searchQuery) ||
+          airports.country_name[0].toLowerCase().includes(searchQuery)
+      );
     }
     this.setState({
       pageCountC: Math.ceil(dataC.length / perPage),
@@ -119,10 +132,12 @@ export default class Search extends Component<myProps> {
       result.push(
         <tr key={i.city_id}>
           <td>
-            <Link to={`/City/${i.name}/${i.country_code}`}>{i.name}</Link>
+            <Link to={`/City/${i.name}/${i.country_code}`}>
+              {getHighlightedText(i.name[0], this.state.searchQuery)}
+            </Link>
           </td>
-          <td>{i.country}</td>
-          <td>{i.region}</td>
+          <td>{getHighlightedText(i.country[0], this.state.searchQuery)}</td>
+          <td>{getHighlightedText(i.region[0], this.state.searchQuery)}</td>
           <td>{i.overall ? i.overall : 0}</td>
           <td>{i.lgbtq ? i.lgbtq : 0}</td>
           <td>{i.medical ? i.medical : 0}</td>
@@ -148,15 +163,19 @@ export default class Search extends Component<myProps> {
       result.push(
         <tr key={`${i.iata_code}`}>
           <td>
-            <Link to={`/Airport/${i.iata_code}`}>{i.airport_name}</Link>
-          </td>
-          <td>{i.iata_code}</td>
-          <td>
-            <Link to={`/City/${i.city_name}/${i.country_code}`}>
-              {i.city_name}
+            <Link to={`/Airport/${i.iata_code}`}>
+              {getHighlightedText(i.airport_name[0], this.state.searchQuery)}
             </Link>
           </td>
-          <td>{i.country_name}</td>
+          <td>{getHighlightedText(i.iata_code[0], this.state.searchQuery)}</td>
+          <td>
+            <Link to={`/City/${i.city_name}/${i.country_code}`}>
+              {getHighlightedText(i.city_name[0], this.state.searchQuery)}
+            </Link>
+          </td>
+          <td>
+            {getHighlightedText(i.country_name[0], this.state.searchQuery)}
+          </td>
           <td>{i.latitude}</td>
           <td>{i.longitude}</td>
           <td>{i.time_offset}</td>
@@ -207,7 +226,7 @@ export default class Search extends Component<myProps> {
           </thead>
           <tbody>{this.renderDataCi()}</tbody>
         </table>
-        {this.createPagination(this.state.pageCountC, "offsetCi")}
+        {this.createPagination(this.state.pageCountCi, "offsetCi")}
         <h1 className="my-4">Covid-19</h1>
         <table className="table table-hover mx-auto">
           <thead className="thead-dark">
