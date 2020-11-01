@@ -208,6 +208,7 @@ export default class Flights extends Component {
               Cancel
             </button>
           </div>
+          <div className="card">
           <table className="table table-hover mx-auto">
             <thead className="thead-dark">
               <tr>
@@ -223,6 +224,8 @@ export default class Flights extends Component {
             </thead>
             <tbody>{this.renderData()}</tbody>
           </table>
+          </div>
+          <div className="row mb-3"></div>
           <Paginate
             previousLabel={"prev"}
             nextLabel={"next"}
