@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
-import GoogleMapReact from 'google-map-react';
+import GoogleMapReact from "google-map-react";
 type myProps = { match: any };
 export default class CityDetail extends Component<myProps> {
   state = {
@@ -24,9 +24,9 @@ export default class CityDetail extends Component<myProps> {
     found: true,
     center: {
       lat: 0,
-      lng: 0
+      lng: 0,
     },
-    zoom: 11
+    zoom: 11,
   };
   async componentDidMount() {
     // let json = await Axios.get(
@@ -52,14 +52,16 @@ export default class CityDetail extends Component<myProps> {
           .localeCompare(this.props.match.params.city.toLowerCase()) === 0
       );
     });
+    console.log(json.data);
+    console.log(curCity);
     if (curCity.length !== 0) {
       let airportJson = await Axios.get(
-        `https://api.travelwise.live/airport/search?city_name=${curCity[0].name}`
+        `https://api.travelwise.live/airports/search?city_name=${curCity[0].name}`
       );
       this.setState({
         data: curCity[0],
         airportData: airportJson.data,
-        center: {lat: curCity[0].latitude, lng: curCity[0].longitude},
+        center: { lat: curCity[0].latitude, lng: curCity[0].longitude },
       });
       console.log(json.data);
     } else {
@@ -145,14 +147,15 @@ export default class CityDetail extends Component<myProps> {
             </tbody>
           </table>
           {airportRender}
-          <div style={{ height: '100vh', width: '100%' }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyCDLGn-VIAxyzFxcPlHYNy0VzY__2ySRJc' }}
-          defaultCenter={this.state.center}
-          defaultZoom={this.state.zoom}
-        >
-        </GoogleMapReact>
-      </div>
+          <div style={{ height: "100vh", width: "100%" }}>
+            <GoogleMapReact
+              bootstrapURLKeys={{
+                key: "AIzaSyCDLGn-VIAxyzFxcPlHYNy0VzY__2ySRJc",
+              }}
+              defaultCenter={this.state.center}
+              defaultZoom={this.state.zoom}
+            ></GoogleMapReact>
+          </div>
         </div>
       </React.Fragment>
     );

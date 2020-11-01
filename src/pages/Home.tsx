@@ -5,7 +5,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 // import PlaneScape from "../images/PlaneScape.jpg";
 
-import Sky from "../images/Sky.jpeg";
+import Sky from "../images/Sky.jpg";
 // import Contagion from "../images/Contagion.jpg";
 export default class Home extends Component {
   render() {
