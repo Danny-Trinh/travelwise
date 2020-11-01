@@ -1,6 +1,24 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 export default class Navbar extends Component {
+  state = {
+    searchQuery: "",
+    searchActive: false,
+  };
+  handleChange(e: any) {
+    const name = e.target.name;
+    const value = e.target.value.toLowerCase();
+    this.setState((prevstate) => {
+      const newState: any = { ...prevstate };
+      newState[name] = value;
+      return newState;
+    });
+  }
+
+  renderRedirect() {
+    return <Redirect to={`/Search/${this.state.searchQuery}`}></Redirect>;
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -50,12 +68,20 @@ export default class Navbar extends Component {
               </li>
             </ul>
           </div>
-          <form>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              window.location.href =
+                "/search/" + String(this.state.searchQuery);
+            }}
+          >
             <input
               type="text"
               placeholder="Search:"
+              value={this.state.searchQuery}
+              onChange={(e) => this.handleChange(e)}
               className="form-control"
-              name="searchVal"
+              name="searchQuery"
             />
           </form>
         </nav>

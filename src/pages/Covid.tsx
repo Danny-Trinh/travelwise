@@ -98,22 +98,22 @@ export default class Covid extends Component {
         break;
       case 3:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.new_cases - obj1.new_cases);
+          return reverse * (obj1.new_cases - obj2.new_cases);
         });
         break;
       case 4:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.total_cases - obj1.total_cases);
+          return reverse * (obj1.total_cases - obj2.total_cases);
         });
         break;
       case 5:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.new_deaths - obj1.new_deaths);
+          return reverse * (obj1.new_deaths - obj2.new_deaths);
         });
         break;
       case 6:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.total_deaths - obj1.total_deaths);
+          return reverse * (obj1.total_deaths - obj2.total_deaths);
         });
         break;
     }
@@ -174,7 +174,7 @@ export default class Covid extends Component {
               placeholder="Order: Ascend"
               options={orderOptions}
             />
-            <form className="col-md-4" onSubmit={(e) => this.handleSubmit(e)}>
+            <form className="col-md-3" onSubmit={(e) => this.handleSubmit(e)}>
               <input
                 type="text"
                 value={this.state.searchVal}
