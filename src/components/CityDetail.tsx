@@ -89,7 +89,7 @@ export default class CityDetail extends Component<myProps> {
       );
     } else {
       airportRender = (
-        <p>Currently our database has no airports for {this.state.data.name}</p>
+        <p>Currently our database has no airports for {this.state.data.name}.</p>
       );
     }
 
@@ -97,15 +97,17 @@ export default class CityDetail extends Component<myProps> {
       return (
         <div className="container m-4">
           <h3>
-            Our database does not currently support safety stats for this city
+            Our database does not currently support safety stats for this city.
           </h3>
-          <p>An error could have also occured, try refreshing the page</p>
+          <p>An error could have also occured, try refreshing the page.</p>
         </div>
       );
     }
     return (
       <React.Fragment>
-        <div className="container m-4">
+        <div className="container">
+        <h1 className="my-4">{this.state.data.name}</h1>
+        <div className="card">
           <table className="table table-hover">
             <thead className="thead-dark">
               <tr>
@@ -146,6 +148,8 @@ export default class CityDetail extends Component<myProps> {
               </tr>
             </tbody>
           </table>
+          </div>
+          <div className="row mb-3"></div>
           {airportRender}
           <div style={{ height: "100vh", width: "100%" }}>
             <GoogleMapReact
