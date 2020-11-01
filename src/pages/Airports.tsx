@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Paginate from "react-paginate";
 import { Link } from "react-router-dom";
 import Axios from "axios";
+import Select from "react-select";
 
 export default class Flights extends Component {
   state = {
