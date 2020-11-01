@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 // import CovidData from "../json/Covid.json";
 import Axios from "axios";
-// import Pagination from 'react-bootstrap/Pagination';
 import Paginate from "react-paginate";
 import { Link } from "react-router-dom";
 import Select from "react-select";
@@ -136,6 +135,15 @@ export default class Covid extends Component {
               placeholder="Order: Ascend"
               options={orderOptions}
             />
+            <form>
+              <input
+                id="searhBox"
+                type="text"
+                placeholder="Search:"
+                value=""
+                className="form-control"
+              />
+            </form>
           </div>
           <table className="table table-hover">
             <thead className="thead-dark">
