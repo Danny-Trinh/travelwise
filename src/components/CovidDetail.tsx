@@ -66,7 +66,7 @@ export default class CovidDetail extends Component<myProps> {
     } else {
       airportRender = (
         <p>
-          Currently our database has no airports for {this.state.data.country}
+          Currently our database has no airports for {this.state.data.country}.
         </p>
       );
     }
@@ -90,7 +90,7 @@ export default class CovidDetail extends Component<myProps> {
     } else {
       cityRender = (
         <p>
-          Currently our database has no cities for {this.state.data.country}
+          Currently our database has no cities for {this.state.data.country}.
         </p>
       );
     }
@@ -99,16 +99,18 @@ export default class CovidDetail extends Component<myProps> {
       return (
         <div className="container m-4">
           <h3>
-            Our database does not currently support covid stats for this country
+            Our database does not currently support covid stats for this country.
           </h3>
-          <p>An error could have also occured, try refreshing the page</p>
+          <p>An error could have also occured, try refreshing the page.</p>
         </div>
       );
     }
     return (
       <React.Fragment>
-        <div className="container m-4">
-          <table className="table table-hover">
+        <div className="container">
+        <h1 className="my-4">{this.state.data.country}</h1>
+          <div className="card">
+          <table className="table table-hover mx-auto">
             <thead className="thead-dark">
               <tr>
                 <th scope="col">Country</th>
@@ -130,6 +132,8 @@ export default class CovidDetail extends Component<myProps> {
               </tr>
             </tbody>
           </table>
+          </div>
+          <div className="row mb-3"></div>
           {cityRender}
           {airportRender}
         </div>

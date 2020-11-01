@@ -45,14 +45,16 @@ export default class AirportDetail extends Component<myProps> {
     if (!this.state.found) {
       return (
         <div className="container m-4">
-          <h3>Our database does not currently support data for this airport</h3>
-          <p>An error could have also occured, try refreshing the page</p>
+          <h3>Our database does not currently support data for this airport.</h3>
+          <p>An error could have also occured, try refreshing the page.</p>
         </div>
       );
     }
     return (
       <React.Fragment>
-        <div className="container m-4">
+        <div className="container">
+        <h1 className="my-4">{this.state.data.airport_name}</h1>
+          <div className="card">
           <table className="table table-hover">
             <thead className="thead-dark">
               <tr>
@@ -89,6 +91,8 @@ export default class AirportDetail extends Component<myProps> {
               </tr>
             </tbody>
           </table>
+          </div>
+          <div className="row mb-3"></div>
           <div style={{ height: '100vh', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: 'AIzaSyCDLGn-VIAxyzFxcPlHYNy0VzY__2ySRJc' }}
