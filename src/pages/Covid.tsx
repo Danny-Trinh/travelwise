@@ -25,19 +25,24 @@ export default class Covid extends Component {
     pageCount: 0,
     sortType: 1,
     sortOrder: 1,
+    searchVal: "",
+    searchActive: false,
   };
 
-  async componentDidMount() {
-    // IMPORTANT TODO!!!!!!
-    // make api call like this when we actually have data
+  componentDidMount() {
+    this.getData();
+  }
+
+  async getData() {
     let json = await Axios.get(`https://api.travelwise.live/covid`);
     // use json.data instead of CovidData and voila
     this.setState({
       pageCount: Math.ceil(json.data.length / this.state.perPage),
       data: json.data,
+      searchActive: false,
+      searchVal: "",
     });
-    this.sortData(1);
-    console.log(json.data);
+    this.sortData(this.state.sortOrder);
   }
 
   handlePageClick = (e: any) => {
@@ -57,13 +62,13 @@ export default class Covid extends Component {
     let result: Array<any> = [];
     chunk.forEach((i: any) => {
       result.push(
-        <tr key={i.country_code} style={{ height: "8rem" }}>
+        <tr key={i.country_code}>
           <td>
             <Link to={`/Covid/${i.country_code}`}>
-              {getHighlightedText(i.country[0], "a")}
+              {getHighlightedText(i.country[0], this.state.searchVal)}
             </Link>
           </td>
-          <td>{i.country_code}</td>
+          <td>{getHighlightedText(i.country_code[0], this.state.searchVal)}</td>
           <td>{i.new_cases}</td>
           <td>{i.total_cases}</td>
           <td>{i.new_deaths}</td>
@@ -71,6 +76,7 @@ export default class Covid extends Component {
         </tr>
       );
     });
+    // this.setState({ pageCount: 5 });
     return result;
   }
 
@@ -114,11 +120,44 @@ export default class Covid extends Component {
     this.setState({ data: sortedData, sortType: sortInput });
   }
 
+  handleChange = (e: any) => {
+    const name = e.target.name;
+    const value = e.target.value.toLowerCase();
+    this.setState((prevstate) => {
+      const newState: any = { ...prevstate };
+      newState[name] = value;
+      return newState;
+    });
+  };
+
+  async handleSubmit(e: any) {
+    e.preventDefault();
+
+    let json = await Axios.get(`https://api.travelwise.live/covid`);
+    // use json.data instead of CovidData and voila
+    const { searchVal } = this.state;
+    let data = json.data.filter(
+      (covid: any) =>
+        covid.country[0].toLowerCase().includes(searchVal) ||
+        covid.country_code[0].toLowerCase().includes(searchVal)
+    );
+    this.setState({
+      pageCount: Math.ceil(data.length / this.state.perPage),
+      data,
+      searchActive: true,
+    });
+    this.sortData(this.state.sortType);
+  }
+  cancelSearch() {
+    this.getData();
+  }
+
   render() {
     return (
       <React.Fragment>
-        <div className="container m-4">
-          <div className="row">
+        <div className="container ">
+          <h1 className="my-4">Covid-19 </h1>
+          <div className="row mb-3">
             <Select
               className="col-md-3"
               onChange={(x: any) => this.sortData(x.value)}
@@ -126,7 +165,7 @@ export default class Covid extends Component {
               placeholder="Sort by: Country"
             />
             <Select
-              className="col-md-2"
+              className="col-md-3"
               onChange={(x: any) => {
                 this.setState({ sortOrder: x.value }, () =>
                   this.sortData(this.state.sortType)
@@ -135,17 +174,26 @@ export default class Covid extends Component {
               placeholder="Order: Ascend"
               options={orderOptions}
             />
-            <form>
+            <form className="col-md-4" onSubmit={(e) => this.handleSubmit(e)}>
               <input
-                id="searhBox"
                 type="text"
-                placeholder="Search:"
-                value=""
+                value={this.state.searchVal}
+                placeholder="Search Countries:"
                 className="form-control"
+                name="searchVal"
+                onChange={(e) => this.handleChange(e)}
               />
             </form>
+            <button
+              className={`col-md-1 rounded btn-danger ${
+                this.state.searchActive ? "" : "d-none"
+              }`}
+              onClick={() => this.getData()}
+            >
+              Cancel
+            </button>
           </div>
-          <table className="table table-hover">
+          <table className="table table-hover mx-auto">
             <thead className="thead-dark">
               <tr>
                 <th scope="col">Country</th>
@@ -154,8 +202,6 @@ export default class Covid extends Component {
                 <th scope="col">Total Confirmed Cases</th>
                 <th scope="col">New Deaths</th>
                 <th scope="col">Total Deaths</th>
-                {/* <th scope="col">New Recovered</th>
-                <th scope="col">Total Recovered</th> */}
               </tr>
             </thead>
             <tbody>{this.renderData()}</tbody>
@@ -166,10 +212,10 @@ export default class Covid extends Component {
             breakLabel={"..."}
             pageCount={this.state.pageCount}
             marginPagesDisplayed={0}
-            pageRangeDisplayed={5}
+            pageRangeDisplayed={this.state.perPage}
             onPageChange={this.handlePageClick}
             breakLinkClassName={"page-link"}
-            containerClassName={"pagination"}
+            containerClassName={"pagination justify-content-center"}
             pageClassName={"page-item"}
             pageLinkClassName={"page-link"}
             previousClassName={"page-item"}
@@ -178,39 +224,6 @@ export default class Covid extends Component {
             nextLinkClassName={"page-link"}
             activeClassName={"active"}
           />
-          <div className="btn-group-vertical">
-            <button
-              onClick={() => this.sortData(1)}
-              className="btn btn-success"
-            >
-              Sort By Name
-            </button>
-
-            <button
-              onClick={() => this.sortData(2)}
-              className="btn btn-success"
-            >
-              Sort By New Deaths
-            </button>
-            <button
-              onClick={() => this.sortData(3)}
-              className="btn btn-success"
-            >
-              Sort By Total Deaths
-            </button>
-            <button
-              onClick={() => this.sortData(4)}
-              className="btn btn-success"
-            >
-              Sort By New Cases
-            </button>
-            <button
-              onClick={() => this.sortData(5)}
-              className="btn btn-success"
-            >
-              Sort By Total Cases
-            </button>
-          </div>
         </div>
       </React.Fragment>
     );

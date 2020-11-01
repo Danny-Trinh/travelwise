@@ -48,7 +48,7 @@ export default class Cities extends Component {
     let result: Array<any> = [];
     chunk.forEach((i: any) => {
       result.push(
-        <tr key={i.city_id} style={{ height: "8rem" }}>
+        <tr key={i.city_id}>
           <td>
             <Link to={`/City/${i.name}/${i.country_code}`}>{i.name}</Link>
           </td>
@@ -134,7 +134,7 @@ export default class Cities extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="container m-4">
+        <div className="container ">
           <table className="table table-hover">
             <thead className="thead-dark">
               <tr>
@@ -159,10 +159,10 @@ export default class Cities extends Component {
             breakLabel={"..."}
             pageCount={this.state.pageCount}
             marginPagesDisplayed={0}
-            pageRangeDisplayed={5}
+            pageRangeDisplayed={this.state.perPage}
             onPageChange={this.handlePageClick}
             breakLinkClassName={"page-link"}
-            containerClassName={"pagination"}
+            containerClassName={"pagination justify-content-center"}
             pageClassName={"page-item"}
             pageLinkClassName={"page-link"}
             previousClassName={"page-item"}
@@ -171,69 +171,6 @@ export default class Cities extends Component {
             nextLinkClassName={"page-link"}
             activeClassName={"active"}
           />
-          <div className="btn-group-vertical">
-            <button
-              onClick={() => this.sortData(1)}
-              className="btn btn-success"
-            >
-              Sort By Name
-            </button>
-
-            <button
-              onClick={() => this.sortData(2)}
-              className="btn btn-success"
-            >
-              Sort By Country
-            </button>
-            <button
-              onClick={() => this.sortData(3)}
-              className="btn btn-success"
-            >
-              Sort By Region
-            </button>
-            <button
-              onClick={() => this.sortData(4)}
-              className="btn btn-success"
-            >
-              Sort By LGBTQ Score
-            </button>
-            <button
-              onClick={() => this.sortData(5)}
-              className="btn btn-success"
-            >
-              Sort By Medical Score
-            </button>
-            <button
-              onClick={() => this.sortData(6)}
-              className="btn btn-success"
-            >
-              Sort By Overall Score
-            </button>
-            <button
-              onClick={() => this.sortData(7)}
-              className="btn btn-success"
-            >
-              Sort By Physical Harm Score
-            </button>
-            <button
-              onClick={() => this.sortData(8)}
-              className="btn btn-success"
-            >
-              Sort By Political Freedom Score
-            </button>
-            <button
-              onClick={() => this.sortData(9)}
-              className="btn btn-success"
-            >
-              Sort By Theft Score
-            </button>
-            <button
-              onClick={() => this.sortData(10)}
-              className="btn btn-success"
-            >
-              Sort By Women Score
-            </button>
-          </div>
         </div>
       </React.Fragment>
     );

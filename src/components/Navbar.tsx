@@ -4,10 +4,7 @@ export default class Navbar extends Component {
   render() {
     return (
       <React.Fragment>
-        <nav
-          className="navbar navbar-expand-lg navbar-light bg-teal-700 "
-          // style={{ backgroundColor: "var(--blue-500)" }}
-        >
+        <nav className="navbar navbar-expand-lg navbar-light bg-teal-700 ">
           <div className=" navbar-brand">
             <Link
               className="font-weight-bold nav-link t-gray-200 active"
@@ -31,11 +28,6 @@ export default class Navbar extends Component {
                   Home
                 </Link>
               </li>
-              <li className="nav-item active ">
-                <Link className="nav-link navlink-custom" to="/About">
-                  About
-                </Link>
-              </li>
               <li className="nav-item active">
                 <Link className="nav-link navlink-custom" to="/Cities">
                   Cities
@@ -48,16 +40,24 @@ export default class Navbar extends Component {
               </li>
               <li className="nav-item active">
                 <Link className="nav-link navlink-custom" to="/Covid">
-                  COVID-19
+                  Covid-19
                 </Link>
               </li>
-              {/* <li className="nav-item active">
-                <Link className="nav-link" to="/Test/1">
-                  Experimental
+              <li className="nav-item active ">
+                <Link className="nav-link navlink-custom" to="/About">
+                  About
                 </Link>
-              </li> */}
+              </li>
             </ul>
           </div>
+          <form>
+            <input
+              type="text"
+              placeholder="Search:"
+              className="form-control"
+              name="searchVal"
+            />
+          </form>
         </nav>
       </React.Fragment>
     );
