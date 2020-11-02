@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
-import GoogleMapReact from 'google-map-react';
+import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 type myProps = { match: any };
 export default class AirportDetail extends Component<myProps> {
@@ -94,12 +94,19 @@ export default class AirportDetail extends Component<myProps> {
           </div>
           <div className="row mb-3"></div>
           <div style={{ height: '100vh', width: '100%' }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyCDLGn-VIAxyzFxcPlHYNy0VzY__2ySRJc' }}
-          defaultCenter={this.state.center}
-          defaultZoom={this.state.zoom}
-        >
-        </GoogleMapReact>
+          <Map 
+            center={[this.state.center.lat, this.state.center.lng]} 
+            zoom={this.state.zoom} 
+            style={{ width: '100%', height: '100%'}}
+          >
+            <TileLayer
+              attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={[this.state.center.lat, this.state.center.lng]}>
+            <Popup>{this.state.data.airport_name}</Popup>
+            </Marker>
+          </Map>
       </div>
         </div>
       </React.Fragment>
