@@ -105,7 +105,6 @@ export default class AirportDetail extends Component<myProps> {
             alt={this.state.data.airport_name}
           ></img>
           <div className="row mb-3"></div>
-<<<<<<< HEAD
           <div style={{ height: "100vh", width: "100%" }}>
             <GoogleMapReact
               bootstrapURLKeys={{
@@ -115,23 +114,6 @@ export default class AirportDetail extends Component<myProps> {
               defaultZoom={this.state.zoom}
             ></GoogleMapReact>
           </div>
-=======
-          <div style={{ height: '100vh', width: '100%' }}>
-          <Map 
-            center={[this.state.center.lat, this.state.center.lng]} 
-            zoom={this.state.zoom} 
-            style={{ width: '100%', height: '100%'}}
-          >
-            <TileLayer
-              attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={[this.state.center.lat, this.state.center.lng]}>
-            <Popup>{this.state.data.airport_name}</Popup>
-            </Marker>
-          </Map>
-      </div>
->>>>>>> 0dd15bde779b02b306c6d598af7fa85222c92e3c
         </div>
       </React.Fragment>
     );
