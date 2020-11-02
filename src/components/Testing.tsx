@@ -13,7 +13,7 @@ export default class VectorLayersExample extends Component<{}> {
       <React.Fragment>
         <div className="container">
           <div id="randomDiv">
-            <Map id="mapId" center={center} zoom={2} minZoom={1} maxZoom={1}>
+            <Map id="mapId" center={center} zoom={2}>
               <TileLayer url={mapUrl}></TileLayer>
             </Map>
           </div>

@@ -35,8 +35,6 @@ export default class Flights extends Component {
   }
 
   async getData() {
-    // IMPORTANT TODO!!!!!!
-    // make api call like this when we actually have data
     let json = await Axios.get(`https://api.travelwise.live/airports`);
 
     this.setState({
@@ -67,12 +65,14 @@ export default class Flights extends Component {
       result.push(
         <tr key={`${i.iata_code}`}>
           <td>
-            <Link to={`/Airport/${i.iata_code}`}>{getHighlightedText(i.airport_name[0], this.state.searchVal)}</Link>
+            <Link to={`/Airport/${i.iata_code}`}>
+              {getHighlightedText(i.airport_name[0], this.state.searchVal)}
+            </Link>
           </td>
           <td>{getHighlightedText(i.iata_code[0], this.state.searchVal)}</td>
           <td>
             <Link to={`/City/${i.city_name}/${i.country_code}`}>
-            {getHighlightedText(i.city_name[0], this.state.searchVal)}
+              {getHighlightedText(i.city_name[0], this.state.searchVal)}
             </Link>
           </td>
           <td>{getHighlightedText(i.country_name[0], this.state.searchVal)}</td>
@@ -152,8 +152,8 @@ export default class Flights extends Component {
     let data = json.data.filter(
       (airports: any) =>
         airports.airport_name[0].toLowerCase().includes(searchVal) ||
-        airports.iata_code[0].toLowerCase().includes(searchVal) || 
-        airports.city_name[0].toLowerCase().includes(searchVal) || 
+        airports.iata_code[0].toLowerCase().includes(searchVal) ||
+        airports.city_name[0].toLowerCase().includes(searchVal) ||
         airports.country_name[0].toLowerCase().includes(searchVal)
     );
     this.setState({
@@ -171,7 +171,7 @@ export default class Flights extends Component {
     return (
       <React.Fragment>
         <div className="container">
-        <h1 className="my-4">Airports </h1>
+          <h1 className="my-4">Airports </h1>
           <div className="row mb-3">
             <Select
               className="col-md-3"
@@ -209,21 +209,21 @@ export default class Flights extends Component {
             </button>
           </div>
           <div className="card">
-          <table className="table table-hover mx-auto">
-            <thead className="thead-dark">
-              <tr>
-                <th scope="col">Airport</th>
-                <th scope="col">Airport Code</th>
-                <th scope="col">City</th>
-                <th scope="col">Country</th>
-                <th scope="col">Latitude</th>
-                <th scope="col">Longitude</th>
-                <th scope="col">Timezone</th>
-                <th scope="col">Covid Stats</th>
-              </tr>
-            </thead>
-            <tbody>{this.renderData()}</tbody>
-          </table>
+            <table className="table table-hover mx-auto">
+              <thead className="thead-dark">
+                <tr>
+                  <th scope="col">Airport</th>
+                  <th scope="col">Airport Code</th>
+                  <th scope="col">City</th>
+                  <th scope="col">Country</th>
+                  <th scope="col">Latitude</th>
+                  <th scope="col">Longitude</th>
+                  <th scope="col">Timezone</th>
+                  <th scope="col">Covid Stats</th>
+                </tr>
+              </thead>
+              <tbody>{this.renderData()}</tbody>
+            </table>
           </div>
           <div className="row mb-3"></div>
           <Paginate
