@@ -13,6 +13,7 @@ import CityDetail from "./components/CityDetail";
 import AirportDetail from "./components/AirportDetail";
 // import CovidDetail from "./components/CovidDetail";
 import Testing from "./components/Testing";
+import Search from "./pages/Search";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
             component={AirportDetail}
             exact
           ></Route>
+          <Route path="/Search/:searchQuery?" component={Search}></Route>
           <Route component={Error}></Route>
         </Switch>
       </Router>

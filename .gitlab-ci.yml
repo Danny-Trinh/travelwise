@@ -24,7 +24,6 @@ Frontend:
     - cat makefile
     - make placeholder
     - node --version
-    - npm run test
 
 Backend:
   image: mitchellwatkins125/travelwiseflask
@@ -33,3 +32,11 @@ Backend:
     - pip show unittest2
     - python travelwiseBackend/TravelwiseBackendUnitTests.py
     - python travelwiseBackend/test/GUITests.py
+
+Postman_tests:
+  image:
+    name: postman/newman_alpine33
+    entrypoint: [""]
+  script:
+    - newman --version
+    - newman run postmanTests.json

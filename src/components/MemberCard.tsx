@@ -35,13 +35,13 @@ export default class Navbar extends Component<myProps> {
             <p className="card-text">{desc}</p>
           </div>
           <ul className="list-group list-group-flush ">
-            <li className="list-group-item bg-light">
+            <li className="list-group-item ">
               <p className="card-text">
                 <strong>Role: </strong>
                 {jobs}
               </p>
             </li>
-            <li className="list-group-item bg-light">
+            <li className="list-group-item ">
               <strong>Gitlab:</strong> {gitlab}
               <ul>
                 <li>

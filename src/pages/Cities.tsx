@@ -1,17 +1,37 @@
 import React, { Component } from "react";
-// import CityData from "../json/Cities.json";
 import Paginate from "react-paginate";
 import { Link } from "react-router-dom";
 import Axios from "axios";
+import Select from "react-select";
+const filterOptions = [
+  { value: 1, label: "City" },
+  { value: 2, label: "Country" },
+  { value: 3, label: "Region" },
+  { value: 4, label: "Overall" },
+  { value: 5, label: "LGBTQ" },
+  { value: 6, label: "Medical" },
+  { value: 7, label: "Physical Harm" },
+  { value: 8, label: "Political Freedom" },
+  { value: 9, label: "Theft" },
+  { value: 10, label: "Women" },
+];
+const orderOptions = [
+  { value: 1, label: "Ascending" },
+  { value: -1, label: "Descending" },
+];
+
 
 export default class Cities extends Component {
   state = {
     offset: 0,
     data: [],
-    perPage: 5,
+    perPage: 9,
     currentPage: 0,
     pageCount: 0,
-    sortType: 0,
+    sortType: 1,
+    sortOrder: 1,
+    searchVal: "",
+    searchActive: false,
   };
 
   componentDidMount() {
@@ -19,16 +39,14 @@ export default class Cities extends Component {
   }
 
   async getData() {
-    // IMPORTANT TODO!!!!!!
-    // make api call like this when we actually have data
     let json = await Axios.get(`https://api.travelwise.live/cities`);
-    // use json.data instead of CovidData and voila
     this.setState({
       pageCount: Math.ceil(json.data.length / this.state.perPage),
       data: json.data,
+      searchActive: false,
+      searchVal: "",
     });
-    this.sortData(1);
-    console.log(json.data);
+    this.sortData(this.state.sortOrder);
   }
 
   handlePageClick = (e: any) => {
@@ -48,12 +66,12 @@ export default class Cities extends Component {
     let result: Array<any> = [];
     chunk.forEach((i: any) => {
       result.push(
-        <tr key={i.city_id} style={{ height: "8rem" }}>
+        <tr key={i.city_id}>
           <td>
-            <Link to={`/City/${i.name}/${i.country_code}`}>{i.name}</Link>
+            <Link to={`/City/${i.name}/${i.country_code}`}>{getHighlightedText(i.name[0], this.state.searchVal)}</Link>
           </td>
-          <td>{i.country}</td>
-          <td>{i.region}</td>
+          <td>{getHighlightedText(i.country[0], this.state.searchVal)}</td>
+          <td>{getHighlightedText(i.region[0], this.state.searchVal)}</td>
           <td>{i.overall ? i.overall : 0}</td>
           <td>{i.lgbtq ? i.lgbtq : 0}</td>
           <td>{i.medical ? i.medical : 0}</td>
@@ -70,11 +88,7 @@ export default class Cities extends Component {
     return result;
   }
   sortData(sortInput: number) {
-    // makes it so each consecutive click reverses/cancels the filter
-    if (this.state.sortType === sortInput) sortInput *= -1;
-    else if (this.state.sortType === -sortInput) sortInput = 1;
-    this.setState({ sortType: sortInput });
-    let reverse = sortInput < 0 ? -1 : 1; // reverse filter if needed
+    let reverse = this.state.sortOrder; // reverse filter if needed
     let sortedData;
     switch (Math.abs(sortInput)) {
       case 1:
@@ -94,19 +108,20 @@ export default class Cities extends Component {
         break;
       case 4:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.lgbtq - obj1.lgbtq);
+          return reverse * (obj2.overall - obj1.overall);
         });
         break;
       case 5:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.medical - obj1.medical);
+          return reverse * (obj2.lgbtq - obj1.lgbtq);
         });
         break;
       case 6:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.overall - obj1.overall);
+          return reverse * (obj2.medical - obj1.medical);
         });
         break;
+
       case 7:
         sortedData = this.state.data.sort((obj1: any, obj2: any) => {
           return reverse * (obj2.physical - obj1.physical);
@@ -128,14 +143,85 @@ export default class Cities extends Component {
         });
         break;
     }
-    this.setState({ data: sortedData });
+    this.setState({ data: sortedData, sortType: sortInput });
+  }
+
+  handleChange = (e: any) => {
+    const name = e.target.name;
+    const value = e.target.value.toLowerCase();
+    this.setState((prevstate) => {
+      const newState: any = { ...prevstate };
+      newState[name] = value;
+      return newState;
+    });
+  };
+
+  async handleSubmit(e: any) {
+    e.preventDefault();
+
+    let json = await Axios.get(`https://api.travelwise.live/cities`);
+
+    const { searchVal } = this.state;
+    let data = json.data.filter(
+      (city: any) =>
+        city.name[0].toLowerCase().includes(searchVal) ||
+        city.country[0].toLowerCase().includes(searchVal) ||
+        city.region[0].toLowerCase().includes(searchVal)
+    );
+    this.setState({
+      pageCount: Math.ceil(data.length / this.state.perPage),
+      data,
+      searchActive: true,
+    });
+    this.sortData(this.state.sortType);
+  }
+  cancelSearch() {
+    this.getData();
   }
 
   render() {
     return (
       <React.Fragment>
-        <div className="container m-4">
-          <table className="table table-hover">
+        <div className="container ">
+        <h1 className="my-4">Cities </h1>
+        <div className="row mb-3">
+            <Select
+              className="col-md-3"
+              onChange={(x: any) => this.sortData(x.value)}
+              options={filterOptions}
+              placeholder="Sort by: City"
+            />
+            <Select
+              className="col-md-3"
+              onChange={(x: any) => {
+                this.setState({ sortOrder: x.value }, () =>
+                  this.sortData(this.state.sortType)
+                );
+              }}
+              placeholder="Order: Ascend"
+              options={orderOptions}
+            />
+            <form className="col-md-4" onSubmit={(e) => this.handleSubmit(e)}>
+              <input
+                type="text"
+                value={this.state.searchVal}
+                placeholder="Search Locations:"
+                className="form-control"
+                name="searchVal"
+                onChange={(e) => this.handleChange(e)}
+              />
+            </form>
+            <button
+              className={`col-md-1 rounded btn-danger ${
+                this.state.searchActive ? "" : "d-none"
+              }`}
+              onClick={() => this.getData()}
+            >
+              Cancel
+            </button>
+          </div>
+          <div className="card">
+          <table className="table table-hover mx-auto">
             <thead className="thead-dark">
               <tr>
                 <th scope="col">City</th>
@@ -153,16 +239,18 @@ export default class Cities extends Component {
             </thead>
             <tbody>{this.renderData()}</tbody>
           </table>
+          </div>
+          <div className="row mb-3"></div>
           <Paginate
             previousLabel={"prev"}
             nextLabel={"next"}
             breakLabel={"..."}
             pageCount={this.state.pageCount}
             marginPagesDisplayed={0}
-            pageRangeDisplayed={5}
+            pageRangeDisplayed={this.state.perPage}
             onPageChange={this.handlePageClick}
             breakLinkClassName={"page-link"}
-            containerClassName={"pagination"}
+            containerClassName={"pagination justify-content-center"}
             pageClassName={"page-item"}
             pageLinkClassName={"page-link"}
             previousClassName={"page-item"}
@@ -171,71 +259,25 @@ export default class Cities extends Component {
             nextLinkClassName={"page-link"}
             activeClassName={"active"}
           />
-          <div className="btn-group-vertical">
-            <button
-              onClick={() => this.sortData(1)}
-              className="btn btn-success"
-            >
-              Sort By Name
-            </button>
-
-            <button
-              onClick={() => this.sortData(2)}
-              className="btn btn-success"
-            >
-              Sort By Country
-            </button>
-            <button
-              onClick={() => this.sortData(3)}
-              className="btn btn-success"
-            >
-              Sort By Region
-            </button>
-            <button
-              onClick={() => this.sortData(4)}
-              className="btn btn-success"
-            >
-              Sort By LGBTQ Score
-            </button>
-            <button
-              onClick={() => this.sortData(5)}
-              className="btn btn-success"
-            >
-              Sort By Medical Score
-            </button>
-            <button
-              onClick={() => this.sortData(6)}
-              className="btn btn-success"
-            >
-              Sort By Overall Score
-            </button>
-            <button
-              onClick={() => this.sortData(7)}
-              className="btn btn-success"
-            >
-              Sort By Physical Harm Score
-            </button>
-            <button
-              onClick={() => this.sortData(8)}
-              className="btn btn-success"
-            >
-              Sort By Political Freedom Score
-            </button>
-            <button
-              onClick={() => this.sortData(9)}
-              className="btn btn-success"
-            >
-              Sort By Theft Score
-            </button>
-            <button
-              onClick={() => this.sortData(10)}
-              className="btn btn-success"
-            >
-              Sort By Women Score
-            </button>
-          </div>
         </div>
       </React.Fragment>
     );
   }
+}
+function getHighlightedText(text: string, highlight: string) {
+  // Split on highlight term and include term into parts, ignore case
+  const parts = text.split(new RegExp(`(${highlight})`, "gi"));
+  return (
+    <span>
+      {parts.map((part, i) => {
+        if (part.toLowerCase() === highlight.toLowerCase())
+          return (
+            <span key={i} style={{ backgroundColor: "#ffb7b7" }}>
+              {part}
+            </span>
+          );
+        else return <span key={i}>{part}</span>;
+      })}
+    </span>
+  );
 }
