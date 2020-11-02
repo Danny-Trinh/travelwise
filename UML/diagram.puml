@@ -40,11 +40,6 @@ Entity Airport{
     latitude: float
 }
 
-Airport <.. City : airport_city_search(city_name);
-Airport ..> City : city_search(city_name);
-Covid <.. City : covid_search(country_code);
-Airport ..> Covid : covid_search(country_code);
-
 Airport }o--|| Covid
 Airport }o--|| City
 City }o--|| Covid
