@@ -56,7 +56,7 @@ const countryOptions = [
   {value: 'UNITED KINGDOM', label: 'United Kingdom'},
   {value: 'UNITED STATES OF AMERICA', label: 'United States of America'},
   {value: 'VENEZUELA', label: 'Venezuela'},
-  {value: 'Vietnam', label: 'Vietnam'},
+  {value: 'VIETNAM', label: 'Vietnam'},
 ];
 
 export default class Flights extends Component {
