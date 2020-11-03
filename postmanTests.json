@@ -1,8 +1,8 @@
 {
 	"info": {
-		"_postman_id": "e9e5eb99-d6fe-49df-9435-6f8fc6c7e0d6",
-		"name": "TravelWise Phase II",
-		"description": "Requests available for all cities' safely, all countries covid stats, and all airports",
+		"_postman_id": "75b2496e-5ca2-49a1-a927-c10f829c61be",
+		"name": "TravelWise Phase III",
+		"description": "Search cities for their safety score, airports for their location and city, and countries for their covid statistics. Filter or sort those results numerically or alphabetically.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -15,7 +15,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "39580d14-61d8-4e34-b4e4-e587516b5fd2",
+								"id": "05403578-76eb-4df0-b836-79c5ced8b237",
 								"exec": [
 									"pm.test(\"response must be valid and have a body\", function () {",
 									"     pm.response.to.be.ok;",
@@ -41,14 +41,7 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "",
-								"value": "",
-								"type": "text",
-								"disabled": true
-							}
-						],
+						"header": [],
 						"url": {
 							"raw": "{{baseUrl}}/cities",
 							"host": [
@@ -82,7 +75,7 @@
 							"header": [
 								{
 									"key": "x-next",
-									"value": "in fugiat consectetur mollit",
+									"value": "irure quis",
 									"description": "A link to the next page of responses"
 								},
 								{
@@ -91,7 +84,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n {\n  \"city_name\": \"Dallas\",\n  \"country\": \"United States\",\n  \"Region\": \"Texas\",\n  \"lgbtq_safety_score\": 12,\n  \"medical_safety_score\": 35,\n  \"overall_safety_score\": 99,\n  \"physical_harm_safety_score\": 22,\n  \"political_freedom_safety_score\": 12,\n  \"theft_safety_score\": 93,\n  \"women_safety_score\": 72\n },\n {\n  \"city_name\": \"London\",\n  \"country\": \"UK\",\n  \"Region\": \"Britain\",\n  \"lgbtq_safety_score\": 23,\n  \"medical_safety_score\": 63,\n  \"overall_safety_score\": 92,\n  \"physical_harm_safety_score\": 3,\n  \"political_freedom_safety_score\": 84,\n  \"theft_safety_score\": 3,\n  \"women_safety_score\": 14\n }\n]"
+							"body": "[\n    {\n        \"city_id\": 88518,\n        \"name\": [\"Quezon City\"],\n        \"country\": [\"Philippines\"],\n        \"region\": [\"Metro Manila\"],\n        \"lgbtq\": null,\n        \"medical\": null,\n        \"overall\": null,\n        \"physical\": null,\n        \"political\": null,\n        \"theft\": null,\n        \"women\": null,\n        \"country_code\": [\"PH\"],\n        \"latitude\": 14.633333333,\n        \"longitude\": 121.033333333\n    },\n    {\n        \"city_id\": 89988,\n        \"name\": [\"Davao City\"],\n        \"country\": [\"Philippines\"],\n        \"region\": [\"Davao Region\"],\n        \"lgbtq\": null,\n        \"medical\": null,\n        \"overall\": null,\n        \"physical\": null,\n        \"political\": null,\n        \"theft\": null,\n        \"women\": null,\n        \"country_code\": [\"PH\"],\n        \"latitude\": 7.066666666,\n        \"longitude\": 125.6\n    }\n...]"
 						}
 					]
 				},
@@ -101,20 +94,28 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "9adc591d-e102-47df-94f7-b6f647430156",
+								"id": "54ed3e57-453d-4fdc-a948-a120731dcc42",
 								"exec": [
 									"pm.test(\"response must be valid and have a body\", function () {",
 									"     pm.response.to.be.ok;",
 									"     pm.response.to.be.withBody;",
 									"     pm.response.to.be.json;",
 									"});",
-									"pm.test(\"London search should match London data\", function () {",
+									"pm.test(\"First city based on women's safety score should be Los Angeles\", function () {",
 									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData[0].name[0]).to.eql(\"London\");",
-									"    pm.expect(jsonData[0].country[0]).to.eql(\"United Kingdom\");",
-									"    pm.expect(jsonData[0].region[0]).to.eql(\"England\");",
-									"    pm.expect(jsonData[0].overall).to.eql(46);",
-									"    pm.expect(jsonData[0].longitude).to.eql(-0.1275);",
+									"    pm.expect(jsonData[0].city_id).to.eql(126549);",
+									"    pm.expect(jsonData[0].country[0]).to.eql(\"United States of America\");",
+									"    pm.expect(jsonData[0].name[0]).to.eql(\"Los Angeles\");",
+									"    pm.expect(jsonData[0].region[0]).to.eql(\"California\");",
+									"    pm.expect(jsonData[0].women).to.eql(26);",
+									"});",
+									"pm.test(\"Third city based on women's safety score should be San Antonio\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[2].city_id).to.eql(118731);",
+									"    pm.expect(jsonData[2].country[0]).to.eql(\"United States of America\");",
+									"    pm.expect(jsonData[2].name[0]).to.eql(\"San Antonio\");",
+									"    pm.expect(jsonData[2].region[0]).to.eql(\"Texas\");",
+									"    pm.expect(jsonData[2].women).to.eql(33);",
 									"});"
 								],
 								"type": "text/javascript"
@@ -125,7 +126,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/cities/search?name=London",
+							"raw": "{{baseUrl}}/cities/search?country=United States of America&sort=women",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -135,21 +136,61 @@
 							],
 							"query": [
 								{
+									"key": "city_id",
+									"value": "<string>",
+									"description": "optional- search for id",
+									"disabled": true
+								},
+								{
 									"key": "name",
-									"value": "London"
+									"value": "<string>",
+									"description": "optional- search for city name",
+									"disabled": true
+								},
+								{
+									"key": "country",
+									"value": "<string>",
+									"description": "optional- search for cities in country",
+									"disabled": true
+								},
+								{
+									"key": "region",
+									"value": "<string>",
+									"description": "optional- search for cities in region",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "<[name, city_id, country_code, country, region, longitude, latitude, lgbtq, medical , overall, physical, political, theft, women]>",
+									"description": "optional- sort alphabetically or numerically by specified paramter. put '-' before parameter to reverse order",
+									"disabled": true
+								},
+								{
+									"key": "filter",
+									"value": "<[city_id, longitude, latitude, latitude, lgbtq, medical, overall, physical, political, theft, women]><[[GTE], [LTE]]><integer>",
+									"description": "optional- filter results by paramter to be greater than or equal to or less than or equal to value",
+									"disabled": true
+								},
+								{
+									"key": "country",
+									"value": "United States of America"
+								},
+								{
+									"key": "sort",
+									"value": "women"
 								}
 							]
 						},
-						"description": "returns data on safety score of given city along with country, coordinates, and region"
+						"description": "returns data on safety score of searched cities along with country, coordinates, and region"
 					},
 					"response": [
 						{
-							"name": "Successfully returned cities - Dallas",
+							"name": "City Safety - search for cities in USA sorting by ascending women's safety score",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/cities/search?name=Dallas",
+									"raw": "{{baseUrl}}/cities/search?country=United States of America&sort=women",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -159,16 +200,61 @@
 									],
 									"query": [
 										{
+											"key": "city_id",
+											"value": "<string>",
+											"description": "optional- search for id",
+											"disabled": true
+										},
+										{
 											"key": "name",
-											"value": "Dallas"
+											"value": "<string>",
+											"description": "optional- search for city name",
+											"disabled": true
+										},
+										{
+											"key": "region",
+											"value": "<string>",
+											"description": "optional- search for cities in region",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": "<[name, city_id, country_code, country, region, longitude, latitude, lgbtq, medical , overall, physical, political, theft, women]>",
+											"description": "optional- sort alphabetically or numerically by specified paramter. put '-' before parameter to reverse order",
+											"disabled": true
+										},
+										{
+											"key": "filter",
+											"value": "<[city_id, longitude, latitude, latitude, lgbtq, medical, overall, physical, political, theft, women]><[GTE, LTE]><integer>",
+											"description": "optional- filter results by paramter to be greater than or equal to or less than or equal to value",
+											"disabled": true
+										},
+										{
+											"key": "country",
+											"value": "United States of America"
+										},
+										{
+											"key": "sort",
+											"value": "women"
 										}
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "2934"
+								},
+								{
+									"key": "content-type",
+									"value": "text/html; charset=utf-8"
+								}
+							],
 							"cookie": [],
-							"body": "[\n {\n  \"city_name\": \"Dallas\",\n  \"country\": \"United States\",\n  \"Region\": \"Texas\",\n  \"lgbtq_safety_score\": 12,\n  \"medical_safety_score\": 35,\n  \"overall_safety_score\": 99,\n  \"physical_harm_safety_score\": 22,\n  \"political_freedom_safety_score\": 12,\n  \"theft_safety_score\": 93,\n  \"women_safety_score\": 72\n }\n]"
+							"body": "[\n    {\n        \"city_id\": 126549,\n        \"name\": [\n            \"Los Angeles\"\n        ],\n        \"country\": [\n            \"United States of America\"\n        ],\n        \"region\": [\n            \"California\"\n        ],\n        \"lgbtq\": 37,\n        \"medical\": 82,\n        \"overall\": 45,\n        \"physical\": 45,\n        \"political\": 54,\n        \"theft\": 23,\n        \"women\": 26,\n        \"country_code\": [\n            \"US\"\n        ],\n        \"latitude\": 34.05223,\n        \"longitude\": -118.24368\n    },\n    {\n        \"city_id\": 118499,\n        \"name\": [\n            \"Houston\"\n        ],\n        \"country\": [\n            \"United States of America\"\n        ],\n        \"region\": [\n            \"Texas\"\n        ],\n        \"lgbtq\": 39,\n        \"medical\": 82,\n        \"overall\": 48,\n        \"physical\": 53,\n        \"political\": 50,\n        \"theft\": 33,\n        \"women\": 28,\n        \"country_code\": [\n            \"US\"\n        ],\n        \"latitude\": 29.762777777,\n        \"longitude\": -95.383055555\n    },\n    {\n        \"city_id\": 118731,\n        \"name\": [\n            \"San Antonio\"\n        ],\n        \"country\": [\n            \"United States of America\"\n        ],\n        \"region\": [\n            \"Texas\"\n        ],\n        \"lgbtq\": 39,\n        \"medical\": 84,\n        \"overall\": 45,\n        \"physical\": 35,\n        \"political\": 40,\n        \"theft\": 41,\n        \"women\": 33,\n        \"country_code\": [\n            \"US\"\n        ],\n        \"latitude\": 29.425,\n        \"longitude\": -98.493888888\n    },\n    {\n        \"city_id\": 120473,\n        \"name\": [\n            \"Chicago\"\n        ],\n        \"country\": [\n            \"United States of America\"\n        ],\n        \"region\": [\n            \"Illinois\"\n        ],\n        \"lgbtq\": 41,\n        \"medical\": 86,\n        \"overall\": 54,\n        \"physical\": 58,\n        \"political\": 65,\n        \"theft\": 38,\n        \"women\": 35,\n        \"country_code\": [\n            \"US\"\n        ],\n        \"latitude\": 41.881944444,\n        \"longitude\": -87.627777777\n    },\n    {\n        \"city_id\": 117951,\n        \"name\": [\n            \"Philadelphia\"\n        ],\n        \"country\": [\n            \"United States of America\"\n        ],\n        \"region\": [\n            \"Pennsylvania\"\n        ],\n        \"lgbtq\": 41,\n        \"medical\": 79,\n        \"overall\": 50,\n        \"physical\": 52,\n        \"political\": 57,\n        \"theft\": 33,\n        \"women\": 37,\n        \"country_code\": [\n            \"US\"\n        ],\n        \"latitude\": 39.952777777,\n        \"longitude\": -75.163611111\n    },\n    {\n        \"city_id\": 126034,\n        \"name\": [\n            \"Phoenix\"\n        ],\n        \"country\": [\n            \"United States of America\"\n        ],\n        \"region\": [\n            \"Arizona\"\n        ],\n        \"lgbtq\": null,\n        \"medical\": null,\n        \"overall\": null,\n        \"physical\": null,\n        \"political\": null,\n        \"theft\": null,\n        \"women\": null,\n        \"country_code\": [\n            \"US\"\n        ],\n        \"latitude\": 33.528333333,\n        \"longitude\": -112.076388888\n    },\n    {\n        \"city_id\": 123716,\n        \"name\": [\n            \"Queens\"\n        ],\n        \"country\": [\n            \"United States of America\"\n        ],\n        \"region\": [\n            \"New York\"\n        ],\n        \"lgbtq\": null,\n        \"medical\": null,\n        \"overall\": null,\n        \"physical\": null,\n        \"political\": null,\n        \"theft\": null,\n        \"women\": null,\n        \"country_code\": [\n            \"US\"\n        ],\n        \"latitude\": 40.704166666,\n        \"longitude\": -73.917777777\n    },\n    {\n        \"city_id\": 123511,\n        \"name\": [\n            \"Manhattan\"\n        ],\n        \"country\": [\n            \"United States of America\"\n        ],\n        \"region\": [\n            \"New York\"\n        ],\n        \"lgbtq\": null,\n        \"medical\": null,\n        \"overall\": null,\n        \"physical\": null,\n        \"political\": null,\n        \"theft\": null,\n        \"women\": null,\n        \"country_code\": [\n            \"US\"\n        ],\n        \"latitude\": 40.728333333,\n        \"longitude\": -73.994166666\n    },\n    {\n        \"city_id\": 122111,\n        \"name\": [\n            \"Brooklyn\"\n        ],\n        \"country\": [\n            \"United States of America\"\n        ],\n        \"region\": [\n            \"New York\"\n        ],\n        \"lgbtq\": null,\n        \"medical\": null,\n        \"overall\": null,\n        \"physical\": null,\n        \"political\": null,\n        \"theft\": null,\n        \"women\": null,\n        \"country_code\": [\n            \"US\"\n        ],\n        \"latitude\": 40.692777777,\n        \"longitude\": -73.990277777\n    },\n    {\n        \"city_id\": 123214,\n        \"name\": [\n            \"New York City\"\n        ],\n        \"country\": [\n            \"United States of America\"\n        ],\n        \"region\": [\n            \"New York\"\n        ],\n        \"lgbtq\": null,\n        \"medical\": null,\n        \"overall\": null,\n        \"physical\": null,\n        \"political\": null,\n        \"theft\": null,\n        \"women\": null,\n        \"country_code\": [\n            \"US\"\n        ],\n        \"latitude\": 40.67,\n        \"longitude\": -73.94\n    }\n]"
 						}
 					]
 				}
@@ -184,7 +270,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "26c79f57-eb47-4604-aba7-c7e0d42092d8",
+								"id": "8b926f32-0926-4b9c-9b3a-03e7d8ddb993",
 								"exec": [
 									"pm.test(\"response must be valid and have a body\", function () {",
 									"     pm.response.to.be.ok;",
@@ -214,12 +300,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/airport",
+							"raw": "{{baseUrl}}/airports",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"airport"
+								"airports"
 							]
 						},
 						"description": "returns coordinates, country, and time offset of all airports"
@@ -231,12 +317,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/airport",
+									"raw": "{{baseUrl}}/airports",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"airport"
+										"airports"
 									]
 								}
 							},
@@ -245,17 +331,16 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "x-next",
-									"value": "in fugiat consectetur mollit",
-									"description": "A link to the next page of responses"
+									"key": "content-length",
+									"value": "52368"
 								},
 								{
-									"key": "Content-Type",
-									"value": "application/json"
+									"key": "content-type",
+									"value": "text/html; charset=utf-8"
 								}
 							],
 							"cookie": [],
-							"body": "[\n {\n  \"iata_code\": \"NDK\",\n  \"airport_name\": \"Noo Doo Kairport\",\n  \"city_name\": \"Noodukoo\",\n  \"country_name\": \"Balringland\",\n  \"latitude\": \"92.22214\",\n  \"longitude\": \"-20.31444\",\n  \"time_offset\": \"+9:00\"\n },\n {\n  \"iata_code\": \"NNO\",\n  \"airport_name\": \"Aaaaairport\",\n  \"city_name\": \"Fearville\",\n  \"country_name\": \"Halloween Republic\",\n  \"latitude\": \"68.41999\",\n  \"longitude\": \"1.00001\",\n  \"time_offset\": \"+8:00\"\n }\n]"
+							"body": "[\n    {\n        \"iata_code\": [\n            \"BKK\"\n        ],\n        \"airport_name\": [\n            \"SUVARNABHUMI INTL\"\n        ],\n        \"city_name\": [\n            \"BANGKOK\"\n        ],\n        \"country_name\": [\n            \"THAILAND\"\n        ],\n        \"country_code\": [\n            \"TH\"\n        ],\n        \"latitude\": 13.69139,\n        \"longitude\": 100.7508,\n        \"time_offset\": [\n            \"+07:00\"\n        ]\n    },\n    {\n        \"iata_code\": [\n            \"HDY\"\n        ],\n        \"airport_name\": [\n            \"INTERNATIONAL\"\n        ],\n        \"city_name\": [\n            \"HAT YAI\"\n        ],\n        \"country_name\": [\n            \"THAILAND\"\n        ],\n        \"country_code\": [\n            \"TH\"\n        ],\n        \"latitude\": 6.93334,\n        \"longitude\": 100.3931,\n        \"time_offset\": [\n            \"+07:00\"\n        ]\n    }\n...]"
 						}
 					]
 				},
@@ -265,21 +350,31 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e6a0662b-47b6-44ac-877f-f668916d3422",
+								"id": "f1e55892-57fa-419f-93f4-1614a78f60fe",
 								"exec": [
 									"pm.test(\"response must be valid and have a body\", function () {",
 									"     pm.response.to.be.ok;",
 									"     pm.response.to.be.withBody;",
 									"     pm.response.to.be.json;",
 									"});",
-									"pm.test(\"searched airport should be BJS\", function () {",
+									"pm.test(\"first airport by longitude in china should be CTU\", function () {",
 									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData[0].iata_code[0]).to.eql(\"BJS\");",
-									"    pm.expect(jsonData[0].airport_name[0]).to.eql(\"BEIJING\");",
-									"    pm.expect(jsonData[0].city_name[0]).to.eql(\"BEIJING\");",
+									"    pm.expect(jsonData[0].iata_code[0]).to.eql(\"CTU\");",
+									"    pm.expect(jsonData[0].airport_name[0]).to.eql(\"SHUANGLIU INTL\");",
+									"    pm.expect(jsonData[0].city_name[0]).to.eql(\"CHENGDU\");",
 									"    pm.expect(jsonData[0].country_name[0]).to.eql(\"CHINA\");",
-									"    pm.expect(jsonData[0].longitude).to.eql(116.3972);",
-									"    pm.expect(jsonData[0].latitude).to.eql(39.9075);",
+									"    pm.expect(jsonData[0].longitude).to.eql(103.9472);",
+									"    pm.expect(jsonData[0].latitude).to.eql(30.57862);",
+									"});",
+									"",
+									"pm.test(\"second airport by longitude in china should be SYX\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[1].iata_code[0]).to.eql(\"SYX\");",
+									"    pm.expect(jsonData[1].airport_name[0]).to.eql(\"PHOENIX INTL\");",
+									"    pm.expect(jsonData[1].city_name[0]).to.eql(\"SANYA\");",
+									"    pm.expect(jsonData[1].country_name[0]).to.eql(\"CHINA\");",
+									"    pm.expect(jsonData[1].longitude).to.eql(109.4122);",
+									"    pm.expect(jsonData[1].latitude).to.eql(18.30278);",
 									"});"
 								],
 								"type": "text/javascript"
@@ -290,50 +385,176 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/airport/search?city_name=BEIJING",
+							"raw": "{{baseUrl}}/airports/search?sort=longitude&country_name=CHINA",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"airport",
+								"airports",
 								"search"
 							],
 							"query": [
 								{
+									"key": "iata_code",
+									"value": "<string>",
+									"description": "optional- search by iata code",
+									"disabled": true
+								},
+								{
+									"key": "airport_name",
+									"value": "<string>",
+									"description": "optional- search by airport name",
+									"disabled": true
+								},
+								{
 									"key": "city_name",
-									"value": "BEIJING"
+									"value": "<string>",
+									"description": "optional- search for airports in given city",
+									"disabled": true
+								},
+								{
+									"key": "country_code",
+									"value": "<string>",
+									"description": "optional- search for airports in country by country code",
+									"disabled": true
+								},
+								{
+									"key": "latitude",
+									"value": "<float>",
+									"description": "optional- search for airport at exact latitude",
+									"disabled": true
+								},
+								{
+									"key": "longitude",
+									"value": "<float>",
+									"description": "optional- search for airport at exact longitude",
+									"disabled": true
+								},
+								{
+									"key": "time_offset",
+									"value": "<integer>",
+									"description": "optional- search for airport in specified time zone",
+									"disabled": true
+								},
+								{
+									"key": "filter",
+									"value": "<[latitude, longitude, time_offset]><[[GTE],[LTE]]><float>",
+									"description": "optional- filter results to be above or below coordinate, before or after offset",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "<[latitude, longitude, time_offset, longitude, latitude, country_code, country_name, city_name, airport-name, iata_code]>",
+									"description": "optional- sort resutls alphabetically or numerically, a '-' sign before the parameter will reverse the order",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "longitude"
+								},
+								{
+									"key": "country_name",
+									"value": "CHINA"
+								},
+								{
+									"key": "country_name",
+									"value": "<string>",
+									"disabled": true
 								}
 							]
 						},
-						"description": "returns coordinates and time offset of all airports in given city"
+						"description": "returns coordinates, and time offset of all airports in search"
 					},
 					"response": [
 						{
-							"name": "Successfully returned airports - Noodukoo",
+							"name": "Airports - search United Kingdom above 0 degrees longitude",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/airport/search?city_name=Noodukoo",
+									"raw": "{{baseUrl}}/airports/search?filter=longitude[GTE]0&country_name=United Kingdom",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"airport",
+										"airports",
 										"search"
 									],
 									"query": [
 										{
+											"key": "iata_code",
+											"value": "<string>",
+											"description": "optional- search by iata code",
+											"disabled": true
+										},
+										{
+											"key": "airport_name",
+											"value": "<string>",
+											"description": "optional- search by airport name",
+											"disabled": true
+										},
+										{
 											"key": "city_name",
-											"value": "Noodukoo"
+											"value": "<string>",
+											"description": "optional- search for airports in given city",
+											"disabled": true
+										},
+										{
+											"key": "country_code",
+											"value": "<string>",
+											"description": "optional- search for airports in country by country code",
+											"disabled": true
+										},
+										{
+											"key": "latitude",
+											"value": "<float>",
+											"description": "optional- search for airport at exact latitude",
+											"disabled": true
+										},
+										{
+											"key": "longitude",
+											"value": "<float>",
+											"description": "optional- search for airport at exact longitude",
+											"disabled": true
+										},
+										{
+											"key": "time_offset",
+											"value": "<integer>",
+											"description": "optional- search for airport in specified time zone",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": "<[latitude, longitude, time_offset, longitude, latitude, country_code, country_name, city_name, airport-name, iata_code]>",
+											"description": "optional- sort resutls alphabetically or numerically, a '-' sign before the parameter will reverse the order",
+											"disabled": true
+										},
+										{
+											"key": "filter",
+											"value": "longitude[GTE]0"
+										},
+										{
+											"key": "country_name",
+											"value": "United Kingdom"
 										}
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "214"
+								},
+								{
+									"key": "content-type",
+									"value": "text/html; charset=utf-8"
+								}
+							],
 							"cookie": [],
-							"body": " [\n {\n  \"iata_code\": \"NDK\",\n  \"airport_name\": \"Noo Doo Kairport\",\n  \"city_name\": \"Noodukoo\",\n  \"country_name\": \"Balringland\",\n  \"latitude\": \"92.22214\",\n  \"longitude\": \"-20.31444\",\n  \"time_offset\": \"+9:00\"\n }\n ]"
+							"body": "[{\"iata_code\": [\"LYX\"], \"airport_name\": [\"LONDON ASHFORD\"], \"city_name\": [\"LYDD\"], \"country_name\": [\"UNITED KINGDOM\"], \"country_code\": [\"GB\"], \"latitude\": 50.95612, \"longitude\": 0.93917, \"time_offset\": [\"+01:00\"]}]"
 						}
 					]
 				}
@@ -349,7 +570,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3cf5e38b-112f-4363-8c25-2338e2b58439",
+								"id": "0d7e9d5d-8fb0-4c7f-ab40-37dde95a3354",
 								"exec": [
 									"pm.test(\"response must be valid and have a body\", function () {",
 									"     pm.response.to.be.ok;",
@@ -397,7 +618,7 @@
 					},
 					"response": [
 						{
-							"name": "Successfully returned COVID statistics for each country",
+							"name": "COVID-stats - successfully returned countries",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -416,27 +637,62 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "x-next",
-									"value": "in fugiat consectetur mollit",
-									"description": "A link to the next page of responses"
+									"key": "content-length",
+									"value": "30808"
 								},
 								{
-									"key": "Content-Type",
-									"value": "application/json"
+									"key": "content-type",
+									"value": "text/html; charset=utf-8"
 								}
 							],
 							"cookie": [],
-							"body": "[\n {\n  \"country_code\": \"US\",\n  \"country\": \"United States\",\n  \"total_cases\": 1337,\n  \"total_deaths\": 687877,\n  \"new_cases\": 0,\n  \"new_deaths\": 2\n },\n {\n  \"country_code\": \"CN\",\n  \"country\": \"China\",\n  \"total_cases\": 10,\n  \"total_deaths\": 9,\n  \"new_cases\": 1,\n  \"new_deaths\": 9\n }\n]"
+							"body": "[\n    {\n        \"country_code\": [\n            \"AF\"\n        ],\n        \"country\": [\n            \"Afghanistan\"\n        ],\n        \"new_cases\": 77,\n        \"total_cases\": 39693,\n        \"new_deaths\": 2,\n        \"total_deaths\": 1472,\n        \"date\": [\n            \"2020-10-10T19:36:09Z\"\n        ]\n    },\n    {\n        \"country_code\": [\n            \"AL\"\n        ],\n        \"country\": [\n            \"Albania\"\n        ],\n        \"new_cases\": 167,\n        \"total_cases\": 15066,\n        \"new_deaths\": 2,\n        \"total_deaths\": 413,\n        \"date\": [\n            \"2020-10-10T19:36:09Z\"\n        ]\n    },\n    {\n        \"country_code\": [\n            \"DZ\"\n        ],\n        \"country\": [\n            \"Algeria\"\n        ],\n        \"new_cases\": 146,\n        \"total_cases\": 52804,\n        \"new_deaths\": 6,\n        \"total_deaths\": 1789,\n        \"date\": [\n            \"2020-10-10T19:36:09Z\"\n        ]\n    },\n...]"
 						}
 					]
 				},
 				{
-					"name": "COVID-stats - country",
+					"name": "COVID-stats - search",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fcba5b60-7e79-40fd-ad22-3a06590af9d8",
+								"exec": [
+									"pm.test(\"response must be valid and have a body\", function () {",
+									"     pm.response.to.be.ok;",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"});",
+									"pm.test(\"Searched countries with deaths greater than 10000 sorted by total cases should start with Ecuador\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].country_code[0]).to.eql(\"EC\");",
+									"    pm.expect(jsonData[0].country[0]).to.eql(\"Ecuador\");",
+									"    pm.expect(jsonData[0].new_cases).to.eql(803);",
+									"    pm.expect(jsonData[0].total_cases).to.eql(145848);",
+									"    pm.expect(jsonData[0].new_deaths).to.eql(34);",
+									"    pm.expect(jsonData[0].total_deaths).to.eql(12175);",
+									"    pm.expect(jsonData[0].date[0]).to.eql(\"2020-10-10T19:36:09Z\");",
+									"});",
+									"pm.test(\"Searched countries with deaths greater than 10000 sorted by total cases should start with Ecuador\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[1].country_code[0]).to.eql(\"BE\");",
+									"    pm.expect(jsonData[1].country[0]).to.eql(\"Belgium\");",
+									"    pm.expect(jsonData[1].new_cases).to.eql(5385);",
+									"    pm.expect(jsonData[1].total_cases).to.eql(148981);",
+									"    pm.expect(jsonData[1].new_deaths).to.eql(25);",
+									"    pm.expect(jsonData[1].total_deaths).to.eql(10151);",
+									"    pm.expect(jsonData[1].date[0]).to.eql(\"2020-10-10T19:36:09Z\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/covid/search?country_code=<Country Code>",
+							"raw": "{{baseUrl}}/covid/search?filter=total_deaths[GTE]10000&sort=total_cases",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -447,20 +703,72 @@
 							"query": [
 								{
 									"key": "country_code",
-									"value": "<Country Code>"
+									"value": "<string>",
+									"description": "optional- country's code",
+									"disabled": true
+								},
+								{
+									"key": "country",
+									"value": "<string>",
+									"description": "optional- country's name",
+									"disabled": true
+								},
+								{
+									"key": "new_cases",
+									"value": "<integer>",
+									"description": "optional- search for countries with specified # of new cases",
+									"disabled": true
+								},
+								{
+									"key": "total_cases",
+									"value": "<integer>",
+									"description": "optional- search for countries with specified # of total cases",
+									"disabled": true
+								},
+								{
+									"key": "total_deaths",
+									"value": "<integer>",
+									"description": "optional- search for countries with specified # of total deaths",
+									"disabled": true
+								},
+								{
+									"key": "date",
+									"value": "<date>",
+									"description": "optional- search for date \"YYYY-MM-DDThh:mm:ssZ\"",
+									"disabled": true
+								},
+								{
+									"key": "filter",
+									"value": "<[new_cases, total_cases, new_deaths, total_deaths]><[[GTE], [LTE]]><integer>",
+									"description": "optional- filter results' parameter for values >= or <= given value",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "<[new_cases, total_cases, new_deaths, total_deaths]>",
+									"description": "optional- sort results by parameter, a '-' in front will reverse the order",
+									"disabled": true
+								},
+								{
+									"key": "filter",
+									"value": "total_deaths[GTE]10000"
+								},
+								{
+									"key": "sort",
+									"value": "total_cases"
 								}
 							]
 						},
-						"description": "returns covid statistics on specified country"
+						"description": "returns covid statistics on searched fields"
 					},
 					"response": [
 						{
-							"name": "Successfully returned COVID statistics for country - CN",
+							"name": "COVID-stats - countries with < 100 cases sorted by total cases ascending",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/covid/search?country_code=CN",
+									"raw": "{{baseUrl}}/covid/search?filter=total_cases[LTE]100&sort=total_cases",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -471,15 +779,67 @@
 									"query": [
 										{
 											"key": "country_code",
-											"value": "CN"
+											"value": "<string>",
+											"description": "optional- country's code",
+											"disabled": true
+										},
+										{
+											"key": "country",
+											"value": "<string>",
+											"description": "optional- country's name",
+											"disabled": true
+										},
+										{
+											"key": "new_cases",
+											"value": "<integer>",
+											"description": "optional- search for countries with specified # of new cases",
+											"disabled": true
+										},
+										{
+											"key": "total_cases",
+											"value": "<integer>",
+											"description": "optional- search for countries with specified # of total cases",
+											"disabled": true
+										},
+										{
+											"key": "total_deaths",
+											"value": "<integer>",
+											"description": "optional- search for countries with specified # of total deaths",
+											"disabled": true
+										},
+										{
+											"key": "date",
+											"value": "<date>",
+											"description": "optional- search for date <3??",
+											"disabled": true
+										},
+										{
+											"key": "filter",
+											"value": "total_cases[LTE]100",
+											"description": "optional- filter results' parameter for values >= or <= given value"
+										},
+										{
+											"key": "sort",
+											"value": "total_cases"
 										}
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "1944"
+								},
+								{
+									"key": "content-type",
+									"value": "text/html; charset=utf-8"
+								}
+							],
 							"cookie": [],
-							"body": "[\n {\n  \"country_code\": \"CN\",\n  \"country\": \"China\",\n  \"total_cases\": 10,\n  \"total_deaths\": 9,\n  \"new_cases\": 1,\n  \"new_deaths\": 9\n }\n]"
+							"body": "[{\"country_code\": [\"MO\"], \"country\": [\"Macao\", \"SAR China\"], \"new_cases\": 0, \"total_cases\": 0, \"new_deaths\": 0, \"total_deaths\": 0, \"date\": [\"2020-10-10T19:36:09Z\"]}, {\"country_code\": [\"RE\"], \"country\": [\"R\\u00e9union\"], \"new_cases\": 0, \"total_cases\": 0, \"new_deaths\": 0, \"total_deaths\": 0, \"date\": [\"2020-10-10T19:36:09Z\"]}, {\"country_code\": [\"EH\"], \"country\": [\"Western Sahara\"], \"new_cases\": 0, \"total_cases\": 10, \"new_deaths\": 0, \"total_deaths\": 1, \"date\": [\"2020-10-10T19:36:09Z\"]}, {\"country_code\": [\"VA\"], \"country\": [\"Holy See (Vatican City State)\"], \"new_cases\": 0, \"total_cases\": 12, \"new_deaths\": 0, \"total_deaths\": 0, \"date\": [\"2020-10-10T19:36:09Z\"]}, {\"country_code\": [\"KN\"], \"country\": [\"Saint Kitts and Nevis\"], \"new_cases\": 0, \"total_cases\": 19, \"new_deaths\": 0, \"total_deaths\": 0, \"date\": [\"2020-10-10T19:36:09Z\"]}, {\"country_code\": [\"LA\"], \"country\": [\"Lao PDR\"], \"new_cases\": 0, \"total_cases\": 23, \"new_deaths\": 0, \"total_deaths\": 0, \"date\": [\"2020-10-10T19:36:09Z\"]}, {\"country_code\": [\"GD\"], \"country\": [\"Grenada\"], \"new_cases\": 0, \"total_cases\": 24, \"new_deaths\": 0, \"total_deaths\": 0, \"date\": [\"2020-10-10T19:36:09Z\"]}, {\"country_code\": [\"LC\"], \"country\": [\"Saint Lucia\"], \"new_cases\": 0, \"total_cases\": 28, \"new_deaths\": 0, \"total_deaths\": 0, \"date\": [\"2020-10-10T19:36:09Z\"]}, {\"country_code\": [\"TL\"], \"country\": [\"Timor-Leste\"], \"new_cases\": 0, \"total_cases\": 28, \"new_deaths\": 0, \"total_deaths\": 0, \"date\": [\"2020-10-10T19:36:09Z\"]}, {\"country_code\": [\"DM\"], \"country\": [\"Dominica\"], \"new_cases\": 1, \"total_cases\": 32, \"new_deaths\": 0, \"total_deaths\": 0, \"date\": [\"2020-10-10T19:36:09Z\"]}, {\"country_code\": [\"FJ\"], \"country\": [\"Fiji\"], \"new_cases\": 0, \"total_cases\": 32, \"new_deaths\": 0, \"total_deaths\": 2, \"date\": [\"2020-10-10T19:36:09Z\"]}, {\"country_code\": [\"VC\"], \"country\": [\"Saint Vincent and Grenadines\"], \"new_cases\": 0, \"total_cases\": 64, \"new_deaths\": 0, \"total_deaths\": 0, \"date\": [\"2020-10-10T19:36:09Z\"]}]"
 						}
 					]
 				}
@@ -487,33 +847,12 @@
 			"protocolProfileBehavior": {}
 		}
 	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"id": "1c321ed9-9ecf-4a24-84ea-8c102879fefa",
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"id": "fb98823f-c7ec-479e-89ea-70a7c73f0804",
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		}
-	],
 	"variable": [
 		{
-			"id": "6ade2087-782d-4ad1-a1f1-f8255c6cb59f",
+			"id": "baseUrl",
 			"key": "baseUrl",
-			"value": "https://api.travelwise.live"
+			"value": "https://api.travelwise.live",
+			"type": "string"
 		}
 	],
 	"protocolProfileBehavior": {}

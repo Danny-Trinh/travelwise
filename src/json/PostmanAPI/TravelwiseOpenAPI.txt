@@ -47,10 +47,10 @@ paths:
                         type: integer
                     women_safety_score:
                         type: integer
-  cities/search?name=<name>:
+  cities/search?:
     get:
       summary: 'City Safety - search'
-      description: returns data on safety score of given city along with country, coordinates, and region
+      description: returns data on safety score of searched cities along with country, coordinates, and region
       operationId: listUser
       tags:
         - user
@@ -125,10 +125,10 @@ paths:
                         type: string
                     time_offset:
                         type: string
-  airport/search?city_name=<City>:
+  airport/search?:
     get:
       summary: 'Airports - search'
-      description: returns coordinates, and time offset of all airports in given city
+      description: returns coordinates, and time offset of all airports in search
       operationId: listUser
       tags:
         - user
@@ -195,10 +195,10 @@ paths:
                         type: integer
                     new_deaths:
                         type: integer
-  covid/search?country_code=<Country Code>:
+  covid/search?:
     get:
       summary: 'COVID-stats - country'
-      description: returns covid statistics on specified country
+      description: returns covid statistics on searched fields
       operationId: listUser
       tags:
         - user
