@@ -19,6 +19,36 @@ const orderOptions = [
   { value: 1, label: "Ascending" },
   { value: -1, label: "Descending" },
 ];
+const countryOptions = [
+  {value: 'Argentina', label: 'Argentina'},
+  {value: 'Brazil', label: 'Brazil'},
+  {value: 'Canada', label: 'Canada'},
+  {value: 'Columbia', label: 'Columbia'},
+  {value: 'Egypt', label: 'Egypt'},
+  {value: 'Ethiopia', label: 'Ethiopia'},
+  {value: 'France', label: 'France'},
+  {value: 'Germany', label: 'Germany'},
+  {value: 'India', label: 'India'},
+  {value: 'Indonesia', label: 'Indonesia'},
+  {value: 'Iran', label: 'Iran'},
+  {value: 'Italy', label: 'Italy'},
+  {value: 'Japan', label: 'Japan'},
+  {value: 'Mexico', label: 'Mexico'},
+  {value: 'Nigeria', label: 'Nigeria'},
+  {value: 'Pakistan', label: 'Pakistan'},
+  {value: 'People\'s Republic of China', label: 'People\'s Republic of China'},
+  {value: 'Philippines', label: 'Philippines'},
+  {value: 'Russia', label: 'Russia'},
+  {value: 'South Africa', label: 'South Africa'},
+  {value: 'South Korea', label: 'South Korea'},
+  {value: 'Spain', label: 'Spain'},
+  {value: 'Thailand', label: 'Thailand'},
+  {value: 'Turkey', label: 'Turkey'},
+  {value: 'Ukraine', label: 'Ukraine'},
+  {value: 'United Kingdom', label: 'United Kingdom'},
+  {value: 'United States of America', label: 'United States of America'},
+  {value: 'Vietnam', label: 'Vietnam'},
+];
 
 
 export default class Cities extends Component {
@@ -33,6 +63,7 @@ export default class Cities extends Component {
     searchVal: "",
     searchActive: false,
   };
+  states = [];
 
   componentDidMount() {
     this.getData();
@@ -200,8 +231,18 @@ export default class Cities extends Component {
               }}
               placeholder="Order: Ascend"
               options={orderOptions}
+
             />
-            <form className="col-md-4" onSubmit={(e) => this.handleSubmit(e)}>
+            <Select
+              className="col-md-3 basic-multi-select"
+              onChange={(e) => {
+
+              }}
+              placeholder="Filter: Country"
+              options={countryOptions}
+              isMulti
+            />
+            <form className="col-md-3" onSubmit={(e) => this.handleSubmit(e)}>
               <input
                 type="text"
                 value={this.state.searchVal}
