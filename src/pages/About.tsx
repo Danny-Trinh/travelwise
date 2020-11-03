@@ -239,8 +239,8 @@ export default class page1 extends Component<myState> {
               </li>
               <li>
                 <strong>Postman</strong>:{" "}
-                <a href="https://documenter.getpostman.com/view/12799472/TVRrWQnn">
-                  https://documenter.getpostman.com/view/12799472/TVRrWQnn
+                <a href="https://documenter.getpostman.com/view/12799472/TVYM5bPo">
+                https://documenter.getpostman.com/view/12799472/TVYM5bPo
                 </a>
               </li>
             </ul>
