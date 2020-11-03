@@ -16,6 +16,48 @@ const orderOptions = [
   { value: 1, label: "Ascending" },
   { value: -1, label: "Descending" },
 ];
+const countryOptions = [
+  {value: 'ARGENTINA', label: 'Argentina'},
+  {value: 'BAHAMAS', label: 'Bahamas'},
+  {value: 'BRAZIL', label: 'Brazil'},
+  {value: 'CAMBODIA', label: 'Cambodia'},
+  {value: 'CANADA', label: 'Canada'},
+  {value: 'CHILE', label: 'Chile'},
+  {value: 'CHINA', label: 'China'},
+  {value: 'COLUMBIA', label: 'Columbia'},
+  {value: 'COSTA RICA', label: 'Costa Rica'},
+  {value: 'CUBA', label: 'Cuba'},
+  {value: 'EGYPT', label: 'Egypt'},
+  {value: 'EL SALVADOR', label: 'El Salvador'},
+  {value: 'ETHIOPIA', label: 'Ethiopia'},
+  {value: 'FRANCE', label: 'France'},
+  {value: 'GERMANY', label: 'Germany'},
+  {value: 'GREECE', label: 'Greece'},
+  {value: 'INDIA', label: 'India'},
+  {value: 'INDONESIA', label: 'Indonesia'},
+  {value: 'IRAN', label: 'Iran'},
+  {value: 'ITALY', label: 'Italy'},
+  {value: 'JAPAN', label: 'Japan'},
+  {value: 'MALAYSIA', label: 'Malaysia'},
+  {value: 'MEXICO', label: 'Mexico'},
+  {value: 'NEW ZEALAND', label: 'New Zealand'},
+  {value: 'NIGERIA', label: 'Nigeria'},
+  {value: 'PAKISTAN', label: 'Pakistan'},
+  {value: 'PAPUA NEW GUINEA', label: 'Papua New Guinea'},
+  {value: 'PHILIPPINES', label: 'Philippines'},
+  {value: 'RUSSIA', label: 'Russia'},
+  {value: 'SAUDI ARABIA', label: 'Saudi Arabia'},
+  {value: 'SOUTH AFRICA', label: 'South Africa'},
+  {value: 'KOREA REPUBLIC OF', label: 'South Korea'},
+  {value: 'SPAIN', label: 'Spain'},
+  {value: 'THAILAND', label: 'Thailand'},
+  {value: 'TURKEY', label: 'Turkey'},
+  {value: 'UKRAINE', label: 'Ukraine'},
+  {value: 'UNITED KINGDOM', label: 'United Kingdom'},
+  {value: 'UNITED STATES OF AMERICA', label: 'United States of America'},
+  {value: 'VENEZUELA', label: 'Venezuela'},
+  {value: 'Vietnam', label: 'Vietnam'},
+];
 
 export default class Flights extends Component {
   state = {
@@ -189,7 +231,16 @@ export default class Flights extends Component {
               placeholder="Order: Ascend"
               options={orderOptions}
             />
-            <form className="col-md-4" onSubmit={(e) => this.handleSubmit(e)}>
+            <Select
+              className="col-md-3 basic-multi-select"
+              onChange={(e) => {
+
+              }}
+              placeholder="Filter: Country"
+              options={countryOptions}
+              isMulti
+            />
+            <form className="col-md-3" onSubmit={(e) => this.handleSubmit(e)}>
               <input
                 type="text"
                 value={this.state.searchVal}
