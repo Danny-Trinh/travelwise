@@ -142,7 +142,10 @@ export default class CovidDetail extends Component<myProps> {
             </table>
           </div>
 
+          <div className="row mb-3"></div>
+          <div className="card">
           <img src={this.state.picture} alt={this.state.data.country}></img>
+          </div>
           <div className="row mb-3"></div>
           {cityRender}
           {airportRender}

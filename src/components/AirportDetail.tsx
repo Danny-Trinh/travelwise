@@ -99,11 +99,14 @@ export default class AirportDetail extends Component<myProps> {
               </tbody>
             </table>
           </div>
-
+          
+          <div className="row mb-3"></div>
+          <div className="card">
           <img
             src={this.state.picture}
             alt={this.state.data.airport_name}
           ></img>
+          </div>
           <div className="row mb-3"></div>
           <div style={{ height: '100vh', width: '100%' }}>
           <Map 
