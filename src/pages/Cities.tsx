@@ -74,13 +74,62 @@ export default class Cities extends Component {
               ? highlight(i.region[0], this.state.searchVal)
               : i.region[0]}
           </td>
-          <td>{this.state.searchActive ? highlight((i.overall ? i.overall : 0).toString(), this.state.searchVal) : i.overall}</td>
-          <td>{this.state.searchActive ? highlight((i.lgbtq ? i.lgbtq : 0).toString(), this.state.searchVal) : i.lgbtq}</td>
-          <td>{this.state.searchActive ? highlight((i.medical ? i.medical : 0).toString(), this.state.searchVal) : i.medical}</td>
-          <td>{this.state.searchActive ? highlight((i.physical ? i.physical : 0).toString(), this.state.searchVal) : i.physical}</td>
-          <td>{this.state.searchActive ? highlight((i.political ? i.political : 0).toString(), this.state.searchVal) : i.political}</td>
-          <td>{this.state.searchActive ? highlight((i.theft ? i.theft : 0).toString(), this.state.searchVal) : i.theft}</td>
-          <td>{this.state.searchActive ? highlight((i.women ? i.women : 0).toString(), this.state.searchVal) : i.women}</td>
+          <td>
+            {this.state.searchActive
+              ? highlight(
+                  (i.overall ? i.overall : 0).toString(),
+                  this.state.searchVal
+                )
+              : i.overall}
+          </td>
+          <td>
+            {this.state.searchActive
+              ? highlight(
+                  (i.lgbtq ? i.lgbtq : 0).toString(),
+                  this.state.searchVal
+                )
+              : i.lgbtq}
+          </td>
+          <td>
+            {this.state.searchActive
+              ? highlight(
+                  (i.medical ? i.medical : 0).toString(),
+                  this.state.searchVal
+                )
+              : i.medical}
+          </td>
+          <td>
+            {this.state.searchActive
+              ? highlight(
+                  (i.physical ? i.physical : 0).toString(),
+                  this.state.searchVal
+                )
+              : i.physical}
+          </td>
+          <td>
+            {this.state.searchActive
+              ? highlight(
+                  (i.political ? i.political : 0).toString(),
+                  this.state.searchVal
+                )
+              : i.political}
+          </td>
+          <td>
+            {this.state.searchActive
+              ? highlight(
+                  (i.theft ? i.theft : 0).toString(),
+                  this.state.searchVal
+                )
+              : i.theft}
+          </td>
+          <td>
+            {this.state.searchActive
+              ? highlight(
+                  (i.women ? i.women : 0).toString(),
+                  this.state.searchVal
+                )
+              : i.women}
+          </td>
           <td>
             <Link to={`/Covid/${i.country_code}`}>Link</Link>
           </td>
@@ -225,6 +274,7 @@ export default class Cities extends Component {
               options={constants.citySortOptions}
               placeholder="Sort by: City"
               isClearable
+              isSearchable={false}
             />
             <Select
               className="col-md-3"
@@ -235,6 +285,7 @@ export default class Cities extends Component {
               }}
               placeholder="Order: Ascend"
               options={constants.cityOrderOptions}
+              isSearchable={false}
             />
             <form className="col-md-5" onSubmit={(e) => this.handleSubmit(e)}>
               <input
@@ -267,6 +318,7 @@ export default class Cities extends Component {
               options={constants.pageViewOptions}
               placeholder="Items Per Page: 9"
               isClearable
+              isSearchable={false}
             />
             <div className="col-md-3"></div>
             <Select

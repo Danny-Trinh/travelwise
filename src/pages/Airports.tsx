@@ -82,9 +82,30 @@ export default class Airports extends Component {
               ? highlight(i.country_name[0], this.state.searchVal)
               : i.country_name[0]}
           </td>
-          <td>{this.state.searchActive ? highlight((i.latitude ? i.latitude : 0).toString(), this.state.searchVal) : i.latitude}</td>
-          <td>{this.state.searchActive ? highlight((i.longitude ? i.longitude : 0).toString(), this.state.searchVal) : i.longitude}</td>
-          <td>{this.state.searchActive ? highlight((i.time_offset ? i.time_offset : 0).toString(), this.state.searchVal) : i.time_offset}</td>
+          <td>
+            {this.state.searchActive
+              ? highlight(
+                  (i.latitude ? i.latitude : 0).toString(),
+                  this.state.searchVal
+                )
+              : i.latitude}
+          </td>
+          <td>
+            {this.state.searchActive
+              ? highlight(
+                  (i.longitude ? i.longitude : 0).toString(),
+                  this.state.searchVal
+                )
+              : i.longitude}
+          </td>
+          <td>
+            {this.state.searchActive
+              ? highlight(
+                  (i.time_offset ? i.time_offset : 0).toString(),
+                  this.state.searchVal
+                )
+              : i.time_offset}
+          </td>
           <td>
             <Link to={`/Covid/${i.country_code}`}>Link</Link>
           </td>
@@ -220,6 +241,7 @@ export default class Airports extends Component {
               options={constants.airportSortOptions}
               placeholder="Sort by: Airport"
               isClearable
+              isSearchable={false}
             />
             <Select
               className="col-md-3"
@@ -230,6 +252,7 @@ export default class Airports extends Component {
               }}
               placeholder="Order: Ascend"
               options={constants.airportOrderOptions}
+              isSearchable={false}
             />
             <form className="col-md-5" onSubmit={(e) => this.handleSubmit(e)}>
               <input
@@ -261,6 +284,7 @@ export default class Airports extends Component {
               options={constants.pageViewOptions}
               placeholder="Items Per Page: 9"
               isClearable
+              isSearchable={false}
             />
             <div className="col-md-3"></div>
             <Select

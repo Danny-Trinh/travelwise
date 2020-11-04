@@ -69,10 +69,38 @@ export default class Covid extends Component {
               ? highlight(i.country_code[0], this.state.searchVal)
               : i.country_code[0]}
           </td>
-          <td>{this.state.searchActive ? highlight((i.new_cases ? i.new_cases : 0).toString(), this.state.searchVal) : i.new_cases}</td>
-          <td>{this.state.searchActive ? highlight((i.total_cases ? i.total_cases : 0).toString(), this.state.searchVal) : i.total_cases}</td>
-          <td>{this.state.searchActive ? highlight((i.new_deaths ? i.new_deaths : 0).toString(), this.state.searchVal) : i.new_deaths}</td>
-          <td>{this.state.searchActive ? highlight((i.total_deaths ? i.total_deaths : 0).toString(), this.state.searchVal) : i.total_deaths}</td>
+          <td>
+            {this.state.searchActive
+              ? highlight(
+                  (i.new_cases ? i.new_cases : 0).toString(),
+                  this.state.searchVal
+                )
+              : i.new_cases}
+          </td>
+          <td>
+            {this.state.searchActive
+              ? highlight(
+                  (i.total_cases ? i.total_cases : 0).toString(),
+                  this.state.searchVal
+                )
+              : i.total_cases}
+          </td>
+          <td>
+            {this.state.searchActive
+              ? highlight(
+                  (i.new_deaths ? i.new_deaths : 0).toString(),
+                  this.state.searchVal
+                )
+              : i.new_deaths}
+          </td>
+          <td>
+            {this.state.searchActive
+              ? highlight(
+                  (i.total_deaths ? i.total_deaths : 0).toString(),
+                  this.state.searchVal
+                )
+              : i.total_deaths}
+          </td>
         </tr>
       );
     });
@@ -197,6 +225,7 @@ export default class Covid extends Component {
               options={constants.covidSortOptions}
               placeholder="Sort by: Country"
               isClearable
+              isSearchable={false}
             />
             <Select
               className="col-md-3"
@@ -207,6 +236,7 @@ export default class Covid extends Component {
               }}
               placeholder="Order: Ascend"
               options={constants.covidOrderOptions}
+              isSearchable={false}
             />
             <form className="col-md-5" onSubmit={(e) => this.handleSubmit(e)}>
               <input
@@ -238,6 +268,7 @@ export default class Covid extends Component {
               options={constants.pageViewOptions}
               placeholder="Items Per Page: 9"
               isClearable
+              isSearchable={false}
             />
             <div className="col-md-3"></div>
             <Select
@@ -247,6 +278,7 @@ export default class Covid extends Component {
               value={this.state.filters}
               options={constants.covidFilterOptions}
               isMulti
+              isSearchable={false}
             />
           </div>
           <table className="table table-hover mx-auto bg-gray-100">
