@@ -228,7 +228,17 @@ export default class Covid extends Component {
             </button>
           </div>
           <div className="row mt-1 mb-3">
-            <div className="col-md-6"></div>
+            <Select
+              className="col-md-3"
+              onChange={(x: any) => {
+                this.getData();
+                this.setState({ perPage: x ? x.value : 9 });
+              }}
+              options={constants.pageViewOptions}
+              placeholder="Items Per Page: 9"
+              isClearable
+            />
+            <div className="col-md-3"></div>
             <Select
               className="col-md-5"
               onChange={(x: any) => this.handleFilter(x)}

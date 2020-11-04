@@ -173,7 +173,7 @@ export default class Cities extends Component {
         city.name[0].toLowerCase().includes(searchVal) ||
         city.country[0].toLowerCase().includes(searchVal) ||
         city.region[0].toLowerCase().includes(searchVal) ||
-        (city.overall ? city.overall : 0).toString().includes(searchVal) || 
+        (city.overall ? city.overall : 0).toString().includes(searchVal) ||
         (city.lgbtq ? city.lgbtq : 0).toString().includes(searchVal) ||
         (city.medical ? city.medical : 0).toString().includes(searchVal) ||
         (city.physical ? city.physical : 0).toString().includes(searchVal) ||
@@ -257,7 +257,17 @@ export default class Cities extends Component {
             </button>
           </div>
           <div className="row mt-1 mb-3">
-            <div className="col-md-6"></div>
+            <Select
+              className="col-md-3"
+              onChange={(x: any) => {
+                this.getData();
+                this.setState({ perPage: x ? x.value : 9 });
+              }}
+              options={constants.pageViewOptions}
+              placeholder="Items Per Page: 9"
+              isClearable
+            />
+            <div className="col-md-3"></div>
             <Select
               className="col-md-5"
               onChange={(x: any) => this.handleFilter(x)}

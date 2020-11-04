@@ -165,10 +165,16 @@ export default class Airports extends Component {
         airports.airport_name[0].toLowerCase().includes(searchVal) ||
         airports.iata_code[0].toLowerCase().includes(searchVal) ||
         airports.city_name[0].toLowerCase().includes(searchVal) ||
-        airports.country_name[0].toLowerCase().includes(searchVal) || 
-        (airports.latitude ? airports.latitude : 0).toString().includes(searchVal) || 
-        (airports.longitude ? airports.longitude : 0).toString().includes(searchVal) ||
-        (airports.time_offset ? airports.time_offset : 0).toString().includes(searchVal)
+        airports.country_name[0].toLowerCase().includes(searchVal) ||
+        (airports.latitude ? airports.latitude : 0)
+          .toString()
+          .includes(searchVal) ||
+        (airports.longitude ? airports.longitude : 0)
+          .toString()
+          .includes(searchVal) ||
+        (airports.time_offset ? airports.time_offset : 0)
+          .toString()
+          .includes(searchVal)
     );
     this.setState({
       pageCount: Math.ceil(data.length / this.state.perPage),
@@ -245,7 +251,17 @@ export default class Airports extends Component {
             </button>
           </div>
           <div className="row mt-1 mb-3">
-            <div className="col-md-6"></div>
+            <Select
+              className="col-md-3"
+              onChange={(x: any) => {
+                this.getData();
+                this.setState({ perPage: x ? x.value : 9 });
+              }}
+              options={constants.pageViewOptions}
+              placeholder="Items Per Page: 9"
+              isClearable
+            />
+            <div className="col-md-3"></div>
             <Select
               className="col-md-5"
               onChange={(x: any) => this.handleFilter(x)}
