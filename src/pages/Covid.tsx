@@ -69,10 +69,10 @@ export default class Covid extends Component {
               ? highlight(i.country_code[0], this.state.searchVal)
               : i.country_code[0]}
           </td>
-          <td>{i.new_cases}</td>
-          <td>{i.total_cases}</td>
-          <td>{i.new_deaths}</td>
-          <td>{i.total_deaths}</td>
+          <td>{this.state.searchActive ? highlight((i.new_cases ? i.new_cases : 0).toString(), this.state.searchVal) : i.new_cases}</td>
+          <td>{this.state.searchActive ? highlight((i.total_cases ? i.total_cases : 0).toString(), this.state.searchVal) : i.total_cases}</td>
+          <td>{this.state.searchActive ? highlight((i.new_deaths ? i.new_deaths : 0).toString(), this.state.searchVal) : i.new_deaths}</td>
+          <td>{this.state.searchActive ? highlight((i.total_deaths ? i.total_deaths : 0).toString(), this.state.searchVal) : i.total_deaths}</td>
         </tr>
       );
     });
