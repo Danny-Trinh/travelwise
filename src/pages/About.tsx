@@ -156,30 +156,36 @@ export default class page1 extends Component<myState> {
             <h2>Technologies Used</h2>
             <ul>
               <li>
-                <strong>Docker</strong>: Creates a docker image that packages
+              <a href="https://www.docker.com/">
+              <strong>Docker</strong></a>: Creates a docker image that packages
                 our tool-chain and dependencies into one container.
               </li>
               <li>
-                <strong>Postman</strong>: Streamlines the creation and
+              <a href="https://www.postman.com/">
+              <strong>Postman</strong></a>: Streamlines the creation and
                 management of our API's{" "}
               </li>
               <li>
-                <strong>React</strong>: Javascript Library developed by Facebook
+              <a href="https://reactjs.org/">
+              <strong>React</strong></a>: Javascript Library developed by Facebook
                 that modernizes website rendering and is used in our front-end
                 design. We used Create-React-App as our framework since it is
                 officially supported by Facebook.
               </li>
               <li>
-                <strong>Bootstrap</strong>: Bootstrap is a extensive CSS
+              <a href="https://getbootstrap.com/">
+              <strong>Bootstrap</strong></a>: Bootstrap is a extensive CSS
                 framework and is used as our primary CSS data.
               </li>
               <li>
-                <strong>Yarn</strong>: We use Yarn, a package manager, for our
+              <a href="https://classic.yarnpkg.com/en/">
+              <strong>Yarn</strong></a>: We use Yarn, a package manager, for our
                 React App. It makes documenting and installing our dependencies
                 easy and streamlined.
               </li>
               <li>
-                <strong>Gitlab</strong>: GitLab is a web-based DevOps lifecycle
+              <a href="https://gitlab.com/">
+              <strong>GitLab</strong></a>: GitLab is a web-based DevOps lifecycle
                 tool that provides a Git-repository manager providing wiki,
                 issue-tracking and continuous integration and deployment
                 pipeline features. We use it to streamline our group workflow
@@ -187,11 +193,13 @@ export default class page1 extends Component<myState> {
               </li>
 
               <li>
-                <strong>Slack</strong>: We've integrated slack to our GitLab
+              <a href="https://slack.com/">
+              <strong>Slack</strong></a>: We've integrated slack to our GitLab
                 repo, for communication purposes and issue tracking.
               </li>
               <li>
-                <strong>AWS Amplify</strong>: AWS Amplify allows us to host
+              <a href="https://aws.amazon.com/amplify/">
+              <strong>AWS Amplify</strong></a>: AWS Amplify allows us to host
                 websites by simply committing and pushing code to our Git
                 Repository.
               </li>

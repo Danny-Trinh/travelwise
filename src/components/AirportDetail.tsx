@@ -66,44 +66,6 @@ export default class AirportDetail extends Component<myProps> {
       <React.Fragment>
         <div className="container">
           <h1 className="my-4">{this.state.data.airport_name}</h1>
-          {/* <div className="card">
-            <table className="table table-hover">
-              <thead className="thead-dark">
-                <tr>
-                  <th scope="col">Airport</th>
-                  <th scope="col">Airport Code</th>
-                  <th scope="col">City</th>
-                  <th scope="col">Country</th>
-                  <th scope="col">Latitude</th>
-                  <th scope="col">Longitude</th>
-                  <th scope="col">Timezone</th>
-                  <th scope="col">Covid Stats</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{this.state.data.airport_name}</td>
-                  <td>{this.state.data.iata_code}</td>
-                  <td>
-                    <Link
-                      to={`/City/${this.state.data.city_name}/${this.state.data.country_code}`}
-                    >
-                      {this.state.data.city_name}
-                    </Link>
-                  </td>
-                  <td>{this.state.data.country_name}</td>
-                  <td>{this.state.data.latitude}</td>
-                  <td>{this.state.data.longitude}</td>
-                  <td>{this.state.data.time_offset}</td>
-                  <td>
-                    <Link to={`/Covid/${this.state.data.country_code}`}>
-                      Link
-                    </Link>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div> */}
           <p>
             <span className="h5 inline">City: </span>
             <Link

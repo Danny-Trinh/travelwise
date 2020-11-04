@@ -5,7 +5,15 @@ import Axios from "axios";
 import Select from "react-select";
 import highlight from "../utility/getHighlightedText";
 
-const perPage = 9;
+const pageViewOptions = [
+  // used for page rendering
+  { value: 3, label: "3" },
+  { value: 9, label: "9" },
+  { value: 18, label: "18" },
+  { value: 36, label: "36" },
+  { value: 72, label: "72" },
+];
+
 const sortOptions = [
   // used for sorting
   { value: 1, label: "City" },
@@ -20,11 +28,13 @@ const sortOptions = [
   { value: 10, label: "Women" },
   { value: 1, label: "null" },
 ];
+
 const orderOptions = [
   // used for ordering sorting
   { value: 1, label: "Ascending" },
   { value: -1, label: "Descending" },
 ];
+
 const countryOptions = [
   // used for filtering
   { value: "Argentina", label: "Argentina" },
@@ -68,6 +78,7 @@ export default class Cities extends Component {
     searchVal: "", // current search query
     searchActive: false, // is the search query active
     filters: null, // current filters
+    perPage: 9, // keeps track of how many instance per page
   };
 
   componentDidMount() {
@@ -78,7 +89,7 @@ export default class Cities extends Component {
   async getData() {
     let json = await Axios.get(`https://api.travelwise.live/cities`);
     this.setState({
-      pageCount: Math.ceil(json.data.length / perPage),
+      pageCount: Math.ceil(json.data.length / this.state.perPage),
       data: json.data,
       searchActive: false,
       searchVal: "",
@@ -90,7 +101,7 @@ export default class Cities extends Component {
   // handles pagination click
   handlePageClick = (e: any) => {
     const selectedPage = e.selected;
-    const offset = selectedPage * perPage;
+    const offset = selectedPage * this.state.perPage;
     this.setState({
       currentPage: selectedPage,
       offset: offset,
@@ -101,7 +112,7 @@ export default class Cities extends Component {
   renderData() {
     let chunk = this.state.data.slice(
       this.state.offset,
-      this.state.offset + perPage
+      this.state.offset + this.state.perPage
     );
     let result: Array<any> = [];
     chunk.forEach((i: any) => {
@@ -232,7 +243,7 @@ export default class Cities extends Component {
         (city.women ? city.women : 0).toString().includes(searchVal)
     );
     this.setState({
-      pageCount: Math.ceil(data.length / perPage),
+      pageCount: Math.ceil(data.length / this.state.perPage),
       data,
       searchActive: true,
       filters: null,
@@ -252,7 +263,7 @@ export default class Cities extends Component {
         return false;
       });
       this.setState({
-        pageCount: Math.ceil(data.length / perPage),
+        pageCount: Math.ceil(data.length / this.state.perPage),
         data,
         searchVal: "",
         searchActive: false,
@@ -341,7 +352,7 @@ export default class Cities extends Component {
             breakLabel={"..."}
             pageCount={this.state.pageCount}
             marginPagesDisplayed={0}
-            pageRangeDisplayed={perPage}
+            pageRangeDisplayed={this.state.perPage}
             onPageChange={this.handlePageClick}
             breakLinkClassName={"page-link"}
             containerClassName={"pagination justify-content-center"}
