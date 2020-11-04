@@ -26,11 +26,14 @@ export default class AirportDetail extends Component<myProps> {
   };
 
   async componentDidMount() {
+    // get airport data
     let json = await Axios.get(`https://api.travelwise.live/airports`);
     let curAirport = json.data.filter(
       (airport: any) =>
         airport.iata_code[0].localeCompare(this.props.match.params.iata) === 0
     );
+
+    // get image asset
     if (curAirport.length !== 0) {
       let picJson = await Axios.get(
         "https://api.unsplash.com/search/photos?client_id=Dj6xszn3N8x0A8n2a2O07Ns0IjeBGTameTQCpNVZMvI&" +
@@ -46,7 +49,9 @@ export default class AirportDetail extends Component<myProps> {
       this.setState({ found: false });
     }
   }
+
   render() {
+    // if no data is found, display an error message
     if (!this.state.found) {
       return (
         <div className="container m-4">
@@ -61,7 +66,7 @@ export default class AirportDetail extends Component<myProps> {
       <React.Fragment>
         <div className="container">
           <h1 className="my-4">{this.state.data.airport_name}</h1>
-          <div className="card">
+          {/* <div className="card">
             <table className="table table-hover">
               <thead className="thead-dark">
                 <tr>
@@ -98,30 +103,48 @@ export default class AirportDetail extends Component<myProps> {
                 </tr>
               </tbody>
             </table>
-          </div>
-          
-          <div className="row mb-3"></div>
+          </div> */}
+          <p>
+            <span className="h5 inline">City: </span>
+            <Link
+              to={`/City/${this.state.data.city_name}/${this.state.data.country_code}`}
+            >
+              {this.state.data.city_name}, {this.state.data.country_name}
+            </Link>
+          </p>
+          <p>
+            <span className="h5 inline">Coordinates: </span>(
+            {this.state.data.latitude}, {this.state.data.longitude})
+          </p>
+          <p>
+            <span className="h5 inline">Time Offset: </span>
+            {this.state.data.time_offset}
+          </p>
+          <p>
+            <span className="h5 inline">Covid Stats: </span>
+            <Link to={`/Covid/${this.state.data.country_code}`}>Link</Link>
+          </p>
           <div className="card">
-          <img
-            src={this.state.picture}
-            alt={this.state.data.airport_name}
-          ></img>
+            <img
+              src={this.state.picture}
+              alt={this.state.data.airport_name}
+            ></img>
           </div>
           <div className="row mb-3"></div>
-          <div style={{ height: '100vh', width: '100%' }}>
-          <Map 
-            center={[this.state.center.lat, this.state.center.lng]} 
-            zoom={this.state.zoom} 
-            style={{ width: '100%', height: '100%'}}
-          >
-            <TileLayer
-              attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={[this.state.center.lat, this.state.center.lng]}>
-            <Popup>{this.state.data.airport_name}</Popup>
-            </Marker>
-          </Map>
+          <div className="my-5" style={{ height: "20rem", width: "100%" }}>
+            <Map
+              center={[this.state.center.lat, this.state.center.lng]}
+              zoom={this.state.zoom}
+              style={{ width: "100%", height: "100%" }}
+            >
+              <TileLayer
+                attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker position={[this.state.center.lat, this.state.center.lng]}>
+                <Popup>{this.state.data.airport_name}</Popup>
+              </Marker>
+            </Map>
           </div>
         </div>
       </React.Fragment>

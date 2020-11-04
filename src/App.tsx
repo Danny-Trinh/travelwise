@@ -12,7 +12,6 @@ import CovidDetail from "./components/CovidDetail";
 import CityDetail from "./components/CityDetail";
 import AirportDetail from "./components/AirportDetail";
 // import CovidDetail from "./components/CovidDetail";
-import Testing from "./components/Testing";
 import Search from "./pages/Search";
 
 function App() {
@@ -26,7 +25,6 @@ function App() {
           <Route path="/Covid" component={Covid} exact></Route>
           <Route path="/Airports" component={Airports} exact></Route>
           <Route path="/About" component={About} exact></Route>
-          <Route path="/Test/:id" component={Testing} exact></Route>
           <Route
             path="/Covid/:country_code"
             component={CovidDetail}

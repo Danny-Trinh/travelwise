@@ -3,9 +3,12 @@ import Axios from "axios";
 import Paginate from "react-paginate";
 import { Link } from "react-router-dom";
 import Select from "react-select";
+import highlight from "../utility/getHighlightedText";
+
 const perPage = 9; // keeps track of how many instance per page
 
 const sortOptions = [
+  // used for sort
   { value: 1, label: "Country" },
   { value: 2, label: "Country Code" },
   { value: 3, label: "New Cases" },
@@ -15,11 +18,13 @@ const sortOptions = [
 ];
 
 const orderOptions = [
+  // used for ordering sort
   { value: 1, label: "Ascending" },
   { value: -1, label: "Descending" },
 ];
 
 const filterOptions = [
+  //used for filtering
   { value: ["new_cases", 0], label: "New Cases > 0" },
   { value: ["new_cases", 100], label: "New Cases > 100" },
   { value: ["new_cases", 100], label: "New Cases > 1000" },
@@ -90,13 +95,13 @@ export default class Covid extends Component {
           <td>
             <Link to={`/Covid/${i.country_code}`}>
               {this.state.searchActive
-                ? getHighlightedText(i.country[0], this.state.searchVal)
+                ? highlight(i.country[0], this.state.searchVal)
                 : i.country[0]}
             </Link>
           </td>
           <td>
             {this.state.searchActive
-              ? getHighlightedText(i.country_code[0], this.state.searchVal)
+              ? highlight(i.country_code[0], this.state.searchVal)
               : i.country_code[0]}
           </td>
           <td>{i.new_cases}</td>
@@ -250,7 +255,7 @@ export default class Covid extends Component {
             <Select
               className="col-md-5"
               onChange={(x: any) => this.handleFilter(x)}
-              placeholder="Filter: stats"
+              placeholder="Filter: Stats"
               value={this.state.filters}
               options={filterOptions}
               isMulti
@@ -291,22 +296,4 @@ export default class Covid extends Component {
       </React.Fragment>
     );
   }
-}
-
-// returns a span with specified highlighted text
-function getHighlightedText(text: string, highlight: string) {
-  const parts = text.split(new RegExp(`(${highlight})`, "gi"));
-  return (
-    <span>
-      {parts.map((part, i) => {
-        if (part.toLowerCase() === highlight.toLowerCase())
-          return (
-            <span key={i} style={{ backgroundColor: "#ffb7b7" }}>
-              {part}
-            </span>
-          );
-        else return <span key={i}>{part}</span>;
-      })}
-    </span>
-  );
 }

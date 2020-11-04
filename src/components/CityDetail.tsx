@@ -30,19 +30,9 @@ export default class CityDetail extends Component<myProps> {
     zoom: 11,
     picture: "",
   };
+
   async componentDidMount() {
-    // let json = await Axios.get(
-    //   `https://api.travelwise.live/cities/search?name=${this.props.match.params.city}`
-    // );
-    // let jsonData = json.data.filter(
-    //   (city: any) =>
-    //     city.country_code[0].localeCompare(
-    //       this.props.match.params.country_code
-    //     ) === 0
-    // );
-    // this.setState({
-    //   data: jsonData[0],
-    // });
+    // get cities data
     let json = await Axios.get(`https://api.travelwise.live/cities`);
     let curCity = json.data.filter((city: any) => {
       return (
@@ -55,6 +45,7 @@ export default class CityDetail extends Component<myProps> {
       );
     });
 
+    // get picture asset
     let picJson = await Axios.get(
       "https://api.unsplash.com/search/photos?client_id=Dj6xszn3N8x0A8n2a2O07Ns0IjeBGTameTQCpNVZMvI&" +
         `query=${curCity[0].name} city&page=1&per_page=10`
@@ -64,6 +55,7 @@ export default class CityDetail extends Component<myProps> {
       picture: picString,
     });
 
+    //get airport data
     if (curCity.length !== 0) {
       let airportJson = await Axios.get(
         `https://api.travelwise.live/airports/search?city_name=${curCity[0].name}`
@@ -81,10 +73,12 @@ export default class CityDetail extends Component<myProps> {
   }
   render() {
     let airportRender;
+
+    // if there is not airport data, just render a no airports message
     if (this.state.airportData.length > 0) {
       airportRender = (
         <React.Fragment>
-          <h3>Airports</h3>
+          <h5>Airports:</h5>
           <ul>
             {this.state.airportData.map((airport: any) => (
               <li key={airport.iata_code}>
@@ -99,11 +93,14 @@ export default class CityDetail extends Component<myProps> {
     } else {
       airportRender = (
         <p>
-          Currently our database has no airports for {this.state.data.name}.
+          <span className="h5 inline">Airports: </span>
+          Currently our database has no airports for {this.state.data.name},
+          check another city
         </p>
       );
     }
 
+    // if there an error, render an error message
     if (!this.state.found) {
       return (
         <div className="container m-4">
@@ -117,60 +114,47 @@ export default class CityDetail extends Component<myProps> {
     return (
       <React.Fragment>
         <div className="container">
-          <h1 className="my-4">{this.state.data.name}</h1>
-          <div className="card">
-            <table className="table table-hover">
-              <thead className="thead-dark">
-                <tr>
-                  <th scope="col">City</th>
-                  <th scope="col">Country</th>
-                  <th scope="col">Region</th>
-                  <th scope="col">Overall</th>
-                  <th scope="col">LGBTQ</th>
-                  <th scope="col">Medical</th>
-                  <th scope="col">Physical Harm</th>
-                  <th scope="col">Political Freedom</th>
-                  <th scope="col">Theft</th>
-                  <th scope="col">Women</th>
-                  <th scope="col">Covid Stats</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{this.state.data.name}</td>
-                  <td>{this.state.data.country}</td>
-                  <td>{this.state.data.region}</td>
-                  <td>
-                    {this.state.data.overall ? this.state.data.overall : 0}
-                  </td>
-                  <td>{this.state.data.lgbtq ? this.state.data.lgbtq : 0}</td>
-                  <td>
-                    {this.state.data.medical ? this.state.data.medical : 0}
-                  </td>
-                  <td>
-                    {this.state.data.physical ? this.state.data.physical : 0}
-                  </td>
-                  <td>
-                    {this.state.data.political ? this.state.data.political : 0}
-                  </td>
-                  <td>{this.state.data.theft ? this.state.data.theft : 0}</td>
-                  <td>{this.state.data.women ? this.state.data.women : 0}</td>
-                  <td>
-                    <Link to={`/Covid/${this.state.data.country_code}`}>
-                      Link
-                    </Link>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div className="row mb-3"></div>
+          <h1 className="my-4">
+            {this.state.data.name}, {this.state.data.country}
+          </h1>
+          <p>
+            <span className="h5 inline">Region: </span>
+            {this.state.data.region}
+          </p>
+          <p>
+            <span className="h5 inline">Overall Score: </span>
+            {this.state.data.overall}
+          </p>
+          <p>
+            <span className="h5 inline">LGBTQ Score: </span>
+            {this.state.data.lgbtq}
+          </p>
+          <p>
+            <span className="h5 inline">Medical Score: </span>
+            {this.state.data.medical}
+          </p>
+          <p>
+            <span className="h5 inline">Physical Score: </span>
+            {this.state.data.physical}
+          </p>
+          <p>
+            <span className="h5 inline">Theft Score: </span>
+            {this.state.data.theft}
+          </p>
+          <p>
+            <span className="h5 inline">Women Score: </span>
+            {this.state.data.women}
+          </p>
+          <p>
+            <span className="h5 inline">Covid Stats: </span>
+            <Link to={`/Covid/${this.state.data.country_code}`}>Link</Link>
+          </p>
+          {airportRender}
           <div className="card">
             <img src={this.state.picture} alt={this.state.data.name}></img>
           </div>
           <div className="row mb-3"></div>
-          {airportRender}
-          <div style={{ height: "100vh", width: "100%" }}>
+          <div className="my-5" style={{ height: "20rem", width: "100%" }}>
             <Map
               center={[this.state.center.lat, this.state.center.lng]}
               zoom={this.state.zoom}

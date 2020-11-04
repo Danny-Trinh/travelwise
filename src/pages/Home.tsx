@@ -3,9 +3,10 @@ import React, { Component } from "react";
 // import City from "../images/City.jpg";
 
 import { Link } from "react-router-dom";
-// import PlaneScape from "../images/PlaneScape.jpg";
-
-import Sky from "../images/Sky.jpg";
+import LofiSky from "../images/LofiSky.jpg";
+import LofiCity from "../images/LofiCity.jpg";
+import Pandemic from "../images/Pandemic.jpg";
+// import Sky from "../images/Sky.jpg";
 // import Contagion from "../images/Contagion.jpg";
 export default class Home extends Component {
   render() {
@@ -29,10 +30,10 @@ export default class Home extends Component {
 
           <div className="col-lg-4">
             <img
-              src={Sky}
+              src={LofiSky}
               className="rounded-circle mx-auto d-block mb-5 "
               alt="City"
-              style={{ width: "24rem" }}
+              style={{ width: "30rem" }}
             ></img>
           </div>
         </div>
@@ -51,10 +52,10 @@ export default class Home extends Component {
         <div className="row  bg-teal-300 pt-5 justify-content-md-center mx-0">
           <div className="col-lg-5 ">
             <img
-              src={Sky}
+              src={LofiCity}
               className="rounded-circle mx-auto d-block mb-5"
               alt="Airplane"
-              style={{ width: "24rem" }}
+              style={{ width: "30rem" }}
             ></img>
           </div>
           <div className="col-lg-5" style={{ marginTop: "5rem" }}>
@@ -97,10 +98,10 @@ export default class Home extends Component {
 
           <div className="col-lg-4 ">
             <img
-              src={Sky}
+              src={Pandemic}
               className="rounded-circle mx-auto d-block mb-5 "
               alt="Covid"
-              style={{ width: "24rem" }}
+              style={{ width: "30rem" }}
             ></img>
           </div>
         </div>

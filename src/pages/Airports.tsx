@@ -3,8 +3,11 @@ import Paginate from "react-paginate";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import Select from "react-select";
-const perPage = 9;
-const filterOptions = [
+import highlight from "../utility/getHighlightedText";
+const perPage = 9; // keeps track of how many instance per page
+
+const sortOptions = [
+  //used for sort
   { value: 1, label: "Airport" },
   { value: 2, label: "Airport Code" },
   { value: 3, label: "City" },
@@ -14,10 +17,13 @@ const filterOptions = [
   { value: 7, label: "Timezone" },
 ];
 const orderOptions = [
+  // used for ordering sort
   { value: 1, label: "Ascending" },
   { value: -1, label: "Descending" },
 ];
+
 const countryOptions = [
+  //used for filtering
   { value: "ARGENTINA", label: "Argentina" },
   { value: "BAHAMAS", label: "Bahamas" },
   { value: "BRAZIL", label: "Brazil" },
@@ -60,23 +66,24 @@ const countryOptions = [
   { value: "VIETNAM", label: "Vietnam" },
 ];
 
-export default class Flights extends Component {
+export default class Airports extends Component {
   state = {
-    offset: 0,
-    data: [],
-    currentPage: 0,
-    pageCount: 0,
-    sortType: 1,
-    sortOrder: 1,
-    searchVal: "",
-    searchActive: false,
-    filters: null,
+    offset: 0, // offset of pagination
+    data: [], // airport data
+    currentPage: 0, // current page pagination
+    pageCount: 0, // page count pagination
+    sortType: 1, // keeps track of how data is sorted
+    sortOrder: 1, // keeps track of what order to sort in
+    searchVal: "", // current search query
+    searchActive: false, // is the search query active
+    filters: null, // current filters
   };
 
   componentDidMount() {
     this.getData();
   }
 
+  // fetches data and resets search values and filter values
   async getData() {
     let json = await Axios.get(`https://api.travelwise.live/airports`);
 
@@ -90,6 +97,7 @@ export default class Flights extends Component {
     this.sortData(this.state.sortOrder);
   }
 
+  // handles pagination click
   handlePageClick = (e: any) => {
     const selectedPage = e.selected;
     const offset = selectedPage * perPage;
@@ -99,6 +107,7 @@ export default class Flights extends Component {
     });
   };
 
+  // render a list of covid objects to html
   renderData() {
     let chunk = this.state.data.slice(
       this.state.offset,
@@ -111,25 +120,25 @@ export default class Flights extends Component {
           <td>
             <Link to={`/Airport/${i.iata_code}`}>
               {this.state.searchActive
-                ? getHighlightedText(i.airport_name[0], this.state.searchVal)
+                ? highlight(i.airport_name[0], this.state.searchVal)
                 : i.airport_name[0]}
             </Link>
           </td>
           <td>
             {this.state.searchActive
-              ? getHighlightedText(i.iata_code[0], this.state.searchVal)
+              ? highlight(i.iata_code[0], this.state.searchVal)
               : i.iata_code[0]}
           </td>
           <td>
             <Link to={`/City/${i.city_name}/${i.country_code}`}>
               {this.state.searchActive
-                ? getHighlightedText(i.city_name[0], this.state.searchVal)
+                ? highlight(i.city_name[0], this.state.searchVal)
                 : i.city_name[0]}
             </Link>
           </td>
           <td>
             {this.state.searchActive
-              ? getHighlightedText(i.country_name[0], this.state.searchVal)
+              ? highlight(i.country_name[0], this.state.searchVal)
               : i.country_name[0]}
           </td>
           <td>{i.latitude}</td>
@@ -143,6 +152,8 @@ export default class Flights extends Component {
     });
     return result;
   }
+
+  // sorts data accordingly, does not make a fetch call
   sortData(sortInput: number) {
     let reverse = this.state.sortOrder; // reverse filter if needed
     let sortedData;
@@ -191,6 +202,8 @@ export default class Flights extends Component {
     }
     this.setState({ data: sortedData, sortType: sortInput });
   }
+
+  // manages values in the search bar
   handleChange = (e: any) => {
     const name = e.target.name;
     const value = e.target.value.toLowerCase();
@@ -200,9 +213,10 @@ export default class Flights extends Component {
       return newState;
     });
   };
+
+  // on search enter, fetches data and queries search
   async handleSubmit(e: any) {
     e.preventDefault();
-
     let json = await Axios.get(`https://api.travelwise.live/airports`);
     const { searchVal } = this.state;
     let data = json.data.filter(
@@ -220,6 +234,8 @@ export default class Flights extends Component {
     });
     this.sortData(this.state.sortType);
   }
+
+  // fetches data and filters through inclusively, resets search to prevent logic errors
   async handleFilter(filters: any) {
     this.setState({ filters });
     let json = await Axios.get(`https://api.travelwise.live/airports`);
@@ -251,7 +267,7 @@ export default class Flights extends Component {
             <Select
               className="col-md-3"
               onChange={(x: any) => this.sortData(x ? x.value : 1)}
-              options={filterOptions}
+              options={sortOptions}
               placeholder="Sort by: Airport"
               isClearable
             />
@@ -332,21 +348,4 @@ export default class Flights extends Component {
       </React.Fragment>
     );
   }
-}
-function getHighlightedText(text: string, highlight: string) {
-  // Split on highlight term and include term into parts, ignore case
-  const parts = text.split(new RegExp(`(${highlight})`, "gi"));
-  return (
-    <span>
-      {parts.map((part, i) => {
-        if (part.toLowerCase() === highlight.toLowerCase())
-          return (
-            <span key={i} style={{ backgroundColor: "#ffb7b7" }}>
-              {part}
-            </span>
-          );
-        else return <span key={i}>{part}</span>;
-      })}
-    </span>
-  );
 }

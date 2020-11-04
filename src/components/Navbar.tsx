@@ -5,6 +5,8 @@ export default class Navbar extends Component {
     searchQuery: "",
     searchActive: false,
   };
+
+  // handles any changes in the navbar search
   handleChange(e: any) {
     const name = e.target.name;
     const value = e.target.value.toLowerCase();
@@ -15,6 +17,7 @@ export default class Navbar extends Component {
     });
   }
 
+  // redirects to the search page with the search query
   renderRedirect() {
     return <Redirect to={`/Search/${this.state.searchQuery}`}></Redirect>;
   }
