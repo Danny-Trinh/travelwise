@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Paginate from "react-paginate";
 import { Link } from "react-router-dom";
 import Axios from "axios";
+import highlight from "../utility/getHighlightedText";
 const perPage = 4;
 const paginationSize = 8;
 type myProps = { match: any };
@@ -107,12 +108,10 @@ export default class Search extends Component<myProps> {
         <tr key={i.country_code}>
           <td>
             <Link to={`/Covid/${i.country_code}`}>
-              {getHighlightedText(i.country[0], this.state.searchQuery)}
+              {highlight(i.country[0], this.state.searchQuery)}
             </Link>
           </td>
-          <td>
-            {getHighlightedText(i.country_code[0], this.state.searchQuery)}
-          </td>
+          <td>{highlight(i.country_code[0], this.state.searchQuery)}</td>
           <td>{i.new_cases}</td>
           <td>{i.total_cases}</td>
           <td>{i.new_deaths}</td>
@@ -133,11 +132,11 @@ export default class Search extends Component<myProps> {
         <tr key={i.city_id}>
           <td>
             <Link to={`/City/${i.name}/${i.country_code}`}>
-              {getHighlightedText(i.name[0], this.state.searchQuery)}
+              {highlight(i.name[0], this.state.searchQuery)}
             </Link>
           </td>
-          <td>{getHighlightedText(i.country[0], this.state.searchQuery)}</td>
-          <td>{getHighlightedText(i.region[0], this.state.searchQuery)}</td>
+          <td>{highlight(i.country[0], this.state.searchQuery)}</td>
+          <td>{highlight(i.region[0], this.state.searchQuery)}</td>
           <td>{i.overall ? i.overall : 0}</td>
           <td>{i.lgbtq ? i.lgbtq : 0}</td>
           <td>{i.medical ? i.medical : 0}</td>
@@ -164,18 +163,16 @@ export default class Search extends Component<myProps> {
         <tr key={`${i.iata_code}`}>
           <td>
             <Link to={`/Airport/${i.iata_code}`}>
-              {getHighlightedText(i.airport_name[0], this.state.searchQuery)}
+              {highlight(i.airport_name[0], this.state.searchQuery)}
             </Link>
           </td>
-          <td>{getHighlightedText(i.iata_code[0], this.state.searchQuery)}</td>
+          <td>{highlight(i.iata_code[0], this.state.searchQuery)}</td>
           <td>
             <Link to={`/City/${i.city_name}/${i.country_code}`}>
-              {getHighlightedText(i.city_name[0], this.state.searchQuery)}
+              {highlight(i.city_name[0], this.state.searchQuery)}
             </Link>
           </td>
-          <td>
-            {getHighlightedText(i.country_name[0], this.state.searchQuery)}
-          </td>
+          <td>{highlight(i.country_name[0], this.state.searchQuery)}</td>
           <td>{i.latitude}</td>
           <td>{i.longitude}</td>
           <td>{i.time_offset}</td>
@@ -245,21 +242,4 @@ export default class Search extends Component<myProps> {
       </div>
     );
   }
-}
-function getHighlightedText(text: string, highlight: string) {
-  // Split on highlight term and include term into parts, ignore case
-  const parts = text.split(new RegExp(`(${highlight})`, "gi"));
-  return (
-    <span>
-      {parts.map((part, i) => {
-        if (part.toLowerCase() === highlight.toLowerCase())
-          return (
-            <span key={i} style={{ backgroundColor: "#ffb7b7" }}>
-              {part}
-            </span>
-          );
-        else return <span key={i}>{part}</span>;
-      })}
-    </span>
-  );
 }
