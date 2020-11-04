@@ -38,20 +38,34 @@ export default class Search extends Component<myProps> {
       dataC = jsonC.data.filter(
         (covid: any) =>
           covid.country[0].toLowerCase().includes(searchQuery) ||
-          covid.country_code[0].toLowerCase().includes(searchQuery)
+          covid.country_code[0].toLowerCase().includes(searchQuery) || 
+          (covid.new_cases ? covid.new_cases : 0).toString().includes(searchQuery) ||
+          (covid.total_cases ? covid.total_cases : 0).toString().includes(searchQuery) || 
+          (covid.new_deaths ? covid.new_deaths : 0).toString().includes(searchQuery) || 
+          (covid.total_deaths ? covid.total_deaths : 0).toString().includes(searchQuery)
       );
       dataCi = jsonCi.data.filter(
         (city: any) =>
           city.name[0].toLowerCase().includes(searchQuery) ||
           city.country[0].toLowerCase().includes(searchQuery) ||
-          city.region[0].toLowerCase().includes(searchQuery)
+          city.region[0].toLowerCase().includes(searchQuery) ||
+          (city.overall ? city.overall : 0).toString().includes(searchQuery) || 
+          (city.lgbtq ? city.lgbtq : 0).toString().includes(searchQuery) ||
+          (city.medical ? city.medical : 0).toString().includes(searchQuery) ||
+          (city.physical ? city.physical : 0).toString().includes(searchQuery) ||
+          (city.political ? city.political : 0).toString().includes(searchQuery) ||
+          (city.theft ? city.theft : 0).toString().includes(searchQuery) ||
+          (city.women ? city.women : 0).toString().includes(searchQuery)
       );
       dataA = jsonA.data.filter(
         (airports: any) =>
           airports.airport_name[0].toLowerCase().includes(searchQuery) ||
           airports.iata_code[0].toLowerCase().includes(searchQuery) ||
           airports.city_name[0].toLowerCase().includes(searchQuery) ||
-          airports.country_name[0].toLowerCase().includes(searchQuery)
+          airports.country_name[0].toLowerCase().includes(searchQuery) || 
+          (airports.latitude ? airports.latitude : 0).toString().includes(searchQuery) || 
+          (airports.longitude ? airports.longitude : 0).toString().includes(searchQuery) ||
+          (airports.time_offset ? airports.time_offset : 0).toString().includes(searchQuery)
       );
     }
     this.setState({
