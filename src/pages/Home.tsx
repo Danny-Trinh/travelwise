@@ -1,13 +1,9 @@
 import React, { Component } from "react";
-// import Airplane from "../images/Airplane.jpg";
-// import City from "../images/City.jpg";
-
 import { Link } from "react-router-dom";
 import LofiSky from "../images/LofiSky.jpg";
 import LofiCity from "../images/LofiCity.jpg";
 import Pandemic from "../images/Pandemic.jpg";
-// import Sky from "../images/Sky.jpg";
-// import Contagion from "../images/Contagion.jpg";
+
 export default class Home extends Component {
   render() {
     return (

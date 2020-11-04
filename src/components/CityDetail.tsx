@@ -34,6 +34,7 @@ export default class CityDetail extends Component<myProps> {
   async componentDidMount() {
     // get cities data
     let json = await Axios.get(`https://api.travelwise.live/cities`);
+
     let curCity = json.data.filter((city: any) => {
       return (
         city.country_code[0].localeCompare(
@@ -45,26 +46,28 @@ export default class CityDetail extends Component<myProps> {
       );
     });
 
-    // get picture asset
-    let picJson = await Axios.get(
-      "https://api.unsplash.com/search/photos?client_id=Dj6xszn3N8x0A8n2a2O07Ns0IjeBGTameTQCpNVZMvI&" +
-        `query=${curCity[0].name} city&page=1&per_page=10`
-    );
-    let picString = picJson.data.results[0].urls.regular;
-    this.setState({
-      picture: picString,
-    });
-
-    //get airport data
     if (curCity.length !== 0) {
-      let airportJson = await Axios.get(
-        `https://api.travelwise.live/airports/search?city_name=${curCity[0].name}`
+      // get picture asset
+      let picJson = await Axios.get(
+        "https://api.unsplash.com/search/photos?client_id=Dj6xszn3N8x0A8n2a2O07Ns0IjeBGTameTQCpNVZMvI&" +
+          `query=${curCity[0].name} city&page=1&per_page=10`
       );
+      let picString = picJson.data.results[0].urls.regular;
       this.setState({
-        data: curCity[0],
-        airportData: airportJson.data,
-        center: { lat: curCity[0].latitude, lng: curCity[0].longitude },
+        picture: picString,
       });
+
+      //get airport data
+      if (curCity.length !== 0) {
+        let airportJson = await Axios.get(
+          `https://api.travelwise.live/airports/search?city_name=${curCity[0].name}`
+        );
+        this.setState({
+          data: curCity[0],
+          airportData: airportJson.data,
+          center: { lat: curCity[0].latitude, lng: curCity[0].longitude },
+        });
+      }
     } else {
       this.setState({
         found: false,
@@ -73,7 +76,6 @@ export default class CityDetail extends Component<myProps> {
   }
   render() {
     let airportRender;
-
     // if there is not airport data, just render a no airports message
     if (this.state.airportData.length > 0) {
       airportRender = (

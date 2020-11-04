@@ -33,7 +33,6 @@ export default class CovidDetail extends Component<myProps> {
     let json = await Axios.get(
       `https://api.travelwise.live/covid/search?country_code=${this.props.match.params.country_code}`
     );
-    console.log(json.data);
     if (json.data.length !== 0) {
       let citiesJson = await Axios.get(`https://api.travelwise.live/cities`);
       let airportJson = await Axios.get(`https://api.travelwise.live/airports`);

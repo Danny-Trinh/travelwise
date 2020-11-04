@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Paginate from "react-paginate";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import Select from "react-select";
 import highlight from "../utility/getHighlightedText";
 import * as constants from "../utility/data";
+import PaginateTool from "../components/PaginateTool";
 
 export default class Cities extends Component {
   state = {
@@ -348,23 +348,10 @@ export default class Cities extends Component {
             </thead>
             <tbody>{this.renderData()}</tbody>
           </table>
-          <Paginate
-            previousLabel={"prev"}
-            nextLabel={"next"}
-            breakLabel={"..."}
+          <PaginateTool
             pageCount={this.state.pageCount}
-            marginPagesDisplayed={0}
-            pageRangeDisplayed={this.state.perPage}
-            onPageChange={this.handlePageClick}
-            breakLinkClassName={"page-link"}
-            containerClassName={"pagination justify-content-center"}
-            pageClassName={"page-item"}
-            pageLinkClassName={"page-link"}
-            previousClassName={"page-item"}
-            previousLinkClassName={"page-link"}
-            nextClassName={"page-item"}
-            nextLinkClassName={"page-link"}
-            activeClassName={"active"}
+            perPage={this.state.perPage}
+            handlePageClick={this.handlePageClick}
           />
         </div>
       </React.Fragment>

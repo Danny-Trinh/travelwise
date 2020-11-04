@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import Paginate from "react-paginate";
 import { Link } from "react-router-dom";
 import Select from "react-select";
 import highlight from "../utility/getHighlightedText";
 import * as constants from "../utility/data";
+import PaginateTool from "../components/PaginateTool";
 
 export default class Covid extends Component {
   state = {
@@ -295,23 +295,10 @@ export default class Covid extends Component {
             <tbody>{this.renderData()}</tbody>
           </table>
         </div>
-        <Paginate
-          previousLabel={"prev"}
-          nextLabel={"next"}
-          breakLabel={"..."}
+        <PaginateTool
           pageCount={this.state.pageCount}
-          marginPagesDisplayed={0}
-          pageRangeDisplayed={this.state.perPage}
-          onPageChange={this.handlePageClick}
-          breakLinkClassName={"page-link"}
-          containerClassName={"pagination justify-content-center"}
-          pageClassName={"page-item"}
-          pageLinkClassName={"page-link"}
-          previousClassName={"page-item"}
-          previousLinkClassName={"page-link"}
-          nextClassName={"page-item"}
-          nextLinkClassName={"page-link"}
-          activeClassName={"active"}
+          perPage={this.state.perPage}
+          handlePageClick={this.handlePageClick}
         />
       </React.Fragment>
     );

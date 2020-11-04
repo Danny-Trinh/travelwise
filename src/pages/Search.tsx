@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-// import FlightsData from "../json/Flights.json";
 import Paginate from "react-paginate";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import highlight from "../utility/getHighlightedText";
+
 const perPage = 4;
 const paginationSize = 8;
 type myProps = { match: any };
@@ -38,22 +38,34 @@ export default class Search extends Component<myProps> {
       dataC = jsonC.data.filter(
         (covid: any) =>
           covid.country[0].toLowerCase().includes(searchQuery) ||
-          covid.country_code[0].toLowerCase().includes(searchQuery) || 
-          (covid.new_cases ? covid.new_cases : 0).toString().includes(searchQuery) ||
-          (covid.total_cases ? covid.total_cases : 0).toString().includes(searchQuery) || 
-          (covid.new_deaths ? covid.new_deaths : 0).toString().includes(searchQuery) || 
-          (covid.total_deaths ? covid.total_deaths : 0).toString().includes(searchQuery)
+          covid.country_code[0].toLowerCase().includes(searchQuery) ||
+          (covid.new_cases ? covid.new_cases : 0)
+            .toString()
+            .includes(searchQuery) ||
+          (covid.total_cases ? covid.total_cases : 0)
+            .toString()
+            .includes(searchQuery) ||
+          (covid.new_deaths ? covid.new_deaths : 0)
+            .toString()
+            .includes(searchQuery) ||
+          (covid.total_deaths ? covid.total_deaths : 0)
+            .toString()
+            .includes(searchQuery)
       );
       dataCi = jsonCi.data.filter(
         (city: any) =>
           city.name[0].toLowerCase().includes(searchQuery) ||
           city.country[0].toLowerCase().includes(searchQuery) ||
           city.region[0].toLowerCase().includes(searchQuery) ||
-          (city.overall ? city.overall : 0).toString().includes(searchQuery) || 
+          (city.overall ? city.overall : 0).toString().includes(searchQuery) ||
           (city.lgbtq ? city.lgbtq : 0).toString().includes(searchQuery) ||
           (city.medical ? city.medical : 0).toString().includes(searchQuery) ||
-          (city.physical ? city.physical : 0).toString().includes(searchQuery) ||
-          (city.political ? city.political : 0).toString().includes(searchQuery) ||
+          (city.physical ? city.physical : 0)
+            .toString()
+            .includes(searchQuery) ||
+          (city.political ? city.political : 0)
+            .toString()
+            .includes(searchQuery) ||
           (city.theft ? city.theft : 0).toString().includes(searchQuery) ||
           (city.women ? city.women : 0).toString().includes(searchQuery)
       );
@@ -62,10 +74,16 @@ export default class Search extends Component<myProps> {
           airports.airport_name[0].toLowerCase().includes(searchQuery) ||
           airports.iata_code[0].toLowerCase().includes(searchQuery) ||
           airports.city_name[0].toLowerCase().includes(searchQuery) ||
-          airports.country_name[0].toLowerCase().includes(searchQuery) || 
-          (airports.latitude ? airports.latitude : 0).toString().includes(searchQuery) || 
-          (airports.longitude ? airports.longitude : 0).toString().includes(searchQuery) ||
-          (airports.time_offset ? airports.time_offset : 0).toString().includes(searchQuery)
+          airports.country_name[0].toLowerCase().includes(searchQuery) ||
+          (airports.latitude ? airports.latitude : 0)
+            .toString()
+            .includes(searchQuery) ||
+          (airports.longitude ? airports.longitude : 0)
+            .toString()
+            .includes(searchQuery) ||
+          (airports.time_offset ? airports.time_offset : 0)
+            .toString()
+            .includes(searchQuery)
       );
     }
     this.setState({
@@ -126,10 +144,30 @@ export default class Search extends Component<myProps> {
             </Link>
           </td>
           <td>{highlight(i.country_code[0], this.state.searchQuery)}</td>
-          <td>{highlight((i.new_cases ? i.new_cases : 0).toString(), this.state.searchQuery)}</td>
-          <td>{highlight((i.total_cases ? i.total_cases : 0).toString(), this.state.searchQuery)}</td>
-          <td>{highlight((i.new_deaths ? i.new_deaths : 0).toString(), this.state.searchQuery)}</td>
-          <td>{highlight((i.total_deaths ? i.total_deaths : 0).toString(), this.state.searchQuery)}</td>
+          <td>
+            {highlight(
+              (i.new_cases ? i.new_cases : 0).toString(),
+              this.state.searchQuery
+            )}
+          </td>
+          <td>
+            {highlight(
+              (i.total_cases ? i.total_cases : 0).toString(),
+              this.state.searchQuery
+            )}
+          </td>
+          <td>
+            {highlight(
+              (i.new_deaths ? i.new_deaths : 0).toString(),
+              this.state.searchQuery
+            )}
+          </td>
+          <td>
+            {highlight(
+              (i.total_deaths ? i.total_deaths : 0).toString(),
+              this.state.searchQuery
+            )}
+          </td>
         </tr>
       );
     });
@@ -151,13 +189,48 @@ export default class Search extends Component<myProps> {
           </td>
           <td>{highlight(i.country[0], this.state.searchQuery)}</td>
           <td>{highlight(i.region[0], this.state.searchQuery)}</td>
-          <td>{highlight((i.overall ? i.overall : 0).toString(), this.state.searchQuery)}</td>
-          <td>{highlight((i.lgbtq ? i.lgbtq : 0).toString(), this.state.searchQuery)}</td>
-          <td>{highlight((i.medical ? i.medical : 0).toString(), this.state.searchQuery)}</td>
-          <td>{highlight((i.physical ? i.physical : 0).toString(), this.state.searchQuery)}</td>
-          <td>{highlight((i.political ? i.political : 0).toString(), this.state.searchQuery)}</td>
-          <td>{highlight((i.theft ? i.theft : 0).toString(), this.state.searchQuery)}</td>
-          <td>{highlight((i.women ? i.women : 0).toString(), this.state.searchQuery)}</td>
+          <td>
+            {highlight(
+              (i.overall ? i.overall : 0).toString(),
+              this.state.searchQuery
+            )}
+          </td>
+          <td>
+            {highlight(
+              (i.lgbtq ? i.lgbtq : 0).toString(),
+              this.state.searchQuery
+            )}
+          </td>
+          <td>
+            {highlight(
+              (i.medical ? i.medical : 0).toString(),
+              this.state.searchQuery
+            )}
+          </td>
+          <td>
+            {highlight(
+              (i.physical ? i.physical : 0).toString(),
+              this.state.searchQuery
+            )}
+          </td>
+          <td>
+            {highlight(
+              (i.political ? i.political : 0).toString(),
+              this.state.searchQuery
+            )}
+          </td>
+          <td>
+            {highlight(
+              (i.theft ? i.theft : 0).toString(),
+              this.state.searchQuery
+            )}
+          </td>
+          <td>
+            {highlight(
+              (i.women ? i.women : 0).toString(),
+              this.state.searchQuery
+            )}
+          </td>
           <td>
             <Link to={`/Covid/${i.country_code}`}>Link</Link>
           </td>
@@ -187,9 +260,24 @@ export default class Search extends Component<myProps> {
             </Link>
           </td>
           <td>{highlight(i.country_name[0], this.state.searchQuery)}</td>
-          <td>{highlight((i.latitude ? i.latitude : 0).toString(), this.state.searchQuery)}</td>
-          <td>{highlight((i.longitude ? i.longitude : 0).toString(), this.state.searchQuery)}</td>
-          <td>{highlight((i.time_zone ? i.time_zone : 0).toString(), this.state.searchQuery)}</td>
+          <td>
+            {highlight(
+              (i.latitude ? i.latitude : 0).toString(),
+              this.state.searchQuery
+            )}
+          </td>
+          <td>
+            {highlight(
+              (i.longitude ? i.longitude : 0).toString(),
+              this.state.searchQuery
+            )}
+          </td>
+          <td>
+            {highlight(
+              (i.time_zone ? i.time_zone : 0).toString(),
+              this.state.searchQuery
+            )}
+          </td>
           <td>
             <Link to={`/Covid/${i.country_code}`}>Link</Link>
           </td>
