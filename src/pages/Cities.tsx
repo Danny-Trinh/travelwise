@@ -20,36 +20,35 @@ const orderOptions = [
   { value: -1, label: "Descending" },
 ];
 const countryOptions = [
-  {value: 'Argentina', label: 'Argentina'},
-  {value: 'Brazil', label: 'Brazil'},
-  {value: 'Canada', label: 'Canada'},
-  {value: 'Columbia', label: 'Columbia'},
-  {value: 'Egypt', label: 'Egypt'},
-  {value: 'Ethiopia', label: 'Ethiopia'},
-  {value: 'France', label: 'France'},
-  {value: 'Germany', label: 'Germany'},
-  {value: 'India', label: 'India'},
-  {value: 'Indonesia', label: 'Indonesia'},
-  {value: 'Iran', label: 'Iran'},
-  {value: 'Italy', label: 'Italy'},
-  {value: 'Japan', label: 'Japan'},
-  {value: 'Mexico', label: 'Mexico'},
-  {value: 'Nigeria', label: 'Nigeria'},
-  {value: 'Pakistan', label: 'Pakistan'},
-  {value: 'People\'s Republic of China', label: 'People\'s Republic of China'},
-  {value: 'Philippines', label: 'Philippines'},
-  {value: 'Russia', label: 'Russia'},
-  {value: 'South Africa', label: 'South Africa'},
-  {value: 'South Korea', label: 'South Korea'},
-  {value: 'Spain', label: 'Spain'},
-  {value: 'Thailand', label: 'Thailand'},
-  {value: 'Turkey', label: 'Turkey'},
-  {value: 'Ukraine', label: 'Ukraine'},
-  {value: 'United Kingdom', label: 'United Kingdom'},
-  {value: 'United States of America', label: 'United States of America'},
-  {value: 'Vietnam', label: 'Vietnam'},
+  { value: "Argentina", label: "Argentina" },
+  { value: "Brazil", label: "Brazil" },
+  { value: "Canada", label: "Canada" },
+  { value: "Columbia", label: "Columbia" },
+  { value: "Egypt", label: "Egypt" },
+  { value: "Ethiopia", label: "Ethiopia" },
+  { value: "France", label: "France" },
+  { value: "Germany", label: "Germany" },
+  { value: "India", label: "India" },
+  { value: "Indonesia", label: "Indonesia" },
+  { value: "Iran", label: "Iran" },
+  { value: "Italy", label: "Italy" },
+  { value: "Japan", label: "Japan" },
+  { value: "Mexico", label: "Mexico" },
+  { value: "Nigeria", label: "Nigeria" },
+  { value: "Pakistan", label: "Pakistan" },
+  { value: "People's Republic of China", label: "People's Republic of China" },
+  { value: "Philippines", label: "Philippines" },
+  { value: "Russia", label: "Russia" },
+  { value: "South Africa", label: "South Africa" },
+  { value: "South Korea", label: "South Korea" },
+  { value: "Spain", label: "Spain" },
+  { value: "Thailand", label: "Thailand" },
+  { value: "Turkey", label: "Turkey" },
+  { value: "Ukraine", label: "Ukraine" },
+  { value: "United Kingdom", label: "United Kingdom" },
+  { value: "United States of America", label: "United States of America" },
+  { value: "Vietnam", label: "Vietnam" },
 ];
-
 
 export default class Cities extends Component {
   state = {
@@ -99,7 +98,9 @@ export default class Cities extends Component {
       result.push(
         <tr key={i.city_id}>
           <td>
-            <Link to={`/City/${i.name}/${i.country_code}`}>{getHighlightedText(i.name[0], this.state.searchVal)}</Link>
+            <Link to={`/City/${i.name}/${i.country_code}`}>
+              {getHighlightedText(i.name[0], this.state.searchVal)}
+            </Link>
           </td>
           <td>{getHighlightedText(i.country[0], this.state.searchVal)}</td>
           <td>{getHighlightedText(i.region[0], this.state.searchVal)}</td>
@@ -206,16 +207,13 @@ export default class Cities extends Component {
     });
     this.sortData(this.state.sortType);
   }
-  cancelSearch() {
-    this.getData();
-  }
 
   render() {
     return (
       <React.Fragment>
         <div className="container ">
-        <h1 className="my-4">Cities </h1>
-        <div className="row mb-3">
+          <h1 className="my-4">Cities </h1>
+          <div className="row mb-3">
             <Select
               className="col-md-3"
               onChange={(x: any) => this.sortData(x.value)}
@@ -231,13 +229,10 @@ export default class Cities extends Component {
               }}
               placeholder="Order: Ascend"
               options={orderOptions}
-
             />
             <Select
               className="col-md-3 basic-multi-select"
-              onChange={(e) => {
-
-              }}
+              onChange={(e) => {}}
               placeholder="Filter: Country"
               options={countryOptions}
               isMulti
@@ -262,24 +257,24 @@ export default class Cities extends Component {
             </button>
           </div>
           <div className="card">
-          <table className="table table-hover mx-auto">
-            <thead className="thead-dark">
-              <tr>
-                <th scope="col">City</th>
-                <th scope="col">Country</th>
-                <th scope="col">Region</th>
-                <th scope="col">Overall</th>
-                <th scope="col">LGBTQ</th>
-                <th scope="col">Medical</th>
-                <th scope="col">Physical Harm</th>
-                <th scope="col">Political Freedom</th>
-                <th scope="col">Theft</th>
-                <th scope="col">Women</th>
-                <th scope="col">Covid Stats</th>
-              </tr>
-            </thead>
-            <tbody>{this.renderData()}</tbody>
-          </table>
+            <table className="table table-hover mx-auto">
+              <thead className="thead-dark">
+                <tr>
+                  <th scope="col">City</th>
+                  <th scope="col">Country</th>
+                  <th scope="col">Region</th>
+                  <th scope="col">Overall</th>
+                  <th scope="col">LGBTQ</th>
+                  <th scope="col">Medical</th>
+                  <th scope="col">Physical Harm</th>
+                  <th scope="col">Political Freedom</th>
+                  <th scope="col">Theft</th>
+                  <th scope="col">Women</th>
+                  <th scope="col">Covid Stats</th>
+                </tr>
+              </thead>
+              <tbody>{this.renderData()}</tbody>
+            </table>
           </div>
           <div className="row mb-3"></div>
           <Paginate

@@ -17,46 +17,46 @@ const orderOptions = [
   { value: -1, label: "Descending" },
 ];
 const countryOptions = [
-  {value: 'ARGENTINA', label: 'Argentina'},
-  {value: 'BAHAMAS', label: 'Bahamas'},
-  {value: 'BRAZIL', label: 'Brazil'},
-  {value: 'CAMBODIA', label: 'Cambodia'},
-  {value: 'CANADA', label: 'Canada'},
-  {value: 'CHILE', label: 'Chile'},
-  {value: 'CHINA', label: 'China'},
-  {value: 'COLUMBIA', label: 'Columbia'},
-  {value: 'COSTA RICA', label: 'Costa Rica'},
-  {value: 'CUBA', label: 'Cuba'},
-  {value: 'EGYPT', label: 'Egypt'},
-  {value: 'EL SALVADOR', label: 'El Salvador'},
-  {value: 'ETHIOPIA', label: 'Ethiopia'},
-  {value: 'FRANCE', label: 'France'},
-  {value: 'GERMANY', label: 'Germany'},
-  {value: 'GREECE', label: 'Greece'},
-  {value: 'INDIA', label: 'India'},
-  {value: 'INDONESIA', label: 'Indonesia'},
-  {value: 'IRAN', label: 'Iran'},
-  {value: 'ITALY', label: 'Italy'},
-  {value: 'JAPAN', label: 'Japan'},
-  {value: 'MALAYSIA', label: 'Malaysia'},
-  {value: 'MEXICO', label: 'Mexico'},
-  {value: 'NEW ZEALAND', label: 'New Zealand'},
-  {value: 'NIGERIA', label: 'Nigeria'},
-  {value: 'PAKISTAN', label: 'Pakistan'},
-  {value: 'PAPUA NEW GUINEA', label: 'Papua New Guinea'},
-  {value: 'PHILIPPINES', label: 'Philippines'},
-  {value: 'RUSSIA', label: 'Russia'},
-  {value: 'SAUDI ARABIA', label: 'Saudi Arabia'},
-  {value: 'SOUTH AFRICA', label: 'South Africa'},
-  {value: 'KOREA REPUBLIC OF', label: 'South Korea'},
-  {value: 'SPAIN', label: 'Spain'},
-  {value: 'THAILAND', label: 'Thailand'},
-  {value: 'TURKEY', label: 'Turkey'},
-  {value: 'UKRAINE', label: 'Ukraine'},
-  {value: 'UNITED KINGDOM', label: 'United Kingdom'},
-  {value: 'UNITED STATES OF AMERICA', label: 'United States of America'},
-  {value: 'VENEZUELA', label: 'Venezuela'},
-  {value: 'VIETNAM', label: 'Vietnam'},
+  { value: "ARGENTINA", label: "Argentina" },
+  { value: "BAHAMAS", label: "Bahamas" },
+  { value: "BRAZIL", label: "Brazil" },
+  { value: "CAMBODIA", label: "Cambodia" },
+  { value: "CANADA", label: "Canada" },
+  { value: "CHILE", label: "Chile" },
+  { value: "CHINA", label: "China" },
+  { value: "COLUMBIA", label: "Columbia" },
+  { value: "COSTA RICA", label: "Costa Rica" },
+  { value: "CUBA", label: "Cuba" },
+  { value: "EGYPT", label: "Egypt" },
+  { value: "EL SALVADOR", label: "El Salvador" },
+  { value: "ETHIOPIA", label: "Ethiopia" },
+  { value: "FRANCE", label: "France" },
+  { value: "GERMANY", label: "Germany" },
+  { value: "GREECE", label: "Greece" },
+  { value: "INDIA", label: "India" },
+  { value: "INDONESIA", label: "Indonesia" },
+  { value: "IRAN", label: "Iran" },
+  { value: "ITALY", label: "Italy" },
+  { value: "JAPAN", label: "Japan" },
+  { value: "MALAYSIA", label: "Malaysia" },
+  { value: "MEXICO", label: "Mexico" },
+  { value: "NEW ZEALAND", label: "New Zealand" },
+  { value: "NIGERIA", label: "Nigeria" },
+  { value: "PAKISTAN", label: "Pakistan" },
+  { value: "PAPUA NEW GUINEA", label: "Papua New Guinea" },
+  { value: "PHILIPPINES", label: "Philippines" },
+  { value: "RUSSIA", label: "Russia" },
+  { value: "SAUDI ARABIA", label: "Saudi Arabia" },
+  { value: "SOUTH AFRICA", label: "South Africa" },
+  { value: "KOREA REPUBLIC OF", label: "South Korea" },
+  { value: "SPAIN", label: "Spain" },
+  { value: "THAILAND", label: "Thailand" },
+  { value: "TURKEY", label: "Turkey" },
+  { value: "UKRAINE", label: "Ukraine" },
+  { value: "UNITED KINGDOM", label: "United Kingdom" },
+  { value: "UNITED STATES OF AMERICA", label: "United States of America" },
+  { value: "VENEZUELA", label: "Venezuela" },
+  { value: "VIETNAM", label: "Vietnam" },
 ];
 
 export default class Flights extends Component {
@@ -70,6 +70,7 @@ export default class Flights extends Component {
     sortOrder: 1,
     searchVal: "",
     searchActive: false,
+    filters: null,
   };
 
   componentDidMount() {
@@ -84,6 +85,7 @@ export default class Flights extends Component {
       data: json.data,
       searchActive: false,
       searchVal: "",
+      filters: null,
     });
     this.sortData(this.state.sortOrder);
   }
@@ -202,11 +204,31 @@ export default class Flights extends Component {
       pageCount: Math.ceil(data.length / this.state.perPage),
       data,
       searchActive: true,
+      filters: null,
     });
     this.sortData(this.state.sortType);
   }
-  cancelSearch() {
-    this.getData();
+  async handleFilter(filters: any) {
+    this.setState({ filters });
+    let json = await Axios.get(`https://api.travelwise.live/airports`);
+    console.log(json.data);
+    if (filters && filters.length > 0) {
+      let data = json.data.filter((airport: any) => {
+        for (let i = 0; i < filters.length; i++)
+          if (airport.country_name[0].localeCompare(filters[i].value) === 0)
+            return true;
+        return false;
+      });
+      this.setState({
+        pageCount: Math.ceil(data.length / this.state.perPage),
+        data,
+        searchVal: "",
+        searchActive: false,
+      });
+      this.sortData(this.state.sortType);
+    } else {
+      this.getData();
+    }
   }
 
   render() {
@@ -214,7 +236,7 @@ export default class Flights extends Component {
       <React.Fragment>
         <div className="container">
           <h1 className="my-4">Airports </h1>
-          <div className="row mb-3">
+          <div className="row">
             <Select
               className="col-md-3"
               onChange={(x: any) => this.sortData(x.value)}
@@ -231,16 +253,7 @@ export default class Flights extends Component {
               placeholder="Order: Ascend"
               options={orderOptions}
             />
-            <Select
-              className="col-md-3 basic-multi-select"
-              onChange={(e) => {
-
-              }}
-              placeholder="Filter: Country"
-              options={countryOptions}
-              isMulti
-            />
-            <form className="col-md-3" onSubmit={(e) => this.handleSubmit(e)}>
+            <form className="col-md-5" onSubmit={(e) => this.handleSubmit(e)}>
               <input
                 type="text"
                 value={this.state.searchVal}
@@ -259,43 +272,52 @@ export default class Flights extends Component {
               Cancel
             </button>
           </div>
-          <div className="card">
-            <table className="table table-hover mx-auto">
-              <thead className="thead-dark">
-                <tr>
-                  <th scope="col">Airport</th>
-                  <th scope="col">Airport Code</th>
-                  <th scope="col">City</th>
-                  <th scope="col">Country</th>
-                  <th scope="col">Latitude</th>
-                  <th scope="col">Longitude</th>
-                  <th scope="col">Timezone</th>
-                  <th scope="col">Covid Stats</th>
-                </tr>
-              </thead>
-              <tbody>{this.renderData()}</tbody>
-            </table>
+          <div className="row mt-1 mb-3">
+            <div className="col-md-6"></div>
+            <Select
+              className="col-md-5"
+              onChange={(x: any) => this.handleFilter(x)}
+              placeholder="Filter: Country"
+              value={this.state.filters}
+              options={countryOptions}
+              isMulti
+            />
           </div>
-          <div className="row mb-3"></div>
-          <Paginate
-            previousLabel={"prev"}
-            nextLabel={"next"}
-            breakLabel={"..."}
-            pageCount={this.state.pageCount}
-            marginPagesDisplayed={0}
-            pageRangeDisplayed={this.state.perPage}
-            onPageChange={this.handlePageClick}
-            breakLinkClassName={"page-link"}
-            containerClassName={"pagination justify-content-center"}
-            pageClassName={"page-item"}
-            pageLinkClassName={"page-link"}
-            previousClassName={"page-item"}
-            previousLinkClassName={"page-link"}
-            nextClassName={"page-item"}
-            nextLinkClassName={"page-link"}
-            activeClassName={"active"}
-          />
+          <table className="table table-hover mx-auto bg-gray-100">
+            <thead className="thead-dark">
+              <tr>
+                <th scope="col">Airport</th>
+                <th scope="col">Airport Code</th>
+                <th scope="col">City</th>
+                <th scope="col">Country</th>
+                <th scope="col">Latitude</th>
+                <th scope="col">Longitude</th>
+                <th scope="col">Timezone</th>
+                <th scope="col">Covid Stats</th>
+              </tr>
+            </thead>
+            <tbody>{this.renderData()}</tbody>
+          </table>
         </div>
+        <div className="row mb-3"></div>
+        <Paginate
+          previousLabel={"prev"}
+          nextLabel={"next"}
+          breakLabel={"..."}
+          pageCount={this.state.pageCount}
+          marginPagesDisplayed={0}
+          pageRangeDisplayed={this.state.perPage}
+          onPageChange={this.handlePageClick}
+          breakLinkClassName={"page-link"}
+          containerClassName={"pagination justify-content-center"}
+          pageClassName={"page-item"}
+          pageLinkClassName={"page-link"}
+          previousClassName={"page-item"}
+          previousLinkClassName={"page-link"}
+          nextClassName={"page-item"}
+          nextLinkClassName={"page-link"}
+          activeClassName={"active"}
+        />
       </React.Fragment>
     );
   }

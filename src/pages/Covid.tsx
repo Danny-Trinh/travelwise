@@ -148,9 +148,6 @@ export default class Covid extends Component {
     });
     this.sortData(this.state.sortType);
   }
-  cancelSearch() {
-    this.getData();
-  }
 
   render() {
     return (
@@ -194,19 +191,19 @@ export default class Covid extends Component {
             </button>
           </div>
           <div className="card">
-          <table className="table table-hover mx-auto">
-            <thead className="thead-dark">
-              <tr>
-                <th scope="col">Country</th>
-                <th scope="col">Country Code</th>
-                <th scope="col">New Confirmed Cases</th>
-                <th scope="col">Total Confirmed Cases</th>
-                <th scope="col">New Deaths</th>
-                <th scope="col">Total Deaths</th>
-              </tr>
-            </thead>
-            <tbody>{this.renderData()}</tbody>
-          </table>
+            <table className="table table-hover mx-auto">
+              <thead className="thead-dark">
+                <tr>
+                  <th scope="col">Country</th>
+                  <th scope="col">Country Code</th>
+                  <th scope="col">New Confirmed Cases</th>
+                  <th scope="col">Total Confirmed Cases</th>
+                  <th scope="col">New Deaths</th>
+                  <th scope="col">Total Deaths</th>
+                </tr>
+              </thead>
+              <tbody>{this.renderData()}</tbody>
+            </table>
           </div>
           <div className="row mb-3"></div>
           <Paginate
