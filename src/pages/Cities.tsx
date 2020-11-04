@@ -172,7 +172,14 @@ export default class Cities extends Component {
       (city: any) =>
         city.name[0].toLowerCase().includes(searchVal) ||
         city.country[0].toLowerCase().includes(searchVal) ||
-        city.region[0].toLowerCase().includes(searchVal)
+        city.region[0].toLowerCase().includes(searchVal) ||
+        (city.overall ? city.overall : 0).toString().includes(searchVal) || 
+        (city.lgbtq ? city.lgbtq : 0).toString().includes(searchVal) ||
+        (city.medical ? city.medical : 0).toString().includes(searchVal) ||
+        (city.physical ? city.physical : 0).toString().includes(searchVal) ||
+        (city.political ? city.political : 0).toString().includes(searchVal) ||
+        (city.theft ? city.theft : 0).toString().includes(searchVal) ||
+        (city.women ? city.women : 0).toString().includes(searchVal)
     );
     this.setState({
       pageCount: Math.ceil(data.length / this.state.perPage),

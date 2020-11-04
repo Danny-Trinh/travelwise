@@ -165,7 +165,10 @@ export default class Airports extends Component {
         airports.airport_name[0].toLowerCase().includes(searchVal) ||
         airports.iata_code[0].toLowerCase().includes(searchVal) ||
         airports.city_name[0].toLowerCase().includes(searchVal) ||
-        airports.country_name[0].toLowerCase().includes(searchVal)
+        airports.country_name[0].toLowerCase().includes(searchVal) || 
+        (airports.latitude ? airports.latitude : 0).toString().includes(searchVal) || 
+        (airports.longitude ? airports.longitude : 0).toString().includes(searchVal) ||
+        (airports.time_offset ? airports.time_offset : 0).toString().includes(searchVal)
     );
     this.setState({
       pageCount: Math.ceil(data.length / this.state.perPage),
