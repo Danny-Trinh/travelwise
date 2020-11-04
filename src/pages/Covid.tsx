@@ -75,7 +75,7 @@ export default class Covid extends Component {
                   (i.new_cases ? i.new_cases : 0).toString(),
                   this.state.searchVal
                 )
-              : i.new_cases}
+              : i.new_cases ? i.new_cases : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -83,7 +83,7 @@ export default class Covid extends Component {
                   (i.total_cases ? i.total_cases : 0).toString(),
                   this.state.searchVal
                 )
-              : i.total_cases}
+              : i.total_cases ? i.total_cases : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -91,7 +91,7 @@ export default class Covid extends Component {
                   (i.new_deaths ? i.new_deaths : 0).toString(),
                   this.state.searchVal
                 )
-              : i.new_deaths}
+              : i.new_deaths ? i.new_deaths : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -99,7 +99,7 @@ export default class Covid extends Component {
                   (i.total_deaths ? i.total_deaths : 0).toString(),
                   this.state.searchVal
                 )
-              : i.total_deaths}
+              : i.total_deaths ? i.total_deaths : 0}
           </td>
         </tr>
       );

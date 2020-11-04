@@ -88,7 +88,7 @@ export default class Airports extends Component {
                   (i.latitude ? i.latitude : 0).toString(),
                   this.state.searchVal
                 )
-              : i.latitude}
+              : i.latitude ? i.latitude : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -96,7 +96,7 @@ export default class Airports extends Component {
                   (i.longitude ? i.longitude : 0).toString(),
                   this.state.searchVal
                 )
-              : i.longitude}
+              : i.longitude ? i.longitude : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -104,7 +104,7 @@ export default class Airports extends Component {
                   (i.time_offset ? i.time_offset : 0).toString(),
                   this.state.searchVal
                 )
-              : i.time_offset}
+              : i.time_offset ? i.time_offset : 0}
           </td>
           <td>
             <Link to={`/Covid/${i.country_code}`}>Link</Link>
