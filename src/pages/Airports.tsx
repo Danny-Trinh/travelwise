@@ -314,7 +314,6 @@ export default class Airports extends Component {
         </div>
         <PaginateTool
           pageCount={this.state.pageCount}
-          perPage={this.state.perPage}
           handlePageClick={this.handlePageClick}
         />
       </React.Fragment>

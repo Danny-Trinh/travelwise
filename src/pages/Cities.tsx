@@ -350,7 +350,6 @@ export default class Cities extends Component {
           </table>
           <PaginateTool
             pageCount={this.state.pageCount}
-            perPage={this.state.perPage}
             handlePageClick={this.handlePageClick}
           />
         </div>

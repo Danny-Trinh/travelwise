@@ -10,7 +10,7 @@ export default function PaginateTool(props: any) {
       breakLabel={"..."}
       pageCount={props.pageCount}
       marginPagesDisplayed={0}
-      pageRangeDisplayed={props.state.perPage}
+      pageRangeDisplayed={10}
       onPageChange={props.handlePageClick}
       breakLinkClassName={"page-link"}
       containerClassName={"pagination justify-content-center"}
