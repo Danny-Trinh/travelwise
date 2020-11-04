@@ -50,10 +50,10 @@ export default class CovidDetail extends Component<myProps> {
 
       // get longitude/latitude
       let location = await Axios.get(
-        `http://api.worldbank.org/v2/country/${this.props.match.params.country_code}?format=json`
+        `https://restcountries.eu/rest/v2/alpha/${this.props.match.params.country_code}`
       );
-      let latitude = location.data[1][0].latitude;
-      let longitude = location.data[1][0].longitude;
+      let latitude = location.data.latlng[0];
+      let longitude = location.data.latlng[1];
 
       // get picture asset
       let picJson = await Axios.get(
