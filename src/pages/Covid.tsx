@@ -174,7 +174,11 @@ export default class Covid extends Component {
     let data = json.data.filter(
       (covid: any) =>
         covid.country[0].toLowerCase().includes(searchVal) ||
-        covid.country_code[0].toLowerCase().includes(searchVal)
+        covid.country_code[0].toLowerCase().includes(searchVal) || 
+        (covid.new_cases ? covid.new_cases : 0).toString().includes(searchVal) ||
+        (covid.total_cases ? covid.total_cases : 0).toString().includes(searchVal) || 
+        (covid.new_deaths ? covid.new_deaths : 0).toString().includes(searchVal) || 
+        (covid.total_deaths ? covid.total_deaths : 0).toString().includes(searchVal)
     );
     this.setState({
       pageCount: Math.ceil(data.length / perPage),
