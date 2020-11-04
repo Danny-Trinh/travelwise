@@ -216,6 +216,7 @@ export default class Covid extends Component {
                 className="form-control"
                 name="searchVal"
                 onChange={(e) => this.handleChange(e)}
+                disabled={this.state.searchActive}
               />
             </form>
             <button
