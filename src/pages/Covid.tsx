@@ -4,41 +4,7 @@ import Paginate from "react-paginate";
 import { Link } from "react-router-dom";
 import Select from "react-select";
 import highlight from "../utility/getHighlightedText";
-
-const sortOptions = [
-  // used for sort
-  { value: 1, label: "Country" },
-  { value: 2, label: "Country Code" },
-  { value: 3, label: "New Cases" },
-  { value: 4, label: "Total Cases" },
-  { value: 5, label: "New Deaths" },
-  { value: 6, label: "Total Deaths" },
-];
-
-const orderOptions = [
-  // used for ordering sort
-  { value: 1, label: "Ascending" },
-  { value: -1, label: "Descending" },
-];
-
-const filterOptions = [
-  //used for filtering
-  { value: ["new_cases", 0], label: "New Cases > 0" },
-  { value: ["new_cases", 100], label: "New Cases > 100" },
-  { value: ["new_cases", 100], label: "New Cases > 1000" },
-  { value: ["new_deaths", 0], label: "New Deaths > 0" },
-  { value: ["new_deaths", 100], label: "New Deaths > 100" },
-  { value: ["total_cases", 0], label: "Total Cases > 0" },
-  { value: ["total_cases", 100], label: "Total Cases > 100" },
-  { value: ["total_cases", 1000], label: "Total Cases > 1000" },
-  { value: ["total_cases", 10000], label: "Total Cases > 10000" },
-  { value: ["total_cases", 100000], label: "Total Cases > 100000" },
-  { value: ["total_deaths", 0], label: "Total Deaths > 0" },
-  { value: ["total_deaths", 100], label: "Total Deaths > 100" },
-  { value: ["total_deaths", 1000], label: "Total Deaths > 1000" },
-  { value: ["total_deaths", 10000], label: "Total Deaths > 10000" },
-  { value: ["total_deaths", 100000], label: "Total Deaths > 100000" },
-];
+import * as constants from "../utility/data";
 
 export default class Covid extends Component {
   state = {
@@ -173,7 +139,19 @@ export default class Covid extends Component {
     let data = json.data.filter(
       (covid: any) =>
         covid.country[0].toLowerCase().includes(searchVal) ||
-        covid.country_code[0].toLowerCase().includes(searchVal)
+        covid.country_code[0].toLowerCase().includes(searchVal) ||
+        (covid.new_cases ? covid.new_cases : 0)
+          .toString()
+          .includes(searchVal) ||
+        (covid.total_cases ? covid.total_cases : 0)
+          .toString()
+          .includes(searchVal) ||
+        (covid.new_deaths ? covid.new_deaths : 0)
+          .toString()
+          .includes(searchVal) ||
+        (covid.total_deaths ? covid.total_deaths : 0)
+          .toString()
+          .includes(searchVal)
     );
     this.setState({
       pageCount: Math.ceil(data.length / this.state.perPage),
@@ -216,7 +194,7 @@ export default class Covid extends Component {
             <Select
               className="col-md-3"
               onChange={(x: any) => this.sortData(x ? x.value : 1)}
-              options={sortOptions}
+              options={constants.covidSortOptions}
               placeholder="Sort by: Country"
               isClearable
             />
@@ -228,7 +206,7 @@ export default class Covid extends Component {
                 );
               }}
               placeholder="Order: Ascend"
-              options={orderOptions}
+              options={constants.covidOrderOptions}
             />
             <form className="col-md-5" onSubmit={(e) => this.handleSubmit(e)}>
               <input
@@ -256,7 +234,7 @@ export default class Covid extends Component {
               onChange={(x: any) => this.handleFilter(x)}
               placeholder="Filter: Stats"
               value={this.state.filters}
-              options={filterOptions}
+              options={constants.covidFilterOptions}
               isMulti
             />
           </div>

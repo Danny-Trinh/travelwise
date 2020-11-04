@@ -4,66 +4,7 @@ import { Link } from "react-router-dom";
 import Axios from "axios";
 import Select from "react-select";
 import highlight from "../utility/getHighlightedText";
-
-const sortOptions = [
-  //used for sort
-  { value: 1, label: "Airport" },
-  { value: 2, label: "Airport Code" },
-  { value: 3, label: "City" },
-  { value: 4, label: "Country" },
-  { value: 5, label: "Latitude" },
-  { value: 6, label: "Longitude" },
-  { value: 7, label: "Timezone" },
-];
-const orderOptions = [
-  // used for ordering sort
-  { value: 1, label: "Ascending" },
-  { value: -1, label: "Descending" },
-];
-
-const countryOptions = [
-  //used for filtering
-  { value: "ARGENTINA", label: "Argentina" },
-  { value: "BAHAMAS", label: "Bahamas" },
-  { value: "BRAZIL", label: "Brazil" },
-  { value: "CAMBODIA", label: "Cambodia" },
-  { value: "CANADA", label: "Canada" },
-  { value: "CHILE", label: "Chile" },
-  { value: "CHINA", label: "China" },
-  { value: "COLUMBIA", label: "Columbia" },
-  { value: "COSTA RICA", label: "Costa Rica" },
-  { value: "CUBA", label: "Cuba" },
-  { value: "EGYPT", label: "Egypt" },
-  { value: "EL SALVADOR", label: "El Salvador" },
-  { value: "ETHIOPIA", label: "Ethiopia" },
-  { value: "FRANCE", label: "France" },
-  { value: "GERMANY", label: "Germany" },
-  { value: "GREECE", label: "Greece" },
-  { value: "INDIA", label: "India" },
-  { value: "INDONESIA", label: "Indonesia" },
-  { value: "IRAN", label: "Iran" },
-  { value: "ITALY", label: "Italy" },
-  { value: "JAPAN", label: "Japan" },
-  { value: "MALAYSIA", label: "Malaysia" },
-  { value: "MEXICO", label: "Mexico" },
-  { value: "NEW ZEALAND", label: "New Zealand" },
-  { value: "NIGERIA", label: "Nigeria" },
-  { value: "PAKISTAN", label: "Pakistan" },
-  { value: "PAPUA NEW GUINEA", label: "Papua New Guinea" },
-  { value: "PHILIPPINES", label: "Philippines" },
-  { value: "RUSSIA", label: "Russia" },
-  { value: "SAUDI ARABIA", label: "Saudi Arabia" },
-  { value: "SOUTH AFRICA", label: "South Africa" },
-  { value: "KOREA REPUBLIC OF", label: "South Korea" },
-  { value: "SPAIN", label: "Spain" },
-  { value: "THAILAND", label: "Thailand" },
-  { value: "TURKEY", label: "Turkey" },
-  { value: "UKRAINE", label: "Ukraine" },
-  { value: "UNITED KINGDOM", label: "United Kingdom" },
-  { value: "UNITED STATES OF AMERICA", label: "United States of America" },
-  { value: "VENEZUELA", label: "Venezuela" },
-  { value: "VIETNAM", label: "Vietnam" },
-];
+import * as constants from "../utility/data";
 
 export default class Airports extends Component {
   state = {
@@ -224,7 +165,10 @@ export default class Airports extends Component {
         airports.airport_name[0].toLowerCase().includes(searchVal) ||
         airports.iata_code[0].toLowerCase().includes(searchVal) ||
         airports.city_name[0].toLowerCase().includes(searchVal) ||
-        airports.country_name[0].toLowerCase().includes(searchVal)
+        airports.country_name[0].toLowerCase().includes(searchVal) || 
+        (airports.latitude ? airports.latitude : 0).toString().includes(searchVal) || 
+        (airports.longitude ? airports.longitude : 0).toString().includes(searchVal) ||
+        (airports.time_offset ? airports.time_offset : 0).toString().includes(searchVal)
     );
     this.setState({
       pageCount: Math.ceil(data.length / this.state.perPage),
@@ -267,7 +211,7 @@ export default class Airports extends Component {
             <Select
               className="col-md-3"
               onChange={(x: any) => this.sortData(x ? x.value : 1)}
-              options={sortOptions}
+              options={constants.airportSortOptions}
               placeholder="Sort by: Airport"
               isClearable
             />
@@ -279,7 +223,7 @@ export default class Airports extends Component {
                 );
               }}
               placeholder="Order: Ascend"
-              options={orderOptions}
+              options={constants.airportOrderOptions}
             />
             <form className="col-md-5" onSubmit={(e) => this.handleSubmit(e)}>
               <input
@@ -307,7 +251,7 @@ export default class Airports extends Component {
               onChange={(x: any) => this.handleFilter(x)}
               placeholder="Filter: Country"
               value={this.state.filters}
-              options={countryOptions}
+              options={constants.airportFilterOptions}
               isMulti
             />
           </div>
