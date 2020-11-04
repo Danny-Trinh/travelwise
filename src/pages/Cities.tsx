@@ -80,7 +80,7 @@ export default class Cities extends Component {
                   (i.overall ? i.overall : 0).toString(),
                   this.state.searchVal
                 )
-              : i.overall}
+              : i.overall ? i.overall : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -88,7 +88,7 @@ export default class Cities extends Component {
                   (i.lgbtq ? i.lgbtq : 0).toString(),
                   this.state.searchVal
                 )
-              : i.lgbtq}
+              : i.lgbtq ? i.lgbtq : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -96,7 +96,7 @@ export default class Cities extends Component {
                   (i.medical ? i.medical : 0).toString(),
                   this.state.searchVal
                 )
-              : i.medical}
+              : i.medical ? i.medical : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -104,7 +104,7 @@ export default class Cities extends Component {
                   (i.physical ? i.physical : 0).toString(),
                   this.state.searchVal
                 )
-              : i.physical}
+              : i.physical ? i.physical : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -112,7 +112,7 @@ export default class Cities extends Component {
                   (i.political ? i.political : 0).toString(),
                   this.state.searchVal
                 )
-              : i.political}
+              : i.political ? i.political : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -120,7 +120,7 @@ export default class Cities extends Component {
                   (i.theft ? i.theft : 0).toString(),
                   this.state.searchVal
                 )
-              : i.theft}
+              : i.theft ? i.theft : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -128,7 +128,7 @@ export default class Cities extends Component {
                   (i.women ? i.women : 0).toString(),
                   this.state.searchVal
                 )
-              : i.women}
+              : i.women ? i.women : 0}
           </td>
           <td>
             <Link to={`/Covid/${i.country_code}`}>Link</Link>

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import * as Index from "./static_pages/Index";
 import Error from "./components/Error";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Cities from "./pages/Cities";
@@ -49,6 +50,7 @@ function App() {
           <Route path="/Search/:searchQuery?" component={Search}></Route>
           <Route component={Error}></Route>
         </Switch>
+        <Footer></Footer>
       </Router>
     </React.Fragment>
   );
