@@ -121,7 +121,7 @@ export const airportFilterOptions = [
   { value: "VIETNAM", label: "Vietnam" },
 ];
 
-const sortOptions = [
+export const covidSortOptions = [
   // used for sort
   { value: 1, label: "Country" },
   { value: 2, label: "Country Code" },
@@ -131,13 +131,13 @@ const sortOptions = [
   { value: 6, label: "Total Deaths" },
 ];
 
-const orderOptions = [
+export const covidOrderOptions = [
   // used for ordering sort
   { value: 1, label: "Ascending" },
   { value: -1, label: "Descending" },
 ];
 
-const filterOptions = [
+export const covidFilterOptions = [
   //used for filtering
   { value: ["new_cases", 0], label: "New Cases > 0" },
   { value: ["new_cases", 100], label: "New Cases > 100" },
