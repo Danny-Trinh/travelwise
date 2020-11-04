@@ -126,10 +126,10 @@ export default class Search extends Component<myProps> {
             </Link>
           </td>
           <td>{highlight(i.country_code[0], this.state.searchQuery)}</td>
-          <td>{i.new_cases}</td>
-          <td>{i.total_cases}</td>
-          <td>{i.new_deaths}</td>
-          <td>{i.total_deaths}</td>
+          <td>{highlight((i.new_cases ? i.new_cases : 0).toString(), this.state.searchQuery)}</td>
+          <td>{highlight((i.total_cases ? i.total_cases : 0).toString(), this.state.searchQuery)}</td>
+          <td>{highlight((i.new_deaths ? i.new_deaths : 0).toString(), this.state.searchQuery)}</td>
+          <td>{highlight((i.total_deaths ? i.total_deaths : 0).toString(), this.state.searchQuery)}</td>
         </tr>
       );
     });
@@ -151,13 +151,13 @@ export default class Search extends Component<myProps> {
           </td>
           <td>{highlight(i.country[0], this.state.searchQuery)}</td>
           <td>{highlight(i.region[0], this.state.searchQuery)}</td>
-          <td>{i.overall ? i.overall : 0}</td>
-          <td>{i.lgbtq ? i.lgbtq : 0}</td>
-          <td>{i.medical ? i.medical : 0}</td>
-          <td>{i.physical ? i.physical : 0}</td>
-          <td>{i.political ? i.political : 0}</td>
-          <td>{i.theft ? i.theft : 0}</td>
-          <td>{i.women ? i.women : 0}</td>
+          <td>{highlight((i.overall ? i.overall : 0).toString(), this.state.searchQuery)}</td>
+          <td>{highlight((i.lgbtq ? i.lgbtq : 0).toString(), this.state.searchQuery)}</td>
+          <td>{highlight((i.medical ? i.medical : 0).toString(), this.state.searchQuery)}</td>
+          <td>{highlight((i.physical ? i.physical : 0).toString(), this.state.searchQuery)}</td>
+          <td>{highlight((i.political ? i.political : 0).toString(), this.state.searchQuery)}</td>
+          <td>{highlight((i.theft ? i.theft : 0).toString(), this.state.searchQuery)}</td>
+          <td>{highlight((i.women ? i.women : 0).toString(), this.state.searchQuery)}</td>
           <td>
             <Link to={`/Covid/${i.country_code}`}>Link</Link>
           </td>
@@ -187,9 +187,9 @@ export default class Search extends Component<myProps> {
             </Link>
           </td>
           <td>{highlight(i.country_name[0], this.state.searchQuery)}</td>
-          <td>{i.latitude}</td>
-          <td>{i.longitude}</td>
-          <td>{i.time_offset}</td>
+          <td>{highlight((i.latitude ? i.latitude : 0).toString(), this.state.searchQuery)}</td>
+          <td>{highlight((i.longitude ? i.longitude : 0).toString(), this.state.searchQuery)}</td>
+          <td>{highlight((i.time_zone ? i.time_zone : 0).toString(), this.state.searchQuery)}</td>
           <td>
             <Link to={`/Covid/${i.country_code}`}>Link</Link>
           </td>
