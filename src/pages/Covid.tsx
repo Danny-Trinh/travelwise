@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-// import CovidData from "../json/Covid.json";
 import Axios from "axios";
 import Paginate from "react-paginate";
 import { Link } from "react-router-dom";
 import Select from "react-select";
-const filterOptions = [
+const perPage = 9; // keeps track of how many instance per page
+
+const sortOptions = [
   { value: 1, label: "Country" },
   { value: 2, label: "Country Code" },
   { value: 3, label: "New Cases" },
@@ -12,52 +13,75 @@ const filterOptions = [
   { value: 5, label: "New Deaths" },
   { value: 6, label: "Total Deaths" },
 ];
+
 const orderOptions = [
   { value: 1, label: "Ascending" },
   { value: -1, label: "Descending" },
 ];
+
+const filterOptions = [
+  { value: ["new_cases", 0], label: "New Cases > 0" },
+  { value: ["new_cases", 100], label: "New Cases > 100" },
+  { value: ["new_cases", 100], label: "New Cases > 1000" },
+  { value: ["new_deaths", 0], label: "New Deaths > 0" },
+  { value: ["new_deaths", 100], label: "New Deaths > 100" },
+  { value: ["total_cases", 0], label: "Total Cases > 0" },
+  { value: ["total_cases", 100], label: "Total Cases > 100" },
+  { value: ["total_cases", 1000], label: "Total Cases > 1000" },
+  { value: ["total_cases", 10000], label: "Total Cases > 10000" },
+  { value: ["total_cases", 100000], label: "Total Cases > 100000" },
+  { value: ["total_deaths", 0], label: "Total Deaths > 0" },
+  { value: ["total_deaths", 100], label: "Total Deaths > 100" },
+  { value: ["total_deaths", 1000], label: "Total Deaths > 1000" },
+  { value: ["total_deaths", 10000], label: "Total Deaths > 10000" },
+  { value: ["total_deaths", 100000], label: "Total Deaths > 100000" },
+];
+
 export default class Covid extends Component {
   state = {
-    offset: 0,
-    data: [],
-    perPage: 9,
-    currentPage: 0,
-    pageCount: 0,
-    sortType: 1,
-    sortOrder: 1,
-    searchVal: "",
-    searchActive: false,
+    offset: 0, // offset of pagination
+    data: [], // covid data
+    currentPage: 0, // current page pagination
+    pageCount: 0, // page count pagination
+    sortType: 1, // keeps track of how data is sorted
+    sortOrder: 1, // keeps track of what order to sort in
+    searchVal: "", // current search query
+    searchActive: false, // is the search query active
+    filters: null, // current filters
   };
 
   componentDidMount() {
     this.getData();
   }
 
+  // fetches data and resets search values and filter values
   async getData() {
     let json = await Axios.get(`https://api.travelwise.live/covid`);
-    // use json.data instead of CovidData and voila
     this.setState({
-      pageCount: Math.ceil(json.data.length / this.state.perPage),
+      pageCount: Math.ceil(json.data.length / perPage),
       data: json.data,
       searchActive: false,
       searchVal: "",
+      filters: null,
     });
     this.sortData(this.state.sortOrder);
   }
 
+  // handles pagination click
   handlePageClick = (e: any) => {
     const selectedPage = e.selected;
-    const offset = selectedPage * this.state.perPage;
+    const offset = selectedPage * perPage;
     this.setState({
       currentPage: selectedPage,
       offset: offset,
     });
   };
 
+  // render a list of covid objects to html
   renderData() {
     let chunk = this.state.data.slice(
       this.state.offset,
-      this.state.offset + this.state.perPage
+      this.state.offset + perPage
     );
     let result: Array<any> = [];
     chunk.forEach((i: any) => {
@@ -65,10 +89,16 @@ export default class Covid extends Component {
         <tr key={i.country_code}>
           <td>
             <Link to={`/Covid/${i.country_code}`}>
-              {getHighlightedText(i.country[0], this.state.searchVal)}
+              {this.state.searchActive
+                ? getHighlightedText(i.country[0], this.state.searchVal)
+                : i.country[0]}
             </Link>
           </td>
-          <td>{getHighlightedText(i.country_code[0], this.state.searchVal)}</td>
+          <td>
+            {this.state.searchActive
+              ? getHighlightedText(i.country_code[0], this.state.searchVal)
+              : i.country_code[0]}
+          </td>
           <td>{i.new_cases}</td>
           <td>{i.total_cases}</td>
           <td>{i.new_deaths}</td>
@@ -76,12 +106,12 @@ export default class Covid extends Component {
         </tr>
       );
     });
-    // this.setState({ pageCount: 5 });
     return result;
   }
 
+  // sorts data accordingly, does not make a fetch call
   sortData(sortInput: number) {
-    let reverse = this.state.sortOrder; // reverse filter if needed
+    let reverse = this.state.sortOrder;
     let sortedData;
     switch (sortInput) {
       case 1:
@@ -120,6 +150,7 @@ export default class Covid extends Component {
     this.setState({ data: sortedData, sortType: sortInput });
   }
 
+  // manages values in the search bar
   handleChange = (e: any) => {
     const name = e.target.name;
     const value = e.target.value.toLowerCase();
@@ -130,11 +161,10 @@ export default class Covid extends Component {
     });
   };
 
+  // on search enter, fetches data and queries search
   async handleSubmit(e: any) {
     e.preventDefault();
-
     let json = await Axios.get(`https://api.travelwise.live/covid`);
-    // use json.data instead of CovidData and voila
     const { searchVal } = this.state;
     let data = json.data.filter(
       (covid: any) =>
@@ -142,11 +172,35 @@ export default class Covid extends Component {
         covid.country_code[0].toLowerCase().includes(searchVal)
     );
     this.setState({
-      pageCount: Math.ceil(data.length / this.state.perPage),
+      pageCount: Math.ceil(data.length / perPage),
       data,
       searchActive: true,
+      filters: null,
     });
     this.sortData(this.state.sortType);
+  }
+
+  // fetches data and filters through inclusively, resets search to prevent logic errors
+  async handleFilter(filters: any) {
+    this.setState({ filters });
+    let json = await Axios.get(`https://api.travelwise.live/covid`);
+    if (filters && filters.length > 0) {
+      let data = json.data.filter((covid: any) => {
+        for (let i = 0; i < filters.length; i++) {
+          if (covid[filters[i].value[0]] > filters[i].value[1]) return true;
+        }
+        return false;
+      });
+      this.setState({
+        pageCount: Math.ceil(data.length / perPage),
+        data,
+        searchVal: "",
+        searchActive: false,
+      });
+      this.sortData(this.state.sortType);
+    } else {
+      this.getData();
+    }
   }
 
   render() {
@@ -154,12 +208,13 @@ export default class Covid extends Component {
       <React.Fragment>
         <div className="container ">
           <h1 className="my-4">Covid-19 </h1>
-          <div className="row mb-3">
+          <div className="row">
             <Select
               className="col-md-3"
-              onChange={(x: any) => this.sortData(x.value)}
-              options={filterOptions}
+              onChange={(x: any) => this.sortData(x ? x.value : 1)}
+              options={sortOptions}
               placeholder="Sort by: Country"
+              isClearable
             />
             <Select
               className="col-md-3"
@@ -171,11 +226,11 @@ export default class Covid extends Component {
               placeholder="Order: Ascend"
               options={orderOptions}
             />
-            <form className="col-md-3" onSubmit={(e) => this.handleSubmit(e)}>
+            <form className="col-md-5" onSubmit={(e) => this.handleSubmit(e)}>
               <input
                 type="text"
                 value={this.state.searchVal}
-                placeholder="Search Countries:"
+                placeholder="Search:"
                 className="form-control"
                 name="searchVal"
                 onChange={(e) => this.handleChange(e)}
@@ -190,47 +245,56 @@ export default class Covid extends Component {
               Cancel
             </button>
           </div>
-          <div className="card">
-            <table className="table table-hover mx-auto">
-              <thead className="thead-dark">
-                <tr>
-                  <th scope="col">Country</th>
-                  <th scope="col">Country Code</th>
-                  <th scope="col">New Confirmed Cases</th>
-                  <th scope="col">Total Confirmed Cases</th>
-                  <th scope="col">New Deaths</th>
-                  <th scope="col">Total Deaths</th>
-                </tr>
-              </thead>
-              <tbody>{this.renderData()}</tbody>
-            </table>
+          <div className="row mt-1 mb-3">
+            <div className="col-md-6"></div>
+            <Select
+              className="col-md-5"
+              onChange={(x: any) => this.handleFilter(x)}
+              placeholder="Filter: stats"
+              value={this.state.filters}
+              options={filterOptions}
+              isMulti
+            />
           </div>
-          <div className="row mb-3"></div>
-          <Paginate
-            previousLabel={"prev"}
-            nextLabel={"next"}
-            breakLabel={"..."}
-            pageCount={this.state.pageCount}
-            marginPagesDisplayed={0}
-            pageRangeDisplayed={this.state.perPage}
-            onPageChange={this.handlePageClick}
-            breakLinkClassName={"page-link"}
-            containerClassName={"pagination justify-content-center"}
-            pageClassName={"page-item"}
-            pageLinkClassName={"page-link"}
-            previousClassName={"page-item"}
-            previousLinkClassName={"page-link"}
-            nextClassName={"page-item"}
-            nextLinkClassName={"page-link"}
-            activeClassName={"active"}
-          />
+          <table className="table table-hover mx-auto bg-gray-100">
+            <thead className="thead-dark">
+              <tr>
+                <th scope="col">Country</th>
+                <th scope="col">Country Code</th>
+                <th scope="col">New Confirmed Cases</th>
+                <th scope="col">Total Confirmed Cases</th>
+                <th scope="col">New Deaths</th>
+                <th scope="col">Total Deaths</th>
+              </tr>
+            </thead>
+            <tbody>{this.renderData()}</tbody>
+          </table>
         </div>
+        <Paginate
+          previousLabel={"prev"}
+          nextLabel={"next"}
+          breakLabel={"..."}
+          pageCount={this.state.pageCount}
+          marginPagesDisplayed={0}
+          pageRangeDisplayed={perPage}
+          onPageChange={this.handlePageClick}
+          breakLinkClassName={"page-link"}
+          containerClassName={"pagination justify-content-center"}
+          pageClassName={"page-item"}
+          pageLinkClassName={"page-link"}
+          previousClassName={"page-item"}
+          previousLinkClassName={"page-link"}
+          nextClassName={"page-item"}
+          nextLinkClassName={"page-link"}
+          activeClassName={"active"}
+        />
       </React.Fragment>
     );
   }
 }
+
+// returns a span with specified highlighted text
 function getHighlightedText(text: string, highlight: string) {
-  // Split on highlight term and include term into parts, ignore case
   const parts = text.split(new RegExp(`(${highlight})`, "gi"));
   return (
     <span>

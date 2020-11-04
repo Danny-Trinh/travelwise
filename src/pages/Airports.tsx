@@ -3,6 +3,7 @@ import Paginate from "react-paginate";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import Select from "react-select";
+const perPage = 9;
 const filterOptions = [
   { value: 1, label: "Airport" },
   { value: 2, label: "Airport Code" },
@@ -63,7 +64,6 @@ export default class Flights extends Component {
   state = {
     offset: 0,
     data: [],
-    perPage: 9,
     currentPage: 0,
     pageCount: 0,
     sortType: 1,
@@ -81,7 +81,7 @@ export default class Flights extends Component {
     let json = await Axios.get(`https://api.travelwise.live/airports`);
 
     this.setState({
-      pageCount: Math.ceil(json.data.length / this.state.perPage),
+      pageCount: Math.ceil(json.data.length / perPage),
       data: json.data,
       searchActive: false,
       searchVal: "",
@@ -92,7 +92,7 @@ export default class Flights extends Component {
 
   handlePageClick = (e: any) => {
     const selectedPage = e.selected;
-    const offset = selectedPage * this.state.perPage;
+    const offset = selectedPage * perPage;
     this.setState({
       currentPage: selectedPage,
       offset: offset,
@@ -102,7 +102,7 @@ export default class Flights extends Component {
   renderData() {
     let chunk = this.state.data.slice(
       this.state.offset,
-      this.state.offset + this.state.perPage
+      this.state.offset + perPage
     );
     let result: Array<any> = [];
     chunk.forEach((i: any) => {
@@ -110,16 +110,28 @@ export default class Flights extends Component {
         <tr key={`${i.iata_code}`}>
           <td>
             <Link to={`/Airport/${i.iata_code}`}>
-              {getHighlightedText(i.airport_name[0], this.state.searchVal)}
+              {this.state.searchActive
+                ? getHighlightedText(i.airport_name[0], this.state.searchVal)
+                : i.airport_name[0]}
             </Link>
           </td>
-          <td>{getHighlightedText(i.iata_code[0], this.state.searchVal)}</td>
+          <td>
+            {this.state.searchActive
+              ? getHighlightedText(i.iata_code[0], this.state.searchVal)
+              : i.iata_code[0]}
+          </td>
           <td>
             <Link to={`/City/${i.city_name}/${i.country_code}`}>
-              {getHighlightedText(i.city_name[0], this.state.searchVal)}
+              {this.state.searchActive
+                ? getHighlightedText(i.city_name[0], this.state.searchVal)
+                : i.city_name[0]}
             </Link>
           </td>
-          <td>{getHighlightedText(i.country_name[0], this.state.searchVal)}</td>
+          <td>
+            {this.state.searchActive
+              ? getHighlightedText(i.country_name[0], this.state.searchVal)
+              : i.country_name[0]}
+          </td>
           <td>{i.latitude}</td>
           <td>{i.longitude}</td>
           <td>{i.time_offset}</td>
@@ -201,7 +213,7 @@ export default class Flights extends Component {
         airports.country_name[0].toLowerCase().includes(searchVal)
     );
     this.setState({
-      pageCount: Math.ceil(data.length / this.state.perPage),
+      pageCount: Math.ceil(data.length / perPage),
       data,
       searchActive: true,
       filters: null,
@@ -211,7 +223,6 @@ export default class Flights extends Component {
   async handleFilter(filters: any) {
     this.setState({ filters });
     let json = await Axios.get(`https://api.travelwise.live/airports`);
-    console.log(json.data);
     if (filters && filters.length > 0) {
       let data = json.data.filter((airport: any) => {
         for (let i = 0; i < filters.length; i++)
@@ -220,7 +231,7 @@ export default class Flights extends Component {
         return false;
       });
       this.setState({
-        pageCount: Math.ceil(data.length / this.state.perPage),
+        pageCount: Math.ceil(data.length / perPage),
         data,
         searchVal: "",
         searchActive: false,
@@ -239,9 +250,10 @@ export default class Flights extends Component {
           <div className="row">
             <Select
               className="col-md-3"
-              onChange={(x: any) => this.sortData(x.value)}
+              onChange={(x: any) => this.sortData(x ? x.value : 1)}
               options={filterOptions}
               placeholder="Sort by: Airport"
+              isClearable
             />
             <Select
               className="col-md-3"
@@ -257,7 +269,7 @@ export default class Flights extends Component {
               <input
                 type="text"
                 value={this.state.searchVal}
-                placeholder="Search Locations:"
+                placeholder="Search:"
                 className="form-control"
                 name="searchVal"
                 onChange={(e) => this.handleChange(e)}
@@ -299,14 +311,13 @@ export default class Flights extends Component {
             <tbody>{this.renderData()}</tbody>
           </table>
         </div>
-        <div className="row mb-3"></div>
         <Paginate
           previousLabel={"prev"}
           nextLabel={"next"}
           breakLabel={"..."}
           pageCount={this.state.pageCount}
           marginPagesDisplayed={0}
-          pageRangeDisplayed={this.state.perPage}
+          pageRangeDisplayed={perPage}
           onPageChange={this.handlePageClick}
           breakLinkClassName={"page-link"}
           containerClassName={"pagination justify-content-center"}

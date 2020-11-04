@@ -73,7 +73,6 @@ export default class CityDetail extends Component<myProps> {
         airportData: airportJson.data,
         center: { lat: curCity[0].latitude, lng: curCity[0].longitude },
       });
-      console.log(json.data);
     } else {
       this.setState({
         found: false,
@@ -167,24 +166,24 @@ export default class CityDetail extends Component<myProps> {
           </div>
           <div className="row mb-3"></div>
           <div className="card">
-          <img src={this.state.picture} alt={this.state.data.name}></img>
+            <img src={this.state.picture} alt={this.state.data.name}></img>
           </div>
           <div className="row mb-3"></div>
           {airportRender}
-          <div style={{ height: '100vh', width: '100%' }}>
-          <Map 
-            center={[this.state.center.lat, this.state.center.lng]} 
-            zoom={this.state.zoom} 
-            style={{ width: '100%', height: '100%'}}
-          >
-            <TileLayer
-              attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={[this.state.center.lat, this.state.center.lng]}>
-            <Popup>{this.state.data.name}</Popup>
-            </Marker>
-          </Map>
+          <div style={{ height: "100vh", width: "100%" }}>
+            <Map
+              center={[this.state.center.lat, this.state.center.lng]}
+              zoom={this.state.zoom}
+              style={{ width: "100%", height: "100%" }}
+            >
+              <TileLayer
+                attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker position={[this.state.center.lat, this.state.center.lng]}>
+                <Popup>{this.state.data.name}</Popup>
+              </Marker>
+            </Map>
           </div>
         </div>
       </React.Fragment>

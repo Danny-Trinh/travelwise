@@ -191,7 +191,7 @@ export default class Search extends Component<myProps> {
     return (
       <div className="container">
         <h1 className="my-4">Airports</h1>
-        <table className="table table-hover">
+        <table className="table table-hover bg-gray-100">
           <thead className="thead-dark">
             <tr>
               <th scope="col">Airport</th>
@@ -208,7 +208,7 @@ export default class Search extends Component<myProps> {
         </table>
         {this.createPagination(this.state.pageCountA, "offsetA")}
         <h1 className="my-4">Cities</h1>
-        <table className="table table-hover">
+        <table className="table table-hover bg-gray-100">
           <thead className="thead-dark">
             <tr>
               <th scope="col">Cities</th>
@@ -228,7 +228,7 @@ export default class Search extends Component<myProps> {
         </table>
         {this.createPagination(this.state.pageCountCi, "offsetCi")}
         <h1 className="my-4">Covid-19</h1>
-        <table className="table table-hover mx-auto">
+        <table className="table table-hover bg-gray-100">
           <thead className="thead-dark">
             <tr>
               <th scope="col">Country</th>

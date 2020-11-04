@@ -3,6 +3,7 @@ import Paginate from "react-paginate";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import Select from "react-select";
+const perPage = 9;
 const filterOptions = [
   { value: 1, label: "City" },
   { value: 2, label: "Country" },
@@ -14,6 +15,7 @@ const filterOptions = [
   { value: 8, label: "Political Freedom" },
   { value: 9, label: "Theft" },
   { value: 10, label: "Women" },
+  { value: 1, label: "null" },
 ];
 const orderOptions = [
   { value: 1, label: "Ascending" },
@@ -54,13 +56,13 @@ export default class Cities extends Component {
   state = {
     offset: 0,
     data: [],
-    perPage: 9,
     currentPage: 0,
     pageCount: 0,
     sortType: 1,
     sortOrder: 1,
     searchVal: "",
     searchActive: false,
+    filters: null,
   };
   states = [];
 
@@ -71,17 +73,18 @@ export default class Cities extends Component {
   async getData() {
     let json = await Axios.get(`https://api.travelwise.live/cities`);
     this.setState({
-      pageCount: Math.ceil(json.data.length / this.state.perPage),
+      pageCount: Math.ceil(json.data.length / perPage),
       data: json.data,
       searchActive: false,
       searchVal: "",
+      filters: null,
     });
     this.sortData(this.state.sortOrder);
   }
 
   handlePageClick = (e: any) => {
     const selectedPage = e.selected;
-    const offset = selectedPage * this.state.perPage;
+    const offset = selectedPage * perPage;
     this.setState({
       currentPage: selectedPage,
       offset: offset,
@@ -91,7 +94,7 @@ export default class Cities extends Component {
   renderData() {
     let chunk = this.state.data.slice(
       this.state.offset,
-      this.state.offset + this.state.perPage
+      this.state.offset + perPage
     );
     let result: Array<any> = [];
     chunk.forEach((i: any) => {
@@ -99,11 +102,21 @@ export default class Cities extends Component {
         <tr key={i.city_id}>
           <td>
             <Link to={`/City/${i.name}/${i.country_code}`}>
-              {getHighlightedText(i.name[0], this.state.searchVal)}
+              {this.state.searchActive
+                ? getHighlightedText(i.name[0], this.state.searchVal)
+                : i.name[0]}
             </Link>
           </td>
-          <td>{getHighlightedText(i.country[0], this.state.searchVal)}</td>
-          <td>{getHighlightedText(i.region[0], this.state.searchVal)}</td>
+          <td>
+            {this.state.searchActive
+              ? getHighlightedText(i.country[0], this.state.searchVal)
+              : i.country[0]}
+          </td>
+          <td>
+            {this.state.searchActive
+              ? getHighlightedText(i.region[0], this.state.searchVal)
+              : i.region[0]}
+          </td>
           <td>{i.overall ? i.overall : 0}</td>
           <td>{i.lgbtq ? i.lgbtq : 0}</td>
           <td>{i.medical ? i.medical : 0}</td>
@@ -201,24 +214,46 @@ export default class Cities extends Component {
         city.region[0].toLowerCase().includes(searchVal)
     );
     this.setState({
-      pageCount: Math.ceil(data.length / this.state.perPage),
+      pageCount: Math.ceil(data.length / perPage),
       data,
       searchActive: true,
+      filters: null,
     });
     this.sortData(this.state.sortType);
   }
-
+  async handleFilter(filters: any) {
+    this.setState({ filters });
+    let json = await Axios.get(`https://api.travelwise.live/cities`);
+    if (filters && filters.length > 0) {
+      let data = json.data.filter((airport: any) => {
+        for (let i = 0; i < filters.length; i++)
+          if (airport.country[0].localeCompare(filters[i].value) === 0)
+            return true;
+        return false;
+      });
+      this.setState({
+        pageCount: Math.ceil(data.length / perPage),
+        data,
+        searchVal: "",
+        searchActive: false,
+      });
+      this.sortData(this.state.sortType);
+    } else {
+      this.getData();
+    }
+  }
   render() {
     return (
       <React.Fragment>
         <div className="container ">
           <h1 className="my-4">Cities </h1>
-          <div className="row mb-3">
+          <div className="row">
             <Select
               className="col-md-3"
-              onChange={(x: any) => this.sortData(x.value)}
+              onChange={(x: any) => this.sortData(x ? x.value : 1)}
               options={filterOptions}
               placeholder="Sort by: City"
+              isClearable
             />
             <Select
               className="col-md-3"
@@ -230,23 +265,17 @@ export default class Cities extends Component {
               placeholder="Order: Ascend"
               options={orderOptions}
             />
-            <Select
-              className="col-md-3 basic-multi-select"
-              onChange={(e) => {}}
-              placeholder="Filter: Country"
-              options={countryOptions}
-              isMulti
-            />
-            <form className="col-md-3" onSubmit={(e) => this.handleSubmit(e)}>
+            <form className="col-md-5" onSubmit={(e) => this.handleSubmit(e)}>
               <input
                 type="text"
                 value={this.state.searchVal}
-                placeholder="Search Locations:"
+                placeholder="Search:"
                 className="form-control"
                 name="searchVal"
                 onChange={(e) => this.handleChange(e)}
               />
             </form>
+
             <button
               className={`col-md-1 rounded btn-danger ${
                 this.state.searchActive ? "" : "d-none"
@@ -256,34 +285,42 @@ export default class Cities extends Component {
               Cancel
             </button>
           </div>
-          <div className="card">
-            <table className="table table-hover mx-auto">
-              <thead className="thead-dark">
-                <tr>
-                  <th scope="col">City</th>
-                  <th scope="col">Country</th>
-                  <th scope="col">Region</th>
-                  <th scope="col">Overall</th>
-                  <th scope="col">LGBTQ</th>
-                  <th scope="col">Medical</th>
-                  <th scope="col">Physical Harm</th>
-                  <th scope="col">Political Freedom</th>
-                  <th scope="col">Theft</th>
-                  <th scope="col">Women</th>
-                  <th scope="col">Covid Stats</th>
-                </tr>
-              </thead>
-              <tbody>{this.renderData()}</tbody>
-            </table>
+          <div className="row mt-1 mb-3">
+            <div className="col-md-6"></div>
+            <Select
+              className="col-md-5"
+              onChange={(x: any) => this.handleFilter(x)}
+              placeholder="Filter: Country"
+              value={this.state.filters}
+              options={countryOptions}
+              isMulti
+            />
           </div>
-          <div className="row mb-3"></div>
+          <table className="table table-hover mx-auto bg-gray-100">
+            <thead className="thead-dark">
+              <tr>
+                <th scope="col">City</th>
+                <th scope="col">Country</th>
+                <th scope="col">Region</th>
+                <th scope="col">Overall</th>
+                <th scope="col">LGBTQ</th>
+                <th scope="col">Medical</th>
+                <th scope="col">Physical Harm</th>
+                <th scope="col">Political Freedom</th>
+                <th scope="col">Theft</th>
+                <th scope="col">Women</th>
+                <th scope="col">Covid Stats</th>
+              </tr>
+            </thead>
+            <tbody>{this.renderData()}</tbody>
+          </table>
           <Paginate
             previousLabel={"prev"}
             nextLabel={"next"}
             breakLabel={"..."}
             pageCount={this.state.pageCount}
             marginPagesDisplayed={0}
-            pageRangeDisplayed={this.state.perPage}
+            pageRangeDisplayed={perPage}
             onPageChange={this.handlePageClick}
             breakLinkClassName={"page-link"}
             containerClassName={"pagination justify-content-center"}
