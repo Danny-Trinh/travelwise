@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 import Select from "react-select";
 import highlight from "../utility/getHighlightedText";
 
-const perPage = 9; // keeps track of how many instance per page
-
 const sortOptions = [
   // used for sort
   { value: 1, label: "Country" },
@@ -53,6 +51,7 @@ export default class Covid extends Component {
     searchVal: "", // current search query
     searchActive: false, // is the search query active
     filters: null, // current filters
+    perPage: 9, // keeps track of how many instance per page
   };
 
   componentDidMount() {
@@ -63,7 +62,7 @@ export default class Covid extends Component {
   async getData() {
     let json = await Axios.get(`https://api.travelwise.live/covid`);
     this.setState({
-      pageCount: Math.ceil(json.data.length / perPage),
+      pageCount: Math.ceil(json.data.length / this.state.perPage),
       data: json.data,
       searchActive: false,
       searchVal: "",
@@ -75,7 +74,7 @@ export default class Covid extends Component {
   // handles pagination click
   handlePageClick = (e: any) => {
     const selectedPage = e.selected;
-    const offset = selectedPage * perPage;
+    const offset = selectedPage * this.state.perPage;
     this.setState({
       currentPage: selectedPage,
       offset: offset,
@@ -86,7 +85,7 @@ export default class Covid extends Component {
   renderData() {
     let chunk = this.state.data.slice(
       this.state.offset,
-      this.state.offset + perPage
+      this.state.offset + this.state.perPage
     );
     let result: Array<any> = [];
     chunk.forEach((i: any) => {
@@ -177,7 +176,7 @@ export default class Covid extends Component {
         covid.country_code[0].toLowerCase().includes(searchVal)
     );
     this.setState({
-      pageCount: Math.ceil(data.length / perPage),
+      pageCount: Math.ceil(data.length / this.state.perPage),
       data,
       searchActive: true,
       filters: null,
@@ -197,7 +196,7 @@ export default class Covid extends Component {
         return false;
       });
       this.setState({
-        pageCount: Math.ceil(data.length / perPage),
+        pageCount: Math.ceil(data.length / this.state.perPage),
         data,
         searchVal: "",
         searchActive: false,
@@ -281,7 +280,7 @@ export default class Covid extends Component {
           breakLabel={"..."}
           pageCount={this.state.pageCount}
           marginPagesDisplayed={0}
-          pageRangeDisplayed={perPage}
+          pageRangeDisplayed={this.state.perPage}
           onPageChange={this.handlePageClick}
           breakLinkClassName={"page-link"}
           containerClassName={"pagination justify-content-center"}
