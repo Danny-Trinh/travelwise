@@ -1,9 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import * as Index from "./static_pages/Index";
 import Error from "./components/Error";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Cities from "./pages/Cities";
@@ -12,7 +10,6 @@ import Airports from "./pages/Airports";
 import CovidDetail from "./components/CovidDetail";
 import CityDetail from "./components/CityDetail";
 import AirportDetail from "./components/AirportDetail";
-// import CovidDetail from "./components/CovidDetail";
 import Search from "./pages/Search";
 
 function App() {
@@ -50,7 +47,6 @@ function App() {
           <Route path="/Search/:searchQuery?" component={Search}></Route>
           <Route component={Error}></Route>
         </Switch>
-        <Footer></Footer>
       </Router>
     </React.Fragment>
   );

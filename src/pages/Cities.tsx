@@ -80,7 +80,9 @@ export default class Cities extends Component {
                   (i.overall ? i.overall : 0).toString(),
                   this.state.searchVal
                 )
-              : i.overall ? i.overall : 0}
+              : i.overall
+              ? i.overall
+              : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -88,7 +90,9 @@ export default class Cities extends Component {
                   (i.lgbtq ? i.lgbtq : 0).toString(),
                   this.state.searchVal
                 )
-              : i.lgbtq ? i.lgbtq : 0}
+              : i.lgbtq
+              ? i.lgbtq
+              : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -96,7 +100,9 @@ export default class Cities extends Component {
                   (i.medical ? i.medical : 0).toString(),
                   this.state.searchVal
                 )
-              : i.medical ? i.medical : 0}
+              : i.medical
+              ? i.medical
+              : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -104,7 +110,9 @@ export default class Cities extends Component {
                   (i.physical ? i.physical : 0).toString(),
                   this.state.searchVal
                 )
-              : i.physical ? i.physical : 0}
+              : i.physical
+              ? i.physical
+              : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -112,7 +120,9 @@ export default class Cities extends Component {
                   (i.political ? i.political : 0).toString(),
                   this.state.searchVal
                 )
-              : i.political ? i.political : 0}
+              : i.political
+              ? i.political
+              : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -120,7 +130,9 @@ export default class Cities extends Component {
                   (i.theft ? i.theft : 0).toString(),
                   this.state.searchVal
                 )
-              : i.theft ? i.theft : 0}
+              : i.theft
+              ? i.theft
+              : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -128,7 +140,9 @@ export default class Cities extends Component {
                   (i.women ? i.women : 0).toString(),
                   this.state.searchVal
                 )
-              : i.women ? i.women : 0}
+              : i.women
+              ? i.women
+              : 0}
           </td>
           <td>
             <Link to={`/Covid/${i.country_code}`}>Link</Link>
@@ -265,7 +279,7 @@ export default class Cities extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="container ">
+        <div className="container " style={{ minHeight: "52rem" }}>
           <h1 className="my-4">Cities </h1>
           <div className="row">
             <Select
@@ -348,11 +362,11 @@ export default class Cities extends Component {
             </thead>
             <tbody>{this.renderData()}</tbody>
           </table>
-          <PaginateTool
-            pageCount={this.state.pageCount}
-            handlePageClick={this.handlePageClick}
-          />
         </div>
+        <PaginateTool
+          pageCount={this.state.pageCount}
+          handlePageClick={this.handlePageClick}
+        />
       </React.Fragment>
     );
   }

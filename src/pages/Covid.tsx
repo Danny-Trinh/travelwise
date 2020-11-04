@@ -75,7 +75,9 @@ export default class Covid extends Component {
                   (i.new_cases ? i.new_cases : 0).toString(),
                   this.state.searchVal
                 )
-              : i.new_cases ? i.new_cases : 0}
+              : i.new_cases
+              ? i.new_cases
+              : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -83,7 +85,9 @@ export default class Covid extends Component {
                   (i.total_cases ? i.total_cases : 0).toString(),
                   this.state.searchVal
                 )
-              : i.total_cases ? i.total_cases : 0}
+              : i.total_cases
+              ? i.total_cases
+              : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -91,7 +95,9 @@ export default class Covid extends Component {
                   (i.new_deaths ? i.new_deaths : 0).toString(),
                   this.state.searchVal
                 )
-              : i.new_deaths ? i.new_deaths : 0}
+              : i.new_deaths
+              ? i.new_deaths
+              : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -99,7 +105,9 @@ export default class Covid extends Component {
                   (i.total_deaths ? i.total_deaths : 0).toString(),
                   this.state.searchVal
                 )
-              : i.total_deaths ? i.total_deaths : 0}
+              : i.total_deaths
+              ? i.total_deaths
+              : 0}
           </td>
         </tr>
       );
@@ -216,7 +224,7 @@ export default class Covid extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="container ">
+        <div className="container mb-5">
           <h1 className="my-4">Covid-19 </h1>
           <div className="row">
             <Select

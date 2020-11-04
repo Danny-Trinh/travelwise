@@ -289,22 +289,24 @@ export default class Search extends Component<myProps> {
   render() {
     return (
       <div className="container">
-        <h1 className="my-4">Airports</h1>
-        <table className="table table-hover bg-gray-100">
-          <thead className="thead-dark">
-            <tr>
-              <th scope="col">Airport</th>
-              <th scope="col">Airport Code</th>
-              <th scope="col">City</th>
-              <th scope="col">Country</th>
-              <th scope="col">Latitude</th>
-              <th scope="col">Longitude</th>
-              <th scope="col">Timezone</th>
-              <th scope="col">Covid Stats</th>
-            </tr>
-          </thead>
-          <tbody>{this.renderDataA()}</tbody>
-        </table>
+        <div className="container">
+          <h1 className="my-4">Airports</h1>
+          <table className="table table-hover bg-gray-100">
+            <thead className="thead-dark">
+              <tr>
+                <th scope="col">Airport</th>
+                <th scope="col">Airport Code</th>
+                <th scope="col">City</th>
+                <th scope="col">Country</th>
+                <th scope="col">Latitude</th>
+                <th scope="col">Longitude</th>
+                <th scope="col">Timezone</th>
+                <th scope="col">Covid Stats</th>
+              </tr>
+            </thead>
+            <tbody>{this.renderDataA()}</tbody>
+          </table>
+        </div>
         {this.createPagination(this.state.pageCountA, "offsetA")}
         <h1 className="my-4">Cities</h1>
         <table className="table table-hover bg-gray-100">

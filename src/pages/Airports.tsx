@@ -88,7 +88,9 @@ export default class Airports extends Component {
                   (i.latitude ? i.latitude : 0).toString(),
                   this.state.searchVal
                 )
-              : i.latitude ? i.latitude : 0}
+              : i.latitude
+              ? i.latitude
+              : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -96,7 +98,9 @@ export default class Airports extends Component {
                   (i.longitude ? i.longitude : 0).toString(),
                   this.state.searchVal
                 )
-              : i.longitude ? i.longitude : 0}
+              : i.longitude
+              ? i.longitude
+              : 0}
           </td>
           <td>
             {this.state.searchActive
@@ -104,7 +108,9 @@ export default class Airports extends Component {
                   (i.time_offset ? i.time_offset : 0).toString(),
                   this.state.searchVal
                 )
-              : i.time_offset ? i.time_offset : 0}
+              : i.time_offset
+              ? i.time_offset
+              : 0}
           </td>
           <td>
             <Link to={`/Covid/${i.country_code}`}>Link</Link>
@@ -232,7 +238,7 @@ export default class Airports extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="container">
+        <div className="container" style={{ minHeight: "50rem" }}>
           <h1 className="my-4">Airports </h1>
           <div className="row">
             <Select
@@ -296,7 +302,7 @@ export default class Airports extends Component {
               isMulti
             />
           </div>
-          <table className="table table-hover mx-auto bg-gray-100">
+          <table className="table table-hover mx-auto bg-gray-100 mb-5">
             <thead className="thead-dark">
               <tr>
                 <th scope="col">Airport</th>
