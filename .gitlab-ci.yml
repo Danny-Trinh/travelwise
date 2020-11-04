@@ -31,7 +31,6 @@ Backend:
     - echo "Backend Time!"
     - pip show unittest2
     - python travelwiseBackend/TravelwiseBackendUnitTests.py
-    - python travelwiseBackend/test/GUITests.py
 
 Postman_tests:
   image:
