@@ -125,27 +125,27 @@ export default class CityDetail extends Component<myProps> {
           </p>
           <p>
             <span className="h5 inline">Overall Score: </span>
-            {this.state.data.overall}
+            {this.state.data.overall ? this.state.data.overall : 0}
           </p>
           <p>
             <span className="h5 inline">LGBTQ Score: </span>
-            {this.state.data.lgbtq}
+            {this.state.data.lgbtq ? this.state.data.lgbtq : 0}
           </p>
           <p>
             <span className="h5 inline">Medical Score: </span>
-            {this.state.data.medical}
+            {this.state.data.medical ? this.state.data.medical : 0}
           </p>
           <p>
             <span className="h5 inline">Physical Score: </span>
-            {this.state.data.physical}
+            {this.state.data.physical ? this.state.data.physical: 0}
           </p>
           <p>
             <span className="h5 inline">Theft Score: </span>
-            {this.state.data.theft}
+            {this.state.data.theft ? this.state.data.theft: 0}
           </p>
           <p>
             <span className="h5 inline">Women Score: </span>
-            {this.state.data.women}
+            {this.state.data.women ? this.state.data.women: 0}
           </p>
           <p>
             <span className="h5 inline">Covid Stats: </span>
