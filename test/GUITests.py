@@ -11,7 +11,7 @@ class Tests(unittest.TestCase):
     def test_0(self):
         driver.get("https://www.travelwise.live/")
         time.sleep(2)
-        expected = 'Welcome!'
+        expected = 'In an increasingly dangerous world, Travelwise is here to help you navigate.'
         actual = driver.find_elements_by_tag_name('h1')
         self.assertEqual(expected, actual[0].text)
 
@@ -20,7 +20,7 @@ class Tests(unittest.TestCase):
         button_name = driver.find_element_by_link_text('About')
         button_name.click()
         time.sleep(2)
-        expected = 'About Page'
+        expected = 'What is Travelwise'
         actual = driver.find_elements_by_tag_name('h1')
         self.assertEqual(expected, actual[0].text)
 
@@ -33,9 +33,9 @@ class Tests(unittest.TestCase):
         time.sleep(2)
         button_name = driver.find_element_by_link_text('NNAMDI AZIKIWE INTL')
         button_name.click()
-        expected = 'Airport'
-        actual = driver.find_elements_by_tag_name('th')
-        self.assertEqual(expected, actual[0].text)
+        expected = 'Covid Stats:'
+        actual = driver.find_elements_by_tag_name('span')
+        self.assertEqual(expected, actual[4].text)
 
     def test_3(self):
         button_name = driver.find_element_by_link_text('Airports')
@@ -49,12 +49,12 @@ class Tests(unittest.TestCase):
         button_name = driver.find_element_by_link_text('ADOLFO SUAREZ BARAJAS')
         button_name.click()
         time.sleep(2)
-        expected = 'SPAIN'
-        actual = driver.find_elements_by_tag_name('td')
-        self.assertEqual(expected, actual[3].text)
+        expected = 'City:'
+        actual = driver.find_elements_by_tag_name('span')
+        self.assertEqual(expected, actual[1].text)
 
     def test_5(self):
-        button_name = driver.find_element_by_link_text('COVID-19')
+        button_name = driver.find_element_by_link_text('Covid-19')
         button_name.click()
         time.sleep(2)
         expected = 'Total Deaths'
@@ -65,15 +65,15 @@ class Tests(unittest.TestCase):
         button_name = driver.find_element_by_link_text('Angola')
         button_name.click()
         time.sleep(2)
-        expected = 'AO'
-        actual = driver.find_elements_by_tag_name('td')
-        self.assertEqual(expected, actual[1].text)
+        expected = 'Total Deaths:'
+        actual = driver.find_elements_by_tag_name('span')
+        self.assertEqual(expected, actual[4].text)
 
     def test_7(self):
-        button_name = driver.find_element_by_link_text('Travelwise')
+        button_name = driver.find_element_by_link_text('TRAVELWISE')
         button_name.click()
         time.sleep(2)
-        button_name = driver.find_element_by_link_text('Get Started')
+        button_name = driver.find_element_by_link_text('Find a City')
         button_name.click()
         time.sleep(2)
         expected = '15th arrondissement of Paris'
@@ -88,7 +88,7 @@ class Tests(unittest.TestCase):
         button_name = driver.find_element_by_link_text('Link')
         button_name.click()
         time.sleep(2)
-        expected = 27
+        expected = 28
         actual = driver.find_elements_by_tag_name('li')
         self.assertEqual(expected, len(actual))
 
@@ -96,11 +96,9 @@ class Tests(unittest.TestCase):
         button_name = driver.find_element_by_link_text('Cities')
         button_name.click()
         time.sleep(2)
-        sort = driver.find_elements_by_tag_name('button')
-        sort[6].click()
-        expected = 'Donetsk'
-        actual = driver.find_elements_by_tag_name('td')
-        self.assertEqual(expected, actual[0].text)
+        footer = driver.find_elements_by_tag_name('li')
+        expected = 'Contact Us: 914-737-9938 | 2100 Nueces Street Unit 714, Austin, TX 78705'
+        self.assertEqual(expected, footer[19].text)
         driver.close()
 
 
