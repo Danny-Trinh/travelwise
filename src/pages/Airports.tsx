@@ -5,6 +5,7 @@ import Select from "react-select";
 import highlight from "../utility/getHighlightedText";
 import * as constants from "../utility/data";
 import PaginateTool from "../components/PaginateTool";
+import { airportSort } from "../utility/sorts";
 
 export default class Airports extends Component {
   state = {
@@ -123,51 +124,11 @@ export default class Airports extends Component {
 
   // sorts data accordingly, does not make a fetch call
   sortData(sortInput: number) {
-    let reverse = this.state.sortOrder; // reverse filter if needed
-    let sortedData;
-    switch (Math.abs(sortInput)) {
-      case 1:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return (
-            reverse * obj1.airport_name[0].localeCompare(obj2.airport_name[0])
-          );
-        });
-        break;
-      case 2:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * obj1.iata_code[0].localeCompare(obj2.iata_code[0]);
-        });
-        break;
-      case 3:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * obj1.city_name[0].localeCompare(obj2.city_name[0]);
-        });
-        break;
-      case 4:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return (
-            reverse * obj1.country_name[0].localeCompare(obj2.country_name[0])
-          );
-        });
-        break;
-      case 5:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.latitude - obj1.latitude);
-        });
-        break;
-      case 6:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.longitude - obj1.longitude);
-        });
-        break;
-      case 7:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return (
-            reverse * obj1.time_offset[0].localeCompare(obj2.time_offset[0])
-          );
-        });
-        break;
-    }
+    let sortedData = airportSort(
+      sortInput,
+      this.state.sortOrder,
+      this.state.data
+    );
     this.setState({ data: sortedData, sortType: sortInput });
   }
 

@@ -13,7 +13,7 @@ export default function PaginateTool(props: any) {
       pageRangeDisplayed={10}
       onPageChange={props.handlePageClick}
       breakLinkClassName={"page-link"}
-      containerClassName={"pagination justify-content-center"}
+      containerClassName={"pagination justify-content-center m-0"}
       pageClassName={"page-item"}
       pageLinkClassName={"page-link"}
       previousClassName={"page-item"}

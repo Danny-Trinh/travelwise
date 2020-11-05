@@ -289,24 +289,22 @@ export default class Search extends Component<myProps> {
   render() {
     return (
       <div className="container">
-        <div className="container">
-          <h1 className="my-4">Airports</h1>
-          <table className="table table-hover bg-gray-100">
-            <thead className="thead-dark">
-              <tr>
-                <th scope="col">Airport</th>
-                <th scope="col">Airport Code</th>
-                <th scope="col">City</th>
-                <th scope="col">Country</th>
-                <th scope="col">Latitude</th>
-                <th scope="col">Longitude</th>
-                <th scope="col">Timezone</th>
-                <th scope="col">Covid Stats</th>
-              </tr>
-            </thead>
-            <tbody>{this.renderDataA()}</tbody>
-          </table>
-        </div>
+        <h1 className="my-4">Airports</h1>
+        <table className="table table-hover bg-gray-100">
+          <thead className="thead-dark">
+            <tr>
+              <th scope="col">Airport</th>
+              <th scope="col">Airport Code</th>
+              <th scope="col">City</th>
+              <th scope="col">Country</th>
+              <th scope="col">Latitude</th>
+              <th scope="col">Longitude</th>
+              <th scope="col">Timezone</th>
+              <th scope="col">Covid Stats</th>
+            </tr>
+          </thead>
+          <tbody>{this.renderDataA()}</tbody>
+        </table>
         {this.createPagination(this.state.pageCountA, "offsetA")}
         <h1 className="my-4">Cities</h1>
         <table className="table table-hover bg-gray-100">
@@ -328,21 +326,23 @@ export default class Search extends Component<myProps> {
           <tbody>{this.renderDataCi()}</tbody>
         </table>
         {this.createPagination(this.state.pageCountCi, "offsetCi")}
-        <h1 className="my-4">Covid-19</h1>
-        <table className="table table-hover bg-gray-100">
-          <thead className="thead-dark">
-            <tr>
-              <th scope="col">Country</th>
-              <th scope="col">Country Code</th>
-              <th scope="col">New Confirmed Cases</th>
-              <th scope="col">Total Confirmed Cases</th>
-              <th scope="col">New Deaths</th>
-              <th scope="col">Total Deaths</th>
-            </tr>
-          </thead>
-          <tbody>{this.renderDataC()}</tbody>
-        </table>
-        {this.createPagination(this.state.pageCountC, "offsetC")}
+        <div className="container pb-5">
+          <h1 className="my-4">Covid-19</h1>
+          <table className="table table-hover bg-gray-100">
+            <thead className="thead-dark">
+              <tr>
+                <th scope="col">Country</th>
+                <th scope="col">Country Code</th>
+                <th scope="col">New Confirmed Cases</th>
+                <th scope="col">Total Confirmed Cases</th>
+                <th scope="col">New Deaths</th>
+                <th scope="col">Total Deaths</th>
+              </tr>
+            </thead>
+            <tbody>{this.renderDataC()}</tbody>
+          </table>
+          {this.createPagination(this.state.pageCountC, "offsetC")}
+        </div>
       </div>
     );
   }

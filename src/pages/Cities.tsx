@@ -5,6 +5,7 @@ import Select from "react-select";
 import highlight from "../utility/getHighlightedText";
 import * as constants from "../utility/data";
 import PaginateTool from "../components/PaginateTool";
+import { citySort } from "../utility/sorts";
 
 export default class Cities extends Component {
   state = {
@@ -155,61 +156,7 @@ export default class Cities extends Component {
 
   // sorts data accordingly, does not make a fetch call
   sortData(sortInput: number) {
-    let reverse = this.state.sortOrder; // reverse filter if needed
-    let sortedData;
-    switch (Math.abs(sortInput)) {
-      case 1:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * obj1.name[0].localeCompare(obj2.name[0]);
-        });
-        break;
-      case 2:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * obj1.country[0].localeCompare(obj2.country[0]);
-        });
-        break;
-      case 3:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * obj1.region[0].localeCompare(obj2.region[0]);
-        });
-        break;
-      case 4:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.overall - obj1.overall);
-        });
-        break;
-      case 5:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.lgbtq - obj1.lgbtq);
-        });
-        break;
-      case 6:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.medical - obj1.medical);
-        });
-        break;
-
-      case 7:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.physical - obj1.physical);
-        });
-        break;
-      case 8:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.political - obj1.political);
-        });
-        break;
-      case 9:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.theft - obj1.theft);
-        });
-        break;
-      case 10:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj2.women - obj1.women);
-        });
-        break;
-    }
+    let sortedData = citySort(sortInput, this.state.sortOrder, this.state.data);
     this.setState({ data: sortedData, sortType: sortInput });
   }
 

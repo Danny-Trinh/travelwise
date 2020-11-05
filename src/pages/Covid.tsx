@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Select from "react-select";
 import highlight from "../utility/getHighlightedText";
 import * as constants from "../utility/data";
+import { covidSort } from "../utility/sorts";
 import PaginateTool from "../components/PaginateTool";
 
 export default class Covid extends Component {
@@ -117,42 +118,11 @@ export default class Covid extends Component {
 
   // sorts data accordingly, does not make a fetch call
   sortData(sortInput: number) {
-    let reverse = this.state.sortOrder;
-    let sortedData;
-    switch (sortInput) {
-      case 1:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * obj1.country[0].localeCompare(obj2.country[0]);
-        });
-        break;
-      case 2:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return (
-            reverse * obj1.country_code[0].localeCompare(obj2.country_code[0])
-          );
-        });
-        break;
-      case 3:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj1.new_cases - obj2.new_cases);
-        });
-        break;
-      case 4:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj1.total_cases - obj2.total_cases);
-        });
-        break;
-      case 5:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj1.new_deaths - obj2.new_deaths);
-        });
-        break;
-      case 6:
-        sortedData = this.state.data.sort((obj1: any, obj2: any) => {
-          return reverse * (obj1.total_deaths - obj2.total_deaths);
-        });
-        break;
-    }
+    let sortedData = covidSort(
+      sortInput,
+      this.state.sortOrder,
+      this.state.data
+    );
     this.setState({ data: sortedData, sortType: sortInput });
   }
 
