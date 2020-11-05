@@ -1,16 +1,17 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import App from "./App";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Cities from "./pages/Cities";
 import Covid from "./pages/Covid";
 import Airports from "./pages/Airports";
-// import CityDetail from "./components/CityDetail";
 import Error from "./components/Error";
 import Navbar from "./components/Navbar";
 import MemberCard from "./components/MemberCard";
+import CityDetail from "./components/CityDetail";
+import CovidDetail from "./components/CovidDetail";
+import AirportDetail from "./components/AirportDetail";
 
 test("renders About page", () => {
   let fakeStateData = {
@@ -21,12 +22,16 @@ test("renders About page", () => {
     members: 10,
   };
   const component = render(<Router>{<About {...fakeStateData} />}</Router>);
-  const element = component.getByText("About Page");
+  const element = component.getByText("What is Travelwise");
   expect(element).toBeInTheDocument();
 });
 test("renders Home page", () => {
-  const component = render(<Home />);
-  const element = component.getByText("Get Started");
+  const component = render(
+    <Router>
+      <Home />
+    </Router>
+  );
+  const element = component.getByText("Find a City");
   expect(element).toBeInTheDocument();
 });
 test("renders Cities page", () => {
@@ -50,7 +55,7 @@ test("renders Navbar page", () => {
       <Navbar />
     </Router>
   );
-  const element = component.getByText("Travelwise");
+  const element = component.getByText("TRAVELWISE");
   expect(element).toBeInTheDocument();
 });
 test("renders Error page", () => {
@@ -76,13 +81,31 @@ test("renders Member Card", () => {
   expect(element).toBeInTheDocument();
 });
 
-// this test works, but just to be safe, I am ommiting it from turn in
-// test("renders CityDetail instance", async () => {
-//   const component = render(
-//     <Router>
-//       {<CityDetail match={{ params: { city: "Abuja", country_code: "NG" } }} />}
-//     </Router>
-//   );
-//   const element = await component.findByText("Abuja");
-//   expect(element).toBeInTheDocument();
-// });
+//////////////////////////// ASYNC TESTS BELOW ////////////////////////////////////
+test("renders CityDetail instance", async () => {
+  const component = render(
+    <Router>
+      {<CityDetail match={{ params: { city: "Adana", country_code: "TR" } }} />}
+    </Router>
+  );
+  const element = await component.findByText("Adana, Turkey");
+  expect(element).toBeInTheDocument();
+});
+
+test("renders CovidDetail instance", async () => {
+  const component = render(
+    <Router>
+      {<CovidDetail match={{ params: { country_code: "AF" } }} />}
+    </Router>
+  );
+  const element = await component.findByText("Afghanistan (AF)");
+  expect(element).toBeInTheDocument();
+});
+
+test("renders AirportDetail instance", async () => {
+  const component = render(
+    <Router>{<AirportDetail match={{ params: { iata: "DIR" } }} />}</Router>
+  );
+  const element = await component.findByText("ABA TENNA D YILMA INTL");
+  expect(element).toBeInTheDocument();
+});

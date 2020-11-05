@@ -119,7 +119,7 @@ export default class page1 extends Component<myState> {
   render() {
     return (
       <React.Fragment>
-        <div className="container-fluid bg-gray-200 pt-4">
+        <div className="container-fluid bg-gray-200 pt-4 m-0">
           <div className="container bg-gray-200">
             <h1 className="t-teal-700 text-center">What is Travelwise</h1>
             <p>
