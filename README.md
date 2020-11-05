@@ -7,7 +7,7 @@ Members by Names/EID/Gitlab:
 5. Adam Gluch/amg6796/amgluch
 
 Git SHA Phase 2: a73f93ffc7db2ead4cef3ee1f2c937da6b4d3625
-Git SHA Phase 3: c70501326c3aadd5c1c1dacafc623739e4d18ebe
+Git SHA Phase 3: a1e5733144e6c1456662502af5502ec568ad5e2e
 
 Project Leader: Dung Trinh
 
