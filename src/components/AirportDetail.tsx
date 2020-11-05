@@ -76,11 +76,12 @@ export default class AirportDetail extends Component<myProps> {
           </p>
           <p>
             <span className="h5 inline">Coordinates: </span>(
-            {this.state.data.latitude}, {this.state.data.longitude})
+            {this.state.data.latitude ? this.state.data.latitude : 0}, 
+            {this.state.data.longitude ? this.state.data.longitude : 0})
           </p>
           <p>
             <span className="h5 inline">Time Offset: </span>
-            {this.state.data.time_offset}
+            {this.state.data.time_offset ? this.state.data.time_offset : 0}
           </p>
           <p>
             <span className="h5 inline">Covid Stats: </span>

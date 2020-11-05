@@ -150,19 +150,19 @@ export default class CovidDetail extends Component<myProps> {
           </h1>
           <p>
             <span className="h5 inline">New Confirmed Cases: </span>
-            {this.state.data.new_cases}
+            {this.state.data.new_cases ? this.state.data.new_cases : 0}
           </p>
           <p>
             <span className="h5 inline">Total Confirmed Cases: </span>
-            {this.state.data.total_cases}
+            {this.state.data.total_cases ? this.state.data.total_cases : 0}
           </p>
           <p>
             <span className="h5 inline">New Deaths: </span>
-            {this.state.data.new_deaths}
+            {this.state.data.new_deaths ? this.state.data.new_deaths : 0}
           </p>
           <p>
             <span className="h5 inline">Total Deaths: </span>
-            {this.state.data.total_deaths}
+            {this.state.data.total_deaths ? this.state.data.total_deaths : 0}
           </p>
           {cityRender}
           {airportRender}
