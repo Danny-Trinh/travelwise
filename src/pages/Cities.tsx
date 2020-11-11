@@ -34,6 +34,8 @@ export default class Cities extends Component {
       searchActive: false,
       searchVal: "",
       filters: null,
+      currentPage: 0,
+      offset: 0,
     });
     this.sortData(this.state.sortType);
   }
@@ -292,7 +294,7 @@ export default class Cities extends Component {
                 isMulti
               />
             </div>
-            <table className="table table-hover mx-auto bg-gray-100">
+            <table className="table table-hover mx-auto bg-gray-100 mb-5">
               <thead className="thead-dark">
                 <tr>
                   <th scope="col">City</th>
@@ -314,6 +316,7 @@ export default class Cities extends Component {
           <PaginateTool
             pageCount={this.state.pageCount}
             handlePageClick={this.handlePageClick}
+            currentPage={this.state.currentPage}
           />
         </div>
       </React.Fragment>

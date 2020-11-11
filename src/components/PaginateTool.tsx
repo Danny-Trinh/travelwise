@@ -21,6 +21,7 @@ export default function PaginateTool(props: any) {
       nextClassName={"page-item"}
       nextLinkClassName={"page-link"}
       activeClassName={"active"}
+      forcePage={props.currentPage}
     />
   );
 }
