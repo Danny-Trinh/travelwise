@@ -11,6 +11,7 @@ import CovidDetail from "./pages/CovidDetail";
 import CityDetail from "./pages/CityDetail";
 import AirportDetail from "./pages/AirportDetail";
 import Search from "./pages/Search";
+import Visuals from "./pages/Visuals";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/Covid" component={Covid} exact></Route>
           <Route path="/Airports" component={Airports} exact></Route>
           <Route path="/About" component={About} exact></Route>
+          <Route path="/Visuals" component={Visuals} exact></Route>
           <Route
             path="/Covid/:country_code"
             component={CovidDetail}

@@ -18,7 +18,7 @@ export default class Home extends Component {
               navigate.
             </h1>
             <h5 className="text-center mt-4 t-black">
-              <Link to="/Cities" className="t-black">
+              <Link to="/Cities" className="t-black pageLink">
                 Find a City
               </Link>
             </h5>
@@ -37,7 +37,7 @@ export default class Home extends Component {
         <div className="bg-teal-300 mx-0">
           <svg viewBox="0 0 1500 50" width="100%" display="block">
             <polygon
-              fill="var(--teal-400)"
+              fill="#4fd1c5"
               points="0,0 1500,0 0,50"
               width="100%"
               height="100%"
@@ -59,7 +59,7 @@ export default class Home extends Component {
               Our extensive catalog features airports from all over the globe.
             </h1>
             <h5 className="text-center mt-4 t-black">
-              <Link to="/Airports" className="t-black">
+              <Link to="/Airports" className="t-black pageLink">
                 Find an Airport
               </Link>
             </h5>
@@ -69,7 +69,7 @@ export default class Home extends Component {
         <div className="bg-teal-200">
           <svg viewBox="0 0 1500 50" width="100%" display="block">
             <polygon
-              fill="var(--teal-300)"
+              fill="#81e6d9"
               points="0,0 1500,0 0,50"
               width="100%"
               height="100%"
@@ -86,7 +86,7 @@ export default class Home extends Component {
               Find the latest COVID-19 data for every country.
             </h1>
             <h5 className="text-center mt-4 t-black">
-              <Link to="/Covid" className="t-black">
+              <Link to="/Covid" className="t-black pageLink">
                 Get Informed
               </Link>
             </h5>

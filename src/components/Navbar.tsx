@@ -38,7 +38,7 @@ export default class Navbar extends Component {
 
           <div className=" navbar-brand">
             <Link
-              className="font-weight-bold nav-link t-gray-100 active muteHover"
+              className="font-weight-bold nav-link t-gray-200 active muteHover"
               to="/"
             >
               TRAVELWISE
@@ -74,6 +74,11 @@ export default class Navbar extends Component {
                   About
                 </Link>
               </li>
+              {/* <li className="nav-item active ">
+                <Link className="nav-link navlink-custom" to="/Visuals">
+                  Visuals
+                </Link>
+              </li> */}
             </ul>
           </div>
           <form
