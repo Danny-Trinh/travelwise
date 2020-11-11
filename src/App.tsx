@@ -11,7 +11,8 @@ import CovidDetail from "./pages/CovidDetail";
 import CityDetail from "./pages/CityDetail";
 import AirportDetail from "./pages/AirportDetail";
 import Search from "./pages/Search";
-import Visuals from "./pages/Visuals";
+import ProviderVisualizations from "./pages/ProviderVisualizations";
+import TravelwiseVisualizations from "./pages/TravelwiseVisualizations";
 
 function App() {
   return (
@@ -24,7 +25,16 @@ function App() {
           <Route path="/Covid" component={Covid} exact></Route>
           <Route path="/Airports" component={Airports} exact></Route>
           <Route path="/About" component={About} exact></Route>
-          <Route path="/Visuals" component={Visuals} exact></Route>
+          <Route
+            path="/TravelwiseVisualizations"
+            component={TravelwiseVisualizations}
+            exact
+          ></Route>
+          <Route
+            path="/ProviderVisualizations"
+            component={ProviderVisualizations}
+            exact
+          ></Route>
           <Route
             path="/Covid/:country_code"
             component={CovidDetail}
