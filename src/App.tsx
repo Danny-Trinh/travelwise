@@ -7,9 +7,9 @@ import Home from "./pages/Home";
 import Cities from "./pages/Cities";
 import Covid from "./pages/Covid";
 import Airports from "./pages/Airports";
-import CovidDetail from "./components/CovidDetail";
-import CityDetail from "./components/CityDetail";
-import AirportDetail from "./components/AirportDetail";
+import CovidDetail from "./pages/CovidDetail";
+import CityDetail from "./pages/CityDetail";
+import AirportDetail from "./pages/AirportDetail";
 import Search from "./pages/Search";
 
 function App() {

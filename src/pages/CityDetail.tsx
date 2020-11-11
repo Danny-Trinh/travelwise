@@ -115,7 +115,7 @@ export default class CityDetail extends Component<myProps> {
     }
     return (
       <React.Fragment>
-        <div className="container">
+        <div className="container pb-5">
           <h1 className="my-4">
             {this.state.data.name}, {this.state.data.country}
           </h1>
@@ -137,15 +137,15 @@ export default class CityDetail extends Component<myProps> {
           </p>
           <p>
             <span className="h5 inline">Physical Score: </span>
-            {this.state.data.physical ? this.state.data.physical: 0}
+            {this.state.data.physical ? this.state.data.physical : 0}
           </p>
           <p>
             <span className="h5 inline">Theft Score: </span>
-            {this.state.data.theft ? this.state.data.theft: 0}
+            {this.state.data.theft ? this.state.data.theft : 0}
           </p>
           <p>
             <span className="h5 inline">Women Score: </span>
-            {this.state.data.women ? this.state.data.women: 0}
+            {this.state.data.women ? this.state.data.women : 0}
           </p>
           <p>
             <span className="h5 inline">Covid Stats: </span>

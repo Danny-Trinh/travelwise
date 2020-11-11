@@ -64,7 +64,7 @@ export default class AirportDetail extends Component<myProps> {
     }
     return (
       <React.Fragment>
-        <div className="container">
+        <div className="container pb-5">
           <h1 className="my-4">{this.state.data.airport_name}</h1>
           <p>
             <span className="h5 inline">City: </span>
@@ -76,7 +76,7 @@ export default class AirportDetail extends Component<myProps> {
           </p>
           <p>
             <span className="h5 inline">Coordinates: </span>(
-            {this.state.data.latitude ? this.state.data.latitude : 0}, 
+            {this.state.data.latitude ? this.state.data.latitude : 0},
             {this.state.data.longitude ? this.state.data.longitude : 0})
           </p>
           <p>

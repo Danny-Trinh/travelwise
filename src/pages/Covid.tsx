@@ -35,7 +35,7 @@ export default class Covid extends Component {
       searchVal: "",
       filters: null,
     });
-    this.sortData(this.state.sortOrder);
+    this.sortData(this.state.sortType);
   }
 
   // handles pagination click
@@ -194,7 +194,7 @@ export default class Covid extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="container mb-5">
+        <div className="container pb-5">
           <h1 className="my-4">Covid-19 </h1>
           <div className="row">
             <Select
@@ -259,7 +259,7 @@ export default class Covid extends Component {
               isSearchable={false}
             />
           </div>
-          <table className="table table-hover mx-auto bg-gray-100">
+          <table className="table table-hover mx-auto bg-gray-100 mb-5">
             <thead className="thead-dark">
               <tr>
                 <th scope="col">Country</th>
@@ -272,11 +272,11 @@ export default class Covid extends Component {
             </thead>
             <tbody>{this.renderData()}</tbody>
           </table>
+          <PaginateTool
+            pageCount={this.state.pageCount}
+            handlePageClick={this.handlePageClick}
+          />
         </div>
-        <PaginateTool
-          pageCount={this.state.pageCount}
-          handlePageClick={this.handlePageClick}
-        />
       </React.Fragment>
     );
   }

@@ -144,7 +144,7 @@ export default class CovidDetail extends Component<myProps> {
     }
     return (
       <React.Fragment>
-        <div className="container">
+        <div className="container pb-5">
           <h1 className="my-4">
             {this.state.data.country} ({this.state.data.country_code})
           </h1>

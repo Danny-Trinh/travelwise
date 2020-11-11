@@ -36,7 +36,7 @@ export default class Airports extends Component {
       searchVal: "",
       filters: null,
     });
-    this.sortData(this.state.sortOrder);
+    this.sortData(this.state.sortType);
   }
 
   // handles pagination click
@@ -199,91 +199,92 @@ export default class Airports extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="container" style={{ minHeight: "50rem" }}>
-          <h1 className="my-4">Airports </h1>
-          <div className="row">
-            <Select
-              className="col-md-3"
-              onChange={(x: any) => this.sortData(x ? x.value : 1)}
-              options={constants.airportSortOptions}
-              placeholder="Sort by: Airport"
-              isClearable
-              isSearchable={false}
-            />
-            <Select
-              className="col-md-3"
-              onChange={(x: any) => {
-                this.setState({ sortOrder: x.value }, () =>
-                  this.sortData(this.state.sortType)
-                );
-              }}
-              placeholder="Order: Ascend"
-              options={constants.airportOrderOptions}
-              isSearchable={false}
-            />
-            <form className="col-md-5" onSubmit={(e) => this.handleSubmit(e)}>
-              <input
-                type="text"
-                value={this.state.searchVal}
-                placeholder="Search:"
-                className="form-control"
-                name="searchVal"
-                onChange={(e) => this.handleChange(e)}
-                disabled={this.state.searchActive}
+        <div className="pb-5">
+          <div className="container" style={{ minHeight: "50rem" }}>
+            <h1 className="my-4">Airports </h1>
+            <div className="row">
+              <Select
+                className="col-md-3"
+                onChange={(x: any) => this.sortData(x ? x.value : 1)}
+                options={constants.airportSortOptions}
+                placeholder="Sort by: Airport"
+                isClearable
+                isSearchable={false}
               />
-            </form>
-            <button
-              className={`col-md-1 rounded btn-danger ${
-                this.state.searchActive ? "" : "d-none"
-              }`}
-              onClick={() => this.getData()}
-            >
-              Cancel
-            </button>
+              <Select
+                className="col-md-3"
+                onChange={(x: any) => {
+                  this.setState({ sortOrder: x.value }, () =>
+                    this.sortData(this.state.sortType)
+                  );
+                }}
+                placeholder="Order: Ascend"
+                options={constants.airportOrderOptions}
+                isSearchable={false}
+              />
+              <form className="col-md-5" onSubmit={(e) => this.handleSubmit(e)}>
+                <input
+                  type="text"
+                  value={this.state.searchVal}
+                  placeholder="Search:"
+                  className="form-control"
+                  name="searchVal"
+                  onChange={(e) => this.handleChange(e)}
+                  disabled={this.state.searchActive}
+                />
+              </form>
+              <button
+                className={`col-md-1 rounded btn-danger ${
+                  this.state.searchActive ? "" : "d-none"
+                }`}
+                onClick={() => this.getData()}
+              >
+                Cancel
+              </button>
+            </div>
+            <div className="row mt-1 mb-3">
+              <Select
+                className="col-md-3"
+                onChange={(x: any) => {
+                  this.getData();
+                  this.setState({ perPage: x ? x.value : 9 });
+                }}
+                options={constants.pageViewOptions}
+                placeholder="Items Per Page: 9"
+                isClearable
+                isSearchable={false}
+              />
+              <div className="col-md-3"></div>
+              <Select
+                className="col-md-5"
+                onChange={(x: any) => this.handleFilter(x)}
+                placeholder="Filter: Country"
+                value={this.state.filters}
+                options={constants.airportFilterOptions}
+                isMulti
+              />
+            </div>
+            <table className="table table-hover mx-auto bg-gray-100 mb-5">
+              <thead className="thead-dark">
+                <tr>
+                  <th scope="col">Airport</th>
+                  <th scope="col">Airport Code</th>
+                  <th scope="col">City</th>
+                  <th scope="col">Country</th>
+                  <th scope="col">Latitude</th>
+                  <th scope="col">Longitude</th>
+                  <th scope="col">Timezone</th>
+                  <th scope="col">Covid Stats</th>
+                </tr>
+              </thead>
+              <tbody>{this.renderData()}</tbody>
+            </table>
           </div>
-          <div className="row mt-1 mb-3">
-            <Select
-              className="col-md-3"
-              onChange={(x: any) => {
-                this.getData();
-                this.setState({ perPage: x ? x.value : 9 });
-              }}
-              options={constants.pageViewOptions}
-              placeholder="Items Per Page: 9"
-              isClearable
-              isSearchable={false}
-            />
-            <div className="col-md-3"></div>
-            <Select
-              className="col-md-5"
-              onChange={(x: any) => this.handleFilter(x)}
-              placeholder="Filter: Country"
-              value={this.state.filters}
-              options={constants.airportFilterOptions}
-              isMulti
-            />
-          </div>
-          <table className="table table-hover mx-auto bg-gray-100 mb-5">
-            <thead className="thead-dark">
-              <tr>
-                <th scope="col">Airport</th>
-                <th scope="col">Airport Code</th>
-                <th scope="col">City</th>
-                <th scope="col">Country</th>
-                <th scope="col">Latitude</th>
-                <th scope="col">Longitude</th>
-                <th scope="col">Timezone</th>
-                <th scope="col">Covid Stats</th>
-              </tr>
-            </thead>
-            <tbody>{this.renderData()}</tbody>
-          </table>
+          <PaginateTool
+            pageCount={this.state.pageCount}
+            handlePageClick={this.handlePageClick}
+          />
         </div>
-        <PaginateTool
-          pageCount={this.state.pageCount}
-          handlePageClick={this.handlePageClick}
-        />
-        <div className="mb-5"> </div>
       </React.Fragment>
     );
   }

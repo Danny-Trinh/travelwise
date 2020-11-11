@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
+import PlaneLogo from "../images/PlaneLogo.png";
 export default class Navbar extends Component {
   state = {
     searchQuery: "",
@@ -25,10 +26,19 @@ export default class Navbar extends Component {
   render() {
     return (
       <React.Fragment>
-        <nav className="navbar navbar-expand-lg navbar-light bg-teal-700 ">
+        <nav className="navbar navbar-expand-md navbar-light bg-teal-700 ">
+          <Link to="/">
+            <img
+              className="ml-3"
+              style={{ width: "3rem" }}
+              src={PlaneLogo}
+              alt="logo"
+            ></img>
+          </Link>
+
           <div className=" navbar-brand">
             <Link
-              className="font-weight-bold nav-link t-gray-200 active"
+              className="font-weight-bold nav-link t-gray-100 active muteHover"
               to="/"
             >
               TRAVELWISE
@@ -44,11 +54,6 @@ export default class Navbar extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto ">
-              <li className="nav-item active">
-                <Link className="nav-link navlink-custom" to="/">
-                  Home
-                </Link>
-              </li>
               <li className="nav-item active">
                 <Link className="nav-link navlink-custom" to="/Cities">
                   Cities
