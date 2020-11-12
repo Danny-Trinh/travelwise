@@ -1,15 +1,29 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3'
-class BarChart extends Component {
+import Axios from "axios";
+class CovidChart extends Component {
+    state = {
+      data:[]
+    }
     componentDidMount() {
-      this.drawChart();
+      this.getData();
+    }
+    async getData() {
+      let json = await Axios.get(`https://api.travelwise.live/covid`);
+      this.setState({
+        data: json.data,
+      });
     }
       
     drawChart() {
-      const data = [12, 5, 6, 6, 9, 10];
+      let data: Array<any> = [];
+      this.state.data.forEach((i: any) => {
+        data.push(i.total_cases);
+      });
+      console.log(data);
       const h = 500; const w= 400;
       
-      const svg = d3.select("body")
+      const svg = d3.select("div")
       .append("svg")
       .attr("width", w)
       .attr("height", h)
@@ -27,8 +41,9 @@ class BarChart extends Component {
     }
           
     render(){
+      this.drawChart();
       return <div></div>
     }
   }
       
-  export default BarChart;
+  export default CovidChart;
