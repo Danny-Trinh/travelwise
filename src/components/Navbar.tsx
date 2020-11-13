@@ -70,13 +70,19 @@ export default class Navbar extends Component {
                 </Link>
               </li>
               <li className="nav-item active ">
-                <Link className="nav-link navlink-custom" to="/TravelwiseVisualizations">
-                  Travelwise Visualizations
+                <Link
+                  className="nav-link navlink-custom"
+                  to="/TravelwiseVisualizations"
+                >
+                  Visuals
                 </Link>
               </li>
               <li className="nav-item active ">
-                <Link className="nav-link navlink-custom" to="/ProviderVisualizations">
-                  Provider Visualizations
+                <Link
+                  className="nav-link navlink-custom"
+                  to="/ProviderVisualizations"
+                >
+                  PVisuals
                 </Link>
               </li>
               <li className="nav-item active ">
