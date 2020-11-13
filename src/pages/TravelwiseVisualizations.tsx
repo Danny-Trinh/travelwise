@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import BarChart from './Chart1';
+
+import CovidChart from '../components/CovidChart'
 
 export default class TravelwiseVisualizations extends Component {
     render() {
@@ -9,7 +10,7 @@ export default class TravelwiseVisualizations extends Component {
                 <h1 className="container-fluid bg-gray-200 pt-4 m-0 pb-5">Travelwise Visualizations </h1>
             </div>
             <div>Covid Cases:</div>
-            <div><BarChart /></div>
+            <div><CovidChart /></div>
         </div>
       );
     }
