@@ -22,6 +22,7 @@
     "bootstrap": "^4.5.2",
     "d3": "^6.2.0",
     "d3-react-component": "^1.1.8",
+    "framer-motion": "^2.9.4",
     "google-map-react": "^2.1.7",
     "leaflet": "^1.7.1",
     "mocha": "^8.2.0",
