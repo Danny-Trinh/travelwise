@@ -1,3 +1,64 @@
+import Danny from "../images/Danny.jpg";
+import Mitchell from "../images/Mitchell.jpg";
+import Max from "../images/Maximus.jpg";
+import Jesse from "../images/Jesse.jpg";
+import Adam from "../images/Adam.jpg";
+const dannyDesc =
+  "Danny wanted to get into AI but ended up specializing in web development. He now cries on every React project he works on.";
+const adamDesc =
+  "Hi! I'm a senior that's into videogames, and playing the piano. I find joy in the little things like cleaning, basking in fresh air, or 12-hour debugging sessions.";
+const maxDesc = "3rd Year CS Major";
+const mitchellDesc = "You can't code away all your problems in life ~_~";
+const jesseDesc =
+  "Jesse also wanted to get into AI but has pushed off learning any technologies for mobile development. Given enough free time he would make cool phone games.";
+export const members = [
+  {
+    name: "Mitchell Watkins",
+    gitlab: "mitchellwatkins125",
+    image: Mitchell,
+    desc: mitchellDesc,
+    jobs: "Back-End Developer",
+    tests: 0,
+    email: "mitchellwatkins125@gmail.com",
+  },
+  {
+    name: "Dung Trinh (Danny)",
+    gitlab: "Danny-Trinh",
+    image: Danny,
+    desc: dannyDesc,
+    jobs: "Project Lead",
+    tests: 0,
+    email: "dtrinh403@yahoo.com",
+  },
+  {
+    name: "Jesse Huang",
+    gitlab: "jessehuang",
+    image: Jesse,
+    desc: jesseDesc,
+    jobs: "Back-End Developer",
+    tests: 0,
+    email: "jesse17huang@gmail.com",
+  },
+  {
+    name: "Maximus Chu",
+    gitlab: "maximuschu",
+    image: Max,
+    desc: maxDesc,
+    jobs: "Front-End Developer",
+    tests: 0,
+    email: "maximuschu@utexas.edu",
+  },
+  {
+    name: "Adam Gluch",
+    gitlab: "amgluch",
+    image: Adam,
+    desc: adamDesc,
+    jobs: "Back-End Developer",
+    tests: 0,
+    email: "adammgluch@gmail.com",
+  },
+];
+
 export const pageViewOptions = [
   // used for page rendering
   { value: 3, label: "3" },

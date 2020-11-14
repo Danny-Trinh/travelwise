@@ -82,7 +82,7 @@ export default class Navbar extends Component {
                   className="nav-link navlink-custom"
                   to="/ProviderVisualizations"
                 >
-                  Plant Planet Visuals
+                  ProviderVisuals
                 </Link>
               </li>
               <li className="nav-item active ">

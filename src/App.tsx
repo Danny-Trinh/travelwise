@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Error from "./components/Error";
 import Navbar from "./components/Navbar";
 import About from "./pages/About";
 import Home from "./pages/Home";
@@ -57,7 +56,15 @@ function App() {
             exact
           ></Route>
           <Route path="/Search/:searchQuery?" component={Search}></Route>
-          <Route component={Error}></Route>
+          <Route>
+            <React.Fragment>
+              <h1 className="display-1 text-center font-weight-bold">
+                404 Error
+              </h1>
+              <p className="display-1 text-center">Page Not Found </p>
+            </React.Fragment>
+            );
+          </Route>
         </Switch>
       </Router>
     </React.Fragment>

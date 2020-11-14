@@ -1,77 +1,26 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import Danny from "../images/Danny.jpg";
-import Mitchell from "../images/Mitchell.jpg";
-import Max from "../images/Maximus.jpg";
-import Jesse from "../images/Jesse.jpg";
-import Adam from "../images/Adam.jpg";
+import { members } from "../utility/data";
+import Error from "../components/Error";
+import Loading from "../components/Loading";
+
 import MemberCard from "../components/MemberCard";
-const dannyDesc =
-  "Danny wanted to get into AI but ended up specializing in web development. He now cries on every React project he works on.";
-const adamDesc =
-  "Hi! I'm a senior that's into videogames, and playing the piano. I find joy in the little things like cleaning, basking in fresh air, or 12-hour debugging sessions.";
-const maxDesc = "3rd Year CS Major";
-const mitchellDesc = "You can't code away all your problems in life ~_~";
-const jesseDesc =
-  "Jesse also wanted to get into AI but has pushed off learning any technologies for mobile development. Given enough free time he would make cool phone games.";
+
 type myState = {
   commits: number;
   issues: number;
   tests: number;
-  members: any;
+  error: boolean;
+  isLoading: true;
 };
+
 export default class page1 extends Component<myState> {
   state: myState = {
     commits: 0,
     issues: 0,
     tests: 0,
-    members: [
-      {
-        name: "Mitchell Watkins",
-        gitlab: "mitchellwatkins125",
-        image: Mitchell,
-        desc: mitchellDesc,
-        jobs: "Back-End Developer",
-        tests: 0,
-        email: "mitchellwatkins125@gmail.com",
-      },
-      {
-        name: "Dung Trinh (Danny)",
-        gitlab: "Danny-Trinh",
-        image: Danny,
-        desc: dannyDesc,
-        jobs: "Project Lead",
-        tests: 0,
-        email: "dtrinh403@yahoo.com",
-      },
-      {
-        name: "Jesse Huang",
-        gitlab: "jessehuang",
-        image: Jesse,
-        desc: jesseDesc,
-        jobs: "Back-End Developer",
-        tests: 0,
-        email: "jesse17huang@gmail.com",
-      },
-      {
-        name: "Maximus Chu",
-        gitlab: "maximuschu",
-        image: Max,
-        desc: maxDesc,
-        jobs: "Front-End Developer",
-        tests: 0,
-        email: "maximuschu@utexas.edu",
-      },
-      {
-        name: "Adam Gluch",
-        gitlab: "amgluch",
-        image: Adam,
-        desc: adamDesc,
-        jobs: "Back-End Developer",
-        tests: 0,
-        email: "adammgluch@gmail.com",
-      },
-    ],
+    error: false,
+    isLoading: true,
   };
   async componentDidMount() {
     try {
@@ -80,43 +29,49 @@ export default class page1 extends Component<myState> {
         url:
           "https://gitlab.com/api/v4/projects/21350537/repository/commits?per_page=400",
       });
-      let temp = this.state.members;
-      for (let i = 0; i < this.state.members.length; i++) {
+      let temp: any = members;
+      for (let i = 0; i < members.length; i++) {
         temp[i]["commits"] = json.data.filter(
           (commit: any) =>
-            commit.committer_email.localeCompare(
-              this.state.members[i]["email"]
-            ) === 0
+            commit.committer_email.localeCompare(members[i]["email"]) === 0
         ).length;
       }
-      this.setState({ members: temp, commits: json.data.length });
+      this.setState({
+        members: temp,
+        commits: json.data.length,
+      });
     } catch (error) {
-      console.log(
-        "NO STOP, WHY DO YOU BREAK OUR WEBSITE! (fetching data for gitlab commits not working)"
-      );
+      this.setState({ error: true, isLoading: false });
     }
-    this.setState({ isLoading: true });
     try {
       const json = await Axios({
         method: "get",
         url: "https://gitlab.com/api/v4/projects/21350537/issues?per_page=200",
       });
-      let temp = this.state.members;
-      for (let i = 0; i < this.state.members.length; i++) {
+      let temp: any = members;
+      for (let i = 0; i < members.length; i++) {
         temp[i]["issues"] = json.data.filter(
           (issue: any) =>
-            issue.author.username.localeCompare(
-              this.state.members[i]["gitlab"]
-            ) === 0
+            issue.author.username.localeCompare(members[i]["gitlab"]) === 0
         ).length;
       }
-      this.setState({ members: temp, issues: json.data.length });
+      this.setState({
+        members: temp,
+        issues: json.data.length,
+        isLoading: false,
+      });
     } catch (error) {
-      console.log("fetching data for issues is not working");
+      this.setState({ error: true, isLoading: false });
     }
   }
   // comment
   render() {
+    if (this.state.isLoading) {
+      return <Loading />;
+    }
+    if (this.state.error) {
+      return <Error />;
+    }
     return (
       <React.Fragment>
         <div className="container-fluid bg-gray-200 pt-4 m-0 pb-5">
@@ -135,11 +90,11 @@ export default class page1 extends Component<myState> {
               they would like to travel to.
             </p>
             <div className="row justify-content-center">
-              <MemberCard member={this.state.members[0]}></MemberCard>
-              <MemberCard member={this.state.members[1]}></MemberCard>
-              <MemberCard member={this.state.members[2]}></MemberCard>
-              <MemberCard member={this.state.members[3]}></MemberCard>
-              <MemberCard member={this.state.members[4]}></MemberCard>
+              <MemberCard member={members[0]}></MemberCard>
+              <MemberCard member={members[1]}></MemberCard>
+              <MemberCard member={members[2]}></MemberCard>
+              <MemberCard member={members[3]}></MemberCard>
+              <MemberCard member={members[4]}></MemberCard>
             </div>
             <h2>Git Totals</h2>
             <ul>
