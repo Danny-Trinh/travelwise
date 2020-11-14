@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
 import Axios from "axios";
+
+// const data = [ 2, 4, 2, 6, 8 ];
+const scale = .05
+const barWidth = 5;
+const h = 500;
+const w = 400;
 class CovidChart extends Component {
   state = {
     data: [],
@@ -18,14 +24,11 @@ class CovidChart extends Component {
   drawChart() {
     let data: Array<any> = [];
     this.state.data.forEach((i: any) => {
-      data.push(i.total_cases);
+      data.push(i.new_cases);
     });
-    console.log(data);
-    const h = 500;
-    const w = 400;
 
     const svg = d3
-      .select("div")
+      .select("#CovidChart")
       .append("svg")
       .attr("width", w)
       .attr("height", h)
@@ -36,16 +39,16 @@ class CovidChart extends Component {
       .data(data)
       .enter()
       .append("rect")
-      .attr("x", (d, i) => i * 70)
-      .attr("y", (d, i) => h - 10 * d)
-      .attr("width", 65)
-      .attr("height", (d, i) => d * 10)
+      .attr("x", (d, i) => i * barWidth)
+      .attr("y", (d, i) => h - d * scale)
+      .attr("width", barWidth)
+      .attr("height", (d, i) => d * scale)
       .attr("fill", "green");
   }
 
   render() {
     this.drawChart();
-    return <div></div>;
+    return <div id="CovidChart"></div>;
   }
 }
 

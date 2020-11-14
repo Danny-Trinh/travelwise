@@ -126,11 +126,11 @@ export default class page1 extends Component<myState> {
               This is Travelwise, a group dedicated to getting you from point A
               to point B as safely as possible in these uncertain times.
               Travelwise is an ideal platform for users to compare destinations
-              by safety, affordability, and more. A feature of Travelwise is
+              by safety, location, and Covid statistics. A feature of Travelwise is
               providing users with up-to-date statistics on COVID in a given
               region. Travelwise streamlines the process of making travel plans,
-              where users can search for destinations, corresponding flights,
-              and hotels all in the same place. Our intended users are
+              where users can search for destinations, airport and safety statistics all in the same place.
+              Our intended users are
               middle-class travelers who are looking for statistics on places
               they would like to travel to.
             </p>
