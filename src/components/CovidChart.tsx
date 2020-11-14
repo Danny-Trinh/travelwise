@@ -11,8 +11,8 @@ const barMargin = 5;
 const barOffset = 220;
 const covidSortOptions = [
   // used for sort
-  { value: 1, label: "Country" },
   { value: 4, label: "Total Cases" },
+  { value: 1, label: "Country" },
 ];
 
 export default class CovidChart extends Component {
@@ -37,6 +37,7 @@ export default class CovidChart extends Component {
       currentPage: 0,
       offset: 0,
     });
+    this.sortData(4);
   }
 
   sortData(sortInput: number) {
@@ -68,7 +69,6 @@ export default class CovidChart extends Component {
       data.push(i);
     });
 
-    console.log(data);
     d3.select("#NewGraph").remove();
     const svg = d3
       .select("#CovidChart")
@@ -113,8 +113,8 @@ export default class CovidChart extends Component {
           <h3 className="col-4">Total Covid Cases</h3>
           <Select
             className="col-3"
-            onChange={(x: any) => this.sortData(x ? x.value : 1)}
-            placeholder="Sort by: Country"
+            onChange={(x: any) => this.sortData(x ? x.value : 4)}
+            placeholder="Sort by: Total Cases"
             options={covidSortOptions}
             isClearable
             isSearchable={false}

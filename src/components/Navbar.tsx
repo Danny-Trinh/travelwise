@@ -82,7 +82,7 @@ export default class Navbar extends Component {
                   className="nav-link navlink-custom"
                   to="/ProviderVisualizations"
                 >
-                  PVisuals
+                  Plant Planet Visuals
                 </Link>
               </li>
               <li className="nav-item active ">
@@ -90,11 +90,6 @@ export default class Navbar extends Component {
                   About
                 </Link>
               </li>
-              {/* <li className="nav-item active ">
-                <Link className="nav-link navlink-custom" to="/Visuals">
-                  Visuals
-                </Link>
-              </li> */}
             </ul>
           </div>
           <form
