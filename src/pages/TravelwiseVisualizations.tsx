@@ -9,7 +9,6 @@ export default class TravelwiseVisualizations extends Component {
         <div className="text-center">
           <h1 className="my-4">Our Visualizations</h1>
         </div>
-        <h3>Total Covid Cases</h3>
         <CovidChart />
       </div>
     );

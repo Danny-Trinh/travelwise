@@ -2,11 +2,19 @@ import React, { Component } from "react";
 import * as d3 from "d3";
 import Axios from "axios";
 import PaginateTool from "./PaginateTool";
+import Select from "react-select";
+import { covidSort } from "../utility/sorts";
 
 const scale = 0.0001;
 const barThickness = 30;
 const barMargin = 5;
 const barOffset = 220;
+const covidSortOptions = [
+  // used for sort
+  { value: 1, label: "Country" },
+  { value: 4, label: "Total Cases" },
+];
+
 export default class CovidChart extends Component {
   state = {
     data: [],
@@ -30,6 +38,16 @@ export default class CovidChart extends Component {
       offset: 0,
     });
   }
+
+  sortData(sortInput: number) {
+    let sortedData = covidSort(
+      sortInput,
+      sortInput === 1 ? 1 : -1,
+      this.state.data
+    );
+    this.setState({ data: sortedData, sortType: sortInput });
+  }
+
   // handles pagination click
   handlePageClick = (e: any) => {
     const selectedPage = e.selected;
@@ -91,6 +109,17 @@ export default class CovidChart extends Component {
   render() {
     return (
       <React.Fragment>
+        <div className="row mb-3">
+          <h3 className="col-4">Total Covid Cases</h3>
+          <Select
+            className="col-3"
+            onChange={(x: any) => this.sortData(x ? x.value : 1)}
+            placeholder="Sort by: Country"
+            options={covidSortOptions}
+            isClearable
+            isSearchable={false}
+          />
+        </div>
         <div id="CovidChart" className="mb-4"></div>
         <PaginateTool
           pageCount={this.state.pageCount}
@@ -102,6 +131,6 @@ export default class CovidChart extends Component {
   }
 }
 function makeColor(data: any) {
-  let newColor = (data["total_cases"] * scale) / 3;
+  let newColor = (data["total_cases"] * scale) / 5;
   return `rgb(255,${200 - newColor},${200 - newColor})`;
 }
