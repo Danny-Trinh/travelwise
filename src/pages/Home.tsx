@@ -18,7 +18,7 @@ export default class Home extends Component {
               navigate.
             </h1>
             <h5 className="text-center mt-4 t-black">
-              <Link to="/Cities" className="t-black pageLink">
+              <Link to="/Cities" className="t-teal-800 pageLink">
                 Find a City
               </Link>
             </h5>
@@ -59,7 +59,7 @@ export default class Home extends Component {
               Our extensive catalog features airports from all over the globe.
             </h1>
             <h5 className="text-center mt-4 t-black">
-              <Link to="/Airports" className="t-black pageLink">
+              <Link to="/Airports" className="t-teal-800 pageLink">
                 Find an Airport
               </Link>
             </h5>
@@ -86,7 +86,7 @@ export default class Home extends Component {
               Find the latest COVID-19 data for every country.
             </h1>
             <h5 className="text-center mt-4 t-black">
-              <Link to="/Covid" className="t-black pageLink">
+              <Link to="/Covid" className="t-teal-800 pageLink">
                 Get Informed
               </Link>
             </h5>

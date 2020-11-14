@@ -31,7 +31,7 @@ export default class page1 extends Component<myState> {
         gitlab: "mitchellwatkins125",
         image: Mitchell,
         desc: mitchellDesc,
-        jobs: "Full-Stack Developer",
+        jobs: "Back-End Developer",
         tests: 0,
         email: "mitchellwatkins125@gmail.com",
       },
@@ -40,7 +40,7 @@ export default class page1 extends Component<myState> {
         gitlab: "Danny-Trinh",
         image: Danny,
         desc: dannyDesc,
-        jobs: "Full-Stack Developer",
+        jobs: "Project Lead",
         tests: 0,
         email: "dtrinh403@yahoo.com",
       },
@@ -49,7 +49,7 @@ export default class page1 extends Component<myState> {
         gitlab: "jessehuang",
         image: Jesse,
         desc: jesseDesc,
-        jobs: "Full-Stack Developer",
+        jobs: "Back-End Developer",
         tests: 0,
         email: "jesse17huang@gmail.com",
       },
@@ -58,7 +58,7 @@ export default class page1 extends Component<myState> {
         gitlab: "maximuschu",
         image: Max,
         desc: maxDesc,
-        jobs: "Full-Stack Developer",
+        jobs: "Front-End Developer",
         tests: 0,
         email: "maximuschu@utexas.edu",
       },
@@ -67,7 +67,7 @@ export default class page1 extends Component<myState> {
         gitlab: "amgluch",
         image: Adam,
         desc: adamDesc,
-        jobs: "Full-Stack Developer",
+        jobs: "Back-End Developer",
         tests: 0,
         email: "adammgluch@gmail.com",
       },
@@ -126,11 +126,11 @@ export default class page1 extends Component<myState> {
               This is Travelwise, a group dedicated to getting you from point A
               to point B as safely as possible in these uncertain times.
               Travelwise is an ideal platform for users to compare destinations
-              by safety, location, and Covid statistics. A feature of Travelwise is
-              providing users with up-to-date statistics on COVID in a given
+              by safety, location, and Covid statistics. A feature of Travelwise
+              is providing users with up-to-date statistics on COVID in a given
               region. Travelwise streamlines the process of making travel plans,
-              where users can search for destinations, airport and safety statistics all in the same place.
-              Our intended users are
+              where users can search for destinations, airport and safety
+              statistics all in the same place. Our intended users are
               middle-class travelers who are looking for statistics on places
               they would like to travel to.
             </p>

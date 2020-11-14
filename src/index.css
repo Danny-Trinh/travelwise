@@ -572,6 +572,10 @@ body {
 .navlink-custom {
   color: #edf2f7 !important;
 }
+
+.pageLink {
+  text-decoration: underline;
+}
 .pageLink:hover {
   color: black !important;
   font-weight: bold;
