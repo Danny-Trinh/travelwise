@@ -6,6 +6,7 @@ import highlight from "../utility/getHighlightedText";
 import * as constants from "../utility/data";
 import PaginateTool from "../components/PaginateTool";
 import { airportSort } from "../utility/sorts";
+import Error from "../components/Error";
 
 export default class Airports extends Component {
   state = {
@@ -19,6 +20,8 @@ export default class Airports extends Component {
     searchActive: false, // is the search query active
     filters: null, // current filters
     perPage: 9, // keeps track of how many instance per page
+    error: false,
+    isLoading: true,
   };
 
   componentDidMount() {
@@ -27,18 +30,21 @@ export default class Airports extends Component {
 
   // fetches data and resets search values and filter values
   async getData() {
-    let json = await Axios.get(`https://api.travelwise.live/airports`);
-
-    this.setState({
-      pageCount: Math.ceil(json.data.length / this.state.perPage),
-      data: json.data,
-      searchActive: false,
-      searchVal: "",
-      filters: null,
-      currentPage: 0,
-      offset: 0,
-    });
-    this.sortData(this.state.sortType);
+    try {
+      let json = await Axios.get(`https://api.travelwise.live/airports`);
+      this.setState({
+        pageCount: Math.ceil(json.data.length / this.state.perPage),
+        data: json.data,
+        searchActive: false,
+        searchVal: "",
+        filters: null,
+        currentPage: 0,
+        offset: 0,
+      });
+      this.sortData(this.state.sortType);
+    } catch (error) {
+      this.setState({ error: "true" });
+    }
   }
 
   // handles pagination click
@@ -147,58 +153,67 @@ export default class Airports extends Component {
 
   // on search enter, fetches data and queries search
   async handleSubmit(e: any) {
-    e.preventDefault();
-    let json = await Axios.get(`https://api.travelwise.live/airports`);
-    const { searchVal } = this.state;
-    let data = json.data.filter(
-      (airports: any) =>
-        airports.airport_name[0].toLowerCase().includes(searchVal) ||
-        airports.iata_code[0].toLowerCase().includes(searchVal) ||
-        airports.city_name[0].toLowerCase().includes(searchVal) ||
-        airports.country_name[0].toLowerCase().includes(searchVal) ||
-        (airports.latitude ? airports.latitude : 0)
-          .toString()
-          .includes(searchVal) ||
-        (airports.longitude ? airports.longitude : 0)
-          .toString()
-          .includes(searchVal) ||
-        (airports.time_offset ? airports.time_offset : 0)
-          .toString()
-          .includes(searchVal)
-    );
-    this.setState({
-      pageCount: Math.ceil(data.length / this.state.perPage),
-      data,
-      searchActive: true,
-      filters: null,
-    });
-    this.sortData(this.state.sortType);
+    try {
+      e.preventDefault();
+      let json = await Axios.get(`https://api.travelwise.live/airports`);
+      const { searchVal } = this.state;
+      let data = json.data.filter(
+        (airports: any) =>
+          airports.airport_name[0].toLowerCase().includes(searchVal) ||
+          airports.iata_code[0].toLowerCase().includes(searchVal) ||
+          airports.city_name[0].toLowerCase().includes(searchVal) ||
+          airports.country_name[0].toLowerCase().includes(searchVal) ||
+          (airports.latitude ? airports.latitude : 0)
+            .toString()
+            .includes(searchVal) ||
+          (airports.longitude ? airports.longitude : 0)
+            .toString()
+            .includes(searchVal) ||
+          (airports.time_offset ? airports.time_offset : 0)
+            .toString()
+            .includes(searchVal)
+      );
+      this.setState({
+        pageCount: Math.ceil(data.length / this.state.perPage),
+        data,
+        searchActive: true,
+        filters: null,
+      });
+      this.sortData(this.state.sortType);
+    } catch (error) {
+      this.setState({ error: "true" });
+    }
   }
 
   // fetches data and filters through inclusively, resets search to prevent logic errors
   async handleFilter(filters: any) {
-    this.setState({ filters });
-    let json = await Axios.get(`https://api.travelwise.live/airports`);
-    if (filters && filters.length > 0) {
-      let data = json.data.filter((airport: any) => {
-        for (let i = 0; i < filters.length; i++)
-          if (airport.country_name[0].localeCompare(filters[i].value) === 0)
-            return true;
-        return false;
-      });
-      this.setState({
-        pageCount: Math.ceil(data.length / this.state.perPage),
-        data,
-        searchVal: "",
-        searchActive: false,
-      });
-      this.sortData(this.state.sortType);
-    } else {
-      this.getData();
+    try {
+      this.setState({ filters });
+      let json = await Axios.get(`https://api.travelwise.live/airports`);
+      if (filters && filters.length > 0) {
+        let data = json.data.filter((airport: any) => {
+          for (let i = 0; i < filters.length; i++)
+            if (airport.country_name[0].localeCompare(filters[i].value) === 0)
+              return true;
+          return false;
+        });
+        this.setState({
+          pageCount: Math.ceil(data.length / this.state.perPage),
+          data,
+          searchVal: "",
+          searchActive: false,
+        });
+        this.sortData(this.state.sortType);
+      } else {
+        this.getData();
+      }
+    } catch (error) {
+      this.setState({ error: "true" });
     }
   }
 
   render() {
+    if (this.state.error) return <Error />;
     return (
       <React.Fragment>
         <div className="pb-5">

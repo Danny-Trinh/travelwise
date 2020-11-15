@@ -6,6 +6,7 @@ import highlight from "../utility/getHighlightedText";
 import * as constants from "../utility/data";
 import { covidSort } from "../utility/sorts";
 import PaginateTool from "../components/PaginateTool";
+import Error from "../components/Error";
 
 export default class Covid extends Component {
   state = {
@@ -19,6 +20,7 @@ export default class Covid extends Component {
     searchActive: false, // is the search query active
     filters: null, // current filters
     perPage: 9, // keeps track of how many instance per page
+    error: false,
   };
 
   componentDidMount() {
@@ -27,17 +29,21 @@ export default class Covid extends Component {
 
   // fetches data and resets search values and filter values
   async getData() {
-    let json = await Axios.get(`https://api.travelwise.live/covid`);
-    this.setState({
-      pageCount: Math.ceil(json.data.length / this.state.perPage),
-      data: json.data,
-      searchActive: false,
-      searchVal: "",
-      filters: null,
-      currentPage: 0,
-      offset: 0,
-    });
-    this.sortData(this.state.sortType);
+    try {
+      let json = await Axios.get(`https://api.travelwise.live/covid`);
+      this.setState({
+        pageCount: Math.ceil(json.data.length / this.state.perPage),
+        data: json.data,
+        searchActive: false,
+        searchVal: "",
+        filters: null,
+        currentPage: 0,
+        offset: 0,
+      });
+      this.sortData(this.state.sortType);
+    } catch (error) {
+      this.setState({ error: "true" });
+    }
   }
 
   // handles pagination click
@@ -141,59 +147,68 @@ export default class Covid extends Component {
 
   // on search enter, fetches data and queries search
   async handleSubmit(e: any) {
-    e.preventDefault();
-    let json = await Axios.get(`https://api.travelwise.live/covid`);
-    const { searchVal } = this.state;
-    let data = json.data.filter(
-      (covid: any) =>
-        covid.country[0].toLowerCase().includes(searchVal) ||
-        covid.country_code[0].toLowerCase().includes(searchVal) ||
-        (covid.new_cases ? covid.new_cases : 0)
-          .toString()
-          .includes(searchVal) ||
-        (covid.total_cases ? covid.total_cases : 0)
-          .toString()
-          .includes(searchVal) ||
-        (covid.new_deaths ? covid.new_deaths : 0)
-          .toString()
-          .includes(searchVal) ||
-        (covid.total_deaths ? covid.total_deaths : 0)
-          .toString()
-          .includes(searchVal)
-    );
-    this.setState({
-      pageCount: Math.ceil(data.length / this.state.perPage),
-      data,
-      searchActive: true,
-      filters: null,
-    });
-    this.sortData(this.state.sortType);
+    try {
+      e.preventDefault();
+      let json = await Axios.get(`https://api.travelwise.live/covid`);
+      const { searchVal } = this.state;
+      let data = json.data.filter(
+        (covid: any) =>
+          covid.country[0].toLowerCase().includes(searchVal) ||
+          covid.country_code[0].toLowerCase().includes(searchVal) ||
+          (covid.new_cases ? covid.new_cases : 0)
+            .toString()
+            .includes(searchVal) ||
+          (covid.total_cases ? covid.total_cases : 0)
+            .toString()
+            .includes(searchVal) ||
+          (covid.new_deaths ? covid.new_deaths : 0)
+            .toString()
+            .includes(searchVal) ||
+          (covid.total_deaths ? covid.total_deaths : 0)
+            .toString()
+            .includes(searchVal)
+      );
+      this.setState({
+        pageCount: Math.ceil(data.length / this.state.perPage),
+        data,
+        searchActive: true,
+        filters: null,
+      });
+      this.sortData(this.state.sortType);
+    } catch (error) {
+      this.setState({ error: "true" });
+    }
   }
 
   // fetches data and filters through inclusively, resets search to prevent logic errors
   async handleFilter(filters: any) {
-    this.setState({ filters });
-    let json = await Axios.get(`https://api.travelwise.live/covid`);
-    if (filters && filters.length > 0) {
-      let data = json.data.filter((covid: any) => {
-        for (let i = 0; i < filters.length; i++) {
-          if (covid[filters[i].value[0]] > filters[i].value[1]) return true;
-        }
-        return false;
-      });
-      this.setState({
-        pageCount: Math.ceil(data.length / this.state.perPage),
-        data,
-        searchVal: "",
-        searchActive: false,
-      });
-      this.sortData(this.state.sortType);
-    } else {
-      this.getData();
+    try {
+      this.setState({ filters });
+      let json = await Axios.get(`https://api.travelwise.live/covid`);
+      if (filters && filters.length > 0) {
+        let data = json.data.filter((covid: any) => {
+          for (let i = 0; i < filters.length; i++) {
+            if (covid[filters[i].value[0]] > filters[i].value[1]) return true;
+          }
+          return false;
+        });
+        this.setState({
+          pageCount: Math.ceil(data.length / this.state.perPage),
+          data,
+          searchVal: "",
+          searchActive: false,
+        });
+        this.sortData(this.state.sortType);
+      } else {
+        this.getData();
+      }
+    } catch (error) {
+      this.setState({ error: "true" });
     }
   }
 
   render() {
+    if (this.state.error) return <Error />;
     return (
       <React.Fragment>
         <div className="container pb-5">
