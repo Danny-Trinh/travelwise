@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
+import Error from "../components/Error";
+import Loading from "../components/Loading";
 
 type myProps = { match: any };
 export default class CityDetail extends Component<myProps> {
@@ -22,31 +24,31 @@ export default class CityDetail extends Component<myProps> {
       women: null,
     },
     airportData: [],
-    found: true,
     center: {
       lat: 0,
       lng: 0,
     },
     zoom: 11,
     picture: "",
+    loading: true,
+    error: false,
   };
 
   async componentDidMount() {
-    // get cities data
-    let json = await Axios.get(`https://api.travelwise.live/cities`);
+    try {
+      let json = await Axios.get(`https://api.travelwise.live/cities`);
 
-    let curCity = json.data.filter((city: any) => {
-      return (
-        city.country_code[0].localeCompare(
-          this.props.match.params.country_code
-        ) === 0 &&
-        city.name[0]
-          .toLowerCase()
-          .localeCompare(this.props.match.params.city.toLowerCase()) === 0
-      );
-    });
+      let curCity = json.data.filter((city: any) => {
+        return (
+          city.country_code[0].localeCompare(
+            this.props.match.params.country_code
+          ) === 0 &&
+          city.name[0]
+            .toLowerCase()
+            .localeCompare(this.props.match.params.city.toLowerCase()) === 0
+        );
+      });
 
-    if (curCity.length !== 0) {
       // get picture asset
       let picJson = await Axios.get(
         "https://api.unsplash.com/search/photos?client_id=Dj6xszn3N8x0A8n2a2O07Ns0IjeBGTameTQCpNVZMvI&" +
@@ -58,27 +60,23 @@ export default class CityDetail extends Component<myProps> {
       });
 
       //get airport data
-      if (curCity.length !== 0) {
-        let airportJson = await Axios.get(
-          `https://api.travelwise.live/airports/search?city_name=${curCity[0].name}`
-        );
-        this.setState({
-          data: curCity[0],
-          airportData: airportJson.data,
-          center: { lat: curCity[0].latitude, lng: curCity[0].longitude },
-        });
-      }
-    } else {
+      let airportJson = await Axios.get(
+        `https://api.travelwise.live/airports/search?city_name=${curCity[0].name}`
+      );
       this.setState({
-        found: false,
+        data: curCity[0],
+        airportData: airportJson.data,
+        center: { lat: curCity[0].latitude, lng: curCity[0].longitude },
+        loading: false,
       });
+    } catch (error) {
+      this.setState({ error: true, loading: false });
     }
   }
-  render() {
-    let airportRender;
+  renderAirports() {
     // if there is not airport data, just render a no airports message
     if (this.state.airportData.length > 0) {
-      airportRender = (
+      return (
         <React.Fragment>
           <h5>Airports:</h5>
           <ul>
@@ -93,7 +91,7 @@ export default class CityDetail extends Component<myProps> {
         </React.Fragment>
       );
     } else {
-      airportRender = (
+      return (
         <p>
           <span className="h5 inline">Airports: </span>
           Currently our database has no airports for {this.state.data.name},
@@ -101,18 +99,10 @@ export default class CityDetail extends Component<myProps> {
         </p>
       );
     }
-
-    // if there an error, render an error message
-    if (!this.state.found) {
-      return (
-        <div className="container m-4">
-          <h3>
-            Our database does not currently support safety stats for this city.
-          </h3>
-          <p>An error could have also occured, try refreshing the page.</p>
-        </div>
-      );
-    }
+  }
+  render() {
+    if (this.state.loading) return <Loading />;
+    if (this.state.error) return <Error />;
     return (
       <React.Fragment>
         <div className="container pb-5">
@@ -151,7 +141,7 @@ export default class CityDetail extends Component<myProps> {
             <span className="h5 inline">Covid Stats: </span>
             <Link to={`/Covid/${this.state.data.country_code}`}>Link</Link>
           </p>
-          {airportRender}
+          {this.renderAirports()}
           <div className="card">
             <img src={this.state.picture} alt={this.state.data.name}></img>
           </div>

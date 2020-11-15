@@ -581,3 +581,11 @@ body {
   font-weight: bold;
   text-decoration: none;
 }
+
+.footerLink {
+  color: #edf2f7;
+}
+.footerLink:hover {
+  color: #38b2ac;
+  text-decoration: underline;
+}

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
+import Error from "../components/Error";
+import Loading from "../components/Loading";
 
 type myProps = { match: any };
 export default class AirportDetail extends Component<myProps> {
@@ -16,25 +18,25 @@ export default class AirportDetail extends Component<myProps> {
       time_offset: null,
       country_code: null,
     },
-    found: true,
     center: {
       lat: 0,
       lng: 0,
     },
     zoom: 11,
     picture: "",
+    loading: true,
+    error: false,
   };
 
   async componentDidMount() {
-    // get airport data
-    let json = await Axios.get(`https://api.travelwise.live/airports`);
-    let curAirport = json.data.filter(
-      (airport: any) =>
-        airport.iata_code[0].localeCompare(this.props.match.params.iata) === 0
-    );
+    try {
+      let json = await Axios.get(`https://api.travelwise.live/airports`);
+      let curAirport = json.data.filter(
+        (airport: any) =>
+          airport.iata_code[0].localeCompare(this.props.match.params.iata) === 0
+      );
 
-    // get image asset
-    if (curAirport.length !== 0) {
+      // get image asset
       let picJson = await Axios.get(
         "https://api.unsplash.com/search/photos?client_id=Dj6xszn3N8x0A8n2a2O07Ns0IjeBGTameTQCpNVZMvI&" +
           `query=${curAirport[0].city_name} city&page=1&per_page=10`
@@ -44,24 +46,16 @@ export default class AirportDetail extends Component<myProps> {
         data: curAirport[0],
         center: { lat: curAirport[0].latitude, lng: curAirport[0].longitude },
         picture: picString,
+        loading: false,
       });
-    } else {
-      this.setState({ found: false });
+    } catch (error) {
+      this.setState({ error: true, loading: false });
     }
   }
 
   render() {
-    // if no data is found, display an error message
-    if (!this.state.found) {
-      return (
-        <div className="container m-4">
-          <h3>
-            Our database does not currently support data for this airport.
-          </h3>
-          <p>An error could have also occured, try refreshing the page.</p>
-        </div>
-      );
-    }
+    if (this.state.loading) return <Loading />;
+    if (this.state.error) return <Error />;
     return (
       <React.Fragment>
         <div className="container pb-5">

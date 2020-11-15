@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
+import Error from "../components/Error";
+import Loading from "../components/Loading";
 
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 type myProps = { match: any };
@@ -17,7 +19,6 @@ export default class CovidDetail extends Component<myProps> {
     },
     airportData: [],
     cityData: [],
-    found: true,
     picture: "",
     longitude: 0,
     latitude: 0,
@@ -26,14 +27,16 @@ export default class CovidDetail extends Component<myProps> {
       lng: 0,
     },
     zoom: 5,
+    error: false,
+    loading: true,
   };
 
   async componentDidMount() {
     // get covid data
-    let json = await Axios.get(
-      `https://api.travelwise.live/covid/search?country_code=${this.props.match.params.country_code}`
-    );
-    if (json.data.length !== 0) {
+    try {
+      let json = await Axios.get(
+        `https://api.travelwise.live/covid/search?country_code=${this.props.match.params.country_code}`
+      );
       let citiesJson = await Axios.get(`https://api.travelwise.live/cities`);
       let airportJson = await Axios.get(`https://api.travelwise.live/airports`);
       let cityData = citiesJson.data.filter(
@@ -68,18 +71,17 @@ export default class CovidDetail extends Component<myProps> {
         picture: picString,
         latitude,
         longitude,
+        loading: false,
       });
-    } else {
-      this.setState({
-        found: false,
-      });
+    } catch (error) {
+      this.setState({ error: true, loading: false });
     }
   }
-  render() {
-    let airportRender;
-    // if airports dont exist, display no airports message
+
+  // if airports dont exist, display no airports message
+  renderAirports() {
     if (this.state.airportData.length > 0) {
-      airportRender = (
+      return (
         <React.Fragment>
           <h5>Airports</h5>
           <ul>
@@ -94,7 +96,7 @@ export default class CovidDetail extends Component<myProps> {
         </React.Fragment>
       );
     } else {
-      airportRender = (
+      return (
         <p>
           <span className="h5 inline">Airports: </span>
           Currently our database has no airports for {this.state.data.country},
@@ -102,11 +104,12 @@ export default class CovidDetail extends Component<myProps> {
         </p>
       );
     }
+  }
 
-    // if there is not cities data, just render a no cities message
-    let cityRender;
+  // if there is not cities data, just render a no cities message
+  renderCities() {
     if (this.state.cityData.length > 0) {
-      cityRender = (
+      return (
         <React.Fragment>
           <h5>Cities</h5>
           <ul>
@@ -121,7 +124,7 @@ export default class CovidDetail extends Component<myProps> {
         </React.Fragment>
       );
     } else {
-      cityRender = (
+      return (
         <p>
           <span className="h5 inline">Cities: </span>
           Currently our database has no cities for {this.state.data.country},
@@ -129,19 +132,11 @@ export default class CovidDetail extends Component<myProps> {
         </p>
       );
     }
+  }
 
-    // if there is no data, display an error message
-    if (!this.state.found) {
-      return (
-        <div className="container m-4">
-          <h3>
-            Our database does not currently support covid stats for this
-            country.
-          </h3>
-          <p>An error could have also occured, try refreshing the page.</p>
-        </div>
-      );
-    }
+  render() {
+    if (this.state.loading) return <Loading />;
+    if (this.state.error) return <Error />;
     return (
       <React.Fragment>
         <div className="container pb-5">
@@ -164,8 +159,8 @@ export default class CovidDetail extends Component<myProps> {
             <span className="h5 inline">Total Deaths: </span>
             {this.state.data.total_deaths ? this.state.data.total_deaths : 0}
           </p>
-          {cityRender}
-          {airportRender}
+          {this.renderCities()}
+          {this.renderAirports()}
           <div className="card">
             <img src={this.state.picture} alt={this.state.data.country}></img>
           </div>
