@@ -10,7 +10,6 @@ const barThickness = 30;
 const barMargin = 5;
 const barOffset = 220;
 const covidSortOptions = [
-  // used for sort
   { value: 4, label: "Total Cases" },
   { value: 1, label: "Country" },
 ];
@@ -130,6 +129,7 @@ export default class CovidChart extends Component {
     );
   }
 }
+
 function makeColor(data: any) {
   let newColor = (data["total_cases"] * scale) / 5;
   return `rgb(255,${200 - newColor},${200 - newColor})`;

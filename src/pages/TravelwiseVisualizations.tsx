@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import CovidChart from "../components/CovidChart";
 import CitiesChart from "../components/CitiesChart";
+import CountryMap from "../components/CountryMap";
 
 export default class TravelwiseVisualizations extends Component {
   render() {
@@ -13,6 +14,8 @@ export default class TravelwiseVisualizations extends Component {
         <CovidChart />
         <div className="my-4"></div>
         <CitiesChart />
+        <div className="my-4"></div>
+        <CountryMap />
       </div>
     );
   }

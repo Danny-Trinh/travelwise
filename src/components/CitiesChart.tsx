@@ -41,11 +41,7 @@ export default class CitiesChart extends Component {
   }
 
   sortData(sortInput: number) {
-    let sortedData = citySort(
-      sortInput,
-      sortInput === 1 ? 1 : -1,
-      this.state.data
-    );
+    let sortedData = citySort(sortInput, 1, this.state.data);
     this.setState({ data: sortedData, sortType: sortInput });
   }
 
@@ -103,7 +99,7 @@ export default class CitiesChart extends Component {
       .attr("y", (d, i) => i * (barThickness + barMargin) + barThickness * 0.66)
       .attr("x", (d) => barOffset + d["overall"] * scale + 10)
       .attr("id", "Overall")
-      .text((d) => d["overall"] ? d["overall"] : 0);
+      .text((d) => (d["overall"] ? d["overall"] : 0));
   }
 
   render() {

@@ -1,18 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
-const bounce = 40;
+const bounce = 30;
 const staggerDelay = 0.2;
 
 const containerStyle = {
-  width: "20rem",
+  width: "12rem",
   height: "4rem",
   display: "flex",
   justifyContent: "space-around",
-  margin: "5rem auto 5rem auto",
+  margin: "2.5rem auto 5rem auto",
 };
 const circleStyle = {
-  height: "4rem",
-  width: "4rem",
+  height: "2rem",
+  width: "2rem",
   borderRadius: "50%",
   backgroundColor: "#319795",
 };
