@@ -75,46 +75,70 @@ export default class CitiesChart extends Component {
     var dataset = {"children": datamap};
 
     var diameter = 1000;
-    var colors = d3.scaleOrdinal(d3.schemeCategory10);
 
-    //var bubble = d3.pack(dataset).size([diameter, diameter]).padding(1.5);
+    let dataFix: any = d3;
 
+    var color = dataFix.scaleOrdinal(d3.schemeCategory10);
+
+
+
+    var bubble = dataFix.pack(dataset).size([diameter, diameter]).padding(1.5);
 
     d3.select("#CityGraph").remove();
     const svg = d3
       .select("#CitiesChart")
       .append("svg")
-      .attr("width", "100%")
-      .attr("height", this.state.perPage * (barThickness + barMargin))
+      .attr("width", diameter)
+      .attr("height", diameter)
       .attr("id", "CityGraph");
-    svg
-      .selectAll("rect")
-      .data(data)
+    var nodes = dataFix.hierarchy(dataset)
+      .sum(function(d: any) { return d.Count; });
+    var node = svg.selectAll(".node")
+      .data(bubble(nodes).descendants())
       .enter()
-      .append("rect")
-      .attr("y", (d, i) => i * (barThickness + barMargin))
-      .attr("x", barOffset)
-      .attr("width", (d, i) => d["overall"] * scale)
-      .attr("height", barThickness)
-      .attr("fill", (d) => makeColor(d));
-    svg
-      .selectAll("#CityName")
-      .data(data)
-      .enter()
-      .append("text")
-      .attr("y", (d, i) => i * (barThickness + barMargin) + barThickness * 0.66)
-      .attr("x", "0")
-      .attr("id", "CityName")
-      .text((d) => d["name"][0]);
-    svg
-      .selectAll("#Overall")
-      .data(data)
-      .enter()
-      .append("text")
-      .attr("y", (d, i) => i * (barThickness + barMargin) + barThickness * 0.66)
-      .attr("x", (d) => barOffset + d["overall"] * scale + 10)
-      .attr("id", "Overall")
-      .text((d) => (d["overall"] ? d["overall"] : 0));
+      .filter(function(d : any){
+          return  !d.children
+      })
+      .append("g")
+      .attr("class", "node")
+      .attr("transform", function(d: any) {
+          return "translate(" + d.x + "," + d.y + ")";
+      });
+      node.append("title")
+      .text(function(d: any) {
+          return d.Name + ": " + d.Count;
+      });
+      node.append("circle")
+      .attr("r", function(d: any) {
+          return d.r;
+      })
+      .style("fill", function(d,i) {
+          return color(i);
+      });
+
+  node.append("text")
+      .attr("dy", ".2em")
+      .style("text-anchor", "middle")
+      .text(function(d: any) {
+          return d.data.Name.toString().substring(0, d.r / 3);
+      })
+      .attr("font-family", "sans-serif")
+      .attr("font-size", function(d: any){
+          return d.r/5;
+      })
+      .attr("fill", "white");
+
+  node.append("text")
+      .attr("dy", "1.3em")
+      .style("text-anchor", "middle")
+      .text(function(d: any) {
+          return d.data.Count;
+      })
+      .attr("font-family",  "Gill Sans", )
+      .attr("font-size", function(d: any){
+          return d.r/5;
+      })
+      .attr("fill", "white");
   }
 
   render() {
@@ -122,21 +146,9 @@ export default class CitiesChart extends Component {
       <React.Fragment>
         <div className="row mb-3">
           <h3 className="col-4">City Overall Rankings</h3>
-          <Select
-            className="col-3"
-            onChange={(x: any) => this.sortData(x ? x.value : 4)}
-            placeholder="Sort by: Overall"
-            options={citySortOptions}
-            isClearable
-            isSearchable={false}
-          />
+
         </div>
         <div id="CitiesChart" className="mb-4"></div>
-        <PaginateTool
-          pageCount={this.state.pageCount}
-          handlePageClick={this.handlePageClick}
-          currentPage={this.state.currentPage}
-        />
       </React.Fragment>
     );
   }
