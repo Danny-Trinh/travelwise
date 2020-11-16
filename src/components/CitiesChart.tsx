@@ -69,6 +69,21 @@ export default class CitiesChart extends Component {
       data.push(i);
     });
 
+    // Bubble chart
+    var datamap = [];
+    for(var city in this.state.data){
+      const obj = {Name: this.state.data[city]["name"], Count: this.state.data[city]["overall"]}
+      datamap.push(obj);
+    }
+
+    var dataset = {"children": datamap};
+
+    var diameter = 1000;
+    var colors = d3.scaleOrdinal(d3.schemeCategory10);
+
+    //var bubble = d3.pack(dataset).size([diameter, diameter]).padding(1.5);
+
+
     d3.select("#CityGraph").remove();
     const svg = d3
       .select("#CitiesChart")
