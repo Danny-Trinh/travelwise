@@ -48,14 +48,14 @@ export default class AirportsChart extends Component {
       <React.Fragment>
         <div className="row mb-3">
           <h3 className="col-4">Airports by Country</h3>
-          <PieChart width={400} height={400}>
+          <PieChart width={1000} height={600}>
             <Pie
               dataKey="value"
               isAnimationActive={true}
               data={this.state.airportsdata}
-              cx={200}
-              cy={200}
-              outerRadius={80}
+              cx={550}
+              cy={300}
+              outerRadius={250}
               fill="#8884d8"
               label
             />
