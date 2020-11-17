@@ -1,17 +1,6 @@
 import React, { Component } from "react";
-import * as d3 from "d3";
 import Axios from "axios";
-import { citySort } from "../utility/sorts";
-import { PieChart, Pie, Legend, Tooltip } from "recharts";
-
-const data01 = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 },
-  { name: "Group E", value: 278 },
-  { name: "Group F", value: 189 },
-];
+import { PieChart, Pie, Tooltip } from "recharts";
 
 export default class AirportsChart extends Component {
   state = {
@@ -31,21 +20,22 @@ export default class AirportsChart extends Component {
     });
     var dataTemp = new Map();
     for (var airport in json.data) {
-      if (!dataTemp.has(json.data[airport]["country_code"])) {
-        dataTemp.set(json.data[airport]["country_code"], 1);
+      if (!dataTemp.has(json.data[airport]["country_name"][0])) {
+        dataTemp.set(json.data[airport]["country_name"][0], 1);
       } else {
         dataTemp.set(
-          json.data[airport]["country_code"],
-          dataTemp.get(json.data[airport]["country_code"]) + 1
+          json.data[airport]["country_name"][0],
+          dataTemp.get(json.data[airport]["country_name"][0]) + 1
         );
       }
     }
 
     var datamap: any = [];
-    dataTemp.forEach((x: any) => {
-      const temp = { name: x.key, value: x.value };
+    dataTemp.forEach((value: any, key: any) => {
+      const temp = { name: key, value: value };
       datamap.push(temp);
     });
+
     this.setState({
       airportsdata: datamap,
     });
@@ -57,12 +47,12 @@ export default class AirportsChart extends Component {
     return (
       <React.Fragment>
         <div className="row mb-3">
-          <h3 className="col-4">Airports per Country</h3>
+          <h3 className="col-4">Airports by Country</h3>
           <PieChart width={400} height={400}>
             <Pie
               dataKey="value"
               isAnimationActive={true}
-              data={data01}
+              data={this.state.airportsdata}
               cx={200}
               cy={200}
               outerRadius={80}

@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import CovidChart from "../components/CovidChart";
-import CitiesChart from "../components/CitiesChart";
-import AirportsChart from "../components/AirportsChart";
 import PlantsChart from "../components/PlantsChart";
 
 export default class ProviderVisualizations extends Component {
