@@ -114,7 +114,7 @@ export default class LocationsChart extends Component {
     return (
       <React.Fragment>
         <div className="row mb-3">
-          <h3 className="col-4">Total Covid Cases</h3>
+          <h3 className="col-4">Total Population Sizes</h3>
           <Select
             className="col-3"
             onChange={(x: any) => this.sortData(x ? x.value : 2)}

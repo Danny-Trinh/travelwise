@@ -50,7 +50,7 @@ export const members = [
     jobs: "Front-End Developer",
     tests: 0,
     email: "maximuschu@utexas.edu",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/maximuschu/",
   },
   {
     name: "Adam Gluch",

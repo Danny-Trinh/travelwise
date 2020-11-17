@@ -175,7 +175,7 @@ export default class page1 extends Component<myState> {
             <h2>REST API Sources</h2>
             <ul>
               <li>
-                City names:{" "}
+                City Names:{" "}
                 <a href="https://rapidapi.com/wirefreethought/api/geodb-cities?endpoint=5990a0b4e4b075a0d1d6da26">
                   Documentation
                 </a>
