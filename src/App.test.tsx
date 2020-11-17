@@ -9,20 +9,22 @@ import Airports from "./pages/Airports";
 import Error from "./components/Error";
 import Navbar from "./components/Navbar";
 import MemberCard from "./components/MemberCard";
-import CityDetail from "./components/CityDetail";
-import CovidDetail from "./components/CovidDetail";
-import AirportDetail from "./components/AirportDetail";
+import CityDetail from "./pages/CityDetail";
+import CovidDetail from "./pages/CovidDetail";
+import AirportDetail from "./pages/AirportDetail";
 
-test("renders About page", () => {
+test("renders About page", async () => {
   let fakeStateData = {
     // make the typescript warnings go brrrrr
     commits: 10,
     issues: 10,
     tests: 10,
     members: 10,
+    error: false,
+    isLoading: false,
   };
   const component = render(<Router>{<About {...fakeStateData} />}</Router>);
-  const element = component.getByText("What is Travelwise");
+  const element = await component.findByText("What is Travelwise");
   expect(element).toBeInTheDocument();
 });
 test("renders Home page", () => {
@@ -60,7 +62,7 @@ test("renders Navbar page", () => {
 });
 test("renders Error page", () => {
   const component = render(<Error />);
-  const element = component.getByText(/404/);
+  const element = component.getByText(/Occured/);
   expect(element).toBeInTheDocument();
 });
 test("renders Member Card", () => {

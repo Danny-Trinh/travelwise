@@ -118,7 +118,7 @@ export default class LocationsChart extends Component {
           <Select
             className="col-3"
             onChange={(x: any) => this.sortData(x ? x.value : 2)}
-            placeholder="Sort by: Total Cases"
+            placeholder="Sort by: Population"
             options={locationsSortOptions}
             isClearable
             isSearchable={false}
