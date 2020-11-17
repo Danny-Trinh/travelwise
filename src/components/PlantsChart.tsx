@@ -6,7 +6,6 @@ import PaginateTool from "./PaginateTool";
 import Select from "react-select";
 import { covidSort } from "../utility/sorts";
 // https://theplantpla.net/api/getanimals
-import React, { PureComponent } from "react";
 import { PieChart, Pie, Sector, Cell } from "recharts";
 
 const data = [
@@ -45,7 +44,7 @@ const renderCustomizedLabel = ({
   );
 };
 
-export default class Example extends PureComponent {
+export default class Example extends Component {
   static jsfiddleUrl = "https://jsfiddle.net/alidingling/c9pL8k61/";
 
   render() {
