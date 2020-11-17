@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import LofiSky from "../images/LofiSky.jpg";
 import LofiCity from "../images/LofiCity.jpg";
 import Pandemic from "../images/Pandemic.jpg";
+import Plane from "../images/Plane.png";
+import { motion } from "framer-motion";
 
 export default class Home extends Component {
   render() {
@@ -25,12 +27,30 @@ export default class Home extends Component {
           </div>
 
           <div className="col-lg-4">
-            <img
-              src={LofiSky}
-              className="rounded-circle mx-auto d-block mb-5 "
-              alt="City"
-              style={{ width: "30rem" }}
-            ></img>
+            <Link to="/Cities">
+              <motion.img
+                animate={{
+                  x: [0, 205],
+                  y: [75, 50],
+                  scale: [0.5, 1],
+                  opacity: [0, 1],
+                }}
+                transition={{
+                  duration: 2,
+                  delay: 1,
+                }}
+                className="position-absolute"
+                src={Plane}
+                alt="Plane"
+                style={{ width: "30rem" }}
+              ></motion.img>
+              <img
+                src={LofiSky}
+                className="rounded-circle mx-auto d-block mb-5 "
+                alt="City"
+                style={{ width: "30rem" }}
+              ></img>
+            </Link>
           </div>
         </div>
 
