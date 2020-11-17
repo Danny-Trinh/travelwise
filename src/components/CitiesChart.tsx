@@ -1,19 +1,7 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
 import Axios from "axios";
-import PaginateTool from "./PaginateTool";
-import Select from "react-select";
 import { citySort } from "../utility/sorts";
-
-const scale = 9;
-const barThickness = 30;
-const barMargin = 5;
-const barOffset = 220;
-const citySortOptions = [
-  // used for sort
-  { value: 4, label: "Overall" },
-  { value: 1, label: "City" },
-];
 
 export default class CitiesChart extends Component {
   state = {
@@ -32,12 +20,8 @@ export default class CitiesChart extends Component {
   async getData() {
     let json = await Axios.get(`https://api.travelwise.live/cities`);
     this.setState({
-      pageCount: Math.ceil(json.data.length / this.state.perPage),
       data: json.data,
-      currentPage: 0,
-      offset: 0,
     });
-    this.sortData(4);
   }
 
   sortData(sortInput: number) {
@@ -152,8 +136,4 @@ export default class CitiesChart extends Component {
       </React.Fragment>
     );
   }
-}
-function makeColor(data: any) {
-  let newColor = (data["overall"] * scale) / 5;
-  return `rgb(255,${200 - newColor},${200 - newColor})`;
 }
