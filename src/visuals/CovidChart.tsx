@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
 import Axios from "axios";
-import PaginateTool from "./PaginateTool";
+import PaginateTool from "../components/PaginateTool";
 import Select from "react-select";
 import { covidSort } from "../utility/sorts";
 
@@ -22,21 +22,27 @@ export default class CovidChart extends Component {
     pageCount: 0, // page count pagination
     perPage: 10, // keeps track of how many instance per page
   };
+
   componentDidMount() {
     this.getData();
   }
+
   componentDidUpdate() {
     this.drawChart();
   }
+
   async getData() {
     let json = await Axios.get(`https://api.travelwise.live/covid`);
-    this.setState({
-      pageCount: Math.ceil(json.data.length / this.state.perPage),
-      data: json.data,
-      currentPage: 0,
-      offset: 0,
-    });
-    this.sortData(4);
+
+    this.setState(
+      {
+        pageCount: Math.ceil(json.data.length / this.state.perPage),
+        data: json.data,
+        currentPage: 0,
+        offset: 0,
+      },
+      () => this.sortData(4)
+    );
   }
 
   sortData(sortInput: number) {
@@ -45,7 +51,7 @@ export default class CovidChart extends Component {
       sortInput === 1 ? 1 : -1,
       this.state.data
     );
-    this.setState({ data: sortedData, sortType: sortInput });
+    this.setState({ data: sortedData });
   }
 
   // handles pagination click

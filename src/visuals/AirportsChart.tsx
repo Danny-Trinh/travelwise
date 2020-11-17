@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import { PieChart, Pie, Tooltip } from "recharts";
+import { PieChart, Pie, Tooltip, Cell } from "recharts";
+const COLORS = [
+  "#f56565",
+  "#a3bffa",
+  "#00C49F",
+  "#FFBB28",
+  "#FF8042",
+  "#b794f4",
+  "#4299e1",
+  "#48bb78",
+];
 
 export default class AirportsChart extends Component {
   state = {
@@ -46,22 +56,29 @@ export default class AirportsChart extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="row mb-3">
-          <h3 className="col-4">Airports by Country</h3>
-          <PieChart width={1000} height={600}>
-            <Pie
-              dataKey="value"
-              isAnimationActive={true}
-              data={this.state.airportsdata}
-              cx={550}
-              cy={300}
-              outerRadius={250}
-              fill="#2c7a7b"
-              label
-            />
-            <Tooltip />
-          </PieChart>
+        <div className="row">
+          <h3>Airports per Country</h3>
+          <span className="ml-2 p-2">(Hover for info)</span>
         </div>
+
+        <PieChart width={1000} height={600}>
+          <Pie
+            dataKey="value"
+            isAnimationActive={true}
+            data={this.state.airportsdata}
+            cx={550}
+            cy={300}
+            innerRadius={80}
+            outerRadius={250}
+            fill="#2c7a7b"
+          >
+            {this.state.data.map((entry, index) => (
+              <Cell key={index} fill={COLORS[index % COLORS.length]} />
+            ))}
+          </Pie>
+
+          <Tooltip />
+        </PieChart>
         <div id="AirportsChart" className="mb-4"></div>
       </React.Fragment>
     );

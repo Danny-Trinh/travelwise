@@ -1,3 +1,22 @@
+// used to sort Provider's Location Data
+export function locationsSort(sortInput: number, data: any) {
+  let sortedData;
+  switch (sortInput) {
+    case 2:
+      sortedData = data.sort((obj1: any, obj2: any) => {
+        return obj2["Population"] - obj1["Population"];
+      });
+      break;
+    case 1:
+      sortedData = data.sort((obj1: any, obj2: any) => {
+        return obj1.State.localeCompare(obj2.State);
+      });
+      break;
+  }
+  return sortedData;
+}
+
+// used to sort out Covid Data
 export function covidSort(sortInput: number, reverse: number, data: any) {
   let sortedData;
   switch (sortInput) {
@@ -37,6 +56,7 @@ export function covidSort(sortInput: number, reverse: number, data: any) {
   return sortedData;
 }
 
+// used to sort our Airport Data
 export function airportSort(sortInput: number, reverse: number, data: any) {
   let sortedData;
   switch (Math.abs(sortInput)) {
@@ -83,6 +103,7 @@ export function airportSort(sortInput: number, reverse: number, data: any) {
   return sortedData;
 }
 
+// used to sort our City Data
 export function citySort(sortInput: number, reverse: number, data: any) {
   let sortedData;
   switch (Math.abs(sortInput)) {
