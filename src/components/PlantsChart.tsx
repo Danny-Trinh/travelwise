@@ -6,64 +6,65 @@ import PaginateTool from "./PaginateTool";
 import Select from "react-select";
 import { covidSort } from "../utility/sorts";
 // https://theplantpla.net/api/getanimals
-import { PieChart, Pie, Sector, Cell } from "recharts";
+import { PieChart, Pie, Legend, Tooltip } from "recharts";
+import Plants from "../json/Plants.json";
 
-const data = [
+const data01 = [
   { name: "Group A", value: 400 },
   { name: "Group B", value: 300 },
   { name: "Group C", value: 300 },
   { name: "Group D", value: 200 },
+  { name: "Group E", value: 278 },
+  { name: "Group F", value: 189 },
 ];
-
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
-
-const RADIAN = Math.PI / 180;
-const renderCustomizedLabel = ({
-  cx,
-  cy,
-  midAngle,
-  innerRadius,
-  outerRadius,
-  percent,
-  index,
-}: any) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-  const x = cx + radius * Math.cos(-midAngle * RADIAN);
-  const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
-  return (
-    <text
-      x={x}
-      y={y}
-      fill="white"
-      textAnchor={x > cx ? "start" : "end"}
-      dominantBaseline="central"
-    >
-      {`${(percent * 100).toFixed(0)}%`}
-    </text>
-  );
-};
-
 export default class Example extends Component {
-  static jsfiddleUrl = "https://jsfiddle.net/alidingling/c9pL8k61/";
-
+  static jsfiddleUrl = "https://jsfiddle.net/alidingling/k9jkog04/";
+  state = {
+    data: [],
+  };
+  componentDidMount() {
+    this.getData();
+  }
+  async getData() {
+    // let json = await Axios.get(`https://api.travelwise.live/covid`);
+    let parsedData: any = {};
+    for (const property in Plants) {
+      let PlantsType: any = Plants;
+      let currentFamily: string = PlantsType[property]["family"];
+      if (parsedData[currentFamily]) {
+        parsedData[currentFamily] += 1;
+      } else {
+        parsedData[currentFamily] = 1;
+      }
+    }
+    let parsedData1: any = { others: 0 };
+    for (const property in parsedData) {
+      let freq = parsedData[property];
+      if (freq == 1) {
+        parsedData1.others++;
+      } else {
+        parsedData1[property] = parsedData[property];
+      }
+    }
+    let result: any = [];
+    for (const [key, value] of Object.entries(parsedData1)) {
+      result.push({ name: key, value: value });
+    }
+    this.setState({ data: result });
+  }
   render() {
     return (
       <PieChart width={400} height={400}>
         <Pie
-          data={data}
-          cx={200}
-          cy={200}
-          labelLine={false}
-          label={renderCustomizedLabel}
+          dataKey="value"
+          isAnimationActive={true}
+          data={this.state.data}
+          innerRadius={50}
           outerRadius={80}
           fill="#8884d8"
-          dataKey="value"
-        >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
+          label
+        />
+        <Tooltip />
       </PieChart>
     );
   }
