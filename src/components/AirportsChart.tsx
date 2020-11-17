@@ -6,6 +6,12 @@ import {
     PieChart, Pie, Legend, Tooltip,
   } from 'recharts';
 
+  const data01 = [
+    { name: 'Group A', value: 400 }, { name: 'Group B', value: 300 },
+    { name: 'Group C', value: 300 }, { name: 'Group D', value: 200 },
+    { name: 'Group E', value: 278 }, { name: 'Group F', value: 189 },
+  ];
+
 export default class AirportsChart extends Component {
     state = {
       data: [],
@@ -13,6 +19,7 @@ export default class AirportsChart extends Component {
       currentPage: 0, // current page pagination
       pageCount: 0, // page count pagination
       perPage: 10, // keeps track of how many instance per page
+      airportsdata: [],
     };
     componentDidMount() {
       this.getData();
@@ -26,21 +33,6 @@ export default class AirportsChart extends Component {
         data: json.data,
       });
     }
-  
-    sortData(sortInput: number) {
-      let sortedData = citySort(sortInput, 1, this.state.data);
-      this.setState({ data: sortedData, sortType: sortInput });
-    }
-  
-    // handles pagination click
-    handlePageClick = (e: any) => {
-      const selectedPage = e.selected;
-      const offset = selectedPage * this.state.perPage;
-      this.setState({
-        currentPage: selectedPage,
-        offset: offset,
-      });
-    };
   
     drawChart() {
       let data: Array<any> = [];
@@ -63,11 +55,14 @@ export default class AirportsChart extends Component {
           }
       }
 
-      var datamap = [];
-      /*for(const [key, value] of dataTemp.entries()){
-
-      }*/
-
+      var datamap: any = [];
+      dataTemp.forEach((x: any) => {
+          const temp = {name: x.key, value: x.value};
+          datamap.push(temp);
+      });
+      this.setState({
+          airportsdata: datamap, 
+      });
     }
   
     render() {
@@ -75,7 +70,19 @@ export default class AirportsChart extends Component {
         <React.Fragment>
           <div className="row mb-3">
             <h3 className="col-4">Airports per Country</h3>
-  
+            <PieChart width={400} height={400}>
+        <Pie
+          dataKey="value"
+          isAnimationActive={true}
+          data={data01}
+          cx={200}
+          cy={200}
+          outerRadius={80}
+          fill="#8884d8"
+          label
+        />
+        <Tooltip />
+      </PieChart>
           </div>
           <div id="AirportsChart" className="mb-4"></div>
         </React.Fragment>
