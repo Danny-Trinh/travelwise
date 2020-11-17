@@ -2,8 +2,7 @@ import React, { Component } from "react";
 
 import CovidChart from "../components/CovidChart";
 import CitiesChart from "../components/CitiesChart";
-import AirportsChart from "../components/AirportsChart"
-import CountryMap from "../components/CountryMap";
+import AirportsChart from "../components/AirportsChart";
 
 export default class TravelwiseVisualizations extends Component {
   render() {
