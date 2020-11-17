@@ -97,9 +97,7 @@ export default class Airports extends Component {
                   (i.latitude ? i.latitude : 0).toString(),
                   this.state.searchVal
                 )
-              : i.latitude
-              ? i.latitude
-              : 0}
+              : i.latitude}
           </td>
           <td>
             {this.state.searchActive
@@ -107,9 +105,7 @@ export default class Airports extends Component {
                   (i.longitude ? i.longitude : 0).toString(),
                   this.state.searchVal
                 )
-              : i.longitude
-              ? i.longitude
-              : 0}
+              : i.longitude}
           </td>
           <td>
             {this.state.searchActive
@@ -117,12 +113,7 @@ export default class Airports extends Component {
                   (i.time_offset ? i.time_offset : 0).toString(),
                   this.state.searchVal
                 )
-              : i.time_offset
-              ? i.time_offset
-              : 0}
-          </td>
-          <td>
-            <Link to={`/Covid/${i.country_code}`}>Link</Link>
+              : i.time_offset}
           </td>
         </tr>
       );
@@ -217,7 +208,7 @@ export default class Airports extends Component {
     return (
       <React.Fragment>
         <div className="pb-5">
-          <div className="container" style={{ minHeight: "50rem" }}>
+          <div className="container" style={{ minHeight: "45rem" }}>
             <h1 className="my-4">Airports </h1>
             <div className="row">
               <Select
@@ -290,7 +281,6 @@ export default class Airports extends Component {
                   <th scope="col">Latitude</th>
                   <th scope="col">Longitude</th>
                   <th scope="col">Timezone</th>
-                  <th scope="col">Covid Stats</th>
                 </tr>
               </thead>
               <tbody>{this.renderData()}</tbody>
