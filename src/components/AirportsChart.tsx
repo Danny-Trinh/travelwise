@@ -56,7 +56,7 @@ export default class AirportsChart extends Component {
               cx={550}
               cy={300}
               outerRadius={250}
-              fill="#8884d8"
+              fill="#2c7a7b"
               label
             />
             <Tooltip />
