@@ -301,7 +301,6 @@ export default class Cities extends Component {
                 isClearable
                 isSearchable={false}
               />
-              <div className="col-md-3"></div>
               <Select
                 className="col-md-5"
                 onChange={(x: any) => this.handleFilter(x)}
