@@ -81,18 +81,26 @@ export default class AirportDetail extends Component<myProps> {
             <span className="h5 inline">Covid Stats: </span>
             <Link to={`/Covid/${this.state.data.country_code}`}>Link</Link>
           </p>
-          <div className="card">
-            <img
-              src={this.state.picture}
-              alt={this.state.data.airport_name}
-            ></img>
-          </div>
-          <div className="row mb-3"></div>
+          <img
+            src={this.state.picture}
+            alt={this.state.data.airport_name}
+            width="75%"
+            style={{
+              borderRadius: "25px",
+              objectFit: "cover",
+              maxHeight: "800px",
+            }}
+          ></img>
           <div className="my-5" style={{ height: "20rem", width: "100%" }}>
             <Map
               center={[this.state.center.lat, this.state.center.lng]}
               zoom={this.state.zoom}
-              style={{ width: "100%", height: "100%" }}
+              style={{
+                width: "75%",
+                height: "100%",
+                borderRadius: "25px 25px 0px 25px",
+              }}
+              minZoom={3}
             >
               <TileLayer
                 attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

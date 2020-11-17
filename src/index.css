@@ -562,10 +562,6 @@ body {
 .muteHover:hover {
   color: #e2e8f0;
 }
-#mapId {
-  height: 100%;
-  width: 100%;
-}
 #randomDiv {
   height: 40rem;
   width: 40rem;

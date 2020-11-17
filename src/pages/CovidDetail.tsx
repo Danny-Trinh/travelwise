@@ -161,14 +161,26 @@ export default class CovidDetail extends Component<myProps> {
           </p>
           {this.renderCities()}
           {this.renderAirports()}
-          <div className="card">
-            <img src={this.state.picture} alt={this.state.data.country}></img>
-          </div>
+          <img
+            src={this.state.picture}
+            alt={this.state.data.country}
+            width="75%"
+            style={{
+              borderRadius: "25px",
+              objectFit: "cover",
+              maxHeight: "800px",
+            }}
+          ></img>
           <div className="my-5" style={{ height: "20rem", width: "100%" }}>
             <Map
               center={[this.state.latitude, this.state.longitude]}
               zoom={this.state.zoom}
-              style={{ width: "100%", height: "100%" }}
+              style={{
+                width: "75%",
+                height: "100%",
+                borderRadius: "25px 25px 0px 25px",
+              }}
+              minZoom={3}
             >
               <TileLayer
                 attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
