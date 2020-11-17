@@ -13,20 +13,6 @@ import CityDetail from "./pages/CityDetail";
 import CovidDetail from "./pages/CovidDetail";
 import AirportDetail from "./pages/AirportDetail";
 
-test("renders About page", async () => {
-  let fakeStateData = {
-    // make the typescript warnings go brrrrr
-    commits: 10,
-    issues: 10,
-    tests: 10,
-    members: 10,
-    error: false,
-    isLoading: false,
-  };
-  const component = render(<Router>{<About {...fakeStateData} />}</Router>);
-  const element = await component.findByText("What is Travelwise");
-  expect(element).toBeInTheDocument();
-});
 test("renders Home page", () => {
   const component = render(
     <Router>
@@ -84,6 +70,21 @@ test("renders Member Card", () => {
 });
 
 //////////////////////////// ASYNC TESTS BELOW ////////////////////////////////////
+test("renders About page", async () => {
+  let fakeStateData = {
+    // make the typescript warnings go brrrrr
+    commits: 10,
+    issues: 10,
+    tests: 10,
+    members: 10,
+    error: false,
+    isLoading: false,
+  };
+  const component = render(<Router>{<About {...fakeStateData} />}</Router>);
+  const element = await component.findByText("What is Travelwise");
+  expect(element).toBeInTheDocument();
+});
+
 test("renders CityDetail instance", async () => {
   const component = render(
     <Router>

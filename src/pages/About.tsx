@@ -11,7 +11,7 @@ type myState = {
   issues: number;
   tests: number;
   error: boolean;
-  isLoading: true;
+  isLoading: boolean;
 };
 
 export default class page1 extends Component<myState> {

@@ -20,15 +20,17 @@ export const members = [
     jobs: "Back-End Developer",
     tests: 0,
     email: "mitchellwatkins125@gmail.com",
+    linkedin: "",
   },
   {
-    name: "Dung Trinh (Danny)",
+    name: "Dung Trinh",
     gitlab: "Danny-Trinh",
     image: Danny,
     desc: dannyDesc,
     jobs: "Project Lead",
     tests: 0,
     email: "dtrinh403@yahoo.com",
+    linkedin: "https://www.linkedin.com/in/dan-trinh/",
   },
   {
     name: "Jesse Huang",
@@ -38,6 +40,7 @@ export const members = [
     jobs: "Back-End Developer",
     tests: 0,
     email: "jesse17huang@gmail.com",
+    linkedin: "https://www.linkedin.com/in/jesse-huang-a1877b192/",
   },
   {
     name: "Maximus Chu",
@@ -47,6 +50,7 @@ export const members = [
     jobs: "Front-End Developer",
     tests: 0,
     email: "maximuschu@utexas.edu",
+    linkedin: "",
   },
   {
     name: "Adam Gluch",
@@ -56,6 +60,7 @@ export const members = [
     jobs: "Back-End Developer",
     tests: 0,
     email: "adammgluch@gmail.com",
+    linkedin: "",
   },
 ];
 
