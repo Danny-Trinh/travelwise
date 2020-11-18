@@ -20,7 +20,7 @@ export const members = [
     jobs: "Back-End Developer",
     tests: 0,
     email: "mitchellwatkins125@gmail.com",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/mawatkins99",
   },
   {
     name: "Dung Trinh",
