@@ -8,6 +8,16 @@ import PaginateTool from "../components/PaginateTool";
 import { citySort } from "../utility/sorts";
 import Error from "../components/Error";
 
+const rowData = [
+  "overall",
+  "lgbtq",
+  "medical",
+  "physical",
+  "political",
+  "theft",
+  "women",
+];
+
 export default class Cities extends Component {
   state = {
     offset: 0, // offset of pagination
@@ -83,76 +93,18 @@ export default class Cities extends Component {
               ? highlight(i.region[0], this.state.searchVal)
               : i.region[0]}
           </td>
-          <td>
-            {this.state.searchActive
-              ? highlight(
-                  (i.overall ? i.overall : 0).toString(),
-                  this.state.searchVal
-                )
-              : i.overall
-              ? i.overall
-              : 0}
-          </td>
-          <td>
-            {this.state.searchActive
-              ? highlight(
-                  (i.lgbtq ? i.lgbtq : 0).toString(),
-                  this.state.searchVal
-                )
-              : i.lgbtq
-              ? i.lgbtq
-              : 0}
-          </td>
-          <td>
-            {this.state.searchActive
-              ? highlight(
-                  (i.medical ? i.medical : 0).toString(),
-                  this.state.searchVal
-                )
-              : i.medical
-              ? i.medical
-              : 0}
-          </td>
-          <td>
-            {this.state.searchActive
-              ? highlight(
-                  (i.physical ? i.physical : 0).toString(),
-                  this.state.searchVal
-                )
-              : i.physical
-              ? i.physical
-              : 0}
-          </td>
-          <td>
-            {this.state.searchActive
-              ? highlight(
-                  (i.political ? i.political : 0).toString(),
-                  this.state.searchVal
-                )
-              : i.political
-              ? i.political
-              : 0}
-          </td>
-          <td>
-            {this.state.searchActive
-              ? highlight(
-                  (i.theft ? i.theft : 0).toString(),
-                  this.state.searchVal
-                )
-              : i.theft
-              ? i.theft
-              : 0}
-          </td>
-          <td>
-            {this.state.searchActive
-              ? highlight(
-                  (i.women ? i.women : 0).toString(),
-                  this.state.searchVal
-                )
-              : i.women
-              ? i.women
-              : 0}
-          </td>
+          {rowData.map((key: string) => (
+            <td>
+              {this.state.searchActive
+                ? highlight(
+                    (i[key] ? i[key] : 0).toString(),
+                    this.state.searchVal
+                  )
+                : i[key]
+                ? i[key]
+                : 0}
+            </td>
+          ))}
         </tr>
       );
     });

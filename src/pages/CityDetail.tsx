@@ -37,15 +37,10 @@ export default class CityDetail extends Component<myProps> {
   async componentDidMount() {
     try {
       let json = await Axios.get(
-        `https://api.travelwise.live/cities/search?name=${this.props.match.params.city}`
+        `https://api.travelwise.live/cities/search?` +
+          `name=${this.props.match.params.city}&country_code=${this.props.match.params.country_code}`
       );
-
-      let curCity = json.data.filter(
-        (city: any) =>
-          city.country_code[0].localeCompare(
-            this.props.match.params.country_code
-          ) === 0
-      );
+      let curCity = json.data;
 
       // get picture asset
       let picJson = await Axios.get(

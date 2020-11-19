@@ -7,6 +7,7 @@ import * as constants from "../utility/data";
 import { covidSort } from "../utility/sorts";
 import PaginateTool from "../components/PaginateTool";
 import Error from "../components/Error";
+const rowData = ["new_cases", "total_cases", "new_deaths", "total_deaths"];
 
 export default class Covid extends Component {
   state = {
@@ -78,46 +79,18 @@ export default class Covid extends Component {
               ? highlight(i.country_code[0], this.state.searchVal)
               : i.country_code[0]}
           </td>
-          <td>
-            {this.state.searchActive
-              ? highlight(
-                  (i.new_cases ? i.new_cases : 0).toString(),
-                  this.state.searchVal
-                )
-              : i.new_cases
-              ? i.new_cases
-              : 0}
-          </td>
-          <td>
-            {this.state.searchActive
-              ? highlight(
-                  (i.total_cases ? i.total_cases : 0).toString(),
-                  this.state.searchVal
-                )
-              : i.total_cases
-              ? i.total_cases
-              : 0}
-          </td>
-          <td>
-            {this.state.searchActive
-              ? highlight(
-                  (i.new_deaths ? i.new_deaths : 0).toString(),
-                  this.state.searchVal
-                )
-              : i.new_deaths
-              ? i.new_deaths
-              : 0}
-          </td>
-          <td>
-            {this.state.searchActive
-              ? highlight(
-                  (i.total_deaths ? i.total_deaths : 0).toString(),
-                  this.state.searchVal
-                )
-              : i.total_deaths
-              ? i.total_deaths
-              : 0}
-          </td>
+          {rowData.map((key: string) => (
+            <td>
+              {this.state.searchActive
+                ? highlight(
+                    (i[key] ? i[key] : 0).toString(),
+                    this.state.searchVal
+                  )
+                : i[key]
+                ? i[key]
+                : 0}
+            </td>
+          ))}
         </tr>
       );
     });

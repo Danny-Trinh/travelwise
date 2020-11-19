@@ -8,6 +8,8 @@ import PaginateTool from "../components/PaginateTool";
 import { airportSort } from "../utility/sorts";
 import Error from "../components/Error";
 
+const rowData = ["latitude", "longitude", "time_offset"];
+
 export default class Airports extends Component {
   state = {
     offset: 0, // offset of pagination
@@ -91,30 +93,16 @@ export default class Airports extends Component {
               ? highlight(i.country_name[0], this.state.searchVal)
               : i.country_name[0]}
           </td>
-          <td>
-            {this.state.searchActive
-              ? highlight(
-                  (i.latitude ? i.latitude : 0).toString(),
-                  this.state.searchVal
-                )
-              : i.latitude}
-          </td>
-          <td>
-            {this.state.searchActive
-              ? highlight(
-                  (i.longitude ? i.longitude : 0).toString(),
-                  this.state.searchVal
-                )
-              : i.longitude}
-          </td>
-          <td>
-            {this.state.searchActive
-              ? highlight(
-                  (i.time_offset ? i.time_offset : 0).toString(),
-                  this.state.searchVal
-                )
-              : i.time_offset}
-          </td>
+          {rowData.map((key: string) => (
+            <td>
+              {this.state.searchActive
+                ? highlight(
+                    (i[key] ? i[key] : 0).toString(),
+                    this.state.searchVal
+                  )
+                : i[key]}
+            </td>
+          ))}
         </tr>
       );
     });
