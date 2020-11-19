@@ -38,17 +38,15 @@ export default class CovidDetail extends Component<myProps> {
         `https://api.travelwise.live/covid/search?country_code=${this.props.match.params.country_code}`
       );
       let citiesJson = await Axios.get(`https://api.travelwise.live/cities`);
-      let airportJson = await Axios.get(`https://api.travelwise.live/airports`);
+      let airportJson = await Axios.get(
+        `https://api.travelwise.live/airports/search?country_code=${this.props.match.params.country_code}`
+      );
+
       let cityData = citiesJson.data.filter(
         (city: any) =>
           city.country_code[0].localeCompare(json.data[0].country_code[0]) === 0
       );
-      let airportData = airportJson.data.filter(
-        (airport: any) =>
-          airport.country_code[0].localeCompare(
-            json.data[0].country_code[0]
-          ) === 0
-      );
+      let airportData = airportJson.data;
 
       // get longitude/latitude
       let location = await Axios.get(

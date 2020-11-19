@@ -30,21 +30,19 @@ export default class AirportDetail extends Component<myProps> {
 
   async componentDidMount() {
     try {
-      let json = await Axios.get(`https://api.travelwise.live/airports`);
-      let curAirport = json.data.filter(
-        (airport: any) =>
-          airport.iata_code[0].localeCompare(this.props.match.params.iata) === 0
+      let json = await Axios.get(
+        `https://api.travelwise.live/airports/search?iata_code=${this.props.match.params.iata}`
       );
 
       // get image asset
       let picJson = await Axios.get(
         "https://api.unsplash.com/search/photos?client_id=Dj6xszn3N8x0A8n2a2O07Ns0IjeBGTameTQCpNVZMvI&" +
-          `query=${curAirport[0].city_name} city&page=1&per_page=10`
+          `query=${json.data[0].city_name} city&page=1&per_page=10`
       );
       let picString = picJson.data.results[0].urls.regular;
       this.setState({
-        data: curAirport[0],
-        center: { lat: curAirport[0].latitude, lng: curAirport[0].longitude },
+        data: json.data[0],
+        center: { lat: json.data[0].latitude, lng: json.data[0].longitude },
         picture: picString,
         loading: false,
       });

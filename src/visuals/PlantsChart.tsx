@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 // import * as d3 from "d3";
 // import { d3, map } from "d3/world-map";
-// import Axios from "axios";
+import Axios from "axios";
 // https://theplantpla.net/api/getanimals
 import { PieChart, Pie, Tooltip, Cell } from "recharts";
-import Plants from "../json/Plants.json";
+import Error from "../components/Error";
 
 const COLORS = [
   "#0088FE",
@@ -19,40 +19,45 @@ const COLORS = [
 export default class Example extends Component {
   state = {
     data: [],
+    error: false,
   };
   componentDidMount() {
     this.getData();
   }
 
   async getData() {
-    // let json = await Axios.get(`https://theplantpla.net/api/getplants`);
-    let parsedData: any = {};
-    for (const property in Plants) {
-      let PlantsType: any = Plants;
-      let currentFamily: string = PlantsType[property]["family"];
-      if (parsedData[currentFamily]) {
-        parsedData[currentFamily] += 1;
-      } else {
-        parsedData[currentFamily] = 1;
+    try {
+      let json = await Axios.get(`https://theplantplanet.live/api/getplants`);
+      let parsedData: any = {};
+      for (const property in json.data) {
+        let currentFamily: string = json.data[property]["family"];
+        if (parsedData[currentFamily]) {
+          parsedData[currentFamily] += 1;
+        } else {
+          parsedData[currentFamily] = 1;
+        }
       }
-    }
-    let parsedData1: any = { others: 0 };
-    for (const property in parsedData) {
-      let freq = parsedData[property];
-      if (freq === 1) {
-        parsedData1.others++;
-      } else {
-        parsedData1[property] = parsedData[property];
+      let parsedData1: any = { others: 0 };
+      for (const property in parsedData) {
+        let freq = parsedData[property];
+        if (freq === 1) {
+          parsedData1.others++;
+        } else {
+          parsedData1[property] = parsedData[property];
+        }
       }
+      let result: any = [];
+      for (const [key, value] of Object.entries(parsedData1)) {
+        result.push({ name: key, value: value });
+      }
+      this.setState({ data: result });
+    } catch (error) {
+      this.setState({ error: "true" });
     }
-    let result: any = [];
-    for (const [key, value] of Object.entries(parsedData1)) {
-      result.push({ name: key, value: value });
-    }
-    this.setState({ data: result });
   }
 
   render() {
+    if (this.state.error) return <Error />;
     return (
       <React.Fragment>
         <div className="row">

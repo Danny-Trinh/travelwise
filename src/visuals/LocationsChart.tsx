@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
-// import Axios from "axios";
+import Axios from "axios";
 import PaginateTool from "../components/PaginateTool";
+import Error from "../components/Error";
 import Select from "react-select";
-import Locations from "../json/Locations.json";
 import { locationsSort } from "../utility/sorts";
 
 const scale = 0.000017;
@@ -21,6 +21,7 @@ export default class LocationsChart extends Component {
     currentPage: 0, // current page pagination
     pageCount: 0, // page count pagination
     perPage: 10, // keeps track of how many instance per page
+    error: false,
   };
 
   componentDidMount() {
@@ -32,25 +33,31 @@ export default class LocationsChart extends Component {
   }
 
   async getData() {
-    // let json = await Axios.get(`https://api.travelwise.live/covid`);
-    let data = [];
-    let LocationsType: any = Locations;
-    for (let id in LocationsType) {
-      const obj = {
-        State: LocationsType[id].state,
-        Population: LocationsType[id].population,
-      };
-      data.push(obj);
+    try {
+      let json = await Axios.get(
+        `https://theplantplanet.live/api/getlocations`
+      );
+      let data = [];
+      for (let id in json.data) {
+        const obj = {
+          State: json.data[id].state,
+          Population: json.data[id].population,
+        };
+        data.push(obj);
+      }
+      this.setState(
+        {
+          pageCount: Math.ceil(data.length / this.state.perPage),
+          data,
+          currentPage: 0,
+          offset: 0,
+        },
+        () => this.sortData(2)
+      );
+    } catch (error) {
+      console.log("WTFFFF");
+      this.setState({ error: "true" });
     }
-    this.setState(
-      {
-        pageCount: Math.ceil(data.length / this.state.perPage),
-        data,
-        currentPage: 0,
-        offset: 0,
-      },
-      () => this.sortData(2)
-    );
   }
 
   sortData(sortInput: number) {
@@ -69,48 +76,59 @@ export default class LocationsChart extends Component {
   };
 
   drawChart() {
-    let data = this.state.data.slice(
-      this.state.offset,
-      this.state.offset + this.state.perPage
-    );
-    d3.select("#NewGraph").remove();
-    const svg = d3
-      .select("#LocationsChart")
-      .append("svg")
-      .attr("width", "100%")
-      .attr("height", this.state.perPage * (barThickness + barMargin))
-      .attr("id", "NewGraph");
-    svg
-      .selectAll("rect")
-      .data(data)
-      .enter()
-      .append("rect")
-      .attr("y", (d, i) => i * (barThickness + barMargin))
-      .attr("x", barOffset)
-      .attr("width", (d, i) => d["Population"] * scale)
-      .attr("height", barThickness)
-      .attr("fill", (d) => makeColor(d));
-    svg
-      .selectAll("#StateName")
-      .data(data)
-      .enter()
-      .append("text")
-      .attr("y", (d, i) => i * (barThickness + barMargin) + barThickness * 0.66)
-      .attr("x", "0")
-      .attr("id", "StateName")
-      .text((d: any) => d["State"].toString().substring(0, 20));
-    svg
-      .selectAll("#Population")
-      .data(data)
-      .enter()
-      .append("text")
-      .attr("y", (d, i) => i * (barThickness + barMargin) + barThickness * 0.66)
-      .attr("x", (d) => barOffset + d["Population"] * scale + 10)
-      .attr("id", "Population")
-      .text((d) => d["Population"]);
+    try {
+      let data = this.state.data.slice(
+        this.state.offset,
+        this.state.offset + this.state.perPage
+      );
+      d3.select("#NewGraph").remove();
+      const svg = d3
+        .select("#LocationsChart")
+        .append("svg")
+        .attr("width", "100%")
+        .attr("height", this.state.perPage * (barThickness + barMargin))
+        .attr("id", "NewGraph");
+      svg
+        .selectAll("rect")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr("y", (d, i) => i * (barThickness + barMargin))
+        .attr("x", barOffset)
+        .attr("width", (d, i) => d["Population"] * scale)
+        .attr("height", barThickness)
+        .attr("fill", (d) => makeColor(d));
+      svg
+        .selectAll("#StateName")
+        .data(data)
+        .enter()
+        .append("text")
+        .attr(
+          "y",
+          (d, i) => i * (barThickness + barMargin) + barThickness * 0.66
+        )
+        .attr("x", "0")
+        .attr("id", "StateName")
+        .text((d: any) => d["State"].toString().substring(0, 20));
+      svg
+        .selectAll("#Population")
+        .data(data)
+        .enter()
+        .append("text")
+        .attr(
+          "y",
+          (d, i) => i * (barThickness + barMargin) + barThickness * 0.66
+        )
+        .attr("x", (d) => barOffset + d["Population"] * scale + 10)
+        .attr("id", "Population")
+        .text((d) => d["Population"]);
+    } catch (error) {
+      this.setState({ error: "true" });
+    }
   }
 
   render() {
+    if (this.state.error) return <Error />;
     return (
       <React.Fragment>
         <div className="row mb-3">

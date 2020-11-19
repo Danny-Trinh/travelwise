@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { PieChart, Pie, Tooltip, Cell } from "recharts";
+import Error from "../components/Error";
+
 const COLORS = [
   "#f56565",
   "#a3bffa",
@@ -16,44 +18,46 @@ export default class AirportsChart extends Component {
   state = {
     data: [],
     airportsdata: [],
+    error: false,
   };
   componentDidMount() {
     this.getData();
   }
-  componentDidUpdate() {
-    this.drawChart();
-  }
+
   async getData() {
-    let json = await Axios.get(`https://api.travelwise.live/airports`);
-    this.setState({
-      data: json.data,
-    });
-    var dataTemp = new Map();
-    for (var airport in json.data) {
-      if (!dataTemp.has(json.data[airport]["country_name"][0])) {
-        dataTemp.set(json.data[airport]["country_name"][0], 1);
-      } else {
-        dataTemp.set(
-          json.data[airport]["country_name"][0],
-          dataTemp.get(json.data[airport]["country_name"][0]) + 1
-        );
+    try {
+      let json = await Axios.get(`https://api.travelwise.live/airports`);
+      this.setState({
+        data: json.data,
+      });
+      var dataTemp = new Map();
+      for (var airport in json.data) {
+        if (!dataTemp.has(json.data[airport]["country_name"][0])) {
+          dataTemp.set(json.data[airport]["country_name"][0], 1);
+        } else {
+          dataTemp.set(
+            json.data[airport]["country_name"][0],
+            dataTemp.get(json.data[airport]["country_name"][0]) + 1
+          );
+        }
       }
+
+      var datamap: any = [];
+      dataTemp.forEach((value: any, key: any) => {
+        const temp = { name: key, value: value };
+        datamap.push(temp);
+      });
+
+      this.setState({
+        airportsdata: datamap,
+      });
+    } catch (error) {
+      this.setState({ error: "true" });
     }
-
-    var datamap: any = [];
-    dataTemp.forEach((value: any, key: any) => {
-      const temp = { name: key, value: value };
-      datamap.push(temp);
-    });
-
-    this.setState({
-      airportsdata: datamap,
-    });
   }
-
-  drawChart() {}
 
   render() {
+    if (this.state.error) return <Error />;
     return (
       <React.Fragment>
         <div className="row">
@@ -72,7 +76,7 @@ export default class AirportsChart extends Component {
             outerRadius={250}
             fill="#2c7a7b"
           >
-            {this.state.data.map((entry, index) => (
+            {this.state.airportsdata.map((entry, index) => (
               <Cell key={index} fill={COLORS[index % COLORS.length]} />
             ))}
           </Pie>
