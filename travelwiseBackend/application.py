@@ -1,7 +1,7 @@
 import os
 import json
 from flask import Flask, request
-#from flask_cors import CORS
+from flask_cors import CORS
 from flask_restless import manager
 from flask_sqlalchemy import SQLAlchemy
 import requests
