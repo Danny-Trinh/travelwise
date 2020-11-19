@@ -42,4 +42,4 @@ Postman_tests:
     entrypoint: [""]
   script:
     - newman --version
-    - newman run postmanTests.json
+    - newman run Backend/Postman/postmanTests.json
