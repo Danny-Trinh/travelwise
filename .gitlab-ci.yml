@@ -30,7 +30,11 @@ Backend:
   script:
     - echo "Backend Time!"
     - pip show unittest2
-    - python travelwiseBackend/TravelwiseBackendUnitTests.py
+    - pip show Flask
+    - pip show Flask-RESTful
+    - pip show Flask-SQLAlchemy
+    - pip show selenium
+    - python Backend/Tests/TravelwiseBackendUnitTests.py
 
 Postman_tests:
   image:
