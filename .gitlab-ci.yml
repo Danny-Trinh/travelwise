@@ -34,7 +34,7 @@ Backend:
     - pip show Flask-RESTful
     - pip show Flask-SQLAlchemy
     - pip show selenium
-    - python Backend/Tests/TravelwiseBackendUnitTests.py
+    - python Backend/Tests/FlaskUnitTests/TravelwiseBackendUnitTests.py
 
 Postman_tests:
   image:
