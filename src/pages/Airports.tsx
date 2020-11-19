@@ -9,6 +9,15 @@ import { airportSort } from "../utility/sorts";
 import Error from "../components/Error";
 
 const rowData = ["latitude", "longitude", "time_offset"];
+const headers = [
+  "Airport",
+  "Airport Code",
+  "City",
+  "Country",
+  "Latitude",
+  "Longitude",
+  "Timezone",
+];
 
 export default class Airports extends Component {
   state = {
@@ -106,6 +115,12 @@ export default class Airports extends Component {
         </tr>
       );
     });
+    return result;
+  }
+
+  renderHeader(){
+    let result: Array<any> = [];
+    result.push(headers.map((header: string) => (<th scope="col">{header}</th>)));
     return result;
   }
 
@@ -261,15 +276,7 @@ export default class Airports extends Component {
             </div>
             <table className="table table-hover mx-auto bg-gray-100 mb-5">
               <thead className="thead-dark">
-                <tr>
-                  <th scope="col">Airport</th>
-                  <th scope="col">Airport Code</th>
-                  <th scope="col">City</th>
-                  <th scope="col">Country</th>
-                  <th scope="col">Latitude</th>
-                  <th scope="col">Longitude</th>
-                  <th scope="col">Timezone</th>
-                </tr>
+                <tr>{this.renderHeader()}</tr>
               </thead>
               <tbody>{this.renderData()}</tbody>
             </table>

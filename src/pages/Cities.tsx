@@ -17,6 +17,18 @@ const rowData = [
   "theft",
   "women",
 ];
+const headers = [
+  "City",
+  "Country",
+  "Region",
+  "Overall",
+  "LGBTQ",
+  "Medical",
+  "Physical Harm",
+  "Political Freedom",
+  "Theft",
+  "Women"
+];
 
 export default class Cities extends Component {
   state = {
@@ -108,6 +120,12 @@ export default class Cities extends Component {
         </tr>
       );
     });
+    return result;
+  }
+
+  renderHeader(){
+    let result: Array<any> = [];
+    result.push(headers.map((header: string) => (<th scope="col">{header}</th>)));
     return result;
   }
 
@@ -261,18 +279,7 @@ export default class Cities extends Component {
             </div>
             <table className="table table-hover mx-auto bg-gray-100 mb-5">
               <thead className="thead-dark">
-                <tr>
-                  <th scope="col">City</th>
-                  <th scope="col">Country</th>
-                  <th scope="col">Region</th>
-                  <th scope="col">Overall</th>
-                  <th scope="col">LGBTQ</th>
-                  <th scope="col">Medical</th>
-                  <th scope="col">Physical Harm</th>
-                  <th scope="col">Political Freedom</th>
-                  <th scope="col">Theft</th>
-                  <th scope="col">Women</th>
-                </tr>
+                <tr>{this.renderHeader()}</tr>
               </thead>
               <tbody>{this.renderData()}</tbody>
             </table>

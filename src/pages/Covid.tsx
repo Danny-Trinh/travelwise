@@ -7,7 +7,16 @@ import * as constants from "../utility/data";
 import { covidSort } from "../utility/sorts";
 import PaginateTool from "../components/PaginateTool";
 import Error from "../components/Error";
+
 const rowData = ["new_cases", "total_cases", "new_deaths", "total_deaths"];
+const headers = [
+  "Country",
+  "Country Code",
+  "New Confirmed Cases",
+  "Total Confirmed Cases",
+  "New Deaths",
+  "Total Deaths",
+];
 
 export default class Covid extends Component {
   state = {
@@ -94,6 +103,12 @@ export default class Covid extends Component {
         </tr>
       );
     });
+    return result;
+  }
+
+  renderHeader(){
+    let result: Array<any> = [];
+    result.push(headers.map((header: string) => (<th scope="col">{header}</th>)));
     return result;
   }
 
@@ -250,14 +265,7 @@ export default class Covid extends Component {
           </div>
           <table className="table table-hover mx-auto bg-gray-100 mb-5">
             <thead className="thead-dark">
-              <tr>
-                <th scope="col">Country</th>
-                <th scope="col">Country Code</th>
-                <th scope="col">New Confirmed Cases</th>
-                <th scope="col">Total Confirmed Cases</th>
-                <th scope="col">New Deaths</th>
-                <th scope="col">Total Deaths</th>
-              </tr>
+              <tr>{this.renderHeader()}</tr>
             </thead>
             <tbody>{this.renderData()}</tbody>
           </table>
