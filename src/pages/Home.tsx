@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import LofiSky from "../images/LofiSky.jpg";
 import LofiCity from "../images/LofiCity.jpg";
+import PurpleVirus from "../images/PurpleVirus.png";
 import Pandemic from "../images/Pink.jpg";
 import Plane from "../images/Plane.png";
 import { motion } from "framer-motion";
+import VirusAnimate from "../components/VirusAnimate";
 
 export default class Home extends Component {
   render() {
@@ -37,9 +39,9 @@ export default class Home extends Component {
                 }}
                 transition={{
                   duration: 2,
-                  delay: 0.2,
+                  delay: 0.1,
                 }}
-                className="position-absolute"
+                className="position-absolute "
                 src={Plane}
                 alt="Plane"
                 style={{ width: "30rem" }}
@@ -113,12 +115,68 @@ export default class Home extends Component {
           </div>
 
           <div className="col-lg-4 ">
-            <img
-              src={Pandemic}
-              className="rounded-circle mx-auto d-block mb-5 "
-              alt="Covid"
-              style={{ width: "30rem" }}
-            ></img>
+            <Link to="/Covid">
+              <VirusAnimate
+                rev={1}
+                width="3rem"
+                left="35%"
+                top="5rem"
+                swell={0.1}
+                jiggle={10}
+                img={PurpleVirus}
+              />
+              <VirusAnimate
+                rev={-1}
+                width="2rem"
+                left="30%"
+                top="20rem"
+                swell={0.2}
+                jiggle={15}
+                img={PurpleVirus}
+              />
+              <VirusAnimate
+                rev={1}
+                width="3rem"
+                left="47%"
+                top="15rem"
+                swell={0.1}
+                jiggle={10}
+                img={PurpleVirus}
+              />
+              <VirusAnimate
+                rev={1}
+                width="8rem"
+                left="50%"
+                top="5rem"
+                swell={0.2}
+                jiggle={20}
+                img={PurpleVirus}
+              />
+              <VirusAnimate
+                rev={-1}
+                width="6rem"
+                left="27%"
+                top="10rem"
+                swell={0.2}
+                jiggle={20}
+                img={PurpleVirus}
+              />
+              <VirusAnimate
+                rev={-1}
+                width="7rem"
+                left="55%"
+                top="17rem"
+                swell={0.1}
+                jiggle={15}
+                img={PurpleVirus}
+              />
+              <img
+                src={Pandemic}
+                className="rounded-circle mx-auto d-block mb-5 "
+                alt="Covid"
+                style={{ width: "30rem" }}
+              ></img>
+            </Link>
           </div>
         </div>
       </div>
