@@ -3,7 +3,14 @@ import Axios from "axios";
 import { members } from "../utility/data";
 import Error from "../components/Error";
 import Loading from "../components/Loading";
-
+import dockerIcon from "../images/dockerIcon.png"; 
+import postmanIcon from "../images/postmanIcon.png";
+import reactIcon from "../images/reactIcon.png";
+import bootstrapIcon from "../images/bootstrapIcon.png";
+import yarnIcon from "../images/yarnIcon.jpg";
+import gitlabIcon from "../images/gitlabIcon.png";
+import slackIcon from "../images/slackIcon.png";
+import amplifyIcon from "../images/amplifyIcon.png";
 import MemberCard from "../components/MemberCard";
 
 type myState = {
@@ -112,6 +119,11 @@ export default class page1 extends Component<myState> {
             <ul>
               <li>
                 <a href="https://www.docker.com/">
+                <img
+                src={dockerIcon}
+                alt="dockerIcon"
+                style={{ width: "2rem" }}
+                ></img>
                   <strong>Docker</strong>
                 </a>
                 : Creates a docker image that packages our tool-chain and
@@ -119,12 +131,22 @@ export default class page1 extends Component<myState> {
               </li>
               <li>
                 <a href="https://www.postman.com/">
+                  <img
+                  src={postmanIcon}
+                  alt="postmanIcon"
+                  style={{ width: "2rem" }}
+                  ></img>
                   <strong>Postman</strong>
                 </a>
                 : Streamlines the creation and management of our API's{" "}
               </li>
               <li>
                 <a href="https://reactjs.org/">
+                  <img
+                  src={reactIcon}
+                  alt="reactIcon"
+                  style={{ width: "2rem" }}
+                  ></img>
                   <strong>React</strong>
                 </a>
                 : Javascript Library developed by Facebook that modernizes
@@ -134,6 +156,11 @@ export default class page1 extends Component<myState> {
               </li>
               <li>
                 <a href="https://getbootstrap.com/">
+                  <img
+                  src={bootstrapIcon}
+                  alt="bootstrapIcon"
+                  style={{ width: "2rem" }}
+                  ></img>
                   <strong>Bootstrap</strong>
                 </a>
                 : Bootstrap is a extensive CSS framework and is used as our
@@ -141,6 +168,11 @@ export default class page1 extends Component<myState> {
               </li>
               <li>
                 <a href="https://classic.yarnpkg.com/en/">
+                <img
+                  src={yarnIcon}
+                  alt="yarnIcon"
+                  style={{ width: "2rem" }}
+                  ></img>
                   <strong>Yarn</strong>
                 </a>
                 : We use Yarn, a package manager, for our React App. It makes
@@ -149,6 +181,11 @@ export default class page1 extends Component<myState> {
               </li>
               <li>
                 <a href="https://gitlab.com/">
+                <img
+                  src={gitlabIcon}
+                  alt="gitlabIcon"
+                  style={{ width: "2rem" }}
+                ></img>
                   <strong>GitLab</strong>
                 </a>
                 : GitLab is a web-based DevOps lifecycle tool that provides a
@@ -159,6 +196,11 @@ export default class page1 extends Component<myState> {
 
               <li>
                 <a href="https://slack.com/">
+                  <img
+                    src={slackIcon}
+                    alt="slackIcon"
+                    style={{ width: "2rem" }}
+                  ></img>
                   <strong>Slack</strong>
                 </a>
                 : We've integrated slack to our GitLab repo, for communication
@@ -166,6 +208,11 @@ export default class page1 extends Component<myState> {
               </li>
               <li>
                 <a href="https://aws.amazon.com/amplify/">
+                  <img
+                    src={amplifyIcon}
+                    alt="amplifyIcon"
+                    style={{ width: "2rem" }}
+                  ></img>
                   <strong>AWS Amplify</strong>
                 </a>
                 : AWS Amplify allows us to host websites by simply committing
