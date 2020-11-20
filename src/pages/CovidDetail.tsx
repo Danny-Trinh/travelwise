@@ -1,10 +1,41 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
+import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import Error from "../components/Error";
 import Loading from "../components/Loading";
+import {
+  FaCapsules,
+  FaCity,
+  FaHospital,
+  FaPlaneDeparture,
+  FaSkull,
+  FaSkullCrossbones,
+} from "react-icons/fa";
 
-import { Map, TileLayer, Marker, Popup } from "react-leaflet";
+const rowData = [
+  {
+    header: "New Confirmed Cases",
+    key: "new_cases",
+    icon: <FaCapsules size="5em" className="mx-auto t-blue-700 d-block" />,
+  },
+  {
+    header: "Total Confirmed Cases",
+    key: "total_cases",
+    icon: <FaHospital size="5em" className="mx-auto t-red-700 d-block" />,
+  },
+  {
+    header: "New Deaths",
+    key: "new_deaths",
+    icon: <FaSkull size="5em" className="mx-auto t-gray-700 d-block" />,
+  },
+  {
+    header: "Total Deaths",
+    key: "total_deaths",
+    icon: <FaSkullCrossbones size="5em" className="mx-auto t-black-700 d-block" />,
+  },
+];
+
 type myProps = { match: any };
 
 export default class CovidDetail extends Component<myProps> {
@@ -76,30 +107,47 @@ export default class CovidDetail extends Component<myProps> {
     }
   }
 
-  // if airports dont exist, display no airports message
   renderAirports() {
+    // if there is not airport data, just render a no airports message
     if (this.state.airportData.length > 0) {
       return (
         <React.Fragment>
-          <h5>Airports</h5>
-          <ul>
-            {this.state.airportData.map((airport: any) => (
-              <li>
-                <Link className="link" to={`/Airport/${airport.iata_code}`}>
-                  {airport.airport_name} ({airport.city_name})
+          <h1 className="my-5 text-center">Airports</h1>
+          <div className="row">
+            {this.state.airportData.map((airport: any, index: number) => (
+              <div className="col-3" key={index}>
+                <Link
+                  className="link"
+                  to={`/Airport/${airport.iata_code}`}
+                >
+                  <FaPlaneDeparture
+                    size="5em"
+                    className="mx-auto t-teal-700 d-block"
+                  />
                 </Link>
-              </li>
+                <div className="text-center card-body">
+                  <h4>{airport.iata_code}</h4>
+                  <Link
+                    className="link"
+                    to={`/Airport/${airport.iata_code}`}
+                  >
+                    <h6>{airport.airport_name}</h6>
+                  </Link>
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
         </React.Fragment>
       );
     } else {
       return (
-        <p>
-          <span className="h5 inline">Airports: </span>
-          Currently our database has no airports for {this.state.data.country},
-          try another country.
-        </p>
+        <React.Fragment>
+          <h1 className="text-center my-5">Airports</h1>
+          <p className="text-center">
+            Currently our database has no airports for {this.state.data.country},
+            check another city.
+          </p>
+        </React.Fragment>
       );
     }
   }
@@ -109,28 +157,42 @@ export default class CovidDetail extends Component<myProps> {
     if (this.state.cityData.length > 0) {
       return (
         <React.Fragment>
-          <h5>Cities</h5>
-          <ul>
-            {this.state.cityData.map((city: any) => (
-              <li>
+          <h1 className="my-5 text-center">Cities</h1>
+          <div className="row">
+            {this.state.cityData.map((city: any, index: number) => (
+              <div className="col-3" key={index}>
                 <Link
                   className="link"
                   to={`/City/${city.name}/${city.country_code}`}
                 >
-                  {city.name}
+                  <FaCity
+                    size="5em"
+                    className="mx-auto t-teal-700 d-block"
+                  />
                 </Link>
-              </li>
+                <div className="text-center card-body">
+                  <h4>{city.country_code}</h4>
+                  <Link
+                    className="link"
+                    to={`/City/${city.name}/${city.country_code}`}
+                  >
+                    <h6>{city.name}</h6>
+                  </Link>
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
         </React.Fragment>
       );
     } else {
       return (
-        <p>
-          <span className="h5 inline">Cities: </span>
-          Currently our database has no cities for {this.state.data.country},
-          try another country.
-        </p>
+        <React.Fragment>
+          <h1 className="text-center my-5">Cities</h1>
+          <p className="text-center">
+            Currently our database has no cities for {this.state.data.country},
+            try another country.
+          </p>
+        </React.Fragment>
       );
     }
   }
@@ -155,25 +217,23 @@ export default class CovidDetail extends Component<myProps> {
               maxHeight: "800px",
             }}
           ></img>
+
           <h1 className="my-5 text-center"> Statistics </h1>
-          <p>
-            <span className="h5 inline">New Confirmed Cases: </span>
-            {this.state.data.new_cases ? this.state.data.new_cases : 0}
-          </p>
-          <p>
-            <span className="h5 inline">Total Confirmed Cases: </span>
-            {this.state.data.total_cases ? this.state.data.total_cases : 0}
-          </p>
-          <p>
-            <span className="h5 inline">New Deaths: </span>
-            {this.state.data.new_deaths ? this.state.data.new_deaths : 0}
-          </p>
-          <p>
-            <span className="h5 inline">Total Deaths: </span>
-            {this.state.data.total_deaths ? this.state.data.total_deaths : 0}
-          </p>
-          {this.renderCities()}
-          {this.renderAirports()}
+          <div className="row">
+          {rowData.map((obj: any, index: number) => {
+              let data: any = this.state.data;
+              return (
+                <div className="col-6" key={index}>
+                  {obj.icon}
+                  <div className="text-center card-body">
+                    <h4>{obj.header}</h4>
+                    <h6>{data[obj.key] ? data[obj.key] : 0}</h6>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
           <h1 className="my-5 text-center"> Map </h1>
           <div style={{ height: "20rem", width: "100%" }}>
             <Map
@@ -196,6 +256,8 @@ export default class CovidDetail extends Component<myProps> {
               </Marker>
             </Map>
           </div>
+          {this.renderCities()}
+          {this.renderAirports()}
         </div>
       </React.Fragment>
     );

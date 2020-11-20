@@ -6,8 +6,8 @@ import Error from "../components/Error";
 import Loading from "../components/Loading";
 import {
   FaBullseye,
-  FaClock,
   FaCity,
+  FaClock,
 } from "react-icons/fa";
 
 const rowData = [
@@ -62,6 +62,25 @@ export default class AirportDetail extends Component<myProps> {
     } catch (error) {
       this.setState({ error: true, loading: false });
     }
+  }
+
+  renderCity(){
+    return (
+    <React.Fragment>
+      <h1 className="my-5 text-center"> City </h1>
+        <div className="my-4 text-center">
+            <FaCity
+            size="5em"
+            className="mx-auto t-teal-700 d-block"
+            />
+        <Link
+          className="link mx-auto d-block"
+          to={`/City/${this.state.data.city_name}/${this.state.data.country_code}`}
+        >
+          <h6>{this.state.data.city_name}, {this.state.data.country_name}</h6>
+        </Link>
+      </div>
+    </React.Fragment>)
   }
 
   render() {
@@ -154,20 +173,7 @@ export default class AirportDetail extends Component<myProps> {
               </Marker>
             </Map>
           </div>
-
-          <h1 className="my-5 text-center"> City </h1>
-          <div className="my-4 text-center">
-            <FaCity
-              size="5em"
-              className="mx-auto t-teal-700 d-block"
-            />
-            <Link
-              className="link mx-auto d-block"
-              to={`/City/${this.state.data.city_name}/${this.state.data.country_code}`}
-            >
-              <h6>{this.state.data.city_name}, {this.state.data.country_name}</h6>
-            </Link>
-          </div>
+          {this.renderCity()}
         </div>
       </React.Fragment>
     );
