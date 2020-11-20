@@ -4,6 +4,62 @@ import { Link } from "react-router-dom";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import Error from "../components/Error";
 import Loading from "../components/Loading";
+import {
+  FaTransgender,
+  FaMoneyCheckAlt,
+  FaBriefcaseMedical,
+  FaMapMarked,
+  FaNewspaper,
+  FaFemale,
+  FaChartBar,
+  FaFistRaised,
+  FaPlaneDeparture,
+} from "react-icons/fa";
+
+const rowData = [
+  {
+    header: "Region",
+    key: "region",
+    icon: <FaMapMarked size="5em" className="mx-auto t-yellow-700 d-block" />,
+  },
+  {
+    header: "Overall Danger",
+    key: "overall",
+    icon: <FaChartBar size="5em" className="mx-auto t-orange-700 d-block" />,
+  },
+  {
+    header: "LGBTQ Danger",
+    key: "lgbtq",
+    icon: <FaTransgender size="5em" className="mx-auto t-green-700 d-block" />,
+  },
+  {
+    header: "Medical Danger",
+    key: "medical",
+    icon: (
+      <FaBriefcaseMedical size="5em" className="mx-auto t-red-700 d-block" />
+    ),
+  },
+  {
+    header: "Physical Danger",
+    key: "physical",
+    icon: <FaFistRaised size="5em" className="mx-auto t-indigo-700 d-block" />,
+  },
+  {
+    header: "Political Unrest",
+    key: "political",
+    icon: <FaNewspaper size="5em" className="mx-auto t-teal-700 d-block" />,
+  },
+  {
+    header: "Theft Danger",
+    key: "theft",
+    icon: <FaMoneyCheckAlt size="5em" className="mx-auto t-blue-700 d-block" />,
+  },
+  {
+    header: "Women Danger",
+    key: "women",
+    icon: <FaFemale size="5em" className="mx-auto t-pink-700 d-block" />,
+  },
+];
 
 type myProps = { match: any };
 export default class CityDetail extends Component<myProps> {
@@ -66,30 +122,48 @@ export default class CityDetail extends Component<myProps> {
       this.setState({ error: true, loading: false });
     }
   }
+
   renderAirports() {
     // if there is not airport data, just render a no airports message
     if (this.state.airportData.length > 0) {
       return (
         <React.Fragment>
-          <h5>Airports:</h5>
-          <ul>
-            {this.state.airportData.map((airport: any) => (
-              <li key={airport.iata_code}>
-                <Link className="link" to={`/Airport/${airport.iata_code}`}>
-                  {airport.airport_name}
+          <h1 className="my-5 text-center">Airports</h1>
+          <div className="row">
+            {this.state.airportData.map((airport: any, index: number) => (
+              <div className="col-3" key={index}>
+                <Link
+                  className="link"
+                  to={`/Covid/${this.state.data.country_code}`}
+                >
+                  <FaPlaneDeparture
+                    size="5em"
+                    className="mx-auto t-teal-700 d-block"
+                  />
                 </Link>
-              </li>
+                <div className="text-center card-body">
+                  <h4>{airport.iata_code}</h4>
+                  <Link
+                    className="link"
+                    to={`/Covid/${this.state.data.country_code}`}
+                  >
+                    <h6>{airport.airport_name}</h6>
+                  </Link>
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
         </React.Fragment>
       );
     } else {
       return (
-        <p>
-          <span className="h5 inline">Airports: </span>
-          Currently our database has no airports for {this.state.data.name},
-          check another city
-        </p>
+        <React.Fragment>
+          <h1 className="text-center my-5">Airports</h1>
+          <p className="text-center">
+            Currently our database has no airports for {this.state.data.name},
+            check another city
+          </p>
+        </React.Fragment>
       );
     }
   }
@@ -99,63 +173,68 @@ export default class CityDetail extends Component<myProps> {
     return (
       <React.Fragment>
         <div className="container pb-5">
-          <h1 className="my-4">
+          <h1 className="my-4 text-center">
             {this.state.data.name}, {this.state.data.country}
           </h1>
-          <p>
-            <span className="h5 inline">Region: </span>
-            {this.state.data.region}
-          </p>
-          <p>
-            <span className="h5 inline">Overall Score: </span>
-            {this.state.data.overall ? this.state.data.overall : 0}
-          </p>
-          <p>
-            <span className="h5 inline">LGBTQ Score: </span>
-            {this.state.data.lgbtq ? this.state.data.lgbtq : 0}
-          </p>
-          <p>
-            <span className="h5 inline">Medical Score: </span>
-            {this.state.data.medical ? this.state.data.medical : 0}
-          </p>
-          <p>
-            <span className="h5 inline">Physical Score: </span>
-            {this.state.data.physical ? this.state.data.physical : 0}
-          </p>
-          <p>
-            <span className="h5 inline">Theft Score: </span>
-            {this.state.data.theft ? this.state.data.theft : 0}
-          </p>
-          <p>
-            <span className="h5 inline">Women Score: </span>
-            {this.state.data.women ? this.state.data.women : 0}
-          </p>
-          <p>
-            <span className="h5 inline">Covid Stats: </span>
-            <Link
-              className="link"
-              to={`/Covid/${this.state.data.country_code}`}
-            >
-              Link
-            </Link>
-          </p>
-          {this.renderAirports()}
           <img
             src={this.state.picture}
             alt={this.state.data.name}
-            width="75%"
+            width="80%"
+            className="d-block mx-auto mb-5"
             style={{
               borderRadius: "25px",
-              objectFit: "cover",
               maxHeight: "800px",
             }}
           ></img>
-          <div className="my-5" style={{ height: "20rem", width: "100%" }}>
+
+          <h1 className="my-5 text-center"> Statistics </h1>
+          <div className="row">
+            {rowData.map((obj: any, index: number) => {
+              let data: any = this.state.data;
+              // let this.sta
+              return (
+                <div className="col-4" key={index}>
+                  {obj.icon}
+                  <div className="text-center card-body">
+                    <h4>{obj.header}</h4>
+                    <h6>{data[obj.key] ? data[obj.key] : 0}</h6>
+                  </div>
+                </div>
+              );
+            })}
+
+            <div className="col-4">
+              <Link
+                className="link"
+                to={`/Covid/${this.state.data.country_code}`}
+              >
+                <img
+                  className="mx-auto d-block"
+                  height="80px"
+                  src={`https://www.countryflags.io/${this.state.data.country_code}/shiny/64.png`}
+                  alt="flag"
+                />
+              </Link>
+              <div className="text-center card-body">
+                <h4>Covid Stats</h4>
+                <Link
+                  className="link"
+                  to={`/Covid/${this.state.data.country_code}`}
+                >
+                  <h6>{this.state.data.country}</h6>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <h1 className="my-5 text-center"> Map </h1>
+          <div style={{ height: "20rem", width: "100%" }}>
             <Map
               center={[this.state.center.lat, this.state.center.lng]}
+              className="mx-auto d-block"
               zoom={this.state.zoom}
               style={{
-                width: "75%",
+                width: "80%",
                 height: "100%",
                 borderRadius: "25px 25px 0px 25px",
               }}
@@ -170,6 +249,8 @@ export default class CityDetail extends Component<myProps> {
               </Marker>
             </Map>
           </div>
+
+          {this.renderAirports()}
         </div>
       </React.Fragment>
     );

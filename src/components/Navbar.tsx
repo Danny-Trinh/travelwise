@@ -35,7 +35,7 @@ export default class Navbar extends Component {
   render() {
     return (
       <React.Fragment>
-        <nav className="navbar navbar-expand-md navbar-light bg-teal-700 ">
+        <nav className="navbar navbar-expand-lg navbar-light bg-teal-700 ">
           <Link to="/">
             <img
               className="ml-3"

@@ -575,12 +575,12 @@ body {
 }
 
 .link {
-  color: #285e61;
+  color: #319795;
   text-decoration: underline;
 }
 
 .link:hover {
-  color: #319795;
+  color: #285e61;
 }
 
 .pageLink {
@@ -600,4 +600,19 @@ body {
 .footerLink:hover {
   color: #38b2ac;
   text-decoration: underline;
+}
+
+.listCard {
+  flex: 1 0;
+  margin-right: 15px;
+  margin-bottom: 0;
+  margin-left: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
 }
