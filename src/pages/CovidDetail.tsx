@@ -141,9 +141,21 @@ export default class CovidDetail extends Component<myProps> {
     return (
       <React.Fragment>
         <div className="container pb-5">
-          <h1 className="my-4">
+          <h1 className="my-4 text-center">
             {this.state.data.country} ({this.state.data.country_code})
           </h1>
+          <img
+            src={this.state.picture}
+            alt={this.state.data.country}
+            width="80%"
+            className="d-block mx-auto mb-5"
+            style={{
+              borderRadius: "25px",
+              objectFit: "cover",
+              maxHeight: "800px",
+            }}
+          ></img>
+          <h1 className="my-5 text-center"> Statistics </h1>
           <p>
             <span className="h5 inline">New Confirmed Cases: </span>
             {this.state.data.new_cases ? this.state.data.new_cases : 0}
@@ -162,22 +174,14 @@ export default class CovidDetail extends Component<myProps> {
           </p>
           {this.renderCities()}
           {this.renderAirports()}
-          <img
-            src={this.state.picture}
-            alt={this.state.data.country}
-            width="75%"
-            style={{
-              borderRadius: "25px",
-              objectFit: "cover",
-              maxHeight: "800px",
-            }}
-          ></img>
-          <div className="my-5" style={{ height: "20rem", width: "100%" }}>
+          <h1 className="my-5 text-center"> Map </h1>
+          <div style={{ height: "20rem", width: "100%" }}>
             <Map
               center={[this.state.latitude, this.state.longitude]}
+              className="mx-auto d-block"
               zoom={this.state.zoom}
               style={{
-                width: "75%",
+                width: "80%",
                 height: "100%",
                 borderRadius: "25px 25px 0px 25px",
               }}

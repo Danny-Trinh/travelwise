@@ -161,7 +161,7 @@ export default class CityDetail extends Component<myProps> {
           <h1 className="text-center my-5">Airports</h1>
           <p className="text-center">
             Currently our database has no airports for {this.state.data.name},
-            check another city
+            check another city.
           </p>
         </React.Fragment>
       );

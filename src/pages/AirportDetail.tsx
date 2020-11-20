@@ -57,7 +57,20 @@ export default class AirportDetail extends Component<myProps> {
     return (
       <React.Fragment>
         <div className="container pb-5">
-          <h1 className="my-4">{this.state.data.airport_name}</h1>
+          <h1 className="my-4 text-center">{this.state.data.airport_name}</h1>
+          <img
+            src={this.state.picture}
+            alt={this.state.data.airport_name}
+            width="80%"
+            className="d-block mx-auto mb-5"
+            style={{
+              borderRadius: "25px",
+              objectFit: "cover",
+              maxHeight: "800px",
+            }}
+          ></img>
+
+          <h1 className="my-5 text-center"> Statistics </h1>
           <p>
             <span className="h5 inline">City: </span>
             <Link
@@ -85,22 +98,14 @@ export default class AirportDetail extends Component<myProps> {
               Link
             </Link>
           </p>
-          <img
-            src={this.state.picture}
-            alt={this.state.data.airport_name}
-            width="75%"
-            style={{
-              borderRadius: "25px",
-              objectFit: "cover",
-              maxHeight: "800px",
-            }}
-          ></img>
-          <div className="my-5" style={{ height: "20rem", width: "100%" }}>
+          <h1 className="my-5 text-center"> Map </h1>
+          <div style={{ height: "20rem", width: "100%" }}>
             <Map
               center={[this.state.center.lat, this.state.center.lng]}
+              className="mx-auto d-block"
               zoom={this.state.zoom}
               style={{
-                width: "75%",
+                width: "80%",
                 height: "100%",
                 borderRadius: "25px 25px 0px 25px",
               }}
