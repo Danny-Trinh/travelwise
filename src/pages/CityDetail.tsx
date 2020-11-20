@@ -191,7 +191,6 @@ export default class CityDetail extends Component<myProps> {
           <div className="row">
             {rowData.map((obj: any, index: number) => {
               let data: any = this.state.data;
-              // let this.sta
               return (
                 <div className="col-4" key={index}>
                   {obj.icon}

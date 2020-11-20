@@ -4,6 +4,19 @@ import { Link } from "react-router-dom";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import Error from "../components/Error";
 import Loading from "../components/Loading";
+import {
+  FaBullseye,
+  FaClock,
+  FaCity,
+} from "react-icons/fa";
+
+const rowData = [
+  {
+    header: "Time Offset",
+    key: "time_offset",
+    icon: <FaClock size="5em" className="mx-auto t-yellow-700 d-block" />,
+  },
+];
 
 type myProps = { match: any };
 export default class AirportDetail extends Component<myProps> {
@@ -71,33 +84,54 @@ export default class AirportDetail extends Component<myProps> {
           ></img>
 
           <h1 className="my-5 text-center"> Statistics </h1>
-          <p>
-            <span className="h5 inline">City: </span>
-            <Link
-              className="link"
-              to={`/City/${this.state.data.city_name}/${this.state.data.country_code}`}
-            >
-              {this.state.data.city_name}, {this.state.data.country_name}
-            </Link>
-          </p>
-          <p>
-            <span className="h5 inline">Coordinates: </span>(
-            {this.state.data.latitude ? this.state.data.latitude : 0},
-            {this.state.data.longitude ? this.state.data.longitude : 0})
-          </p>
-          <p>
-            <span className="h5 inline">Time Offset: </span>
-            {this.state.data.time_offset ? this.state.data.time_offset : 0}
-          </p>
-          <p>
-            <span className="h5 inline">Covid Stats: </span>
-            <Link
-              className="link"
-              to={`/Covid/${this.state.data.country_code}`}
-            >
-              Link
-            </Link>
-          </p>
+          <div className="row">
+            <div className="col-4">
+              <FaBullseye size="5em" className="mx-auto t-red-700 d-block" />
+              <div className="text-center card-body">
+                <h4>Coordinates</h4>
+                  <h6>(
+                    {this.state.data.latitude ? this.state.data.latitude : 0},
+                    {this.state.data.longitude ? this.state.data.longitude : 0})</h6>
+              </div>
+            </div>
+
+            {rowData.map((obj: any, index: number) => {
+              let data: any = this.state.data;
+              return (
+                <div className="col-4" key={index}>
+                  {obj.icon}
+                  <div className="text-center card-body">
+                    <h4>{obj.header}</h4>
+                    <h6>{data[obj.key] ? data[obj.key] : 0}</h6>
+                  </div>
+                </div>
+              );
+            })}
+
+            <div className="col-4">
+              <Link
+                className="link"
+                to={`/Covid/${this.state.data.country_code}`}
+              >
+                <img
+                  className="mx-auto d-block"
+                  height="80px"
+                  src={`https://www.countryflags.io/${this.state.data.country_code}/shiny/64.png`}
+                  alt="flag"
+                />
+              </Link>
+              <div className="text-center card-body">
+                <h4>Covid Stats</h4>
+                <Link
+                  className="link"
+                  to={`/Covid/${this.state.data.country_code}`}
+                >
+                  <h6>{this.state.data.country_name}</h6>
+                </Link>
+              </div>
+            </div>
+          </div>
+
           <h1 className="my-5 text-center"> Map </h1>
           <div style={{ height: "20rem", width: "100%" }}>
             <Map
@@ -119,6 +153,20 @@ export default class AirportDetail extends Component<myProps> {
                 <Popup>{this.state.data.airport_name}</Popup>
               </Marker>
             </Map>
+          </div>
+
+          <h1 className="my-5 text-center"> City </h1>
+          <div className="my-4 text-center">
+            <FaCity
+              size="5em"
+              className="mx-auto t-teal-700 d-block"
+            />
+            <Link
+              className="link mx-auto d-block"
+              to={`/City/${this.state.data.city_name}/${this.state.data.country_code}`}
+            >
+              <h6>{this.state.data.city_name}, {this.state.data.country_name}</h6>
+            </Link>
           </div>
         </div>
       </React.Fragment>
