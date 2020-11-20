@@ -4,11 +4,7 @@ import { Link } from "react-router-dom";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import Error from "../components/Error";
 import Loading from "../components/Loading";
-import {
-  FaBullseye,
-  FaCity,
-  FaClock,
-} from "react-icons/fa";
+import { FaBullseye, FaCity, FaClock } from "react-icons/fa";
 
 const rowData = [
   {
@@ -64,23 +60,23 @@ export default class AirportDetail extends Component<myProps> {
     }
   }
 
-  renderCity(){
+  renderCity() {
     return (
-    <React.Fragment>
-      <h1 className="my-5 text-center"> City </h1>
+      <React.Fragment>
+        <h1 className="my-5 text-center"> City </h1>
         <div className="my-4 text-center">
-            <FaCity
-            size="5em"
-            className="mx-auto t-teal-700 d-block"
-            />
-        <Link
-          className="link mx-auto d-block"
-          to={`/City/${this.state.data.city_name}/${this.state.data.country_code}`}
-        >
-          <h6>{this.state.data.city_name}, {this.state.data.country_name}</h6>
-        </Link>
-      </div>
-    </React.Fragment>)
+          <Link
+            className="link mx-auto d-block"
+            to={`/City/${this.state.data.city_name}/${this.state.data.country_code}`}
+          >
+            <FaCity size="5em" className="mx-auto t-teal-700 d-block" />
+            <h6>
+              {this.state.data.city_name}, {this.state.data.country_name}
+            </h6>
+          </Link>
+        </div>
+      </React.Fragment>
+    );
   }
 
   render() {
@@ -108,9 +104,10 @@ export default class AirportDetail extends Component<myProps> {
               <FaBullseye size="5em" className="mx-auto t-red-700 d-block" />
               <div className="text-center card-body">
                 <h4>Coordinates</h4>
-                  <h6>(
-                    {this.state.data.latitude ? this.state.data.latitude : 0},
-                    {this.state.data.longitude ? this.state.data.longitude : 0})</h6>
+                <h6>
+                  ({this.state.data.latitude ? this.state.data.latitude : 0},
+                  {this.state.data.longitude ? this.state.data.longitude : 0})
+                </h6>
               </div>
             </div>
 

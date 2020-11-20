@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import LofiSky from "../images/LofiSky.jpg";
 import LofiCity from "../images/LofiCity.jpg";
-import Pandemic from "../images/Pandemic.jpg";
+import Pandemic from "../images/Pink.jpg";
 import Plane from "../images/Plane.png";
 import { motion } from "framer-motion";
 
