@@ -3,20 +3,22 @@ import Mitchell from "../images/Mitchell.jpg";
 import Max from "../images/Maximus.jpg";
 import Jesse from "../images/Jesse.jpg";
 import Adam from "../images/Adam.jpg";
-const dannyDesc =
-  "Danny wanted to get into AI but ended up specializing in web development. He now cries on every React project he works on.";
-const adamDesc =
-  "Hi! I'm a senior that's into videogames, and playing the piano. I find joy in the little things like cleaning, basking in fresh air, or 12-hour debugging sessions.";
-const maxDesc = "3rd Year CS Major";
-const mitchellDesc = "You can't code away all your problems in life ~_~";
-const jesseDesc =
-  "Jesse also wanted to get into AI but has pushed off learning any technologies for mobile development. Given enough free time he would make cool phone games.";
+import dockerIcon from "../images/dockerIcon.png";
+import postmanIcon from "../images/postmanIcon.png";
+import reactIcon from "../images/reactIcon.png";
+import bootstrapIcon from "../images/bootstrapIcon.png";
+import yarnIcon from "../images/yarnIcon.jpg";
+import gitlabIcon from "../images/gitlabIcon.png";
+import slackIcon from "../images/slackIcon.png";
+import amplifyIcon from "../images/amplifyIcon.png";
+
+// used to render members list on about page
 export const members = [
   {
     name: "Mitchell Watkins",
     gitlab: "mitchellwatkins125",
     image: Mitchell,
-    desc: mitchellDesc,
+    desc: "You can't code away all your problems in life ~_~",
     jobs: "Back-End Developer",
     tests: 0,
     email: "mitchellwatkins125@gmail.com",
@@ -26,7 +28,8 @@ export const members = [
     name: "Dung Trinh",
     gitlab: "Danny-Trinh",
     image: Danny,
-    desc: dannyDesc,
+    desc:
+      "Danny started out wanting to do advanced AI research, he now cries on every React project he works on.",
     jobs: "Project Lead",
     tests: 0,
     email: "dtrinh403@yahoo.com",
@@ -36,7 +39,8 @@ export const members = [
     name: "Jesse Huang",
     gitlab: "jessehuang",
     image: Jesse,
-    desc: jesseDesc,
+    desc:
+      "Jesse also started out interested in Ai, he now would like to make cool phone games.",
     jobs: "Back-End Developer",
     tests: 0,
     email: "jesse17huang@gmail.com",
@@ -46,7 +50,8 @@ export const members = [
     name: "Maximus Chu",
     gitlab: "maximuschu",
     image: Max,
-    desc: maxDesc,
+    desc:
+      "Maximus is a 3rd Year CS Major and is a valuable member to have on any team.",
     jobs: "Front-End Developer",
     tests: 0,
     email: "maximuschu@utexas.edu",
@@ -56,7 +61,8 @@ export const members = [
     name: "Adam Gluch",
     gitlab: "amgluch",
     image: Adam,
-    desc: adamDesc,
+    desc:
+      "Hi! I'm a senior. I find joy in the little things like cleaning, basking in fresh air, or 12-hour debugging sessions.",
     jobs: "Back-End Developer",
     tests: 0,
     email: "adammgluch@gmail.com",
@@ -64,9 +70,69 @@ export const members = [
   },
 ];
 
+// used to list apps on about page
+export const apps = [
+  {
+    link: "https://www.docker.com/",
+    pic: dockerIcon,
+    header: "Docker",
+    text:
+      ": Creates a docker image that packages our tool-chain and" +
+      " dependencies into one container.",
+  },
+  {
+    link: "https://www.postman.com/",
+    pic: postmanIcon,
+    header: "Postman",
+    text: ": Streamlines the creation and management of our API's",
+  },
+  {
+    link: "https://reactjs.org/",
+    pic: reactIcon,
+    header: "React",
+    text:
+      ": Javascript Library developed by Facebook that modernizes website rendering.",
+  },
+  {
+    link: "https://getbootstrap.com/",
+    pic: bootstrapIcon,
+    header: "Bootstrap",
+    text:
+      ": Bootstrap is a extensive CSS framework and is used as our primary CSS data.",
+  },
+  {
+    link: "https://classic.yarnpkg.com/en/",
+    pic: yarnIcon,
+    header: "Yarn",
+    text:
+      ": Yarn makes documenting and installing our dependencies streamlined.",
+  },
+  {
+    link: "https://gitlab.com/",
+    pic: gitlabIcon,
+    header: "GitLab",
+    text:
+      ": GitLab is a web-based DevOps lifecycle tool that provides a Git-repository manager",
+  },
+  {
+    link: "https://slack.com/",
+    pic: slackIcon,
+    header: "Slack",
+    text:
+      ": We've integrated slack to our GitLab repo, for communication purposes and issue tracking.",
+  },
+  {
+    link: "https://aws.amazon.com/amplify/",
+    pic: amplifyIcon,
+    header: "AWS Amplify",
+    text:
+      ": AWS Amplify allows us to host websites by simply committing and pushing code to our Git Repository.",
+  },
+];
+
 export const pageViewOptions = [
   // used for page rendering
-  { value: 3, label: "3" },
+  { value: 3, text: "3" },
   { value: 9, label: "9" },
   { value: 18, label: "18" },
   { value: 36, label: "36" },

@@ -102,8 +102,8 @@ export default class Airports extends Component {
               ? highlight(i.country_name[0], this.state.searchVal)
               : i.country_name[0]}
           </td>
-          {rowData.map((key: string) => (
-            <td>
+          {rowData.map((key: string, index: number) => (
+            <td key={index}>
               {this.state.searchActive
                 ? highlight(
                     (i[key] ? i[key] : 0).toString(),
@@ -115,12 +115,6 @@ export default class Airports extends Component {
         </tr>
       );
     });
-    return result;
-  }
-
-  renderHeader(){
-    let result: Array<any> = [];
-    result.push(headers.map((header: string) => (<th scope="col">{header}</th>)));
     return result;
   }
 
@@ -276,7 +270,13 @@ export default class Airports extends Component {
             </div>
             <table className="table table-hover mx-auto bg-gray-100 mb-5">
               <thead className="thead-dark">
-                <tr>{this.renderHeader()}</tr>
+                <tr>
+                  {headers.map((header: string, index: number) => (
+                    <th scope="col" key={index}>
+                      {header}
+                    </th>
+                  ))}
+                </tr>
               </thead>
               <tbody>{this.renderData()}</tbody>
             </table>
