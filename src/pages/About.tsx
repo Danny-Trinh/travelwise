@@ -1,17 +1,11 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import { members, apps } from "../utility/data";
+import { members, apps, apiSources } from "../utility/data";
 import Error from "../components/Error";
 import Loading from "../components/Loading";
-// import dockerIcon from "../images/dockerIcon.png";
-// import postmanIcon from "../images/postmanIcon.png";
-// import reactIcon from "../images/reactIcon.png";
-// import bootstrapIcon from "../images/bootstrapIcon.png";
-// import yarnIcon from "../images/yarnIcon.jpg";
-// import gitlabIcon from "../images/gitlabIcon.png";
-// import slackIcon from "../images/slackIcon.png";
-// import amplifyIcon from "../images/amplifyIcon.png";
 import MemberCard from "../components/MemberCard";
+import { FaGitlab } from "react-icons/fa";
+import { SiPostman } from "react-icons/si";
 
 type myState = {
   commits: number;
@@ -115,11 +109,11 @@ export default class page1 extends Component<myState> {
                 <strong>Unit Tests</strong>: {this.state.tests}
               </li>
             </ul>
-            <h2>Technologies Used</h2>
-            <ul className="p-0" style={{ listStyleType: "none" }}>
+            <h2 className="mt-4">Technologies Used</h2>
+            <ul className="p-0 pl-3" style={{ listStyleType: "none" }}>
               {apps.map((app: any, index: number) => (
-                <li key={index}>
-                  <a href={app.link}>
+                <li key={index} className="mb-2">
+                  <a className="link" href={app.link}>
                     <img
                       src={app.pic}
                       alt={app.header}
@@ -134,50 +128,34 @@ export default class page1 extends Component<myState> {
                 </li>
               ))}
             </ul>
-            <h2>REST API Sources</h2>
-            <ul>
-              <li>
-                City Names:{" "}
-                <a href="https://rapidapi.com/wirefreethought/api/geodb-cities?endpoint=5990a0b4e4b075a0d1d6da26">
-                  Documentation
-                </a>
-              </li>
-              <li>
-                Safety Stats:{" "}
-                <a href="https://developers.amadeus.com/self-service/category/destination-content/api-doc/safe-place-api/api-reference">
-                  Documentation
-                </a>
-              </li>
-              <li>
-                CO-VID 19 Stats:{" "}
-                <a href="https://documenter.getpostman.com/view/10808728/SzS8rjbc">
-                  Documentation
-                </a>
-              </li>
-              <li>
-                Flight Information:{" "}
-                <a href="https://developers.amadeus.com/self-service/category/air/api-doc/flight-offers-search/api-reference">
-                  Documentation
-                </a>
-              </li>
-              <li>
-                Hotel Information:{" "}
-                <a href="https://developers.amadeus.com/self-service/category/hotel/api-doc/hotel-search/api-reference">
-                  Documentation
-                </a>
-              </li>
+            <h2 className="mt-4">REST API Sources</h2>
+            <ul className="p-0 pl-4" style={{ listStyleType: "none" }}>
+              {apiSources.map((source: any, index: number) => (
+                <li key={index} className="mb-2">
+                  <a className="link" href={source.link}>
+                    {source.icon}
+                    {source.header}
+                  </a>
+                </li>
+              ))}
             </ul>
-            <h2>Links</h2>
-            <ul>
-              <li>
-                <strong>Gitlab</strong>:{" "}
-                <a href="https://gitlab.com/Danny-Trinh/travelwise">
+            <h2 className="mt-4">Project Links</h2>
+            <ul className="p-0 pl-4" style={{ listStyleType: "none" }}>
+              <li className="mb-2">
+                <FaGitlab className="mr-2 t-teal-700" />
+                <a
+                  className="link"
+                  href="https://gitlab.com/Danny-Trinh/travelwise"
+                >
                   https://gitlab.com/Danny-Trinh/travelwise
                 </a>
               </li>
               <li>
-                <strong>Postman</strong>:{" "}
-                <a href="https://documenter.getpostman.com/view/12799472/TVYM5bPo">
+                <SiPostman className="mr-2 t-teal-700" />
+                <a
+                  className="link"
+                  href="https://documenter.getpostman.com/view/12799472/TVYM5bPo"
+                >
                   https://documenter.getpostman.com/view/12799472/TVYM5bPo
                 </a>
               </li>

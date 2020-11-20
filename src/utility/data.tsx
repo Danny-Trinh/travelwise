@@ -1,3 +1,4 @@
+import React from "react";
 import Danny from "../images/Danny.jpg";
 import Mitchell from "../images/Mitchell.jpg";
 import Max from "../images/Maximus.jpg";
@@ -11,6 +12,7 @@ import yarnIcon from "../images/yarnIcon.jpg";
 import gitlabIcon from "../images/gitlabIcon.png";
 import slackIcon from "../images/slackIcon.png";
 import amplifyIcon from "../images/amplifyIcon.png";
+import { FaCity, FaHeartbeat, FaPlane, FaGlobe } from "react-icons/fa";
 
 // used to render members list on about page
 export const members = [
@@ -67,6 +69,32 @@ export const members = [
     tests: 0,
     email: "adammgluch@gmail.com",
     linkedin: "",
+  },
+];
+
+export const apiSources = [
+  {
+    icon: <FaCity className="mr-2 t-teal-700" />,
+    header: "City Names",
+    link:
+      "https://rapidapi.com/wirefreethought/api/geodb-cities?endpoint=5990a0b4e4b075a0d1d6da26",
+  },
+  {
+    icon: <FaHeartbeat className="mr-2 t-teal-700" />,
+    header: "Safety Stats",
+    link:
+      "https://developers.amadeus.com/self-service/category/destination-content/api-doc/safe-place-api/api-reference",
+  },
+  {
+    icon: <FaGlobe className="mr-2 t-teal-700" />,
+    header: "CO-VID 19 Stats",
+    link: "https://documenter.getpostman.com/view/10808728/SzS8rjbc",
+  },
+  {
+    icon: <FaPlane className="mr-2 t-teal-700" />,
+    header: "Flight Information",
+    link:
+      "https://developers.amadeus.com/self-service/category/air/api-doc/flight-offers-search/api-reference",
   },
 ];
 

@@ -79,7 +79,7 @@ export default class Airports extends Component {
       result.push(
         <tr key={`${i.iata_code}`}>
           <td>
-            <Link to={`/Airport/${i.iata_code}`}>
+            <Link className="link" to={`/Airport/${i.iata_code}`}>
               {this.state.searchActive
                 ? highlight(i.airport_name[0], this.state.searchVal)
                 : i.airport_name[0]}
@@ -91,7 +91,10 @@ export default class Airports extends Component {
               : i.iata_code[0]}
           </td>
           <td>
-            <Link to={`/City/${i.city_name}/${i.country_code}`}>
+            <Link
+              className="link"
+              to={`/City/${i.city_name}/${i.country_code}`}
+            >
               {this.state.searchActive
                 ? highlight(i.city_name[0], this.state.searchVal)
                 : i.city_name[0]}

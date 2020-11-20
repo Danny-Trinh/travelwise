@@ -61,6 +61,7 @@ export default class AirportDetail extends Component<myProps> {
           <p>
             <span className="h5 inline">City: </span>
             <Link
+              className="link"
               to={`/City/${this.state.data.city_name}/${this.state.data.country_code}`}
             >
               {this.state.data.city_name}, {this.state.data.country_name}
@@ -77,7 +78,12 @@ export default class AirportDetail extends Component<myProps> {
           </p>
           <p>
             <span className="h5 inline">Covid Stats: </span>
-            <Link to={`/Covid/${this.state.data.country_code}`}>Link</Link>
+            <Link
+              className="link"
+              to={`/Covid/${this.state.data.country_code}`}
+            >
+              Link
+            </Link>
           </p>
           <img
             src={this.state.picture}

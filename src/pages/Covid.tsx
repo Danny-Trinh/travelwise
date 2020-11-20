@@ -77,7 +77,7 @@ export default class Covid extends Component {
       result.push(
         <tr key={i.country_code}>
           <td>
-            <Link to={`/Covid/${i.country_code}`}>
+            <Link className="link" to={`/Covid/${i.country_code}`}>
               {this.state.searchActive
                 ? highlight(i.country[0], this.state.searchVal)
                 : i.country[0]}

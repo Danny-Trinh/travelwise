@@ -85,7 +85,7 @@ export default class CovidDetail extends Component<myProps> {
           <ul>
             {this.state.airportData.map((airport: any) => (
               <li>
-                <Link to={`/Airport/${airport.iata_code}`}>
+                <Link className="link" to={`/Airport/${airport.iata_code}`}>
                   {airport.airport_name} ({airport.city_name})
                 </Link>
               </li>
@@ -113,7 +113,10 @@ export default class CovidDetail extends Component<myProps> {
           <ul>
             {this.state.cityData.map((city: any) => (
               <li>
-                <Link to={`/City/${city.name}/${city.country_code}`}>
+                <Link
+                  className="link"
+                  to={`/City/${city.name}/${city.country_code}`}
+                >
                   {city.name}
                 </Link>
               </li>

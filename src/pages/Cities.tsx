@@ -89,7 +89,7 @@ export default class Cities extends Component {
       result.push(
         <tr key={i.city_id}>
           <td>
-            <Link to={`/City/${i.name}/${i.country_code}`}>
+            <Link className="link" to={`/City/${i.name}/${i.country_code}`}>
               {this.state.searchActive
                 ? highlight(i.name[0], this.state.searchVal)
                 : i.name[0]}
