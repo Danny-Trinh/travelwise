@@ -13,8 +13,8 @@ import {
   FaFemale,
   FaChartBar,
   FaFistRaised,
-  FaPlaneDeparture,
 } from "react-icons/fa";
+import AirportLinks from "../modelComponents/AirportLinks";
 
 const rowData = [
   {
@@ -123,50 +123,6 @@ export default class CityDetail extends Component<myProps> {
     }
   }
 
-  renderAirports() {
-    // if there is not airport data, just render a no airports message
-    if (this.state.airportData.length > 0) {
-      return (
-        <React.Fragment>
-          <h1 className="my-5 text-center">Airports</h1>
-          <div className="row">
-            {this.state.airportData.map((airport: any, index: number) => (
-              <div className="col-3" key={index}>
-                <Link
-                  className="link"
-                  to={`/Covid/${this.state.data.country_code}`}
-                >
-                  <FaPlaneDeparture
-                    size="5em"
-                    className="mx-auto t-teal-700 d-block"
-                  />
-                </Link>
-                <div className="text-center card-body">
-                  <h4>{airport.iata_code}</h4>
-                  <Link
-                    className="link"
-                    to={`/Covid/${this.state.data.country_code}`}
-                  >
-                    <h6>{airport.airport_name}</h6>
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </React.Fragment>
-      );
-    } else {
-      return (
-        <React.Fragment>
-          <h1 className="text-center my-5">Airports</h1>
-          <p className="text-center">
-            Currently our database has no airports for {this.state.data.name},
-            check another city.
-          </p>
-        </React.Fragment>
-      );
-    }
-  }
   render() {
     if (this.state.loading) return <Loading />;
     if (this.state.error) return <Error />;
@@ -249,8 +205,11 @@ export default class CityDetail extends Component<myProps> {
               </Marker>
             </Map>
           </div>
-
-          {this.renderAirports()}
+          <AirportLinks
+            data={this.state.data}
+            airportData={this.state.airportData}
+            typeName="name"
+          ></AirportLinks>
         </div>
       </React.Fragment>
     );

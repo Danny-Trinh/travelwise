@@ -1,14 +1,7 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import PlaneLogo from "../images/PlaneLogo.png";
-import {
-  FaCity,
-  FaEye,
-  FaPlane,
-  FaLeaf,
-  FaUsers,
-  FaGlobe,
-} from "react-icons/fa";
+import NavLinks from "./NavLinks";
 
 export default class Navbar extends Component {
   state = {
@@ -44,7 +37,6 @@ export default class Navbar extends Component {
               alt="logo"
             ></img>
           </Link>
-
           <div className=" navbar-brand">
             <Link
               className="font-weight-bold nav-link t-gray-200 active muteHover"
@@ -53,6 +45,7 @@ export default class Navbar extends Component {
               TRAVELWISE
             </Link>
           </div>
+          <NavLinks></NavLinks>
           <button
             className="navbar-toggler"
             type="button"
@@ -61,52 +54,6 @@ export default class Navbar extends Component {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto ">
-              <li className="nav-item active">
-                <Link className="nav-link navlink-custom" to="/Cities">
-                  <FaCity className="mr-1" />
-                  Cities
-                </Link>
-              </li>
-              <li className="nav-item active">
-                <Link className="nav-link navlink-custom" to="/Airports">
-                  <FaPlane className="mr-1" />
-                  Airports
-                </Link>
-              </li>
-              <li className="nav-item active">
-                <Link className="nav-link navlink-custom" to="/Covid">
-                  <FaGlobe className="mr-1" />
-                  Covid-19
-                </Link>
-              </li>
-              <li className="nav-item active ">
-                <Link
-                  className="nav-link navlink-custom"
-                  to="/TravelwiseVisualizations"
-                >
-                  <FaEye className="mr-1" />
-                  Visuals
-                </Link>
-              </li>
-              <li className="nav-item active ">
-                <Link
-                  className="nav-link navlink-custom"
-                  to="/ProviderVisualizations"
-                >
-                  <FaLeaf className="mr-1" />
-                  ProviderVisuals
-                </Link>
-              </li>
-              <li className="nav-item active ">
-                <Link className="nav-link navlink-custom" to="/About">
-                  <FaUsers className="mr-1" />
-                  About
-                </Link>
-              </li>
-            </ul>
-          </div>
           <form
             onSubmit={(e) => {
               e.preventDefault();

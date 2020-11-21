@@ -4,15 +4,8 @@ import { Link } from "react-router-dom";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import Error from "../components/Error";
 import Loading from "../components/Loading";
-import { FaBullseye, FaCity, FaClock } from "react-icons/fa";
-
-const rowData = [
-  {
-    header: "Time Offset",
-    key: "time_offset",
-    icon: <FaClock size="5em" className="mx-auto t-yellow-700 d-block" />,
-  },
-];
+import AirportContent from "../modelComponents/AirportDetailContent";
+import { FaCity } from "react-icons/fa";
 
 type myProps = { match: any };
 export default class AirportDetail extends Component<myProps> {
@@ -85,69 +78,7 @@ export default class AirportDetail extends Component<myProps> {
     return (
       <React.Fragment>
         <div className="container pb-5">
-          <h1 className="my-4 text-center">{this.state.data.airport_name}</h1>
-          <img
-            src={this.state.picture}
-            alt={this.state.data.airport_name}
-            width="80%"
-            className="d-block mx-auto mb-5"
-            style={{
-              borderRadius: "25px",
-              objectFit: "cover",
-              maxHeight: "800px",
-            }}
-          ></img>
-
-          <h1 className="my-5 text-center"> Statistics </h1>
-          <div className="row">
-            <div className="col-4">
-              <FaBullseye size="5em" className="mx-auto t-red-700 d-block" />
-              <div className="text-center card-body">
-                <h4>Coordinates</h4>
-                <h6>
-                  ({this.state.data.latitude ? this.state.data.latitude : 0},
-                  {this.state.data.longitude ? this.state.data.longitude : 0})
-                </h6>
-              </div>
-            </div>
-
-            {rowData.map((obj: any, index: number) => {
-              let data: any = this.state.data;
-              return (
-                <div className="col-4" key={index}>
-                  {obj.icon}
-                  <div className="text-center card-body">
-                    <h4>{obj.header}</h4>
-                    <h6>{data[obj.key] ? data[obj.key] : 0}</h6>
-                  </div>
-                </div>
-              );
-            })}
-
-            <div className="col-4">
-              <Link
-                className="link"
-                to={`/Covid/${this.state.data.country_code}`}
-              >
-                <img
-                  className="mx-auto d-block"
-                  height="80px"
-                  src={`https://www.countryflags.io/${this.state.data.country_code}/shiny/64.png`}
-                  alt="flag"
-                />
-              </Link>
-              <div className="text-center card-body">
-                <h4>Covid Stats</h4>
-                <Link
-                  className="link"
-                  to={`/Covid/${this.state.data.country_code}`}
-                >
-                  <h6>{this.state.data.country_name}</h6>
-                </Link>
-              </div>
-            </div>
-          </div>
-
+          <AirportContent {...this.state}></AirportContent>
           <h1 className="my-5 text-center"> Map </h1>
           <div style={{ height: "20rem", width: "100%" }}>
             <Map
