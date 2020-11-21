@@ -9,9 +9,9 @@ from sqlalchemy import *
 from sqlalchemy.orm import *
 
 
-from covid_routes import *
-from airports_routes import *
-from cities_routes import *
+from Routes/covid_routes import *
+from Routes/airports_routes import *
+from Routes/cities_routes import *
 
 application = Flask(__name__)
 application.register_blueprint(city)
