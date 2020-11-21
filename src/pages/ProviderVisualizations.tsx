@@ -13,6 +13,14 @@ export default class ProviderVisualizations extends Component {
         <PlantsChart />
         <div className="mb-5"></div>
         <AnimalsChart />
+        <h4 className="mt-4 text-center"> The Plant Planet provides information about native plants and the wildlife that depends on them.</h4>
+        <h4 className="text-center">For more information, visit our provider: <a
+            className="link"
+            href="https://www.theplantpla.net/"
+          >
+            The Plant Planet
+          </a>
+        </h4>
       </div>
     );
   }
