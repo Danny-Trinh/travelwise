@@ -5,6 +5,7 @@ import LofiCity from "../images/LofiCity.jpg";
 import PurpleVirus from "../images/PurpleVirus.png";
 import Pandemic from "../images/Pink.jpg";
 import Plane from "../images/Plane.png";
+import planeIcon from "../images/planeIcon.png";
 import { motion } from "framer-motion";
 import VirusAnimate from "../components/VirusAnimate";
 
@@ -82,6 +83,24 @@ export default class Home extends Component {
             </h1>
             <h5 className="text-center mt-4 t-black">
               <Link to="/Airports" className="t-teal-800 pageLink">
+              <motion.img
+                animate={{
+                  x: [-850, -450],
+                  y: [-400, -400],
+                  scale: [.05,.05],
+                  opacity: [0, 1, 1, 1, 1, 0],
+                }}
+                transition={{
+                  duration: 8,
+                  delay: 3,
+                  ease: "linear",
+                  loop: Infinity
+                }}
+                className="position-absolute "
+                src={planeIcon}
+                alt="smallplane"
+                style={{ width: "30rem" }}
+              ></motion.img>
                 Find an Airport
               </Link>
             </h5>
