@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
-import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import Error from "../components/Error";
+import MapRender from "../components/MapRender";
 import Loading from "../components/Loading";
 import AirportContent from "../modelComponents/AirportDetailContent";
 import { FaCity } from "react-icons/fa";
@@ -15,8 +15,8 @@ export default class AirportDetail extends Component<myProps> {
       iata_code: null,
       city_name: "",
       country_name: null,
-      latitude: null,
-      longitude: null,
+      latitude: 0,
+      longitude: 0,
       time_offset: null,
       country_code: null,
     },
@@ -78,29 +78,15 @@ export default class AirportDetail extends Component<myProps> {
     return (
       <React.Fragment>
         <div className="container pb-5">
-          <AirportContent {...this.state}></AirportContent>
-          <h1 className="my-5 text-center"> Map </h1>
-          <div style={{ height: "20rem", width: "100%" }}>
-            <Map
-              center={[this.state.center.lat, this.state.center.lng]}
-              className="mx-auto d-block"
-              zoom={this.state.zoom}
-              style={{
-                width: "80%",
-                height: "100%",
-                borderRadius: "25px 25px 0px 25px",
-              }}
-              minZoom={3}
-            >
-              <TileLayer
-                attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-              <Marker position={[this.state.center.lat, this.state.center.lng]}>
-                <Popup>{this.state.data.airport_name}</Popup>
-              </Marker>
-            </Map>
-          </div>
+          <AirportContent
+            data={this.state.data}
+            picture={this.state.picture}
+          ></AirportContent>
+          <MapRender
+            latitude={this.state.data.latitude}
+            longitude={this.state.data.longitude}
+            zoom={this.state.zoom}
+          ></MapRender>
           {this.renderCity()}
         </div>
       </React.Fragment>

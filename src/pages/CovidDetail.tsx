@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import { Link } from "react-router-dom";
 import Error from "../components/Error";
 import Loading from "../components/Loading";
 import MapRender from "../components/MapRender";
 import AirportLinks from "../modelComponents/AirportLinks";
+import CityLinks from "../modelComponents/CityLinks";
 import CovidContent from "../modelComponents/CovidDetailContent";
-import { FaCity } from "react-icons/fa";
 
 type myProps = { match: any };
 
@@ -79,63 +78,30 @@ export default class CovidDetail extends Component<myProps> {
     }
   }
 
-  // if there is not cities data, just render a no cities message
-  renderCities() {
-    if (this.state.cityData.length > 0) {
-      return (
-        <React.Fragment>
-          <h1 className="my-5 text-center">Cities</h1>
-          <div className="row">
-            {this.state.cityData.map((city: any, index: number) => (
-              <div className="col-3" key={index}>
-                <Link
-                  className="link"
-                  to={`/City/${city.name}/${city.country_code}`}
-                >
-                  <FaCity size="5em" className="mx-auto t-teal-700 d-block" />
-                </Link>
-                <div className="text-center card-body">
-                  <h4>{city.country_code}</h4>
-                  <Link
-                    className="link"
-                    to={`/City/${city.name}/${city.country_code}`}
-                  >
-                    <h6>{city.name}</h6>
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </React.Fragment>
-      );
-    } else {
-      return (
-        <React.Fragment>
-          <h1 className="text-center my-5">Cities</h1>
-          <p className="text-center">
-            Currently our database has no cities for {this.state.data.country},
-            try another country.
-          </p>
-        </React.Fragment>
-      );
-    }
-  }
-
   render() {
     if (this.state.loading) return <Loading />;
     if (this.state.error) return <Error />;
     return (
       <React.Fragment>
         <div className="container pb-5">
-          <CovidContent {...this.state}></CovidContent>
-          <MapRender {...this.state}></MapRender>
-          {this.renderCities()}
+          <CovidContent
+            data={this.state.data}
+            picture={this.state.picture}
+          ></CovidContent>
+          <MapRender
+            latitude={this.state.latitude}
+            longitude={this.state.longitude}
+            zoom={this.state.zoom}
+          ></MapRender>
           <AirportLinks
             data={this.state.data}
             airportData={this.state.airportData}
             typeName="country"
           ></AirportLinks>
-          {/* {this.renderAirports()} */}
+          <CityLinks
+            data={this.state.data}
+            cityData={this.state.cityData}
+          ></CityLinks>
         </div>
       </React.Fragment>
     );

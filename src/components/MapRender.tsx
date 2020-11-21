@@ -1,7 +1,6 @@
 import React from "react";
-import { Map, TileLayer, Marker, Popup } from "react-leaflet";
+import { Map, TileLayer, Marker } from "react-leaflet";
 type myProps = {
-  data: any;
   latitude: number;
   longitude: number;
   zoom: number;
@@ -28,9 +27,7 @@ export default function MapRender(props: myProps) {
             attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={[props.latitude, props.longitude]}>
-            <Popup>{props.data.country}</Popup>
-          </Marker>
+          <Marker position={[props.latitude, props.longitude]}></Marker>
         </Map>
       </div>
     </React.Fragment>
