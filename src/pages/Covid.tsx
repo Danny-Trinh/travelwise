@@ -195,6 +195,7 @@ export default class Covid extends Component {
       <React.Fragment>
         <div className="container pb-5">
           <h1 className="my-4">Covid-19 </h1>
+          <h6>Get the latest updates on Covid-19 statistics in almost any country.</h6>
           <div className="row">
             <Select
               className="col-md-3"

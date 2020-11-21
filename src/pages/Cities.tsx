@@ -209,6 +209,7 @@ export default class Cities extends Component {
         <div className="pb-5">
           <div className="container " style={{ minHeight: "52rem" }}>
             <h1 className="my-4">Cities </h1>
+            <h6>Search for your destination to get comprehensive danger scores in a number of categories.</h6>
             <div className="row">
               <Select
                 className="col-md-3"

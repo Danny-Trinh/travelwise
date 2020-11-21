@@ -210,6 +210,7 @@ export default class Airports extends Component {
         <div className="pb-5">
           <div className="container" style={{ minHeight: "45rem" }}>
             <h1 className="my-4">Airports </h1>
+            <h6>Get useful information from your destination airport like Covid-19 information or city safety.</h6>
             <div className="row">
               <Select
                 className="col-md-3"
