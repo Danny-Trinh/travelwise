@@ -40,7 +40,7 @@ export default class Home extends Component {
                 }}
                 transition={{
                   duration: 2,
-                  delay: 0.1,
+                  delay: 0.3,
                 }}
                 className="position-absolute "
                 src={Plane}
@@ -79,7 +79,6 @@ export default class Home extends Component {
                 }}
                 transition={{
                   duration: 8,
-                  // delay: 3,
                   ease: "linear",
                   loop: Infinity,
                 }}

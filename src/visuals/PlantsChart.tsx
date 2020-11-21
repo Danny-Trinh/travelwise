@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-// import * as d3 from "d3";
-// import { d3, map } from "d3/world-map";
 import Axios from "axios";
-// https://theplantpla.net/api/getanimals
 import { PieChart, Pie, Tooltip, Cell } from "recharts";
 import Error from "../components/Error";
 

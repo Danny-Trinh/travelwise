@@ -13,26 +13,6 @@ import gitlabIcon from "../images/gitlabIcon.png";
 import slackIcon from "../images/slackIcon.png";
 import amplifyIcon from "../images/amplifyIcon.png";
 import { FaCity, FaHeartbeat, FaPlane, FaGlobe } from "react-icons/fa";
-// women	integer
-// Likelihood of inappropriate behavior against females. Score go from 1 (not likely) to 100 (very likely).
-
-// physicalHarm	integer
-// Likelihood of injury due to harmful intent. Score go from 1 (not likely) to 100 (very likely).
-
-// theft	integer
-// Likelihood of theft. Score go from 1 (not likely) to 100 (very likely).
-
-// politicalFreedom	integer
-// Potential for infringement of political rights or political unrest. Score go from 1 (not likely) to 100 (very likely).
-
-// lgbtq	integer
-// Likelihood of harm or discrimination against LGBTQ persons or groups and level of caution required at location. Score go from 1 (not likely) to 100 (very likely).
-
-// medical	integer
-// Likelihood of illness or disease, assessment of water and air quality, and access to reliable medical care. Score go from 1 (not likely) to 100 (very likely).
-
-// overall	integer
-// An average of the 6 “sub”-categories. Score go from 1 (very safe) to 100 (very dangerous).
 
 // used to render members list on about page
 export const members = [

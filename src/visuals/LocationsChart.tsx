@@ -55,7 +55,6 @@ export default class LocationsChart extends Component {
         () => this.sortData(2)
       );
     } catch (error) {
-      console.log("WTFFFF");
       this.setState({ error: "true" });
     }
   }
