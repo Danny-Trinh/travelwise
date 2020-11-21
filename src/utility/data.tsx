@@ -179,7 +179,6 @@ export const citySortOptions = [
   { value: 8, label: "Political Freedom" },
   { value: 9, label: "Theft" },
   { value: 10, label: "Women" },
-  { value: 1, label: "null" },
 ];
 
 export const cityOrderOptions = [
