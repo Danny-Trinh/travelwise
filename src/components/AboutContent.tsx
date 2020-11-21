@@ -49,9 +49,9 @@ export default function AboutLinks(props: any) {
           <SiPostman className="mr-2 t-teal-700" />
           <a
             className="link"
-            href="https://documenter.getpostman.com/view/12799472/TVYM5bPo"
+            href="https://documenter.getpostman.com/view/12799472/TVev44yo"
           >
-            https://documenter.getpostman.com/view/12799472/TVYM5bPo
+            https://documenter.getpostman.com/view/12799472/TVev44yo
           </a>
         </li>
       </ul>
