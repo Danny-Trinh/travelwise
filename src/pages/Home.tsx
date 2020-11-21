@@ -70,12 +70,31 @@ export default class Home extends Component {
 
         <div className="row  bg-teal-300 pt-5 justify-content-md-center mx-0">
           <div className="col-lg-5 ">
-            <img
-              src={LofiCity}
-              className="rounded-circle mx-auto d-block mb-5"
-              alt="Airplane"
-              style={{ width: "30rem" }}
-            ></img>
+            <Link to="/Airports">
+              <motion.img
+                animate={{
+                  x: [-160, 255],
+                  y: [140, 140],
+                  opacity: [0, 1, 1, 1, 1, 0],
+                }}
+                transition={{
+                  duration: 8,
+                  // delay: 3,
+                  ease: "linear",
+                  loop: Infinity,
+                }}
+                className="position-absolute"
+                src={planeIcon}
+                alt="smallplane"
+                style={{ width: "1.5rem", left: "40%" }}
+              ></motion.img>
+              <img
+                src={LofiCity}
+                className="rounded-circle mx-auto d-block mb-5"
+                alt="Airplane"
+                style={{ width: "30rem" }}
+              ></img>
+            </Link>
           </div>
           <div className="col-lg-5" style={{ marginTop: "5rem" }}>
             <h1 className="font-weight-bold text-center p-4">
@@ -83,24 +102,6 @@ export default class Home extends Component {
             </h1>
             <h5 className="text-center mt-4 t-black">
               <Link to="/Airports" className="t-teal-800 pageLink">
-              <motion.img
-                animate={{
-                  x: [-850, -450],
-                  y: [-400, -400],
-                  scale: [.05,.05],
-                  opacity: [0, 1, 1, 1, 1, 0],
-                }}
-                transition={{
-                  duration: 8,
-                  delay: 3,
-                  ease: "linear",
-                  loop: Infinity
-                }}
-                className="position-absolute "
-                src={planeIcon}
-                alt="smallplane"
-                style={{ width: "30rem" }}
-              ></motion.img>
                 Find an Airport
               </Link>
             </h5>
