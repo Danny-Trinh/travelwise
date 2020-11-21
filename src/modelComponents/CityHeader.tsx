@@ -1,16 +1,6 @@
 import React from "react";
 import Select from "react-select";
 import * as constants from "../utility/data";
-import {
-  FaTransgender,
-  FaMoneyCheckAlt,
-  FaBriefcaseMedical,
-  FaMapMarked,
-  FaNewspaper,
-  FaFemale,
-  FaChartBar,
-  FaFistRaised,
-} from "react-icons/fa";
 
 // renders the content of cityDetail
 export default function AirportDetailContent(props: any) {
@@ -21,6 +11,7 @@ export default function AirportDetailContent(props: any) {
         Search for your destination to get comprehensive danger scores in a
         number of categories.
       </h6>
+      <p>Note: Lower score is better, 0 means N/A.</p>
       <div className="row">
         <Select
           className="col-md-3"
