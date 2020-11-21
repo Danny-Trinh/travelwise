@@ -86,12 +86,12 @@ export function airportSort(sortInput: number, reverse: number, data: any) {
       break;
     case 5:
       sortedData = data.sort((obj1: any, obj2: any) => {
-        return reverse * (obj2.latitude - obj1.latitude);
+        return reverse * (obj1.latitude - obj2.latitude);
       });
       break;
     case 6:
       sortedData = data.sort((obj1: any, obj2: any) => {
-        return reverse * (obj2.longitude - obj1.longitude);
+        return reverse * (obj1.longitude - obj2.longitude);
       });
       break;
     case 7:
@@ -124,38 +124,38 @@ export function citySort(sortInput: number, reverse: number, data: any) {
       break;
     case 4:
       sortedData = data.sort((obj1: any, obj2: any) => {
-        return reverse * (obj2.overall - obj1.overall);
+        return reverse * (obj1.overall - obj2.overall);
       });
       break;
     case 5:
       sortedData = data.sort((obj1: any, obj2: any) => {
-        return reverse * (obj2.lgbtq - obj1.lgbtq);
+        return reverse * (obj1.lgbtq - obj2.lgbtq);
       });
       break;
     case 6:
       sortedData = data.sort((obj1: any, obj2: any) => {
-        return reverse * (obj2.medical - obj1.medical);
+        return reverse * (obj1.medical - obj2.medical);
       });
       break;
 
     case 7:
       sortedData = data.sort((obj1: any, obj2: any) => {
-        return reverse * (obj2.physical - obj1.physical);
+        return reverse * (obj1.physical - obj2.physical);
       });
       break;
     case 8:
       sortedData = data.sort((obj1: any, obj2: any) => {
-        return reverse * (obj2.political - obj1.political);
+        return reverse * (obj1.political - obj2.political);
       });
       break;
     case 9:
       sortedData = data.sort((obj1: any, obj2: any) => {
-        return reverse * (obj2.theft - obj1.theft);
+        return reverse * (obj1.theft - obj2.theft);
       });
       break;
     case 10:
       sortedData = data.sort((obj1: any, obj2: any) => {
-        return reverse * (obj2.women - obj1.women);
+        return reverse * (obj1.women - obj2.women);
       });
       break;
   }
