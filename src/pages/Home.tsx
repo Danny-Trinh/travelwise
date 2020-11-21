@@ -73,7 +73,7 @@ export default class Home extends Component {
             <Link to="/Airports">
               <motion.img
                 animate={{
-                  x: [-160, 255],
+                  x: [-155, 255],
                   y: [140, 140],
                   opacity: [0, 1, 1, 1, 1, 0],
                 }}

@@ -183,6 +183,7 @@ export default class CityDetail extends Component<myProps> {
             className="d-block mx-auto mb-5"
             style={{
               borderRadius: "25px",
+              objectFit: "cover",
               maxHeight: "800px",
             }}
           ></img>
