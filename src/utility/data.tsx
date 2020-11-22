@@ -245,7 +245,7 @@ export const airportFilterOptions = [
   { value: "CANADA", label: "Canada" },
   { value: "CHILE", label: "Chile" },
   { value: "CHINA", label: "China" },
-  { value: "COLUMBIA", label: "Columbia" },
+  { value: "COLOMBIA", label: "Colombia" },
   { value: "COSTA RICA", label: "Costa Rica" },
   { value: "CUBA", label: "Cuba" },
   { value: "EGYPT", label: "Egypt" },
