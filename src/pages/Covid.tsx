@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
-import Select from "react-select";
 import highlight from "../utility/getHighlightedText";
-import * as constants from "../utility/data";
 import { covidSort } from "../utility/sorts";
 import PaginateTool from "../components/PaginateTool";
 import Error from "../components/Error";
+
+import CovidHeader from "../modelComponents/CovidHeader";
 
 const rowData = ["new_cases", "total_cases", "new_deaths", "total_deaths"];
 const headers = [
@@ -67,7 +67,7 @@ export default class Covid extends Component {
   };
 
   // render a list of covid objects to html
-  renderData() {
+  renderData = () => {
     let chunk = this.state.data.slice(
       this.state.offset,
       this.state.offset + this.state.perPage
@@ -104,17 +104,17 @@ export default class Covid extends Component {
       );
     });
     return result;
-  }
+  };
 
   // sorts data accordingly, does not make a fetch call
-  sortData(sortInput: number) {
+  sortData = (sortInput: number) => {
     let sortedData = covidSort(
       sortInput,
       this.state.sortOrder,
       this.state.data
     );
     this.setState({ data: sortedData, sortType: sortInput });
-  }
+  };
 
   // manages values in the search bar
   handleChange = (e: any) => {
@@ -125,6 +125,17 @@ export default class Covid extends Component {
       newState[name] = value;
       return newState;
     });
+  };
+
+  handleSortChange = (x: any) => {
+    this.setState({ sortOrder: x.value }, () =>
+      this.sortData(this.state.sortType)
+    );
+  };
+
+  handleViewChange = (x: any) => {
+    this.getData();
+    this.setState({ perPage: x ? x.value : 9 });
   };
 
   // on search enter, fetches data and queries search
@@ -194,70 +205,16 @@ export default class Covid extends Component {
     return (
       <React.Fragment>
         <div className="container pb-5">
-          <h1 className="my-4">Covid-19 </h1>
-          <h6>Get the latest updates on Covid-19 statistics in almost any country.</h6>
-          <div className="row">
-            <Select
-              className="col-md-3"
-              onChange={(x: any) => this.sortData(x ? x.value : 1)}
-              options={constants.covidSortOptions}
-              placeholder="Sort by: Country"
-              isClearable
-              isSearchable={false}
-            />
-            <Select
-              className="col-md-3"
-              onChange={(x: any) => {
-                this.setState({ sortOrder: x.value }, () =>
-                  this.sortData(this.state.sortType)
-                );
-              }}
-              placeholder="Order: Ascend"
-              options={constants.covidOrderOptions}
-              isSearchable={false}
-            />
-            <form className="col-md-5" onSubmit={(e) => this.handleSubmit(e)}>
-              <input
-                type="text"
-                value={this.state.searchVal}
-                placeholder="Search:"
-                className="form-control"
-                name="searchVal"
-                onChange={(e) => this.handleChange(e)}
-                disabled={this.state.searchActive}
-              />
-            </form>
-            <button
-              className={`col-md-1 rounded btn-danger ${
-                this.state.searchActive ? "" : "d-none"
-              }`}
-              onClick={() => this.getData()}
-            >
-              Cancel
-            </button>
-          </div>
-          <div className="row mt-1 mb-3">
-            <Select
-              className="col-md-3"
-              onChange={(x: any) => {
-                this.getData();
-                this.setState({ perPage: x ? x.value : 9 });
-              }}
-              options={constants.pageViewOptions}
-              placeholder="Items Per Page: 9"
-              isClearable
-              isSearchable={false}
-            />
-            <Select
-              className="col-md-5"
-              onChange={(x: any) => this.handleFilter(x)}
-              placeholder="Filter: Stats"
-              value={this.state.filters}
-              options={constants.covidFilterOptions}
-              isMulti
-              isSearchable={false}
-            />
-          </div>
+          <CovidHeader
+            {...this.state}
+            sortData={this.sortData}
+            handleSortChange={this.handleSortChange}
+            handleSubmit={this.handleSubmit.bind(this)}
+            handleChange={this.handleChange}
+            getData={this.getData.bind(this)}
+            handleViewChange={this.handleViewChange}
+            handleFilter={this.handleFilter.bind(this)}
+          ></CovidHeader>
           <table className="table table-hover mx-auto bg-gray-100 mb-5">
             <thead className="thead-dark">
               <tr>
