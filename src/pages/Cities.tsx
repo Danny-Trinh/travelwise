@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
-import Select from "react-select";
 import highlight from "../utility/getHighlightedText";
-import * as constants from "../utility/data";
 import PaginateTool from "../components/PaginateTool";
 import { citySort } from "../utility/sorts";
 import Error from "../components/Error";
@@ -196,11 +194,10 @@ export default class Cities extends Component {
       if (filters && filters.length > 0) {
         let data = json.data.filter((airport: any) => {
           for (let i = 0; i < filters.length; i++) {
-            if (airport.country[0].localeCompare(filters[i].value) === 0) {
+            if (airport.country[0].localeCompare(filters[i].value) === 0)
               return true;
-            }
-            return false;
           }
+          return false;
         });
         this.setState({
           pageCount: Math.ceil(data.length / this.state.perPage),
