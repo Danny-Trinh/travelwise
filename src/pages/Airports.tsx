@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
-import Select from "react-select";
 import highlight from "../utility/getHighlightedText";
-import * as constants from "../utility/data";
 import PaginateTool from "../components/PaginateTool";
 import { airportSort } from "../utility/sorts";
 import Error from "../components/Error";
+import AirportHeader from "../modelComponents/AirportHeader";
 
 const rowData = ["latitude", "longitude", "time_offset"];
 const headers = [
@@ -69,7 +68,7 @@ export default class Airports extends Component {
   };
 
   // render a list of covid objects to html
-  renderData() {
+  renderData = () => {
     let chunk = this.state.data.slice(
       this.state.offset,
       this.state.offset + this.state.perPage
@@ -119,17 +118,17 @@ export default class Airports extends Component {
       );
     });
     return result;
-  }
+  };
 
   // sorts data accordingly, does not make a fetch call
-  sortData(sortInput: number) {
+  sortData = (sortInput: number) => {
     let sortedData = airportSort(
       sortInput,
       this.state.sortOrder,
       this.state.data
     );
     this.setState({ data: sortedData, sortType: sortInput });
-  }
+  };
 
   // manages values in the search bar
   handleChange = (e: any) => {
@@ -140,6 +139,17 @@ export default class Airports extends Component {
       newState[name] = value;
       return newState;
     });
+  };
+
+  handleSortChange = (x: any) => {
+    this.setState({ sortOrder: x.value }, () =>
+      this.sortData(this.state.sortType)
+    );
+  };
+
+  handleViewChange = (x: any) => {
+    this.getData();
+    this.setState({ perPage: x ? x.value : 9 });
   };
 
   // on search enter, fetches data and queries search
@@ -209,69 +219,16 @@ export default class Airports extends Component {
       <React.Fragment>
         <div className="pb-5">
           <div className="container" style={{ minHeight: "45rem" }}>
-            <h1 className="my-4">Airports </h1>
-            <h6>Get useful information from your destination airport like Covid-19 information or city safety.</h6>
-            <div className="row">
-              <Select
-                className="col-md-3"
-                onChange={(x: any) => this.sortData(x ? x.value : 1)}
-                options={constants.airportSortOptions}
-                placeholder="Sort by: Airport"
-                isClearable
-                isSearchable={false}
-              />
-              <Select
-                className="col-md-3"
-                onChange={(x: any) => {
-                  this.setState({ sortOrder: x.value }, () =>
-                    this.sortData(this.state.sortType)
-                  );
-                }}
-                placeholder="Order: Ascend"
-                options={constants.airportOrderOptions}
-                isSearchable={false}
-              />
-              <form className="col-md-5" onSubmit={(e) => this.handleSubmit(e)}>
-                <input
-                  type="text"
-                  value={this.state.searchVal}
-                  placeholder="Search:"
-                  className="form-control"
-                  name="searchVal"
-                  onChange={(e) => this.handleChange(e)}
-                  disabled={this.state.searchActive}
-                />
-              </form>
-              <button
-                className={`col-md-1 rounded btn-danger ${
-                  this.state.searchActive ? "" : "d-none"
-                }`}
-                onClick={() => this.getData()}
-              >
-                Cancel
-              </button>
-            </div>
-            <div className="row mt-1 mb-3">
-              <Select
-                className="col-md-3"
-                onChange={(x: any) => {
-                  this.getData();
-                  this.setState({ perPage: x ? x.value : 9 });
-                }}
-                options={constants.pageViewOptions}
-                placeholder="Items Per Page: 9"
-                isClearable
-                isSearchable={false}
-              />
-              <Select
-                className="col-md-5"
-                onChange={(x: any) => this.handleFilter(x)}
-                placeholder="Filter: Country"
-                value={this.state.filters}
-                options={constants.airportFilterOptions}
-                isMulti
-              />
-            </div>
+            <AirportHeader
+              {...this.state}
+              sortData={this.sortData}
+              handleSortChange={this.handleSortChange}
+              handleSubmit={this.handleSubmit.bind(this)}
+              handleChange={this.handleChange}
+              getData={this.getData.bind(this)}
+              handleViewChange={this.handleViewChange}
+              handleFilter={this.handleFilter.bind(this)}
+            ></AirportHeader>
             <table className="table table-hover mx-auto bg-gray-100 mb-5">
               <thead className="thead-dark">
                 <tr>
