@@ -22,7 +22,7 @@ export const members = [
     image: Mitchell,
     desc: "You can't code away all your problems in life ~_~",
     jobs: "Back-End Developer",
-    tests: 0,
+    tests: 9,
     email: "mitchellwatkins125@gmail.com",
     linkedin: "https://www.linkedin.com/in/mawatkins99",
   },
@@ -33,7 +33,7 @@ export const members = [
     desc:
       "Danny started out wanting to do advanced AI research, he now cries on every React project he works on.",
     jobs: "Project Lead",
-    tests: 0,
+    tests: 11,
     email: "dtrinh403@yahoo.com",
     linkedin: "https://www.linkedin.com/in/dan-trinh/",
   },
@@ -44,7 +44,7 @@ export const members = [
     desc:
       "Jesse also started out interested in Ai, he now would like to make cool phone games.",
     jobs: "Back-End Developer",
-    tests: 0,
+    tests: 10,
     email: "jesse17huang@gmail.com",
     linkedin: "https://www.linkedin.com/in/jesse-huang-a1877b192/",
   },
@@ -55,7 +55,7 @@ export const members = [
     desc:
       "Maximus is a 3rd Year CS Major and is a valuable member to have on any team.",
     jobs: "Front-End Developer",
-    tests: 0,
+    tests: 10,
     email: "maximuschu@utexas.edu",
     linkedin: "https://www.linkedin.com/in/maximuschu/",
   },
@@ -66,12 +66,13 @@ export const members = [
     desc:
       "Hi! I'm a senior. I find joy in the little things like cleaning, basking in fresh air, or 12-hour debugging sessions.",
     jobs: "Back-End Developer",
-    tests: 0,
+    tests: 10,
     email: "adammgluch@gmail.com",
     linkedin: "",
   },
 ];
 
+// lists our api sources for our about page
 export const apiSources = [
   {
     icon: <FaCity className="mr-2 t-teal-700" />,
@@ -175,8 +176,8 @@ export const citySortOptions = [
   { value: 4, label: "Overall" },
   { value: 5, label: "LGBTQ" },
   { value: 6, label: "Medical" },
-  { value: 7, label: "Physical Harm" },
-  { value: 8, label: "Political Freedom" },
+  { value: 7, label: "Physical" },
+  { value: 8, label: "Political" },
   { value: 9, label: "Theft" },
   { value: 10, label: "Women" },
 ];

@@ -24,7 +24,7 @@ test("renders Home page", () => {
 });
 test("renders Cities page", () => {
   const component = render(<Cities />);
-  const element = component.getByText("Political Freedom");
+  const element = component.getByText("Political");
   expect(element).toBeInTheDocument();
 });
 test("renders Airports page", () => {
@@ -96,20 +96,20 @@ test("renders CityDetail instance", async () => {
   expect(element).toBeInTheDocument();
 });
 
-// test("renders CovidDetail instance", async () => {
-//   const component = render(
-//     <Router>
-//       {<CovidDetail match={{ params: { country_code: "AF" } }} />}
-//     </Router>
-//   );
-//   const element = await component.findByText("Afghanistan (AF)");
-//   expect(element).toBeInTheDocument();
-// });
+test("renders CovidDetail instance", async () => {
+  const component = render(
+    <Router>
+      {<CovidDetail match={{ params: { country_code: "AF" } }} />}
+    </Router>
+  );
+  const element = await component.findByText("Afghanistan (AF)");
+  expect(element).toBeInTheDocument();
+});
 
-// test("renders AirportDetail instance", async () => {
-//   const component = render(
-//     <Router>{<AirportDetail match={{ params: { iata: "DIR" } }} />}</Router>
-//   );
-//   const element = await component.findByText("ABA TENNA D YILMA INTL");
-//   expect(element).toBeInTheDocument();
-// });
+test("renders AirportDetail instance", async () => {
+  const component = render(
+    <Router>{<AirportDetail match={{ params: { iata: "DIR" } }} />}</Router>
+  );
+  const element = await component.findByText("ABA TENNA D YILMA INTL");
+  expect(element).toBeInTheDocument();
+});

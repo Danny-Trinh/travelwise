@@ -139,7 +139,7 @@ export default class Search extends Component<myProps> {
       result.push(
         <tr key={i.country_code}>
           <td>
-            <Link to={`/Covid/${i.country_code}`}>
+            <Link className="link" to={`/Covid/${i.country_code}`}>
               {highlight(i.country[0], this.state.searchQuery)}
             </Link>
           </td>
@@ -173,6 +173,7 @@ export default class Search extends Component<myProps> {
     });
     return result;
   }
+
   renderDataCi() {
     let chunk = this.state.dataCi.slice(
       this.state.offsetCi,
@@ -183,7 +184,7 @@ export default class Search extends Component<myProps> {
       result.push(
         <tr key={i.city_id}>
           <td>
-            <Link to={`/City/${i.name}/${i.country_code}`}>
+            <Link className="link" to={`/City/${i.name}/${i.country_code}`}>
               {highlight(i.name[0], this.state.searchQuery)}
             </Link>
           </td>
@@ -231,14 +232,12 @@ export default class Search extends Component<myProps> {
               this.state.searchQuery
             )}
           </td>
-          <td>
-            <Link to={`/Covid/${i.country_code}`}>Link</Link>
-          </td>
         </tr>
       );
     });
     return result;
   }
+
   renderDataA() {
     let chunk = this.state.dataA.slice(
       this.state.offsetA,
@@ -249,13 +248,16 @@ export default class Search extends Component<myProps> {
       result.push(
         <tr key={`${i.iata_code}`}>
           <td>
-            <Link to={`/Airport/${i.iata_code}`}>
+            <Link className="link" to={`/Airport/${i.iata_code}`}>
               {highlight(i.airport_name[0], this.state.searchQuery)}
             </Link>
           </td>
           <td>{highlight(i.iata_code[0], this.state.searchQuery)}</td>
           <td>
-            <Link to={`/City/${i.city_name}/${i.country_code}`}>
+            <Link
+              className="link"
+              to={`/City/${i.city_name}/${i.country_code}`}
+            >
               {highlight(i.city_name[0], this.state.searchQuery)}
             </Link>
           </td>
@@ -278,9 +280,6 @@ export default class Search extends Component<myProps> {
               this.state.searchQuery
             )}
           </td>
-          <td>
-            <Link to={`/Covid/${i.country_code}`}>Link</Link>
-          </td>
         </tr>
       );
     });
@@ -289,43 +288,45 @@ export default class Search extends Component<myProps> {
   render() {
     return (
       <div className="container">
-        <h1 className="my-4">Airports</h1>
-        <table className="table table-hover bg-gray-100">
-          <thead className="thead-dark">
-            <tr>
-              <th scope="col">Airport</th>
-              <th scope="col">Airport Code</th>
-              <th scope="col">City</th>
-              <th scope="col">Country</th>
-              <th scope="col">Latitude</th>
-              <th scope="col">Longitude</th>
-              <th scope="col">Timezone</th>
-              <th scope="col">Covid Stats</th>
-            </tr>
-          </thead>
-          <tbody>{this.renderDataA()}</tbody>
-        </table>
-        {this.createPagination(this.state.pageCountA, "offsetA")}
-        <h1 className="my-4">Cities</h1>
-        <table className="table table-hover bg-gray-100">
-          <thead className="thead-dark">
-            <tr>
-              <th scope="col">Cities</th>
-              <th scope="col">Country</th>
-              <th scope="col">Region</th>
-              <th scope="col">Overall</th>
-              <th scope="col">LGBTQ</th>
-              <th scope="col">Medical</th>
-              <th scope="col">Physical Harm</th>
-              <th scope="col">Political Freedom</th>
-              <th scope="col">Theft</th>
-              <th scope="col">Women</th>
-              <th scope="col">Covid Stats</th>
-            </tr>
-          </thead>
-          <tbody>{this.renderDataCi()}</tbody>
-        </table>
+        <div className="container " style={{ minHeight: "25rem" }}>
+          <h1 className="my-4">Cities</h1>
+          <table className="table table-hover bg-gray-100">
+            <thead className="thead-dark">
+              <tr>
+                <th scope="col">Cities</th>
+                <th scope="col">Country</th>
+                <th scope="col">Region</th>
+                <th scope="col">Overall</th>
+                <th scope="col">LGBTQ</th>
+                <th scope="col">Medical</th>
+                <th scope="col">Physical</th>
+                <th scope="col">Political</th>
+                <th scope="col">Theft</th>
+                <th scope="col">Women</th>
+              </tr>
+            </thead>
+            <tbody>{this.renderDataCi()}</tbody>
+          </table>
+        </div>
         {this.createPagination(this.state.pageCountCi, "offsetCi")}
+        <div className="container " style={{ minHeight: "25rem" }}>
+          <h1 className="my-4">Airports</h1>
+          <table className="table table-hover bg-gray-100">
+            <thead className="thead-dark">
+              <tr>
+                <th scope="col">Airport</th>
+                <th scope="col">Airport Code</th>
+                <th scope="col">City</th>
+                <th scope="col">Country</th>
+                <th scope="col">Latitude</th>
+                <th scope="col">Longitude</th>
+                <th scope="col">Timezone</th>
+              </tr>
+            </thead>
+            <tbody>{this.renderDataA()}</tbody>
+          </table>
+        </div>
+        {this.createPagination(this.state.pageCountA, "offsetA")}
         <div className="container pb-5">
           <h1 className="my-4">Covid-19</h1>
           <table className="table table-hover bg-gray-100">
