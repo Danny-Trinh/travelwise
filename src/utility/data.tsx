@@ -192,7 +192,7 @@ export const cityFilterOptions = [
   { value: "Argentina", label: "Argentina" },
   { value: "Brazil", label: "Brazil" },
   { value: "Canada", label: "Canada" },
-  { value: "Columbia", label: "Columbia" },
+  { value: "Colombia", label: "Colombia" },
   { value: "Egypt", label: "Egypt" },
   { value: "Ethiopia", label: "Ethiopia" },
   { value: "France", label: "France" },
