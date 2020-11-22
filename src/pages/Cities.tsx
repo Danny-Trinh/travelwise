@@ -7,6 +7,7 @@ import * as constants from "../utility/data";
 import PaginateTool from "../components/PaginateTool";
 import { citySort } from "../utility/sorts";
 import Error from "../components/Error";
+import CityHeader from "../modelComponents/CityHeader";
 
 const rowData = [
   "overall",
@@ -29,26 +30,7 @@ const headers = [
   "Theft",
   "Women",
 ];
-// women	integer
-// Likelihood of inappropriate behavior against females. Score go from 1 (not likely) to 100 (very likely).
 
-// physicalHarm	integer
-// Likelihood of injury due to harmful intent. Score go from 1 (not likely) to 100 (very likely).
-
-// theft	integer
-// Likelihood of theft. Score go from 1 (not likely) to 100 (very likely).
-
-// politicalFreedom	integer
-// Potential for infringement of political rights or political unrest. Score go from 1 (not likely) to 100 (very likely).
-
-// lgbtq	integer
-// Likelihood of harm or discrimination against LGBTQ persons or groups and level of caution required at location. Score go from 1 (not likely) to 100 (very likely).
-
-// medical	integer
-// Likelihood of illness or disease, assessment of water and air quality, and access to reliable medical care. Score go from 1 (not likely) to 100 (very likely).
-
-// overall	integer
-// An average of the 6 “sub”-categories. Score go from 1 (very safe) to 100 (very dangerous).
 export default class Cities extends Component {
   state = {
     offset: 0, // offset of pagination
@@ -98,7 +80,7 @@ export default class Cities extends Component {
   };
 
   // render a list of covid objects to html
-  renderData() {
+  renderData = () => {
     let chunk = this.state.data.slice(
       this.state.offset,
       this.state.offset + this.state.perPage
@@ -140,13 +122,13 @@ export default class Cities extends Component {
       );
     });
     return result;
-  }
+  };
 
   // sorts data accordingly, does not make a fetch call
-  sortData(sortInput: number) {
+  sortData = (sortInput: number) => {
     let sortedData = citySort(sortInput, this.state.sortOrder, this.state.data);
     this.setState({ data: sortedData, sortType: sortInput });
-  }
+  };
 
   // manages values in the search bar
   handleChange = (e: any) => {
@@ -194,6 +176,18 @@ export default class Cities extends Component {
     }
   }
 
+  //  handles changing of sort order
+  handleSortChange = (x: any) => {
+    this.setState({ sortOrder: x.value }, () =>
+      this.sortData(this.state.sortType)
+    );
+  };
+
+  handleViewChange = (x: any) => {
+    this.getData();
+    this.setState({ perPage: x ? x.value : 9 });
+  };
+
   // fetches data and filters through inclusively, resets search to prevent logic errors
   async handleFilter(filters: any) {
     try {
@@ -201,10 +195,12 @@ export default class Cities extends Component {
       let json = await Axios.get(`https://api.travelwise.live/cities`);
       if (filters && filters.length > 0) {
         let data = json.data.filter((airport: any) => {
-          for (let i = 0; i < filters.length; i++)
-            if (airport.country[0].localeCompare(filters[i].value) === 0)
+          for (let i = 0; i < filters.length; i++) {
+            if (airport.country[0].localeCompare(filters[i].value) === 0) {
               return true;
-          return false;
+            }
+            return false;
+          }
         });
         this.setState({
           pageCount: Math.ceil(data.length / this.state.perPage),
@@ -227,71 +223,16 @@ export default class Cities extends Component {
       <React.Fragment>
         <div className="pb-5">
           <div className="container " style={{ minHeight: "52rem" }}>
-            <h1 className="my-4">Cities </h1>
-            <h6>Search for your destination to get comprehensive danger scores in a number of categories.</h6>
-            <p>Note: Lower score is better, 0 means N/A.</p>
-            <div className="row">
-              <Select
-                className="col-md-3"
-                onChange={(x: any) => this.sortData(x ? x.value : 1)}
-                options={constants.citySortOptions}
-                placeholder="Sort by: City"
-                isClearable
-                isSearchable={false}
-              />
-              <Select
-                className="col-md-3"
-                onChange={(x: any) => {
-                  this.setState({ sortOrder: x.value }, () =>
-                    this.sortData(this.state.sortType)
-                  );
-                }}
-                placeholder="Order: Ascend"
-                options={constants.cityOrderOptions}
-                isSearchable={false}
-              />
-              <form className="col-md-5" onSubmit={(e) => this.handleSubmit(e)}>
-                <input
-                  type="text"
-                  value={this.state.searchVal}
-                  placeholder="Search:"
-                  className="form-control"
-                  name="searchVal"
-                  onChange={(e) => this.handleChange(e)}
-                  disabled={this.state.searchActive}
-                />
-              </form>
-
-              <button
-                className={`col-md-1 rounded btn-danger ${
-                  this.state.searchActive ? "" : "d-none"
-                }`}
-                onClick={() => this.getData()}
-              >
-                Cancel
-              </button>
-            </div>
-            <div className="row mt-1 mb-3">
-              <Select
-                className="col-md-3"
-                onChange={(x: any) => {
-                  this.getData();
-                  this.setState({ perPage: x ? x.value : 9 });
-                }}
-                options={constants.pageViewOptions}
-                placeholder="Items Per Page: 9"
-                isClearable
-                isSearchable={false}
-              />
-              <Select
-                className="col-md-5"
-                onChange={(x: any) => this.handleFilter(x)}
-                placeholder="Filter: Country"
-                value={this.state.filters}
-                options={constants.cityFilterOptions}
-                isMulti
-              />
-            </div>
+            <CityHeader
+              {...this.state}
+              sortData={this.sortData}
+              handleSortChange={this.handleSortChange}
+              handleSubmit={this.handleSubmit.bind(this)}
+              handleChange={this.handleChange}
+              getData={this.getData.bind(this)}
+              handleViewChange={this.handleViewChange}
+              handleFilter={this.handleFilter.bind(this)}
+            ></CityHeader>
             <table className="table table-hover mx-auto bg-gray-100 mb-5">
               <thead className="thead-dark">
                 <tr>
