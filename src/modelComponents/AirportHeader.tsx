@@ -22,7 +22,7 @@ export default function AirportHeader(props: any) {
         />
         <Select
           className="col-md-3"
-          onChange={(x: any) => props.handleViewChange(x)}
+          onChange={(x: any) => props.handleSortChange(x)}
           placeholder="Order: Ascend"
           options={constants.airportOrderOptions}
           isSearchable={false}
@@ -50,7 +50,7 @@ export default function AirportHeader(props: any) {
       <div className="row mt-1 mb-3">
         <Select
           className="col-md-3"
-          onChange={(x: any) => props.handleSortChange(x)}
+          onChange={(x: any) => props.handleViewChange(x)}
           options={constants.pageViewOptions}
           placeholder="Items Per Page: 9"
           isClearable
