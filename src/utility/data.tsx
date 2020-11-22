@@ -160,7 +160,7 @@ export const apps = [
 
 export const pageViewOptions = [
   // used for page rendering
-  { value: 3, text: "3" },
+  { value: 3, label: "3" },
   { value: 9, label: "9" },
   { value: 18, label: "18" },
   { value: 36, label: "36" },
