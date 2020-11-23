@@ -49,3 +49,12 @@ Danny_Test:
     name: dtrinh403/npmt
   script:
     - npm test
+
+Danny_Test2:
+  services:
+    test:
+      build:
+        context: .
+    environment:
+      - CI=true
+    command: npm test
