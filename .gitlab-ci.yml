@@ -13,36 +13,36 @@ services:
 
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
-cache:
-  paths:
-    - node_modules/
+# cache:
+#   paths:
+#     - node_modules/
 
-Frontend:
-  image: mitchellwatkins125/travelwise
-  script:
-    - echo "placeholder!"
-    - cat makefile
-    - make placeholder
-    - node --version
+# Frontend:
+#   image: mitchellwatkins125/travelwise
+#   script:
+#     - echo "placeholder!"
+#     - cat makefile
+#     - make placeholder
+#     - node --version
 
-Backend:
-  image: mitchellwatkins125/travelwiseflask
-  script:
-    - echo "Backend Time!"
-    - pip show unittest2
-    - pip show Flask
-    - pip show Flask-RESTful
-    - pip show Flask-SQLAlchemy
-    - pip show selenium
-    - python Backend/Tests/FlaskUnitTests/TravelwiseBackendUnitTests.py
+# Backend:
+#   image: mitchellwatkins125/travelwiseflask
+#   script:
+#     - echo "Backend Time!"
+#     - pip show unittest2
+#     - pip show Flask
+#     - pip show Flask-RESTful
+#     - pip show Flask-SQLAlchemy
+#     - pip show selenium
+#     - python Backend/Tests/FlaskUnitTests/TravelwiseBackendUnitTests.py
 
-Postman_tests:
-  image:
-    name: postman/newman_alpine33
-    entrypoint: [""]
-  script:
-    - newman --version
-    - newman run Backend/Postman/postmanTests.json
+# Postman_tests:
+#   image:
+#     name: postman/newman_alpine33
+#     entrypoint: [""]
+#   script:
+#     - newman --version
+#     - newman run Backend/Postman/postmanTests.json
 
 Danny_Test:
   image:
