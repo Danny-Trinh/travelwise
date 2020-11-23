@@ -43,3 +43,9 @@ Postman_tests:
   script:
     - newman --version
     - newman run Backend/Postman/postmanTests.json
+
+Danny_Test:
+  image:
+    name: dtrinh403/npmt
+  script:
+    - npm test
