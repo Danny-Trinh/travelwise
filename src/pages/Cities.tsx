@@ -243,6 +243,9 @@ export default class Cities extends Component {
               <tbody>{this.renderData()}</tbody>
             </table>
           </div>
+          <div className="text-center">
+            {this.state.data.length} results, {this.state.pageCount} pages
+          </div>
           <PaginateTool
             pageCount={this.state.pageCount}
             handlePageClick={this.handlePageClick}

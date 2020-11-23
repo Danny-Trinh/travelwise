@@ -11,41 +11,40 @@ services:
   - redis:latest
   - postgres:latest
 
-# This folder is cached between builds
-# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
-# cache:
-#   paths:
-#     - node_modules/
+This folder is cached between builds
+http://docs.gitlab.com/ce/ci/yaml/README.html#cache
+cache:
+  paths:
+    - node_modules/
 
-# Frontend:
-#   image: mitchellwatkins125/travelwise
-#   script:
-#     - echo "placeholder!"
-#     - cat makefile
-#     - make placeholder
-#     - node --version
-
-# Backend:
-#   image: mitchellwatkins125/travelwiseflask
-#   script:
-#     - echo "Backend Time!"
-#     - pip show unittest2
-#     - pip show Flask
-#     - pip show Flask-RESTful
-#     - pip show Flask-SQLAlchemy
-#     - pip show selenium
-#     - python Backend/Tests/FlaskUnitTests/TravelwiseBackendUnitTests.py
-
-# Postman_tests:
-#   image:
-#     name: postman/newman_alpine33
-#     entrypoint: [""]
-#   script:
-#     - newman --version
-#     - newman run Backend/Postman/postmanTests.json
-
-Danny_Test:
-  image:
-    name: dtrinh403/npmt
+Frontend:
+  image: mitchellwatkins125/travelwise
   script:
+    - echo "placeholder!"
+    - cat makefile
+    - make placeholder
+    - node --version
+    - npm build
     - npm test
+  # cant get npm test to work here and we tried for 3 phases now, our npm tests work and pass,
+  # we just cant seem to call them in the Docker
+
+Backend:
+  image: mitchellwatkins125/travelwiseflask
+  script:
+    - echo "Backend Time!"
+    - pip show unittest2
+    - pip show Flask
+    - pip show Flask-RESTful
+    - pip show Flask-SQLAlchemy
+    - pip show selenium
+    - python Backend/Tests/FlaskUnitTests/TravelwiseBackendUnitTests.py
+
+Postman_tests:
+  image:
+    name: postman/newman_alpine33
+    entrypoint: [""]
+  script:
+    - newman --version
+    - newman run Backend/Postman/postmanTests.json
+

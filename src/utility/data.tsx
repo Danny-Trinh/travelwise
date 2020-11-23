@@ -22,7 +22,7 @@ export const members = [
     image: Mitchell,
     desc: "You can't code away all your problems in life ~_~",
     jobs: "Back-End Developer",
-    tests: 9,
+    tests: 10,
     email: "mitchellwatkins125@gmail.com",
     linkedin: "https://www.linkedin.com/in/mawatkins99",
   },
@@ -44,7 +44,7 @@ export const members = [
     desc:
       "Jesse also started out interested in Ai, he now would like to make cool phone games.",
     jobs: "Back-End Developer",
-    tests: 10,
+    tests: 18,
     email: "jesse17huang@gmail.com",
     linkedin: "https://www.linkedin.com/in/jesse-huang-a1877b192/",
   },

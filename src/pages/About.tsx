@@ -18,7 +18,7 @@ export default class page1 extends Component<myState> {
   state: myState = {
     commits: 0,
     issues: 0,
-    tests: 0,
+    tests: 59,
     error: false,
     isLoading: true,
   };
