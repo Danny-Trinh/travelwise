@@ -8,7 +8,7 @@ Members by Names/EID/Gitlab:
 
 Git SHA Phase 2: a73f93ffc7db2ead4cef3ee1f2c937da6b4d3625
 Git SHA Phase 3: a1e5733144e6c1456662502af5502ec568ad5e2e
-Git SHA Phase 4: 264fd57974e601e4acea927533406734b7970d46
+Git SHA Phase 4: 48ce7a2fa27ccb4d7a687760eb9a10cc685f0060
 
 Project Leader: Dung Trinh
 

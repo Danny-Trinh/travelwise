@@ -11,8 +11,8 @@ services:
   - redis:latest
   - postgres:latest
 
-This folder is cached between builds
-http://docs.gitlab.com/ce/ci/yaml/README.html#cache
+# This folder is cached between builds
+# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
 cache:
   paths:
     - node_modules/
@@ -43,4 +43,3 @@ Postman_tests:
   script:
     - newman --version
     - newman run Backend/Postman/postmanTests.json
-
