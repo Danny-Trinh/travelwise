@@ -24,10 +24,6 @@ Frontend:
     - cat makefile
     - make placeholder
     - node --version
-    - npm build
-    - npm test
-  # cant get npm test to work here and we tried for 3 phases now, our npm tests work and pass,
-  # we just cant seem to call them in the Docker
 
 Backend:
   image: mitchellwatkins125/travelwiseflask

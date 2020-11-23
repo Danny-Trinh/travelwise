@@ -76,7 +76,7 @@ export default class AnimalsChart extends Component {
           return "translate(" + d.x + "," + d.y + ")";
         });
       node.append("title").text(function (d: any) {
-        return d.Name + ": " + d.Count;
+        return d.data.Name + ": " + d.data.Count;
       });
       node
         .append("circle")
