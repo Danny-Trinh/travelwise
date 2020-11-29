@@ -16,12 +16,11 @@ export default function AboutHeader(props: myProps) {
         This is Travelwise, a group dedicated to getting you from point A to
         point B as safely as possible in these uncertain times. Travelwise is an
         ideal platform for users to compare destinations by safety, location,
-        and Covid statistics. A feature of Travelwise is providing users with
-        up-to-date statistics on COVID in a given region. Travelwise streamlines
-        the process of making travel plans, where users can search for
-        destinations, airport and safety statistics all in the same place. Our
-        intended users are travelers curious about their destination and simply
-        anyone who is curious about the travel data we provide.
+        and Covid statistics. Travelwise streamlines the process of making
+        travel plans by allowing users to search for critical informationa all
+        in one place. Our intended users are travelers curious about their
+        destination and simply anyone who is curious about the travel data we
+        provide.
       </p>
       <div className="row justify-content-center">
         <MemberCard member={members[0]}></MemberCard>
