@@ -11,9 +11,7 @@ type myProps = {
 export default function AboutHeader(props: myProps) {
   return (
     <React.Fragment>
-      <h1 className="t-teal-700 text-center">
-        Don't just travel, Travel Wise!
-      </h1>
+      <h1 className="t-teal-700 text-center">Don't just travel, TravelWise!</h1>
       <p>
         This is Travelwise, a group dedicated to getting you from point A to
         point B as safely as possible in these uncertain times. Travelwise is an
