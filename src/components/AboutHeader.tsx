@@ -11,7 +11,9 @@ type myProps = {
 export default function AboutHeader(props: myProps) {
   return (
     <React.Fragment>
-      <h1 className="t-teal-700 text-center">What is Travelwise</h1>
+      <h1 className="t-teal-700 text-center">
+        Don't just travel, Travel Wise!
+      </h1>
       <p>
         This is Travelwise, a group dedicated to getting you from point A to
         point B as safely as possible in these uncertain times. Travelwise is an
@@ -20,8 +22,8 @@ export default function AboutHeader(props: myProps) {
         up-to-date statistics on COVID in a given region. Travelwise streamlines
         the process of making travel plans, where users can search for
         destinations, airport and safety statistics all in the same place. Our
-        intended users are middle-class travelers who are looking for statistics
-        on places they would like to travel to.
+        intended users are travelers curious about their destination and simply
+        anyone who is curious about the travel data we provide.
       </p>
       <div className="row justify-content-center">
         <MemberCard member={members[0]}></MemberCard>
