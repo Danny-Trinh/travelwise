@@ -17,7 +17,7 @@ export default function AboutHeader(props: myProps) {
         point B as safely as possible in these uncertain times. Travelwise is an
         ideal platform for users to compare destinations by safety, location,
         and Covid statistics. Travelwise streamlines the process of making
-        travel plans by allowing users to search for critical informationa all
+        travel plans by allowing users to search for critical information all
         in one place. Our intended users are travelers curious about their
         destination and simply anyone who is curious about the travel data we
         provide.
