@@ -40,13 +40,13 @@ export default function AboutLinks(props: any) {
       </ul>
       <h2 className="mt-4">Project Links</h2>
       <ul className="p-0 pl-4" style={{ listStyleType: "none" }}>
-        <li>
+        <li className="mb-2">
           <FaGitlab className="mr-2 t-teal-700" />
           <a className="link" href="https://gitlab.com/Danny-Trinh/travelwise">
             https://gitlab.com/Danny-Trinh/travelwise
           </a>
         </li>
-        <li>
+        <li className="mb-2">
           <SiPostman className="mr-2 t-teal-700" />
           <a
             className="link"
@@ -55,13 +55,13 @@ export default function AboutLinks(props: any) {
             https://documenter.getpostman.com/view/12799472/TVev454C
           </a>
         </li>
-        <li>
+        <li className="mb-2">
           <FaUserAlt className="mr-2 t-teal-700" />
           <a className="link" href={pdf}>
             Our Presentation PDF
           </a>
         </li>
-        <li>
+        <li className="mb-2">
           <FaVideo className="mr-2 t-teal-700" />
           <a className="link" href="https://youtu.be/0PPNiYuDrIw">
             Easter Egg
