@@ -1,6 +1,7 @@
 import React from "react";
 import { apps, apiSources } from "../utility/data";
-import { FaGitlab } from "react-icons/fa";
+import pdf from "../utility/TravelwisePresentation.pdf";
+import { FaGitlab, FaVideo, FaUserAlt } from "react-icons/fa";
 import { SiPostman } from "react-icons/si";
 
 // renders content of about page
@@ -39,7 +40,7 @@ export default function AboutLinks(props: any) {
       </ul>
       <h2 className="mt-4">Project Links</h2>
       <ul className="p-0 pl-4" style={{ listStyleType: "none" }}>
-        <li className="mb-2">
+        <li>
           <FaGitlab className="mr-2 t-teal-700" />
           <a className="link" href="https://gitlab.com/Danny-Trinh/travelwise">
             https://gitlab.com/Danny-Trinh/travelwise
@@ -52,6 +53,18 @@ export default function AboutLinks(props: any) {
             href="https://documenter.getpostman.com/view/12799472/TVev454C"
           >
             https://documenter.getpostman.com/view/12799472/TVev454C
+          </a>
+        </li>
+        <li>
+          <FaUserAlt className="mr-2 t-teal-700" />
+          <a className="link" href={pdf}>
+            Our Presentation PDF
+          </a>
+        </li>
+        <li>
+          <FaVideo className="mr-2 t-teal-700" />
+          <a className="link" href="https://youtu.be/0PPNiYuDrIw">
+            Easter Egg
           </a>
         </li>
       </ul>
