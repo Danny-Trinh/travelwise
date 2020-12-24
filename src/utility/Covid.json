@@ -1,0 +1,1694 @@
+[
+  {
+    "country_code": ["AF"],
+    "country": ["Afghanistan"],
+    "new_cases": 77,
+    "total_cases": 39693,
+    "new_deaths": 2,
+    "total_deaths": 1472,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["AL"],
+    "country": ["Albania"],
+    "new_cases": 167,
+    "total_cases": 15066,
+    "new_deaths": 2,
+    "total_deaths": 413,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["DZ"],
+    "country": ["Algeria"],
+    "new_cases": 146,
+    "total_cases": 52804,
+    "new_deaths": 6,
+    "total_deaths": 1789,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["AD"],
+    "country": ["Andorra"],
+    "new_cases": 128,
+    "total_cases": 2696,
+    "new_deaths": 1,
+    "total_deaths": 55,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["AO"],
+    "country": ["Angola"],
+    "new_cases": 73,
+    "total_cases": 6031,
+    "new_deaths": 4,
+    "total_deaths": 212,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["AG"],
+    "country": ["Antigua and Barbuda"],
+    "new_cases": 0,
+    "total_cases": 111,
+    "new_deaths": 0,
+    "total_deaths": 3,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["AR"],
+    "country": ["Argentina"],
+    "new_cases": 15099,
+    "total_cases": 871468,
+    "new_deaths": 515,
+    "total_deaths": 23225,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["AM"],
+    "country": ["Armenia"],
+    "new_cases": 614,
+    "total_cases": 55087,
+    "new_deaths": 6,
+    "total_deaths": 1010,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["AU"],
+    "country": ["Australia"],
+    "new_cases": 18,
+    "total_cases": 27244,
+    "new_deaths": 0,
+    "total_deaths": 897,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["AT"],
+    "country": ["Austria"],
+    "new_cases": 1131,
+    "total_cases": 53188,
+    "new_deaths": 4,
+    "total_deaths": 842,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["AZ"],
+    "country": ["Azerbaijan"],
+    "new_cases": 215,
+    "total_cases": 41519,
+    "new_deaths": 2,
+    "total_deaths": 605,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["BS"],
+    "country": ["Bahamas"],
+    "new_cases": 0,
+    "total_cases": 4713,
+    "new_deaths": 0,
+    "total_deaths": 102,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["BH"],
+    "country": ["Bahrain"],
+    "new_cases": 438,
+    "total_cases": 74860,
+    "new_deaths": 7,
+    "total_deaths": 271,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["BD"],
+    "country": ["Bangladesh"],
+    "new_cases": 1278,
+    "total_cases": 375870,
+    "new_deaths": 17,
+    "total_deaths": 5477,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["BB"],
+    "country": ["Barbados"],
+    "new_cases": 1,
+    "total_cases": 204,
+    "new_deaths": 0,
+    "total_deaths": 7,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["BY"],
+    "country": ["Belarus"],
+    "new_cases": 489,
+    "total_cases": 82471,
+    "new_deaths": 5,
+    "total_deaths": 885,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["BE"],
+    "country": ["Belgium"],
+    "new_cases": 5385,
+    "total_cases": 148981,
+    "new_deaths": 25,
+    "total_deaths": 10151,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["BZ"],
+    "country": ["Belize"],
+    "new_cases": 54,
+    "total_cases": 2427,
+    "new_deaths": 1,
+    "total_deaths": 35,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["BJ"],
+    "country": ["Benin"],
+    "new_cases": 0,
+    "total_cases": 2411,
+    "new_deaths": 0,
+    "total_deaths": 41,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["BT"],
+    "country": ["Bhutan"],
+    "new_cases": 2,
+    "total_cases": 306,
+    "new_deaths": 0,
+    "total_deaths": 0,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["BO"],
+    "country": ["Bolivia"],
+    "new_cases": 257,
+    "total_cases": 138226,
+    "new_deaths": 34,
+    "total_deaths": 8262,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["BA"],
+    "country": ["Bosnia and Herzegovina"],
+    "new_cases": 389,
+    "total_cases": 29917,
+    "new_deaths": 13,
+    "total_deaths": 926,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["BW"],
+    "country": ["Botswana"],
+    "new_cases": 0,
+    "total_cases": 3219,
+    "new_deaths": 0,
+    "total_deaths": 18,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["BR"],
+    "country": ["Brazil"],
+    "new_cases": 27444,
+    "total_cases": 5055888,
+    "new_deaths": 682,
+    "total_deaths": 149639,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["BN"],
+    "country": ["Brunei Darussalam"],
+    "new_cases": 0,
+    "total_cases": 146,
+    "new_deaths": 0,
+    "total_deaths": 3,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["BG"],
+    "country": ["Bulgaria"],
+    "new_cases": 612,
+    "total_cases": 23871,
+    "new_deaths": 7,
+    "total_deaths": 887,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["BF"],
+    "country": ["Burkina Faso"],
+    "new_cases": 13,
+    "total_cases": 2254,
+    "new_deaths": 0,
+    "total_deaths": 60,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["BI"],
+    "country": ["Burundi"],
+    "new_cases": 0,
+    "total_cases": 515,
+    "new_deaths": 0,
+    "total_deaths": 1,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["KH"],
+    "country": ["Cambodia"],
+    "new_cases": 2,
+    "total_cases": 283,
+    "new_deaths": 0,
+    "total_deaths": 0,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["CM"],
+    "country": ["Cameroon"],
+    "new_cases": 0,
+    "total_cases": 21203,
+    "new_deaths": 0,
+    "total_deaths": 423,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["CA"],
+    "country": ["Canada"],
+    "new_cases": 2895,
+    "total_cases": 180612,
+    "new_deaths": 29,
+    "total_deaths": 9637,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["CV"],
+    "country": ["Cape Verde"],
+    "new_cases": 92,
+    "total_cases": 6809,
+    "new_deaths": 2,
+    "total_deaths": 73,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["CF"],
+    "country": ["Central African Republic"],
+    "new_cases": 0,
+    "total_cases": 4853,
+    "new_deaths": 0,
+    "total_deaths": 62,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["TD"],
+    "country": ["Chad"],
+    "new_cases": 12,
+    "total_cases": 1274,
+    "new_deaths": 1,
+    "total_deaths": 90,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["CL"],
+    "country": ["Chile"],
+    "new_cases": 1753,
+    "total_cases": 477769,
+    "new_deaths": 53,
+    "total_deaths": 13220,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["CN"],
+    "country": ["China"],
+    "new_cases": 23,
+    "total_cases": 90751,
+    "new_deaths": 0,
+    "total_deaths": 4739,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["CO"],
+    "country": ["Colombia"],
+    "new_cases": 8121,
+    "total_cases": 894300,
+    "new_deaths": 315,
+    "total_deaths": 27495,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["KM"],
+    "country": ["Comoros"],
+    "new_cases": 0,
+    "total_cases": 495,
+    "new_deaths": 0,
+    "total_deaths": 7,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["CG"],
+    "country": ["Congo (Brazzaville)"],
+    "new_cases": 29,
+    "total_cases": 5118,
+    "new_deaths": 1,
+    "total_deaths": 90,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["CD"],
+    "country": ["Congo (Kinshasa)"],
+    "new_cases": 13,
+    "total_cases": 10835,
+    "new_deaths": 0,
+    "total_deaths": 276,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["CR"],
+    "country": ["Costa Rica"],
+    "new_cases": 1225,
+    "total_cases": 86053,
+    "new_deaths": 15,
+    "total_deaths": 1055,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["HR"],
+    "country": ["Croatia"],
+    "new_cases": 457,
+    "total_cases": 19446,
+    "new_deaths": 3,
+    "total_deaths": 313,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["CU"],
+    "country": ["Cuba"],
+    "new_cases": 26,
+    "total_cases": 5943,
+    "new_deaths": 0,
+    "total_deaths": 123,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["CY"],
+    "country": ["Cyprus"],
+    "new_cases": 33,
+    "total_cases": 1951,
+    "new_deaths": 1,
+    "total_deaths": 25,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["CZ"],
+    "country": ["Czech Republic"],
+    "new_cases": 8617,
+    "total_cases": 109374,
+    "new_deaths": 36,
+    "total_deaths": 905,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["CI"],
+    "country": ["C\u00f4te d'Ivoire"],
+    "new_cases": 54,
+    "total_cases": 20036,
+    "new_deaths": 0,
+    "total_deaths": 120,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["DK"],
+    "country": ["Denmark"],
+    "new_cases": 483,
+    "total_cases": 32131,
+    "new_deaths": 0,
+    "total_deaths": 665,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["DJ"],
+    "country": ["Djibouti"],
+    "new_cases": 0,
+    "total_cases": 5423,
+    "new_deaths": 0,
+    "total_deaths": 61,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["DM"],
+    "country": ["Dominica"],
+    "new_cases": 1,
+    "total_cases": 32,
+    "new_deaths": 0,
+    "total_deaths": 0,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["DO"],
+    "country": ["Dominican Republic"],
+    "new_cases": 585,
+    "total_cases": 117457,
+    "new_deaths": 2,
+    "total_deaths": 2165,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["EC"],
+    "country": ["Ecuador"],
+    "new_cases": 803,
+    "total_cases": 145848,
+    "new_deaths": 34,
+    "total_deaths": 12175,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["EG"],
+    "country": ["Egypt"],
+    "new_cases": 106,
+    "total_cases": 104262,
+    "new_deaths": 12,
+    "total_deaths": 6029,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["SV"],
+    "country": ["El Salvador"],
+    "new_cases": 109,
+    "total_cases": 29951,
+    "new_deaths": 4,
+    "total_deaths": 881,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["GQ"],
+    "country": ["Equatorial Guinea"],
+    "new_cases": 1,
+    "total_cases": 5063,
+    "new_deaths": 0,
+    "total_deaths": 83,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["ER"],
+    "country": ["Eritrea"],
+    "new_cases": 0,
+    "total_cases": 405,
+    "new_deaths": 0,
+    "total_deaths": 0,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["EE"],
+    "country": ["Estonia"],
+    "new_cases": 49,
+    "total_cases": 3809,
+    "new_deaths": 1,
+    "total_deaths": 68,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["ET"],
+    "country": ["Ethiopia"],
+    "new_cases": 865,
+    "total_cases": 82662,
+    "new_deaths": 9,
+    "total_deaths": 1271,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["FJ"],
+    "country": ["Fiji"],
+    "new_cases": 0,
+    "total_cases": 32,
+    "new_deaths": 0,
+    "total_deaths": 2,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["FI"],
+    "country": ["Finland"],
+    "new_cases": 235,
+    "total_cases": 11580,
+    "new_deaths": 0,
+    "total_deaths": 346,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["FR"],
+    "country": ["France"],
+    "new_cases": 20730,
+    "total_cases": 732434,
+    "new_deaths": 62,
+    "total_deaths": 32601,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["GA"],
+    "country": ["Gabon"],
+    "new_cases": 20,
+    "total_cases": 8835,
+    "new_deaths": 0,
+    "total_deaths": 54,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["GM"],
+    "country": ["Gambia"],
+    "new_cases": 4,
+    "total_cases": 3621,
+    "new_deaths": 0,
+    "total_deaths": 117,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["GE"],
+    "country": ["Georgia"],
+    "new_cases": 527,
+    "total_cases": 10752,
+    "new_deaths": 6,
+    "total_deaths": 72,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["DE"],
+    "country": ["Germany"],
+    "new_cases": 4554,
+    "total_cases": 320495,
+    "new_deaths": 54,
+    "total_deaths": 9599,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["GH"],
+    "country": ["Ghana"],
+    "new_cases": 40,
+    "total_cases": 46987,
+    "new_deaths": 0,
+    "total_deaths": 306,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["GR"],
+    "country": ["Greece"],
+    "new_cases": 391,
+    "total_cases": 21772,
+    "new_deaths": 1,
+    "total_deaths": 431,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["GD"],
+    "country": ["Grenada"],
+    "new_cases": 0,
+    "total_cases": 24,
+    "new_deaths": 0,
+    "total_deaths": 0,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["GT"],
+    "country": ["Guatemala"],
+    "new_cases": 455,
+    "total_cases": 96935,
+    "new_deaths": 9,
+    "total_deaths": 3356,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["GN"],
+    "country": ["Guinea"],
+    "new_cases": 53,
+    "total_cases": 10954,
+    "new_deaths": 0,
+    "total_deaths": 68,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["GW"],
+    "country": ["Guinea-Bissau"],
+    "new_cases": 0,
+    "total_cases": 2385,
+    "new_deaths": 0,
+    "total_deaths": 40,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["GY"],
+    "country": ["Guyana"],
+    "new_cases": 29,
+    "total_cases": 3358,
+    "new_deaths": 2,
+    "total_deaths": 100,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["HT"],
+    "country": ["Haiti"],
+    "new_cases": 0,
+    "total_cases": 8854,
+    "new_deaths": 0,
+    "total_deaths": 230,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["VA"],
+    "country": ["Holy See (Vatican City State)"],
+    "new_cases": 0,
+    "total_cases": 12,
+    "new_deaths": 0,
+    "total_deaths": 0,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["HN"],
+    "country": ["Honduras"],
+    "new_cases": 880,
+    "total_cases": 82552,
+    "new_deaths": 15,
+    "total_deaths": 2492,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["HU"],
+    "country": ["Hungary"],
+    "new_cases": 1176,
+    "total_cases": 35222,
+    "new_deaths": 15,
+    "total_deaths": 913,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["IS"],
+    "country": ["Iceland"],
+    "new_cases": 106,
+    "total_cases": 3373,
+    "new_deaths": 0,
+    "total_deaths": 10,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["IN"],
+    "country": ["India"],
+    "new_cases": 73272,
+    "total_cases": 6979423,
+    "new_deaths": 926,
+    "total_deaths": 107416,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["ID"],
+    "country": ["Indonesia"],
+    "new_cases": 4094,
+    "total_cases": 324658,
+    "new_deaths": 97,
+    "total_deaths": 11677,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["IR"],
+    "country": ["Iran", "Islamic Republic of"],
+    "new_cases": 4142,
+    "total_cases": 492378,
+    "new_deaths": 210,
+    "total_deaths": 28098,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["IQ"],
+    "country": ["Iraq"],
+    "new_cases": 3214,
+    "total_cases": 397780,
+    "new_deaths": 52,
+    "total_deaths": 9735,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["IE"],
+    "country": ["Ireland"],
+    "new_cases": 617,
+    "total_cases": 40703,
+    "new_deaths": 4,
+    "total_deaths": 1821,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["IL"],
+    "country": ["Israel"],
+    "new_cases": 2522,
+    "total_cases": 287858,
+    "new_deaths": 22,
+    "total_deaths": 1886,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["IT"],
+    "country": ["Italy"],
+    "new_cases": 5372,
+    "total_cases": 343770,
+    "new_deaths": 28,
+    "total_deaths": 36111,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["JM"],
+    "country": ["Jamaica"],
+    "new_cases": 90,
+    "total_cases": 7363,
+    "new_deaths": 4,
+    "total_deaths": 132,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["JP"],
+    "country": ["Japan"],
+    "new_cases": 588,
+    "total_cases": 88267,
+    "new_deaths": 6,
+    "total_deaths": 1623,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["JO"],
+    "country": ["Jordan"],
+    "new_cases": 1246,
+    "total_cases": 22763,
+    "new_deaths": 22,
+    "total_deaths": 166,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["KZ"],
+    "country": ["Kazakhstan"],
+    "new_cases": 102,
+    "total_cases": 108663,
+    "new_deaths": 0,
+    "total_deaths": 1746,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["KE"],
+    "country": ["Kenya"],
+    "new_cases": 442,
+    "total_cases": 40620,
+    "new_deaths": 4,
+    "total_deaths": 755,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["KR"],
+    "country": ["Korea (South)"],
+    "new_cases": 72,
+    "total_cases": 24548,
+    "new_deaths": 2,
+    "total_deaths": 430,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["KW"],
+    "country": ["Kuwait"],
+    "new_cases": 635,
+    "total_cases": 110076,
+    "new_deaths": 7,
+    "total_deaths": 649,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["KG"],
+    "country": ["Kyrgyzstan"],
+    "new_cases": 275,
+    "total_cases": 48617,
+    "new_deaths": 4,
+    "total_deaths": 1077,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["LA"],
+    "country": ["Lao PDR"],
+    "new_cases": 0,
+    "total_cases": 23,
+    "new_deaths": 0,
+    "total_deaths": 0,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["LV"],
+    "country": ["Latvia"],
+    "new_cases": 137,
+    "total_cases": 2507,
+    "new_deaths": 0,
+    "total_deaths": 40,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["LB"],
+    "country": ["Lebanon"],
+    "new_cases": 1426,
+    "total_cases": 51170,
+    "new_deaths": 11,
+    "total_deaths": 450,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["LS"],
+    "country": ["Lesotho"],
+    "new_cases": 14,
+    "total_cases": 1800,
+    "new_deaths": 1,
+    "total_deaths": 42,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["LR"],
+    "country": ["Liberia"],
+    "new_cases": 0,
+    "total_cases": 1360,
+    "new_deaths": 0,
+    "total_deaths": 82,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["LY"],
+    "country": ["Libya"],
+    "new_cases": 1076,
+    "total_cases": 41368,
+    "new_deaths": 5,
+    "total_deaths": 621,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["LI"],
+    "country": ["Liechtenstein"],
+    "new_cases": 4,
+    "total_cases": 139,
+    "new_deaths": 0,
+    "total_deaths": 1,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["LT"],
+    "country": ["Lithuania"],
+    "new_cases": 133,
+    "total_cases": 5758,
+    "new_deaths": 1,
+    "total_deaths": 103,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["LU"],
+    "country": ["Luxembourg"],
+    "new_cases": 0,
+    "total_cases": 9119,
+    "new_deaths": 0,
+    "total_deaths": 128,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["MO"],
+    "country": ["Macao", "SAR China"],
+    "new_cases": 0,
+    "total_cases": 0,
+    "new_deaths": 0,
+    "total_deaths": 0,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["MK"],
+    "country": ["Macedonia", "Republic of"],
+    "new_cases": 386,
+    "total_cases": 20163,
+    "new_deaths": 6,
+    "total_deaths": 781,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["MG"],
+    "country": ["Madagascar"],
+    "new_cases": 22,
+    "total_cases": 16676,
+    "new_deaths": 2,
+    "total_deaths": 237,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["MW"],
+    "country": ["Malawi"],
+    "new_cases": 4,
+    "total_cases": 5813,
+    "new_deaths": 0,
+    "total_deaths": 180,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["MY"],
+    "country": ["Malaysia"],
+    "new_cases": 354,
+    "total_cases": 14722,
+    "new_deaths": 6,
+    "total_deaths": 152,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["MV"],
+    "country": ["Maldives"],
+    "new_cases": 66,
+    "total_cases": 10808,
+    "new_deaths": 0,
+    "total_deaths": 34,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["ML"],
+    "country": ["Mali"],
+    "new_cases": 13,
+    "total_cases": 3248,
+    "new_deaths": 0,
+    "total_deaths": 131,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["MT"],
+    "country": ["Malta"],
+    "new_cases": 75,
+    "total_cases": 3581,
+    "new_deaths": 0,
+    "total_deaths": 41,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["MR"],
+    "country": ["Mauritania"],
+    "new_cases": 8,
+    "total_cases": 7548,
+    "new_deaths": 1,
+    "total_deaths": 163,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["MU"],
+    "country": ["Mauritius"],
+    "new_cases": 0,
+    "total_cases": 395,
+    "new_deaths": 0,
+    "total_deaths": 10,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["MX"],
+    "country": ["Mexico"],
+    "new_cases": 5532,
+    "total_cases": 810020,
+    "new_deaths": 401,
+    "total_deaths": 83497,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["MD"],
+    "country": ["Moldova"],
+    "new_cases": 918,
+    "total_cases": 60833,
+    "new_deaths": 18,
+    "total_deaths": 1442,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["MC"],
+    "country": ["Monaco"],
+    "new_cases": 4,
+    "total_cases": 233,
+    "new_deaths": 0,
+    "total_deaths": 2,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["MN"],
+    "country": ["Mongolia"],
+    "new_cases": 0,
+    "total_cases": 315,
+    "new_deaths": 0,
+    "total_deaths": 0,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["ME"],
+    "country": ["Montenegro"],
+    "new_cases": 344,
+    "total_cases": 13348,
+    "new_deaths": 3,
+    "total_deaths": 194,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["MA"],
+    "country": ["Morocco"],
+    "new_cases": 3445,
+    "total_cases": 146398,
+    "new_deaths": 44,
+    "total_deaths": 2530,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["MZ"],
+    "country": ["Mozambique"],
+    "new_cases": 103,
+    "total_cases": 9742,
+    "new_deaths": 1,
+    "total_deaths": 69,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["MM"],
+    "country": ["Myanmar"],
+    "new_cases": 1461,
+    "total_cases": 23906,
+    "new_deaths": 31,
+    "total_deaths": 566,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["NA"],
+    "country": ["Namibia"],
+    "new_cases": 48,
+    "total_cases": 11829,
+    "new_deaths": 0,
+    "total_deaths": 127,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["NP"],
+    "country": ["Nepal"],
+    "new_cases": 2059,
+    "total_cases": 100676,
+    "new_deaths": 10,
+    "total_deaths": 600,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["NL"],
+    "country": ["Netherlands"],
+    "new_cases": 5971,
+    "total_cases": 161781,
+    "new_deaths": 13,
+    "total_deaths": 6544,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["NZ"],
+    "country": ["New Zealand"],
+    "new_cases": 4,
+    "total_cases": 1870,
+    "new_deaths": 0,
+    "total_deaths": 25,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["NI"],
+    "country": ["Nicaragua"],
+    "new_cases": 0,
+    "total_cases": 5264,
+    "new_deaths": 0,
+    "total_deaths": 153,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["NE"],
+    "country": ["Niger"],
+    "new_cases": 0,
+    "total_cases": 1201,
+    "new_deaths": 0,
+    "total_deaths": 69,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["NG"],
+    "country": ["Nigeria"],
+    "new_cases": 151,
+    "total_cases": 59992,
+    "new_deaths": 0,
+    "total_deaths": 1113,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["NO"],
+    "country": ["Norway"],
+    "new_cases": 167,
+    "total_cases": 15388,
+    "new_deaths": 0,
+    "total_deaths": 275,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["OM"],
+    "country": ["Oman"],
+    "new_cases": 0,
+    "total_cases": 104129,
+    "new_deaths": 0,
+    "total_deaths": 1009,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["PK"],
+    "country": ["Pakistan"],
+    "new_cases": 671,
+    "total_cases": 318266,
+    "new_deaths": 6,
+    "total_deaths": 6558,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["PS"],
+    "country": ["Palestinian Territory"],
+    "new_cases": 408,
+    "total_cases": 43664,
+    "new_deaths": 8,
+    "total_deaths": 367,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["PA"],
+    "country": ["Panama"],
+    "new_cases": 787,
+    "total_cases": 118841,
+    "new_deaths": 11,
+    "total_deaths": 2474,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["PG"],
+    "country": ["Papua New Guinea"],
+    "new_cases": 0,
+    "total_cases": 549,
+    "new_deaths": 0,
+    "total_deaths": 7,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["PY"],
+    "country": ["Paraguay"],
+    "new_cases": 959,
+    "total_cases": 48275,
+    "new_deaths": 33,
+    "total_deaths": 1045,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["PE"],
+    "country": ["Peru"],
+    "new_cases": 2952,
+    "total_cases": 838614,
+    "new_deaths": 89,
+    "total_deaths": 33098,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["PH"],
+    "country": ["Philippines"],
+    "new_cases": 2901,
+    "total_cases": 334770,
+    "new_deaths": 83,
+    "total_deaths": 6152,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["PL"],
+    "country": ["Poland"],
+    "new_cases": 4739,
+    "total_cases": 116338,
+    "new_deaths": 52,
+    "total_deaths": 2919,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["PT"],
+    "country": ["Portugal"],
+    "new_cases": 1394,
+    "total_cases": 83928,
+    "new_deaths": 12,
+    "total_deaths": 2062,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["QA"],
+    "country": ["Qatar"],
+    "new_cases": 206,
+    "total_cases": 127600,
+    "new_deaths": 1,
+    "total_deaths": 219,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["XK"],
+    "country": ["Republic of Kosovo"],
+    "new_cases": 33,
+    "total_cases": 15971,
+    "new_deaths": 0,
+    "total_deaths": 638,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["RO"],
+    "country": ["Romania"],
+    "new_cases": 3186,
+    "total_cases": 148886,
+    "new_deaths": 52,
+    "total_deaths": 5299,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["RU"],
+    "country": ["Russian Federation"],
+    "new_cases": 11969,
+    "total_cases": 1265572,
+    "new_deaths": 198,
+    "total_deaths": 22137,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["RW"],
+    "country": ["Rwanda"],
+    "new_cases": 5,
+    "total_cases": 4890,
+    "new_deaths": 1,
+    "total_deaths": 30,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["RE"],
+    "country": ["R\u00e9union"],
+    "new_cases": 0,
+    "total_cases": 0,
+    "new_deaths": 0,
+    "total_deaths": 0,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["KN"],
+    "country": ["Saint Kitts and Nevis"],
+    "new_cases": 0,
+    "total_cases": 19,
+    "new_deaths": 0,
+    "total_deaths": 0,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["LC"],
+    "country": ["Saint Lucia"],
+    "new_cases": 0,
+    "total_cases": 28,
+    "new_deaths": 0,
+    "total_deaths": 0,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["VC"],
+    "country": ["Saint Vincent and Grenadines"],
+    "new_cases": 0,
+    "total_cases": 64,
+    "new_deaths": 0,
+    "total_deaths": 0,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["SM"],
+    "country": ["San Marino"],
+    "new_cases": 0,
+    "total_cases": 741,
+    "new_deaths": 0,
+    "total_deaths": 42,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["ST"],
+    "country": ["Sao Tome and Principe"],
+    "new_cases": 1,
+    "total_cases": 922,
+    "new_deaths": 0,
+    "total_deaths": 15,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["SA"],
+    "country": ["Saudi Arabia"],
+    "new_cases": 407,
+    "total_cases": 338539,
+    "new_deaths": 24,
+    "total_deaths": 4996,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["SN"],
+    "country": ["Senegal"],
+    "new_cases": 23,
+    "total_cases": 15213,
+    "new_deaths": 0,
+    "total_deaths": 313,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["RS"],
+    "country": ["Serbia"],
+    "new_cases": 173,
+    "total_cases": 34517,
+    "new_deaths": 1,
+    "total_deaths": 761,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["SC"],
+    "country": ["Seychelles"],
+    "new_cases": 0,
+    "total_cases": 148,
+    "new_deaths": 0,
+    "total_deaths": 0,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["SL"],
+    "country": ["Sierra Leone"],
+    "new_cases": 2,
+    "total_cases": 2295,
+    "new_deaths": 0,
+    "total_deaths": 72,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["SG"],
+    "country": ["Singapore"],
+    "new_cases": 10,
+    "total_cases": 57859,
+    "new_deaths": 0,
+    "total_deaths": 27,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["SK"],
+    "country": ["Slovakia"],
+    "new_cases": 1184,
+    "total_cases": 16910,
+    "new_deaths": 0,
+    "total_deaths": 57,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["SI"],
+    "country": ["Slovenia"],
+    "new_cases": 365,
+    "total_cases": 7872,
+    "new_deaths": 5,
+    "total_deaths": 165,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["SO"],
+    "country": ["Somalia"],
+    "new_cases": 0,
+    "total_cases": 3745,
+    "new_deaths": 0,
+    "total_deaths": 99,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["ZA"],
+    "country": ["South Africa"],
+    "new_cases": 1461,
+    "total_cases": 688352,
+    "new_deaths": 139,
+    "total_deaths": 17547,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["SS"],
+    "country": ["South Sudan"],
+    "new_cases": 12,
+    "total_cases": 2761,
+    "new_deaths": 1,
+    "total_deaths": 54,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["ES"],
+    "country": ["Spain"],
+    "new_cases": 12788,
+    "total_cases": 861112,
+    "new_deaths": 241,
+    "total_deaths": 32929,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["LK"],
+    "country": ["Sri Lanka"],
+    "new_cases": 35,
+    "total_cases": 4523,
+    "new_deaths": 0,
+    "total_deaths": 13,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["SD"],
+    "country": ["Sudan"],
+    "new_cases": 0,
+    "total_cases": 13670,
+    "new_deaths": 0,
+    "total_deaths": 836,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["SR"],
+    "country": ["Suriname"],
+    "new_cases": 14,
+    "total_cases": 5018,
+    "new_deaths": 0,
+    "total_deaths": 106,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["SZ"],
+    "country": ["Swaziland"],
+    "new_cases": 12,
+    "total_cases": 5644,
+    "new_deaths": 0,
+    "total_deaths": 113,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["SE"],
+    "country": ["Sweden"],
+    "new_cases": 919,
+    "total_cases": 98451,
+    "new_deaths": 2,
+    "total_deaths": 5894,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["CH"],
+    "country": ["Switzerland"],
+    "new_cases": 1487,
+    "total_cases": 60368,
+    "new_deaths": 1,
+    "total_deaths": 2088,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["SY"],
+    "country": ["Syrian Arab Republic (Syria)"],
+    "new_cases": 50,
+    "total_cases": 4616,
+    "new_deaths": 3,
+    "total_deaths": 218,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["TW"],
+    "country": ["Taiwan", "Republic of China"],
+    "new_cases": 3,
+    "total_cases": 527,
+    "new_deaths": 0,
+    "total_deaths": 7,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["TJ"],
+    "country": ["Tajikistan"],
+    "new_cases": 40,
+    "total_cases": 10137,
+    "new_deaths": 1,
+    "total_deaths": 79,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["TZ"],
+    "country": ["Tanzania", "United Republic of"],
+    "new_cases": 0,
+    "total_cases": 509,
+    "new_deaths": 0,
+    "total_deaths": 21,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["TH"],
+    "country": ["Thailand"],
+    "new_cases": 6,
+    "total_cases": 3634,
+    "new_deaths": 0,
+    "total_deaths": 59,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["TL"],
+    "country": ["Timor-Leste"],
+    "new_cases": 0,
+    "total_cases": 28,
+    "new_deaths": 0,
+    "total_deaths": 0,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["TG"],
+    "country": ["Togo"],
+    "new_cases": 14,
+    "total_cases": 1921,
+    "new_deaths": 0,
+    "total_deaths": 49,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["TT"],
+    "country": ["Trinidad and Tobago"],
+    "new_cases": 58,
+    "total_cases": 5021,
+    "new_deaths": 3,
+    "total_deaths": 89,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["TN"],
+    "country": ["Tunisia"],
+    "new_cases": 0,
+    "total_cases": 26899,
+    "new_deaths": 0,
+    "total_deaths": 409,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["TR"],
+    "country": ["Turkey"],
+    "new_cases": 1629,
+    "total_cases": 332382,
+    "new_deaths": 55,
+    "total_deaths": 8722,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["UG"],
+    "country": ["Uganda"],
+    "new_cases": 96,
+    "total_cases": 9538,
+    "new_deaths": 1,
+    "total_deaths": 86,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["UA"],
+    "country": ["Ukraine"],
+    "new_cases": 5961,
+    "total_cases": 257204,
+    "new_deaths": 92,
+    "total_deaths": 4899,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["AE"],
+    "country": ["United Arab Emirates"],
+    "new_cases": 1075,
+    "total_cases": 104004,
+    "new_deaths": 4,
+    "total_deaths": 442,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["GB"],
+    "country": ["United Kingdom"],
+    "new_cases": 13888,
+    "total_cases": 578390,
+    "new_deaths": 87,
+    "total_deaths": 42769,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["US"],
+    "country": ["United States of America"],
+    "new_cases": 57420,
+    "total_cases": 7663293,
+    "new_deaths": 990,
+    "total_deaths": 213752,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["UY"],
+    "country": ["Uruguay"],
+    "new_cases": 25,
+    "total_cases": 2251,
+    "new_deaths": 0,
+    "total_deaths": 49,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["UZ"],
+    "country": ["Uzbekistan"],
+    "new_cases": 316,
+    "total_cases": 60342,
+    "new_deaths": 2,
+    "total_deaths": 498,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["VE"],
+    "country": ["Venezuela (Bolivarian Republic)"],
+    "new_cases": 677,
+    "total_cases": 81696,
+    "new_deaths": 6,
+    "total_deaths": 684,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["VN"],
+    "country": ["Viet Nam"],
+    "new_cases": 5,
+    "total_cases": 1105,
+    "new_deaths": 0,
+    "total_deaths": 35,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["EH"],
+    "country": ["Western Sahara"],
+    "new_cases": 0,
+    "total_cases": 10,
+    "new_deaths": 0,
+    "total_deaths": 1,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["YE"],
+    "country": ["Yemen"],
+    "new_cases": 1,
+    "total_cases": 2051,
+    "new_deaths": 0,
+    "total_deaths": 593,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["ZM"],
+    "country": ["Zambia"],
+    "new_cases": 38,
+    "total_cases": 15339,
+    "new_deaths": 1,
+    "total_deaths": 336,
+    "date": ["2020-10-10T19:36:09Z"]
+  },
+  {
+    "country_code": ["ZW"],
+    "country": ["Zimbabwe"],
+    "new_cases": 43,
+    "total_cases": 7994,
+    "new_deaths": 0,
+    "total_deaths": 229,
+    "date": ["2020-10-10T19:36:09Z"]
+  }
+]

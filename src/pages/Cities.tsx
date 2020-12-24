@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Axios from "axios";
+// import Axios from "axios";
 import highlight from "../utility/getHighlightedText";
 import PaginateTool from "../components/PaginateTool";
 import { citySort } from "../utility/sorts";
 import Error from "../components/Error";
 import CityHeader from "../modelComponents/CityHeader";
+import CityData from "../utility/Cities.json";
 
 const rowData = [
   "overall",
@@ -51,17 +52,19 @@ export default class Cities extends Component {
   // fetches data and resets search values and filter values
   async getData() {
     try {
-      let json = await Axios.get(`https://api.travelwise.live/cities`);
-      this.setState({
-        pageCount: Math.ceil(json.data.length / this.state.perPage),
-        data: json.data,
-        searchActive: false,
-        searchVal: "",
-        filters: null,
-        currentPage: 0,
-        offset: 0,
-      });
-      this.sortData(this.state.sortType);
+      // let json = await Axios.get(`https://api.travelwise.live/cities`);
+      this.setState(
+        {
+          pageCount: Math.ceil(CityData.length / this.state.perPage),
+          data: CityData,
+          searchActive: false,
+          searchVal: "",
+          filters: null,
+          currentPage: 0,
+          offset: 0,
+        },
+        () => this.sortData(this.state.sortType)
+      );
     } catch (error) {
       this.setState({ error: "true" });
     }
@@ -144,10 +147,10 @@ export default class Cities extends Component {
     try {
       e.preventDefault();
 
-      let json = await Axios.get(`https://api.travelwise.live/cities`);
+      // let json = await Axios.get(`https://api.travelwise.live/cities`);
 
       const { searchVal } = this.state;
-      let data = json.data.filter(
+      let data = CityData.filter(
         (city: any) =>
           city.name[0].toLowerCase().includes(searchVal) ||
           city.country[0].toLowerCase().includes(searchVal) ||
@@ -162,13 +165,15 @@ export default class Cities extends Component {
           (city.theft ? city.theft : 0).toString().includes(searchVal) ||
           (city.women ? city.women : 0).toString().includes(searchVal)
       );
-      this.setState({
-        pageCount: Math.ceil(data.length / this.state.perPage),
-        data,
-        searchActive: true,
-        filters: null,
-      });
-      this.sortData(this.state.sortType);
+      this.setState(
+        {
+          pageCount: Math.ceil(data.length / this.state.perPage),
+          data,
+          searchActive: true,
+          filters: null,
+        },
+        () => this.sortData(this.state.sortType)
+      );
     } catch (error) {
       this.setState({ error: "true" });
     }
@@ -182,30 +187,31 @@ export default class Cities extends Component {
   };
 
   handleViewChange = (x: any) => {
-    this.getData();
-    this.setState({ perPage: x ? x.value : 9 });
+    this.setState({ perPage: x ? x.value : 9 }, () => this.getData());
   };
 
   // fetches data and filters through inclusively, resets search to prevent logic errors
   async handleFilter(filters: any) {
     try {
       this.setState({ filters });
-      let json = await Axios.get(`https://api.travelwise.live/cities`);
+      // let json = await Axios.get(`https://api.travelwise.live/cities`);
       if (filters && filters.length > 0) {
-        let data = json.data.filter((airport: any) => {
+        let data = CityData.filter((airport: any) => {
           for (let i = 0; i < filters.length; i++) {
             if (airport.country[0].localeCompare(filters[i].value) === 0)
               return true;
           }
           return false;
         });
-        this.setState({
-          pageCount: Math.ceil(data.length / this.state.perPage),
-          data,
-          searchVal: "",
-          searchActive: false,
-        });
-        this.sortData(this.state.sortType);
+        this.setState(
+          {
+            pageCount: Math.ceil(data.length / this.state.perPage),
+            data,
+            searchVal: "",
+            searchActive: false,
+          },
+          () => this.sortData(this.state.sortType)
+        );
       } else {
         this.getData();
       }

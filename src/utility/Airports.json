@@ -1,0 +1,2452 @@
+[
+  {
+    "iata_code": ["BKK"],
+    "airport_name": ["SUVARNABHUMI INTL"],
+    "city_name": ["BANGKOK"],
+    "country_name": ["THAILAND"],
+    "country_code": ["TH"],
+    "latitude": 13.69139,
+    "longitude": 100.7508,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["HDY"],
+    "airport_name": ["INTERNATIONAL"],
+    "city_name": ["HAT YAI"],
+    "country_name": ["THAILAND"],
+    "country_code": ["TH"],
+    "latitude": 6.93334,
+    "longitude": 100.3931,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["URT"],
+    "airport_name": ["SURAT THANI"],
+    "city_name": ["SURAT THANI"],
+    "country_name": ["THAILAND"],
+    "country_code": ["TH"],
+    "latitude": 9.1325,
+    "longitude": 99.13556,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["UTH"],
+    "airport_name": ["INTERNATIONAL"],
+    "city_name": ["UDON THANI"],
+    "country_name": ["THAILAND"],
+    "country_code": ["TH"],
+    "latitude": 17.38639,
+    "longitude": 102.7883,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["NAK"],
+    "airport_name": ["NAKHON RATCHASIMA"],
+    "city_name": ["NAKHON RATCHASIMA"],
+    "country_name": ["THAILAND"],
+    "country_code": ["TH"],
+    "latitude": 14.94945,
+    "longitude": 102.3131,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["KKC"],
+    "airport_name": ["KHON KAEN"],
+    "city_name": ["KHON KAEN"],
+    "country_name": ["THAILAND"],
+    "country_code": ["TH"],
+    "latitude": 16.46667,
+    "longitude": 102.7836,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["NGO"],
+    "airport_name": ["CHUBU CENTRAIR INTL"],
+    "city_name": ["NAGOYA"],
+    "country_name": ["JAPAN"],
+    "country_code": ["JP"],
+    "latitude": 34.85834,
+    "longitude": 136.8053,
+    "time_offset": ["+09:00"]
+  },
+  {
+    "iata_code": ["SPK"],
+    "airport_name": ["SAPPORO"],
+    "city_name": ["SAPPORO"],
+    "country_name": ["JAPAN"],
+    "country_code": ["JP"],
+    "latitude": 43.06667,
+    "longitude": 141.35001,
+    "time_offset": ["+09:00"]
+  },
+  {
+    "iata_code": ["FUK"],
+    "airport_name": ["FUKUOKA"],
+    "city_name": ["FUKUOKA"],
+    "country_name": ["JAPAN"],
+    "country_code": ["JP"],
+    "latitude": 33.58584,
+    "longitude": 130.45061,
+    "time_offset": ["+09:00"]
+  },
+  {
+    "iata_code": ["MNL"],
+    "airport_name": ["NINOY AQUINO INTL"],
+    "city_name": ["MANILA"],
+    "country_name": ["PHILIPPINES"],
+    "country_code": ["PH"],
+    "latitude": 14.505,
+    "longitude": 121.0045,
+    "time_offset": ["+08:00"]
+  },
+  {
+    "iata_code": ["MXA"],
+    "airport_name": ["MANILA MNPL"],
+    "city_name": ["MANILA"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 40.98001,
+    "longitude": -109.7,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["THR"],
+    "airport_name": ["MEHRABAD INTL"],
+    "city_name": ["TEHRAN"],
+    "country_name": ["IRAN"],
+    "country_code": ["IR"],
+    "latitude": 35.68917,
+    "longitude": 51.31334,
+    "time_offset": ["+03:30"]
+  },
+  {
+    "iata_code": ["MHD"],
+    "airport_name": ["SHAHID HASHEMI NEJAD"],
+    "city_name": ["MASHHAD"],
+    "country_name": ["IRAN"],
+    "country_code": ["IR"],
+    "latitude": 36.23528,
+    "longitude": 59.64084,
+    "time_offset": ["+03:30"]
+  },
+  {
+    "iata_code": ["PYK"],
+    "airport_name": ["PAYAM"],
+    "city_name": ["KARAJ"],
+    "country_name": ["IRAN"],
+    "country_code": ["IR"],
+    "latitude": 35.77612,
+    "longitude": 50.82667,
+    "time_offset": ["+03:30"]
+  },
+  {
+    "iata_code": ["SYZ"],
+    "airport_name": ["SHAHID DASTGHAIB INTL"],
+    "city_name": ["SHIRAZ"],
+    "country_name": ["IRAN"],
+    "country_code": ["IR"],
+    "latitude": 29.53917,
+    "longitude": 52.58973,
+    "time_offset": ["+03:30"]
+  },
+  {
+    "iata_code": ["KSH"],
+    "airport_name": ["SHAHID ASHRAFIESFAHANI"],
+    "city_name": ["KERMANSHAH"],
+    "country_name": ["IRAN"],
+    "country_code": ["IR"],
+    "latitude": 34.34584,
+    "longitude": 47.15806,
+    "time_offset": ["+03:30"]
+  },
+  {
+    "iata_code": ["CNX"],
+    "airport_name": ["CHIANG MAI INTL"],
+    "city_name": ["CHIANG MAI"],
+    "country_name": ["THAILAND"],
+    "country_code": ["TH"],
+    "latitude": 18.76667,
+    "longitude": 98.96667,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["UTP"],
+    "airport_name": ["RAYONG PATTAYA INTL"],
+    "city_name": ["U TAPAO"],
+    "country_name": ["THAILAND"],
+    "country_code": ["TH"],
+    "latitude": 12.68,
+    "longitude": 101.005,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["BCN"],
+    "airport_name": ["AIRPORT"],
+    "city_name": ["BARCELONA"],
+    "country_name": ["SPAIN"],
+    "country_code": ["ES"],
+    "latitude": 41.29695,
+    "longitude": 2.07834,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["BLA"],
+    "airport_name": ["J.A. ANZOATEGUI INTL"],
+    "city_name": ["BARCELONA"],
+    "country_name": ["VENEZUELA"],
+    "country_code": ["VE"],
+    "latitude": 10.10723,
+    "longitude": -64.68916,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["AEX"],
+    "airport_name": ["ALEXANDRIA INTL"],
+    "city_name": ["ALEXANDRIA"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 31.32584,
+    "longitude": -92.54583,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["ALY"],
+    "airport_name": ["EL NOUZHA"],
+    "city_name": ["ALEXANDRIA"],
+    "country_name": ["EGYPT"],
+    "country_code": ["EG"],
+    "latitude": 31.18389,
+    "longitude": 29.94889,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["AXB"],
+    "airport_name": ["MAXSON AIRFIELD"],
+    "city_name": ["ALEXANDRIA BAY"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 44.25,
+    "longitude": -75.9,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["AXL"],
+    "airport_name": ["ALEXANDRIA STATION"],
+    "city_name": ["ALEXANDRIA STATION"],
+    "country_name": ["AUSTRALIA"],
+    "country_code": ["AU"],
+    "latitude": -19.12,
+    "longitude": 136.8,
+    "time_offset": ["+09:30"]
+  },
+  {
+    "iata_code": ["AXN"],
+    "airport_name": ["CHANDLER FIELD"],
+    "city_name": ["ALEXANDRIA"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 45.86639,
+    "longitude": -95.39472,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["XFS"],
+    "airport_name": ["RAILWAY STATION"],
+    "city_name": ["ALEXANDRIA"],
+    "country_name": ["CANADA"],
+    "country_code": ["CA"],
+    "latitude": 45.31806,
+    "longitude": -74.64,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["PSD"],
+    "airport_name": ["PORT SAID"],
+    "city_name": ["PORT SAID"],
+    "country_name": ["EGYPT"],
+    "country_code": ["EG"],
+    "latitude": 31.27945,
+    "longitude": 32.24,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["IST"],
+    "airport_name": ["ISTANBUL AIRPORT"],
+    "city_name": ["ISTANBUL"],
+    "country_name": ["TURKEY"],
+    "country_code": ["TR"],
+    "latitude": 41.26278,
+    "longitude": 28.7425,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["ANK"],
+    "airport_name": ["ETIMESGUT"],
+    "city_name": ["ANKARA"],
+    "country_name": ["TURKEY"],
+    "country_code": ["TR"],
+    "latitude": 39.94973,
+    "longitude": 32.68862,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["YEI"],
+    "airport_name": ["YENISEHIR"],
+    "city_name": ["BURSA"],
+    "country_name": ["TURKEY"],
+    "country_code": ["TR"],
+    "latitude": 40.25528,
+    "longitude": 29.5625,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["AYT"],
+    "airport_name": ["ANTALYA"],
+    "city_name": ["ANTALYA"],
+    "country_name": ["TURKEY"],
+    "country_code": ["TR"],
+    "latitude": 36.89862,
+    "longitude": 30.80056,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["KYA"],
+    "airport_name": ["KONYA"],
+    "city_name": ["KONYA"],
+    "country_name": ["TURKEY"],
+    "country_code": ["TR"],
+    "latitude": 37.97889,
+    "longitude": 32.56195,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["ADA"],
+    "airport_name": ["SAKIRPASA"],
+    "city_name": ["ADANA"],
+    "country_name": ["TURKEY"],
+    "country_code": ["TR"],
+    "latitude": 36.98223,
+    "longitude": 35.28028,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["GZT"],
+    "airport_name": ["OGUZELI"],
+    "city_name": ["GAZIANTEP"],
+    "country_name": ["TURKEY"],
+    "country_code": ["TR"],
+    "latitude": 36.94723,
+    "longitude": 37.47862,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["GIZ"],
+    "airport_name": ["GIZAN"],
+    "city_name": ["GIZAN"],
+    "country_name": ["SAUDI ARABIA"],
+    "country_code": ["SA"],
+    "latitude": 16.90112,
+    "longitude": 42.58584,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["SPX"],
+    "airport_name": ["SPHINX INTERNATIONAL"],
+    "city_name": ["GIZA"],
+    "country_name": ["EGYPT"],
+    "country_code": ["EG"],
+    "latitude": 30.10889,
+    "longitude": 30.895,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["MEP"],
+    "airport_name": ["MERSING"],
+    "city_name": ["MERSING"],
+    "country_name": ["MALAYSIA"],
+    "country_code": ["MY"],
+    "latitude": 2.43306,
+    "longitude": 103.8,
+    "time_offset": ["+08:00"]
+  },
+  {
+    "iata_code": ["MRS"],
+    "airport_name": ["PROVENCE"],
+    "city_name": ["MARSEILLE"],
+    "country_name": ["FRANCE"],
+    "country_code": ["FR"],
+    "latitude": 43.43556,
+    "longitude": 5.21362,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["LYS"],
+    "airport_name": ["SAINT EXUPERY"],
+    "city_name": ["LYON"],
+    "country_name": ["FRANCE"],
+    "country_code": ["FR"],
+    "latitude": 45.72639,
+    "longitude": 5.09084,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["LYO"],
+    "airport_name": ["RICE COUNTY MNCPL"],
+    "city_name": ["LYONS"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 38.34556,
+    "longitude": -98.22694,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["TLS"],
+    "airport_name": ["BLAGNAC"],
+    "city_name": ["TOULOUSE"],
+    "country_name": ["FRANCE"],
+    "country_code": ["FR"],
+    "latitude": 43.62917,
+    "longitude": 1.36389,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["NCE"],
+    "airport_name": ["COTE D AZUR"],
+    "city_name": ["NICE"],
+    "country_name": ["FRANCE"],
+    "country_code": ["FR"],
+    "latitude": 43.65834,
+    "longitude": 7.21584,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["NTE"],
+    "airport_name": ["ATLANTIQUE"],
+    "city_name": ["NANTES"],
+    "country_name": ["FRANCE"],
+    "country_code": ["FR"],
+    "latitude": 47.15306,
+    "longitude": -1.61083,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["MPL"],
+    "airport_name": ["MEDITERRANEE"],
+    "city_name": ["MONTPELLIER"],
+    "country_name": ["FRANCE"],
+    "country_code": ["FR"],
+    "latitude": 43.5775,
+    "longitude": 3.95862,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["SXB"],
+    "airport_name": ["ENTZHEIM"],
+    "city_name": ["STRASBOURG"],
+    "country_name": ["FRANCE"],
+    "country_code": ["FR"],
+    "latitude": 48.53834,
+    "longitude": 7.62834,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["LBA"],
+    "airport_name": ["AIRPORT"],
+    "city_name": ["LEEDS BRADFORD"],
+    "country_name": ["UNITED KINGDOM"],
+    "country_code": ["GB"],
+    "latitude": 53.86584,
+    "longitude": -1.66055,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["GLA"],
+    "airport_name": ["GLASGOW INTL"],
+    "city_name": ["GLASGOW"],
+    "country_name": ["UNITED KINGDOM"],
+    "country_code": ["GB"],
+    "latitude": 55.87195,
+    "longitude": -4.43305,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["GGW"],
+    "airport_name": ["GLASGOW INTL"],
+    "city_name": ["GLASGOW"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 48.22,
+    "longitude": -106.6,
+    "time_offset": ["-06:00"]
+  },
+  {
+    "iata_code": ["GLW"],
+    "airport_name": ["GLASGOW MNPL"],
+    "city_name": ["GLASGOW"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 37.03,
+    "longitude": -85.95,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["MAN"],
+    "airport_name": ["MANCHESTER AIRPORT"],
+    "city_name": ["MANCHESTER"],
+    "country_name": ["UNITED KINGDOM"],
+    "country_code": ["GB"],
+    "latitude": 53.35362,
+    "longitude": -2.275,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["MHT"],
+    "airport_name": ["MANCHESTER BOSTON RGNL"],
+    "city_name": ["MANCHESTER"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 42.9325,
+    "longitude": -71.43555,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["BRS"],
+    "airport_name": ["BRISTOL"],
+    "city_name": ["BRISTOL"],
+    "country_name": ["UNITED KINGDOM"],
+    "country_code": ["GB"],
+    "latitude": 51.38278,
+    "longitude": -2.71916,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["TRI"],
+    "airport_name": ["TRI-CITIES RGNL TN/VA"],
+    "city_name": ["BRISTOL/JOHNSON/KINGSP"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 36.47528,
+    "longitude": -82.4075,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["DSA"],
+    "airport_name": ["ROBIN HOOD"],
+    "city_name": ["DONCASTER/SHEFFIELD"],
+    "country_name": ["UNITED KINGDOM"],
+    "country_code": ["GB"],
+    "latitude": 53.48195,
+    "longitude": -1.00555,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["LPL"],
+    "airport_name": ["JOHN LENNON"],
+    "city_name": ["LIVERPOOL"],
+    "country_name": ["UNITED KINGDOM"],
+    "country_code": ["GB"],
+    "latitude": 53.33362,
+    "longitude": -2.84972,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["QEW"],
+    "airport_name": ["LEICESTER"],
+    "city_name": ["LEICESTER"],
+    "country_name": ["UNITED KINGDOM"],
+    "country_code": ["GB"],
+    "latitude": 52.63,
+    "longitude": -1.08305,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["SHA"],
+    "airport_name": ["HONGQIAO INTL"],
+    "city_name": ["SHANGHAI"],
+    "country_name": ["CHINA"],
+    "country_code": ["CN"],
+    "latitude": 31.19778,
+    "longitude": 121.3364,
+    "time_offset": ["+08:00"]
+  },
+  {
+    "iata_code": ["TSN"],
+    "airport_name": ["BINHAI INTL"],
+    "city_name": ["TIANJIN"],
+    "country_name": ["CHINA"],
+    "country_code": ["CN"],
+    "latitude": 39.13028,
+    "longitude": 117.3528,
+    "time_offset": ["+08:00"]
+  },
+  {
+    "iata_code": ["YNZ"],
+    "airport_name": ["NANYANG"],
+    "city_name": ["YANCHENG"],
+    "country_name": ["CHINA"],
+    "country_code": ["CN"],
+    "latitude": 33.43028,
+    "longitude": 120.2008,
+    "time_offset": ["+08:00"]
+  },
+  {
+    "iata_code": ["NNY"],
+    "airport_name": ["JIANGYING"],
+    "city_name": ["NANYANG"],
+    "country_name": ["CHINA"],
+    "country_code": ["CN"],
+    "latitude": 32.98084,
+    "longitude": 112.615,
+    "time_offset": ["+08:00"]
+  },
+  {
+    "iata_code": ["CTU"],
+    "airport_name": ["SHUANGLIU INTL"],
+    "city_name": ["CHENGDU"],
+    "country_name": ["CHINA"],
+    "country_code": ["CN"],
+    "latitude": 30.57862,
+    "longitude": 103.9472,
+    "time_offset": ["+08:00"]
+  },
+  {
+    "iata_code": ["LYI"],
+    "airport_name": ["SHUBULING"],
+    "city_name": ["LINYI"],
+    "country_name": ["CHINA"],
+    "country_code": ["CN"],
+    "latitude": 35.04723,
+    "longitude": 118.4083,
+    "time_offset": ["+08:00"]
+  },
+  {
+    "iata_code": ["BOM"],
+    "airport_name": ["CHHATRAPATI S MAHARAJ"],
+    "city_name": ["MUMBAI"],
+    "country_name": ["INDIA"],
+    "country_code": ["IN"],
+    "latitude": 19.08862,
+    "longitude": 72.86806,
+    "time_offset": ["+05:30"]
+  },
+  {
+    "iata_code": ["MAA"],
+    "airport_name": ["CHENNAI INTERNATIONAL"],
+    "city_name": ["CHENNAI"],
+    "country_name": ["INDIA"],
+    "country_code": ["IN"],
+    "latitude": 12.98834,
+    "longitude": 80.16584,
+    "time_offset": ["+05:30"]
+  },
+  {
+    "iata_code": ["CCU"],
+    "airport_name": ["SUBHAS CHANDRA BOSE"],
+    "city_name": ["KOLKATA"],
+    "country_name": ["INDIA"],
+    "country_code": ["IN"],
+    "latitude": 22.65473,
+    "longitude": 88.44667,
+    "time_offset": ["+05:30"]
+  },
+  {
+    "iata_code": ["ZQN"],
+    "airport_name": ["QUEENSTOWN"],
+    "city_name": ["QUEENSTOWN"],
+    "country_name": ["NEW ZEALAND"],
+    "country_code": ["NZ"],
+    "latitude": -45.01833,
+    "longitude": 168.74001,
+    "time_offset": ["+13:00"]
+  },
+  {
+    "iata_code": ["UEE"],
+    "airport_name": ["QUEENSTOWN"],
+    "city_name": ["QUEENSTOWN"],
+    "country_name": ["AUSTRALIA"],
+    "country_code": ["AU"],
+    "latitude": -42.0,
+    "longitude": 145.5,
+    "time_offset": ["+11:00"]
+  },
+  {
+    "iata_code": ["UTW"],
+    "airport_name": ["QUEENSTOWN"],
+    "city_name": ["QUEENSTOWN"],
+    "country_name": ["SOUTH AFRICA"],
+    "country_code": ["ZA"],
+    "latitude": -31.92027,
+    "longitude": 26.88223,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["MHK"],
+    "airport_name": ["REGIONAL"],
+    "city_name": ["MANHATTAN"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 39.14084,
+    "longitude": -96.67083,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["PHX"],
+    "airport_name": ["SKY HARBOR INTL"],
+    "city_name": ["PHOENIX"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 33.43556,
+    "longitude": -111.9981,
+    "time_offset": ["-07:00"]
+  },
+  {
+    "iata_code": ["SYX"],
+    "airport_name": ["PHOENIX INTL"],
+    "city_name": ["SANYA"],
+    "country_name": ["CHINA"],
+    "country_code": ["CN"],
+    "latitude": 18.30278,
+    "longitude": 109.4122,
+    "time_offset": ["+08:00"]
+  },
+  {
+    "iata_code": ["GYR"],
+    "airport_name": ["PHOENIX GOODYEAR"],
+    "city_name": ["GOODYEAR"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 33.43,
+    "longitude": -112.4,
+    "time_offset": ["-07:00"]
+  },
+  {
+    "iata_code": ["TIJ"],
+    "airport_name": ["A.L. RODRIGUEZ INTL"],
+    "city_name": ["TIJUANA"],
+    "country_name": ["MEXICO"],
+    "country_code": ["MX"],
+    "latitude": 32.54334,
+    "longitude": -116.9736,
+    "time_offset": ["-07:00"]
+  },
+  {
+    "iata_code": ["GDL"],
+    "airport_name": ["MIGUEL HIDALGO INTL"],
+    "city_name": ["GUADALAJARA"],
+    "country_name": ["MEXICO"],
+    "country_code": ["MX"],
+    "latitude": 20.52167,
+    "longitude": -103.3111,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["GDU"],
+    "airport_name": ["RAILWAY STATION"],
+    "city_name": ["GUADALAJARA"],
+    "country_name": ["SPAIN"],
+    "country_code": ["ES"],
+    "latitude": 40.58751,
+    "longitude": -3.12472,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["SGN"],
+    "airport_name": ["TAN SON NHAT INTL"],
+    "city_name": ["HO CHI MINH CITY"],
+    "country_name": ["VIETNAM"],
+    "country_code": ["VN"],
+    "latitude": 10.81889,
+    "longitude": 106.652,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["CAN"],
+    "airport_name": ["BAIYUN INTL"],
+    "city_name": ["GUANGZHOU"],
+    "country_name": ["CHINA"],
+    "country_code": ["CN"],
+    "latitude": 23.3925,
+    "longitude": 113.2989,
+    "time_offset": ["+08:00"]
+  },
+  {
+    "iata_code": ["SZX"],
+    "airport_name": ["BAO AN INTL"],
+    "city_name": ["SHENZHEN"],
+    "country_name": ["CHINA"],
+    "country_code": ["CN"],
+    "latitude": 22.63917,
+    "longitude": 113.8106,
+    "time_offset": ["+08:00"]
+  },
+  {
+    "iata_code": ["WUH"],
+    "airport_name": ["TIANHE INTL"],
+    "city_name": ["WUHAN"],
+    "country_name": ["CHINA"],
+    "country_code": ["CN"],
+    "latitude": 30.78389,
+    "longitude": 114.2081,
+    "time_offset": ["+08:00"]
+  },
+  {
+    "iata_code": ["DEL"],
+    "airport_name": ["INDIRA GANDHI INTL"],
+    "city_name": ["DELHI"],
+    "country_name": ["INDIA"],
+    "country_code": ["IN"],
+    "latitude": 28.56639,
+    "longitude": 77.10306,
+    "time_offset": ["+05:30"]
+  },
+  {
+    "iata_code": ["BLR"],
+    "airport_name": ["KEMPEGOWDA INTL"],
+    "city_name": ["BENGALURU"],
+    "country_name": ["INDIA"],
+    "country_code": ["IN"],
+    "latitude": 13.20084,
+    "longitude": 77.70889,
+    "time_offset": ["+05:30"]
+  },
+  {
+    "iata_code": ["HYD"],
+    "airport_name": ["RAJIV GANDHI INTL"],
+    "city_name": ["HYDERABAD"],
+    "country_name": ["INDIA"],
+    "country_code": ["IN"],
+    "latitude": 17.23139,
+    "longitude": 78.42973,
+    "time_offset": ["+05:30"]
+  },
+  {
+    "iata_code": ["HDD"],
+    "airport_name": ["HYDERABAD"],
+    "city_name": ["HYDERABAD"],
+    "country_name": ["PAKISTAN"],
+    "country_code": ["PK"],
+    "latitude": 25.31834,
+    "longitude": 68.36556,
+    "time_offset": ["+05:00"]
+  },
+  {
+    "iata_code": ["AMD"],
+    "airport_name": ["S.VALLABHBHAI PATEL"],
+    "city_name": ["AHMEDABAD"],
+    "country_name": ["INDIA"],
+    "country_code": ["IN"],
+    "latitude": 23.07723,
+    "longitude": 72.63473,
+    "time_offset": ["+05:30"]
+  },
+  {
+    "iata_code": ["PNQ"],
+    "airport_name": ["LOHEGAON"],
+    "city_name": ["PUNE"],
+    "country_name": ["INDIA"],
+    "country_code": ["IN"],
+    "latitude": 18.58223,
+    "longitude": 73.92,
+    "time_offset": ["+05:30"]
+  },
+  {
+    "iata_code": ["LAX"],
+    "airport_name": ["LOS ANGELES INTL"],
+    "city_name": ["LOS ANGELES"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 33.9425,
+    "longitude": -118.4081,
+    "time_offset": ["-07:00"]
+  },
+  {
+    "iata_code": ["BHL"],
+    "airport_name": ["BAHIA DE LOS ANGELES"],
+    "city_name": ["BAHIA DE LOS ANGELES"],
+    "country_name": ["MEXICO"],
+    "country_code": ["MX"],
+    "latitude": 28.97639,
+    "longitude": -113.5603,
+    "time_offset": ["-07:00"]
+  },
+  {
+    "iata_code": ["LSQ"],
+    "airport_name": ["MARIA DOLORES"],
+    "city_name": ["LOS ANGELES"],
+    "country_name": ["CHILE"],
+    "country_code": ["CL"],
+    "latitude": -37.40166,
+    "longitude": -72.42555,
+    "time_offset": ["-03:00"]
+  },
+  {
+    "iata_code": ["CHI"],
+    "airport_name": ["CHICAGO"],
+    "city_name": ["CHICAGO"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 41.85,
+    "longitude": -87.65,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["HOU"],
+    "airport_name": ["WILLIAM P HOBBY"],
+    "city_name": ["HOUSTON"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 29.64556,
+    "longitude": -95.27888,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["ZHO"],
+    "airport_name": ["HOUSTON BUS"],
+    "city_name": ["HOUSTON"],
+    "country_name": ["CANADA"],
+    "country_code": ["CA"],
+    "latitude": 54.43806,
+    "longitude": -126.7778,
+    "time_offset": ["-07:00"]
+  },
+  {
+    "iata_code": ["PHL"],
+    "airport_name": ["PHILADELPHIA INTL"],
+    "city_name": ["PHILADELPHIA"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 39.87834,
+    "longitude": -75.24027,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["PHD"],
+    "airport_name": ["HARRY CLEVER FIELD"],
+    "city_name": ["NEW PHILADELPHIA"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 40.47167,
+    "longitude": -81.41861,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["SUB"],
+    "airport_name": ["JUANDA"],
+    "city_name": ["SURABAYA"],
+    "country_name": ["INDONESIA"],
+    "country_code": ["ID"],
+    "latitude": -7.38,
+    "longitude": 112.785,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["BDO"],
+    "airport_name": ["HUSEIN SASTRANEGARA"],
+    "city_name": ["BANDUNG"],
+    "country_name": ["INDONESIA"],
+    "country_code": ["ID"],
+    "latitude": -6.9,
+    "longitude": 107.5833,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["MES"],
+    "airport_name": ["POLONIA"],
+    "city_name": ["MEDAN"],
+    "country_name": ["INDONESIA"],
+    "country_code": ["ID"],
+    "latitude": 3.55806,
+    "longitude": 98.67167,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["MAO"],
+    "airport_name": ["EDUARDO GOMES"],
+    "city_name": ["MANAUS"],
+    "country_name": ["BRAZIL"],
+    "country_code": ["BR"],
+    "latitude": -3.03861,
+    "longitude": -60.04972,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["QOW"],
+    "airport_name": ["SAM MBAKWE INTL"],
+    "city_name": ["OWERRI"],
+    "country_name": ["NIGERIA"],
+    "country_code": ["NG"],
+    "latitude": 5.42695,
+    "longitude": 7.20612,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["ABV"],
+    "airport_name": ["NNAMDI AZIKIWE INTL"],
+    "city_name": ["ABUJA"],
+    "country_name": ["NIGERIA"],
+    "country_code": ["NG"],
+    "latitude": 9.00667,
+    "longitude": 7.26417,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["JKT"],
+    "airport_name": ["JAKARTA"],
+    "city_name": ["JAKARTA"],
+    "country_name": ["INDONESIA"],
+    "country_code": ["ID"],
+    "latitude": -6.26694,
+    "longitude": 106.9,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["SRG"],
+    "airport_name": ["AHMAD YANI"],
+    "city_name": ["SEMARANG"],
+    "country_name": ["INDONESIA"],
+    "country_code": ["ID"],
+    "latitude": -6.9725,
+    "longitude": 110.3753,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["RIO"],
+    "airport_name": ["RIO DE JANEIRO"],
+    "city_name": ["RIO DE JANEIRO"],
+    "country_name": ["BRAZIL"],
+    "country_code": ["BR"],
+    "latitude": -22.90277,
+    "longitude": -43.2075,
+    "time_offset": ["-03:00"]
+  },
+  {
+    "iata_code": ["SSA"],
+    "airport_name": ["D.L.E.MAGALHAES"],
+    "city_name": ["SALVADOR"],
+    "country_name": ["BRAZIL"],
+    "country_code": ["BR"],
+    "latitude": -12.91111,
+    "longitude": -38.33111,
+    "time_offset": ["-03:00"]
+  },
+  {
+    "iata_code": ["SAL"],
+    "airport_name": ["EL SALVADOR INTL"],
+    "city_name": ["SAN SALVADOR"],
+    "country_name": ["EL SALVADOR"],
+    "country_code": ["SV"],
+    "latitude": 13.44084,
+    "longitude": -89.05583,
+    "time_offset": ["-06:00"]
+  },
+  {
+    "iata_code": ["ZSA"],
+    "airport_name": ["COCKBURN TOWN"],
+    "city_name": ["SAN SALVADOR"],
+    "country_name": ["BAHAMAS"],
+    "country_code": ["BS"],
+    "latitude": 24.06334,
+    "longitude": -74.52388,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["ESR"],
+    "airport_name": ["RICARDO GARCIA POSADA"],
+    "city_name": ["EL SALVADOR"],
+    "country_name": ["CHILE"],
+    "country_code": ["CL"],
+    "latitude": -26.31111,
+    "longitude": -69.76527,
+    "time_offset": ["-03:00"]
+  },
+  {
+    "iata_code": ["SVV"],
+    "airport_name": ["SAN SALVADOR DE PAUL"],
+    "city_name": ["SAN SALVADOR DE PAUL"],
+    "country_name": ["VENEZUELA"],
+    "country_code": ["VE"],
+    "latitude": 7.0,
+    "longitude": -62.0,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["BHZ"],
+    "airport_name": ["BELO HORIZONTE"],
+    "city_name": ["BELO HORIZONTE"],
+    "country_name": ["BRAZIL"],
+    "country_code": ["BR"],
+    "latitude": -19.92083,
+    "longitude": -43.93777,
+    "time_offset": ["-03:00"]
+  },
+  {
+    "iata_code": ["CWB"],
+    "airport_name": ["AFONSO PENA INTL"],
+    "city_name": ["CURITIBA"],
+    "country_name": ["BRAZIL"],
+    "country_code": ["BR"],
+    "latitude": -25.52861,
+    "longitude": -49.17583,
+    "time_offset": ["-03:00"]
+  },
+  {
+    "iata_code": ["KHI"],
+    "airport_name": ["JINNAH INTL"],
+    "city_name": ["KARACHI"],
+    "country_name": ["PAKISTAN"],
+    "country_code": ["PK"],
+    "latitude": 24.90667,
+    "longitude": 67.16084,
+    "time_offset": ["+05:00"]
+  },
+  {
+    "iata_code": ["LHE"],
+    "airport_name": ["ALLAMA IQBAL INTL"],
+    "city_name": ["LAHORE"],
+    "country_name": ["PAKISTAN"],
+    "country_code": ["PK"],
+    "latitude": 31.52167,
+    "longitude": 74.40362,
+    "time_offset": ["+05:00"]
+  },
+  {
+    "iata_code": ["SKT"],
+    "airport_name": ["INTERNATIONAL"],
+    "city_name": ["SIALKOT"],
+    "country_name": ["PAKISTAN"],
+    "country_code": ["PK"],
+    "latitude": 32.53556,
+    "longitude": 74.36389,
+    "time_offset": ["+05:00"]
+  },
+  {
+    "iata_code": ["PEW"],
+    "airport_name": ["BACHA KHAN INTL"],
+    "city_name": ["PESHAWAR"],
+    "country_name": ["PAKISTAN"],
+    "country_code": ["PK"],
+    "latitude": 33.99389,
+    "longitude": 71.51445,
+    "time_offset": ["+05:00"]
+  },
+  {
+    "iata_code": ["MUX"],
+    "airport_name": ["INTERNATIONAL"],
+    "city_name": ["MULTAN"],
+    "country_name": ["PAKISTAN"],
+    "country_code": ["PK"],
+    "latitude": 30.20334,
+    "longitude": 71.41917,
+    "time_offset": ["+05:00"]
+  },
+  {
+    "iata_code": ["UET"],
+    "airport_name": ["INTERNATIONAL"],
+    "city_name": ["QUETTA"],
+    "country_name": ["PAKISTAN"],
+    "country_code": ["PK"],
+    "latitude": 30.25139,
+    "longitude": 66.93778,
+    "time_offset": ["+05:00"]
+  },
+  {
+    "iata_code": ["LOS"],
+    "airport_name": ["MURTALA MUHAMMED INTL"],
+    "city_name": ["LAGOS"],
+    "country_name": ["NIGERIA"],
+    "country_code": ["NG"],
+    "latitude": 6.5775,
+    "longitude": 3.32112,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["LOM"],
+    "airport_name": ["F. PRIMO DE VERDAD"],
+    "city_name": ["LAGOS DE MORENO"],
+    "country_name": ["MEXICO"],
+    "country_code": ["MX"],
+    "latitude": 21.25917,
+    "longitude": -101.9436,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["KAN"],
+    "airport_name": ["MALLAM AMINU KANO INTL"],
+    "city_name": ["KANO"],
+    "country_name": ["NIGERIA"],
+    "country_code": ["NG"],
+    "latitude": 12.0475,
+    "longitude": 8.52473,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["MIU"],
+    "airport_name": ["MAIDUGURI INTL"],
+    "city_name": ["MAIDUGURI"],
+    "country_name": ["NIGERIA"],
+    "country_code": ["NG"],
+    "latitude": 11.85528,
+    "longitude": 13.08084,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["BNI"],
+    "airport_name": ["BENIN CITY"],
+    "city_name": ["BENIN CITY"],
+    "country_name": ["NIGERIA"],
+    "country_code": ["NG"],
+    "latitude": 6.31695,
+    "longitude": 5.59945,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["PHC"],
+    "airport_name": ["PORT HARCOURT INTL"],
+    "city_name": ["PORT HARCOURT"],
+    "country_name": ["NIGERIA"],
+    "country_code": ["NG"],
+    "latitude": 5.01556,
+    "longitude": 6.94973,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["ZAR"],
+    "airport_name": ["ZARIA"],
+    "city_name": ["ZARIA"],
+    "country_name": ["NIGERIA"],
+    "country_code": ["NG"],
+    "latitude": 11.13028,
+    "longitude": 7.68584,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["KUF"],
+    "airport_name": ["KURUMOCH INTL"],
+    "city_name": ["SAMARA"],
+    "country_name": ["RUSSIA"],
+    "country_code": ["RU"],
+    "latitude": 53.50806,
+    "longitude": 50.15167,
+    "time_offset": ["+04:00"]
+  },
+  {
+    "iata_code": ["PLD"],
+    "airport_name": ["PLAYA SAMARA/CARRILLO"],
+    "city_name": ["PLAYA SAMARA/CARRILLO"],
+    "country_name": ["COSTA RICA"],
+    "country_code": ["CR"],
+    "latitude": 9.87056,
+    "longitude": -85.48138,
+    "time_offset": ["-06:00"]
+  },
+  {
+    "iata_code": ["SQT"],
+    "airport_name": ["CHINA STRAIT"],
+    "city_name": ["SAMARAI ISLAND"],
+    "country_name": ["PAPUA NEW GUINEA"],
+    "country_code": ["PG"],
+    "latitude": -10.55,
+    "longitude": 150.7,
+    "time_offset": ["+10:00"]
+  },
+  {
+    "iata_code": ["DSE"],
+    "airport_name": ["KOMBOLCHA"],
+    "city_name": ["DESSIE"],
+    "country_name": ["ETHIOPIA"],
+    "country_code": ["ET"],
+    "latitude": 11.11112,
+    "longitude": 39.725,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["JIM"],
+    "airport_name": ["ABA SEGUD"],
+    "city_name": ["JIMMA"],
+    "country_name": ["ETHIOPIA"],
+    "country_code": ["ET"],
+    "latitude": 7.66445,
+    "longitude": 36.81917,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["JIJ"],
+    "airport_name": ["JIJIGA"],
+    "city_name": ["JIJIGA"],
+    "country_name": ["ETHIOPIA"],
+    "country_code": ["ET"],
+    "latitude": 9.33084,
+    "longitude": 42.91112,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["HPH"],
+    "airport_name": ["CAT BI INTL"],
+    "city_name": ["HAIPHONG"],
+    "country_name": ["VIETNAM"],
+    "country_code": ["VN"],
+    "latitude": 20.81945,
+    "longitude": 106.725,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["DAD"],
+    "airport_name": ["INTERNATIONAL"],
+    "city_name": ["DA NANG"],
+    "country_name": ["VIETNAM"],
+    "country_code": ["VN"],
+    "latitude": 16.04389,
+    "longitude": 108.1995,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["OVB"],
+    "airport_name": ["TOLMACHEVO"],
+    "city_name": ["NOVOSIBIRSK"],
+    "country_name": ["RUSSIA"],
+    "country_code": ["RU"],
+    "latitude": 55.0125,
+    "longitude": 82.65056,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["SVX"],
+    "airport_name": ["KOLTSOVO"],
+    "city_name": ["YEKATERINBURG"],
+    "country_name": ["RUSSIA"],
+    "country_code": ["RU"],
+    "latitude": 56.74306,
+    "longitude": 60.80278,
+    "time_offset": ["+05:00"]
+  },
+  {
+    "iata_code": ["GOJ"],
+    "airport_name": ["STRIGINO"],
+    "city_name": ["NIZHNY NOVGOROD"],
+    "country_name": ["RUSSIA"],
+    "country_code": ["RU"],
+    "latitude": 56.23001,
+    "longitude": 43.78417,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["HER"],
+    "airport_name": ["NIKOS KAZANTZAKIS"],
+    "city_name": ["IRAKLEION"],
+    "country_name": ["GREECE"],
+    "country_code": ["GR"],
+    "latitude": 35.33917,
+    "longitude": 25.175,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["KZN"],
+    "airport_name": ["KAZAN INTL"],
+    "city_name": ["KAZAN"],
+    "country_name": ["RUSSIA"],
+    "country_code": ["RU"],
+    "latitude": 55.60612,
+    "longitude": 49.27862,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["CEK"],
+    "airport_name": ["BALANDINO"],
+    "city_name": ["CHELYABINSK"],
+    "country_name": ["RUSSIA"],
+    "country_code": ["RU"],
+    "latitude": 55.30584,
+    "longitude": 61.50334,
+    "time_offset": ["+05:00"]
+  },
+  {
+    "iata_code": ["OMS"],
+    "airport_name": ["TSENTRALNY"],
+    "city_name": ["OMSK"],
+    "country_name": ["RUSSIA"],
+    "country_code": ["RU"],
+    "latitude": 54.96695,
+    "longitude": 73.31056,
+    "time_offset": ["+06:00"]
+  },
+  {
+    "iata_code": ["AWA"],
+    "airport_name": ["AWASA"],
+    "city_name": ["AWASA"],
+    "country_name": ["ETHIOPIA"],
+    "country_code": ["ET"],
+    "latitude": 7.06667,
+    "longitude": 38.5,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["DIR"],
+    "airport_name": ["ABA TENNA D YILMA INTL"],
+    "city_name": ["DIRE DAWA"],
+    "country_name": ["ETHIOPIA"],
+    "country_code": ["ET"],
+    "latitude": 9.62473,
+    "longitude": 41.85417,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["HAN"],
+    "airport_name": ["NOI BAI INTL"],
+    "city_name": ["HANOI"],
+    "country_name": ["VIETNAM"],
+    "country_code": ["VN"],
+    "latitude": 21.22112,
+    "longitude": 105.8072,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["VII"],
+    "airport_name": ["VINH"],
+    "city_name": ["VINH"],
+    "country_name": ["VIETNAM"],
+    "country_code": ["VN"],
+    "latitude": 18.7375,
+    "longitude": 105.6708,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["OMY"],
+    "airport_name": ["PREAH VINHEAR"],
+    "city_name": ["THBENG MEANCHEY"],
+    "country_name": ["CAMBODIA"],
+    "country_code": ["KH"],
+    "latitude": 13.82,
+    "longitude": 105.0,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["PHU"],
+    "airport_name": ["PHUOC VINH"],
+    "city_name": ["PHUOC VINH"],
+    "country_name": ["VIETNAM"],
+    "country_code": ["VN"],
+    "latitude": 11.30028,
+    "longitude": 106.7928,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["XVL"],
+    "airport_name": ["VINH LONG"],
+    "city_name": ["VINH LONG"],
+    "country_name": ["VIETNAM"],
+    "country_code": ["VN"],
+    "latitude": 10.25223,
+    "longitude": 105.9461,
+    "time_offset": ["+07:00"]
+  },
+  {
+    "iata_code": ["BER"],
+    "airport_name": ["BRANDENBURG"],
+    "city_name": ["BERLIN"],
+    "country_name": ["GERMANY"],
+    "country_code": ["DE"],
+    "latitude": 52.36223,
+    "longitude": 13.50167,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["BML"],
+    "airport_name": ["REGIONAL"],
+    "city_name": ["BERLIN"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 44.57473,
+    "longitude": -71.175,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["HAM"],
+    "airport_name": ["HAMBURG"],
+    "city_name": ["HAMBURG"],
+    "country_name": ["GERMANY"],
+    "country_code": ["DE"],
+    "latitude": 53.63028,
+    "longitude": 9.98834,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["MUC"],
+    "airport_name": ["MUNICH INTERNATIONAL"],
+    "city_name": ["MUNICH"],
+    "country_name": ["GERMANY"],
+    "country_code": ["DE"],
+    "latitude": 48.35389,
+    "longitude": 11.78612,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["CGN"],
+    "airport_name": ["COLOGNE/BONN"],
+    "city_name": ["COLOGNE/BONN"],
+    "country_name": ["GERMANY"],
+    "country_code": ["DE"],
+    "latitude": 50.87889,
+    "longitude": 7.12306,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["STR"],
+    "airport_name": ["STUTTGART AIRPORT"],
+    "city_name": ["STUTTGART"],
+    "country_name": ["GERMANY"],
+    "country_code": ["DE"],
+    "latitude": 48.69028,
+    "longitude": 9.19528,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["SGT"],
+    "airport_name": ["MUNICIPAL"],
+    "city_name": ["STUTTGART"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 34.6,
+    "longitude": -91.57,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["LEJ"],
+    "airport_name": ["LEIPZIG/HALLE"],
+    "city_name": ["LEIPZIG/HALLE"],
+    "country_name": ["GERMANY"],
+    "country_code": ["DE"],
+    "latitude": 51.42139,
+    "longitude": 12.22195,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["ZHZ"],
+    "airport_name": ["HALLE HBF RAIL STATION"],
+    "city_name": ["LEIPZIG/HALLE"],
+    "country_name": ["GERMANY"],
+    "country_code": ["DE"],
+    "latitude": 52.07,
+    "longitude": 11.97,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["ESS"],
+    "airport_name": ["MUELHEIM"],
+    "city_name": ["ESSEN"],
+    "country_name": ["GERMANY"],
+    "country_code": ["DE"],
+    "latitude": 51.40334,
+    "longitude": 6.94,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["DTM"],
+    "airport_name": ["DORTMUND"],
+    "city_name": ["DORTMUND"],
+    "country_name": ["GERMANY"],
+    "country_code": ["DE"],
+    "latitude": 51.51834,
+    "longitude": 7.61223,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["LON"],
+    "airport_name": ["LONDON"],
+    "city_name": ["LONDON"],
+    "country_name": ["UNITED KINGDOM"],
+    "country_code": ["GB"],
+    "latitude": 51.5,
+    "longitude": -0.16666,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["LYX"],
+    "airport_name": ["LONDON ASHFORD"],
+    "city_name": ["LYDD"],
+    "country_name": ["UNITED KINGDOM"],
+    "country_code": ["GB"],
+    "latitude": 50.95612,
+    "longitude": 0.93917,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["ELS"],
+    "airport_name": ["EAST LONDON"],
+    "city_name": ["EAST LONDON"],
+    "country_name": ["SOUTH AFRICA"],
+    "country_code": ["ZA"],
+    "latitude": -33.03555,
+    "longitude": 27.82584,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["YXU"],
+    "airport_name": ["INTERNATIONAL"],
+    "city_name": ["LONDON"],
+    "country_name": ["CANADA"],
+    "country_code": ["CA"],
+    "latitude": 43.03,
+    "longitude": -81.14888,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["GON"],
+    "airport_name": ["AIRPORT"],
+    "city_name": ["GROTON NEW LONDON"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 41.33001,
+    "longitude": -72.04444,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["LOZ"],
+    "airport_name": ["MAGEE FIELD"],
+    "city_name": ["LONDON/CORBIN"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 37.08862,
+    "longitude": -84.075,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["OXF"],
+    "airport_name": ["LONDON OXFORD"],
+    "city_name": ["OXFORD"],
+    "country_name": ["UNITED KINGDOM"],
+    "country_code": ["GB"],
+    "latitude": 51.83639,
+    "longitude": -1.32027,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["BHX"],
+    "airport_name": ["BIRMINGHAM"],
+    "city_name": ["BIRMINGHAM"],
+    "country_name": ["UNITED KINGDOM"],
+    "country_code": ["GB"],
+    "latitude": 52.45389,
+    "longitude": -1.74805,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["BHM"],
+    "airport_name": ["SHUTTLESWORTH INTL"],
+    "city_name": ["BIRMINGHAM"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 33.56167,
+    "longitude": -86.7525,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["PUS"],
+    "airport_name": ["GIMHAE INTL"],
+    "city_name": ["BUSAN"],
+    "country_name": ["KOREA REPUBLIC OF"],
+    "country_code": ["KR"],
+    "latitude": 35.17945,
+    "longitude": 128.93829,
+    "time_offset": ["+09:00"]
+  },
+  {
+    "iata_code": ["JCN"],
+    "airport_name": ["HELIPORT"],
+    "city_name": ["INCHEON"],
+    "country_name": ["KOREA REPUBLIC OF"],
+    "country_code": ["KR"],
+    "latitude": 37.45667,
+    "longitude": 126.4706,
+    "time_offset": ["+09:00"]
+  },
+  {
+    "iata_code": ["KWJ"],
+    "airport_name": ["GWANGJU"],
+    "city_name": ["GWANGJU"],
+    "country_name": ["KOREA REPUBLIC OF"],
+    "country_code": ["KR"],
+    "latitude": 35.12639,
+    "longitude": 126.8089,
+    "time_offset": ["+09:00"]
+  },
+  {
+    "iata_code": ["ROM"],
+    "airport_name": ["ROME"],
+    "city_name": ["ROME"],
+    "country_name": ["ITALY"],
+    "country_code": ["IT"],
+    "latitude": 41.89195,
+    "longitude": 12.51139,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["LOT"],
+    "airport_name": ["LEWIS UNIVERSITY"],
+    "city_name": ["ROMEOVILLE"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 41.60584,
+    "longitude": -88.09388,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["QZF"],
+    "airport_name": ["BUS STATION"],
+    "city_name": ["FONT-ROMEU"],
+    "country_name": ["FRANCE"],
+    "country_code": ["FR"],
+    "latitude": 42.51667,
+    "longitude": 2.05,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["REO"],
+    "airport_name": ["STATE"],
+    "city_name": ["ROME"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 42.58334,
+    "longitude": -117.8844,
+    "time_offset": ["-06:00"]
+  },
+  {
+    "iata_code": ["RME"],
+    "airport_name": ["GRIFFISS INTL"],
+    "city_name": ["ROME"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 43.23334,
+    "longitude": -75.4,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["RMG"],
+    "airport_name": ["RICHARD B RUSSELL RGNL"],
+    "city_name": ["ROME"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 34.35056,
+    "longitude": -85.15805,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["MIL"],
+    "airport_name": ["MILAN"],
+    "city_name": ["MILAN"],
+    "country_name": ["ITALY"],
+    "country_code": ["IT"],
+    "latitude": 45.46417,
+    "longitude": 9.18945,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["GNT"],
+    "airport_name": ["GRANTS MILAN MUNICIPAL"],
+    "city_name": ["GRANTS"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 35.15,
+    "longitude": -107.9,
+    "time_offset": ["-06:00"]
+  },
+  {
+    "iata_code": ["SEL"],
+    "airport_name": ["SEOUL"],
+    "city_name": ["SEOUL"],
+    "country_name": ["KOREA REPUBLIC OF"],
+    "country_code": ["KR"],
+    "latitude": 37.56834,
+    "longitude": 126.9778,
+    "time_offset": ["+09:00"]
+  },
+  {
+    "iata_code": ["TAE"],
+    "airport_name": ["INTERNATIONAL"],
+    "city_name": ["DAEGU"],
+    "country_name": ["KOREA REPUBLIC OF"],
+    "country_code": ["KR"],
+    "latitude": 35.89417,
+    "longitude": 128.65891,
+    "time_offset": ["+09:00"]
+  },
+  {
+    "iata_code": ["SWU"],
+    "airport_name": ["SUWON AIR BASE"],
+    "city_name": ["SUWON"],
+    "country_name": ["KOREA REPUBLIC OF"],
+    "country_code": ["KR"],
+    "latitude": 37.23001,
+    "longitude": 127.0,
+    "time_offset": ["+09:00"]
+  },
+  {
+    "iata_code": ["USN"],
+    "airport_name": ["ULSAN"],
+    "city_name": ["ULSAN"],
+    "country_name": ["KOREA REPUBLIC OF"],
+    "country_code": ["KR"],
+    "latitude": 35.59362,
+    "longitude": 129.3517,
+    "time_offset": ["+09:00"]
+  },
+  {
+    "iata_code": ["VLC"],
+    "airport_name": ["VALENCIA AIRPORT"],
+    "city_name": ["VALENCIA"],
+    "country_name": ["SPAIN"],
+    "country_code": ["ES"],
+    "latitude": 39.48945,
+    "longitude": -0.48166,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["VLN"],
+    "airport_name": ["ARTURO MICHELENA INTL"],
+    "city_name": ["VALENCIA"],
+    "country_name": ["VENEZUELA"],
+    "country_code": ["VE"],
+    "latitude": 10.14973,
+    "longitude": -67.92944,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["PPN"],
+    "airport_name": ["GUILLERMO L VALENCIA"],
+    "city_name": ["POPAYAN"],
+    "country_name": ["COLOMBIA"],
+    "country_code": ["CO"],
+    "latitude": 2.45445,
+    "longitude": -76.60944,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["SVQ"],
+    "airport_name": ["SEVILLA AIRPORT"],
+    "city_name": ["SEVILLA"],
+    "country_name": ["SPAIN"],
+    "country_code": ["ES"],
+    "latitude": 37.41806,
+    "longitude": -5.89305,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["ZAZ"],
+    "airport_name": ["ZARAGOZA"],
+    "city_name": ["ZARAGOZA"],
+    "country_name": ["SPAIN"],
+    "country_code": ["ES"],
+    "latitude": 41.66612,
+    "longitude": -1.04166,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["AGP"],
+    "airport_name": ["MALAGA AIRPORT"],
+    "city_name": ["MALAGA"],
+    "country_name": ["SPAIN"],
+    "country_code": ["ES"],
+    "latitude": 36.675,
+    "longitude": -4.49916,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["MJV"],
+    "airport_name": ["SAN JAVIER"],
+    "city_name": ["MURCIA"],
+    "country_name": ["SPAIN"],
+    "country_code": ["ES"],
+    "latitude": 37.775,
+    "longitude": -0.8125,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["BOG"],
+    "airport_name": ["EL DORADO INTL"],
+    "city_name": ["BOGOTA"],
+    "country_name": ["COLOMBIA"],
+    "country_code": ["CO"],
+    "latitude": 4.70167,
+    "longitude": -74.14694,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["CLO"],
+    "airport_name": ["ALFONSO B ARAGON INTL"],
+    "city_name": ["CALI"],
+    "country_name": ["COLOMBIA"],
+    "country_code": ["CO"],
+    "latitude": 3.54334,
+    "longitude": -76.38166,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["VCV"],
+    "airport_name": ["S CALIF LOGISTICS APT"],
+    "city_name": ["VICTORVILLE"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 34.58695,
+    "longitude": -117.3744,
+    "time_offset": ["-07:00"]
+  },
+  {
+    "iata_code": ["CLR"],
+    "airport_name": ["CLIFF HATFIELD MEM"],
+    "city_name": ["CALIPATRIA"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 33.13,
+    "longitude": -115.5,
+    "time_offset": ["-07:00"]
+  },
+  {
+    "iata_code": ["ROS"],
+    "airport_name": ["ISLAS MALVINAS"],
+    "city_name": ["ROSARIO"],
+    "country_name": ["ARGENTINA"],
+    "country_code": ["AR"],
+    "latitude": -32.90361,
+    "longitude": -60.785,
+    "time_offset": ["-03:00"]
+  },
+  {
+    "iata_code": ["RSJ"],
+    "airport_name": ["ROSARIO SPB"],
+    "city_name": ["ROSARIO"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 48.64556,
+    "longitude": -122.8681,
+    "time_offset": ["-07:00"]
+  },
+  {
+    "iata_code": ["DRO"],
+    "airport_name": ["LA PLATA COUNTY"],
+    "city_name": ["DURANGO"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 37.15139,
+    "longitude": -107.7542,
+    "time_offset": ["-06:00"]
+  },
+  {
+    "iata_code": ["LPG"],
+    "airport_name": ["LA PLATA"],
+    "city_name": ["LA PLATA"],
+    "country_name": ["ARGENTINA"],
+    "country_code": ["AR"],
+    "latitude": -34.96666,
+    "longitude": -57.89222,
+    "time_offset": ["-03:00"]
+  },
+  {
+    "iata_code": ["MDQ"],
+    "airport_name": ["ASTOR PIAZZOLA"],
+    "city_name": ["MAR DEL PLATA"],
+    "country_name": ["ARGENTINA"],
+    "country_code": ["AR"],
+    "latitude": -37.93416,
+    "longitude": -57.57333,
+    "time_offset": ["-03:00"]
+  },
+  {
+    "iata_code": ["HRK"],
+    "airport_name": ["OSNOVA INTL"],
+    "city_name": ["KHARKIV"],
+    "country_name": ["UKRAINE"],
+    "country_code": ["UA"],
+    "latitude": 49.92473,
+    "longitude": 36.29,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["DOK"],
+    "airport_name": ["INTERNATIONAL"],
+    "city_name": ["DONETSK"],
+    "country_name": ["UKRAINE"],
+    "country_code": ["UA"],
+    "latitude": 48.07362,
+    "longitude": 37.73973,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["OZH"],
+    "airport_name": ["MOKRAYA INTL"],
+    "city_name": ["ZAPORIZHZHIA"],
+    "country_name": ["UKRAINE"],
+    "country_code": ["UA"],
+    "latitude": 47.86723,
+    "longitude": 35.31639,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["LWO"],
+    "airport_name": ["INTERNATIONAL"],
+    "city_name": ["LVIV"],
+    "country_name": ["UKRAINE"],
+    "country_code": ["UA"],
+    "latitude": 49.8125,
+    "longitude": 23.95612,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["NLV"],
+    "airport_name": ["MYKOLAIV"],
+    "city_name": ["MYKOLAIV"],
+    "country_name": ["UKRAINE"],
+    "country_code": ["UA"],
+    "latitude": 47.05556,
+    "longitude": 31.91862,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["YTO"],
+    "airport_name": ["TORONTO"],
+    "city_name": ["TORONTO"],
+    "country_name": ["CANADA"],
+    "country_code": ["CA"],
+    "latitude": 43.7,
+    "longitude": -79.41638,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["YMQ"],
+    "airport_name": ["MONTREAL"],
+    "city_name": ["MONTREAL"],
+    "country_name": ["CANADA"],
+    "country_code": ["CA"],
+    "latitude": 45.50889,
+    "longitude": -73.58777,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["YOW"],
+    "airport_name": ["MACDONALD CARTIER INTL"],
+    "city_name": ["OTTAWA"],
+    "country_name": ["CANADA"],
+    "country_code": ["CA"],
+    "latitude": 45.32251,
+    "longitude": -75.66916,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["YEA"],
+    "airport_name": ["EDMONTON"],
+    "city_name": ["EDMONTON"],
+    "country_name": ["CANADA"],
+    "country_code": ["CA"],
+    "latitude": 53.57,
+    "longitude": -113.5,
+    "time_offset": ["-06:00"]
+  },
+  {
+    "iata_code": ["YWG"],
+    "airport_name": ["J A RICHARDSON INTL"],
+    "city_name": ["WINNIPEG"],
+    "country_name": ["CANADA"],
+    "country_code": ["CA"],
+    "latitude": 49.90584,
+    "longitude": -97.23361,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["YVR"],
+    "airport_name": ["INTERNATIONAL"],
+    "city_name": ["VANCOUVER"],
+    "country_name": ["CANADA"],
+    "country_code": ["CA"],
+    "latitude": 49.195,
+    "longitude": -123.1792,
+    "time_offset": ["-07:00"]
+  },
+  {
+    "iata_code": ["BMP"],
+    "airport_name": ["BRAMPTON ISLAND"],
+    "city_name": ["BRAMPTON ISLAND"],
+    "country_name": ["AUSTRALIA"],
+    "country_code": ["AU"],
+    "latitude": -20.77999,
+    "longitude": 149.2,
+    "time_offset": ["+10:00"]
+  },
+  {
+    "iata_code": ["XPN"],
+    "airport_name": ["RAILWAY STATION"],
+    "city_name": ["BRAMPTON"],
+    "country_name": ["CANADA"],
+    "country_code": ["CA"],
+    "latitude": 43.7,
+    "longitude": -79.77,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["PZB"],
+    "airport_name": ["PIETERMARITZBURG"],
+    "city_name": ["PIETERMARITZBURG"],
+    "country_name": ["SOUTH AFRICA"],
+    "country_code": ["ZA"],
+    "latitude": -29.64888,
+    "longitude": 30.39862,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["PRY"],
+    "airport_name": ["WONDERBOOM"],
+    "city_name": ["PRETORIA"],
+    "country_name": ["SOUTH AFRICA"],
+    "country_code": ["ZA"],
+    "latitude": -25.65388,
+    "longitude": 28.22417,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["DUR"],
+    "airport_name": ["KING SHAKA INTL"],
+    "city_name": ["DURBAN"],
+    "country_name": ["SOUTH AFRICA"],
+    "country_code": ["ZA"],
+    "latitude": -29.61666,
+    "longitude": 31.11667,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["TYO"],
+    "airport_name": ["TOKYO"],
+    "city_name": ["TOKYO"],
+    "country_name": ["JAPAN"],
+    "country_code": ["JP"],
+    "latitude": 35.68945,
+    "longitude": 139.6917,
+    "time_offset": ["+09:00"]
+  },
+  {
+    "iata_code": ["UKY"],
+    "airport_name": ["DOWNTOWN HELIPORT"],
+    "city_name": ["KYOTO"],
+    "country_name": ["JAPAN"],
+    "country_code": ["JP"],
+    "latitude": 34.92139,
+    "longitude": 135.7422,
+    "time_offset": ["+09:00"]
+  },
+  {
+    "iata_code": ["TBZ"],
+    "airport_name": ["TABRIZ INTERNATIONAL"],
+    "city_name": ["TABRIZ"],
+    "country_name": ["IRAN"],
+    "country_code": ["IR"],
+    "latitude": 38.13334,
+    "longitude": 46.23417,
+    "time_offset": ["+03:30"]
+  },
+  {
+    "iata_code": ["CAI"],
+    "airport_name": ["CAIRO INTL"],
+    "city_name": ["CAIRO"],
+    "country_name": ["EGYPT"],
+    "country_code": ["EG"],
+    "latitude": 30.12195,
+    "longitude": 31.40556,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["CIR"],
+    "airport_name": ["CAIRO"],
+    "city_name": ["CAIRO"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 37.0,
+    "longitude": -89.18,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["PAR"],
+    "airport_name": ["PARIS"],
+    "city_name": ["PARIS"],
+    "country_name": ["FRANCE"],
+    "country_code": ["FR"],
+    "latitude": 48.85334,
+    "longitude": 2.34889,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["LTQ"],
+    "airport_name": ["LE TOUQUET PARIS PLAGE"],
+    "city_name": ["LE TOUQUET PARIS PLAGE"],
+    "country_name": ["FRANCE"],
+    "country_code": ["FR"],
+    "latitude": 50.5175,
+    "longitude": 1.62056,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["OPL"],
+    "airport_name": ["ST LANDRY PARISH"],
+    "city_name": ["OPELOUSAS"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 30.52695,
+    "longitude": -91.97611,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["PHT"],
+    "airport_name": ["HENRY COUNTY"],
+    "city_name": ["PARIS"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 36.33001,
+    "longitude": -88.38,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["PRX"],
+    "airport_name": ["COX FIELD"],
+    "city_name": ["PARIS"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 33.63667,
+    "longitude": -95.45083,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["XED"],
+    "airport_name": ["MARNE CHESSY RAIL STN"],
+    "city_name": ["DISNEYLAND PARIS"],
+    "country_name": ["FRANCE"],
+    "country_code": ["FR"],
+    "latitude": 48.86778,
+    "longitude": 2.77862,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["BOD"],
+    "airport_name": ["MERIGNAC"],
+    "city_name": ["BORDEAUX"],
+    "country_name": ["FRANCE"],
+    "country_code": ["FR"],
+    "latitude": 44.82834,
+    "longitude": -0.71555,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["EDI"],
+    "airport_name": ["AIRPORT"],
+    "city_name": ["EDINBURGH"],
+    "country_name": ["UNITED KINGDOM"],
+    "country_code": ["GB"],
+    "latitude": 55.95,
+    "longitude": -3.3725,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["MEX"],
+    "airport_name": ["BENITO JUAREZ INTL"],
+    "city_name": ["MEXICO CITY"],
+    "country_name": ["MEXICO"],
+    "country_code": ["MX"],
+    "latitude": 19.43639,
+    "longitude": -99.07222,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["BJS"],
+    "airport_name": ["BEIJING"],
+    "city_name": ["BEIJING"],
+    "country_name": ["CHINA"],
+    "country_code": ["CN"],
+    "latitude": 39.9075,
+    "longitude": 116.3972,
+    "time_offset": ["+08:00"]
+  },
+  {
+    "iata_code": ["STV"],
+    "airport_name": ["SURAT"],
+    "city_name": ["SURAT"],
+    "country_name": ["INDIA"],
+    "country_code": ["IN"],
+    "latitude": 21.11417,
+    "longitude": 72.74167,
+    "time_offset": ["+05:30"]
+  },
+  {
+    "iata_code": ["SAT"],
+    "airport_name": ["SAN ANTONIO INTL"],
+    "city_name": ["SAN ANTONIO"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 29.53389,
+    "longitude": -98.47,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["SCU"],
+    "airport_name": ["ANTONIO MACEO INTL"],
+    "city_name": ["SANTIAGO DE CUBA"],
+    "country_name": ["CUBA"],
+    "country_code": ["CU"],
+    "latitude": 19.96973,
+    "longitude": -75.83527,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["OES"],
+    "airport_name": ["ANTOINE DE ST EXUPERY"],
+    "city_name": ["SAN ANTONIO OESTE"],
+    "country_name": ["ARGENTINA"],
+    "country_code": ["AR"],
+    "latitude": -40.75194,
+    "longitude": -65.03277,
+    "time_offset": ["-03:00"]
+  },
+  {
+    "iata_code": ["SVZ"],
+    "airport_name": ["JUAN V.GOMEZ INTL"],
+    "city_name": ["SAN ANTONIO TACHIRA"],
+    "country_name": ["VENEZUELA"],
+    "country_code": ["VE"],
+    "latitude": 7.84084,
+    "longitude": -72.43972,
+    "time_offset": ["-04:00"]
+  },
+  {
+    "iata_code": ["UPG"],
+    "airport_name": ["SULTAN HASANUDDIN"],
+    "city_name": ["MAKASSAR"],
+    "country_name": ["INDONESIA"],
+    "country_code": ["ID"],
+    "latitude": -5.07666,
+    "longitude": 119.5489,
+    "time_offset": ["+08:00"]
+  },
+  {
+    "iata_code": ["FOR"],
+    "airport_name": ["PINTO MARTINS INTL"],
+    "city_name": ["FORTALEZA"],
+    "country_name": ["BRAZIL"],
+    "country_code": ["BR"],
+    "latitude": -3.77638,
+    "longitude": -38.5325,
+    "time_offset": ["-03:00"]
+  },
+  {
+    "iata_code": ["LYP"],
+    "airport_name": ["INTERNATIONAL"],
+    "city_name": ["FAISALABAD"],
+    "country_name": ["PAKISTAN"],
+    "country_code": ["PK"],
+    "latitude": 31.36501,
+    "longitude": 72.99473,
+    "time_offset": ["+05:00"]
+  },
+  {
+    "iata_code": ["IBA"],
+    "airport_name": ["IBADAN"],
+    "city_name": ["IBADAN"],
+    "country_name": ["NIGERIA"],
+    "country_code": ["NG"],
+    "latitude": 7.3625,
+    "longitude": 3.97834,
+    "time_offset": ["+01:00"]
+  },
+  {
+    "iata_code": ["MOW"],
+    "airport_name": ["MOSCOW"],
+    "city_name": ["MOSCOW"],
+    "country_name": ["RUSSIA"],
+    "country_code": ["RU"],
+    "latitude": 55.75,
+    "longitude": 37.7,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["PUW"],
+    "airport_name": ["REGIONAL"],
+    "city_name": ["PULLMAN MOSCOW ID"],
+    "country_name": ["UNITED STATES OF AMERICA"],
+    "country_code": ["US"],
+    "latitude": 46.74389,
+    "longitude": -117.1094,
+    "time_offset": ["-07:00"]
+  },
+  {
+    "iata_code": ["ADD"],
+    "airport_name": ["BOLE INTL"],
+    "city_name": ["ADDIS ABABA"],
+    "country_name": ["ETHIOPIA"],
+    "country_code": ["ET"],
+    "latitude": 8.97778,
+    "longitude": 38.79945,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["MAD"],
+    "airport_name": ["ADOLFO SUAREZ BARAJAS"],
+    "city_name": ["MADRID"],
+    "country_name": ["SPAIN"],
+    "country_code": ["ES"],
+    "latitude": 40.49195,
+    "longitude": -3.56944,
+    "time_offset": ["+02:00"]
+  },
+  {
+    "iata_code": ["CLQ"],
+    "airport_name": ["MIGUEL DE LA MADRID"],
+    "city_name": ["COLIMA"],
+    "country_name": ["MEXICO"],
+    "country_code": ["MX"],
+    "latitude": 19.27695,
+    "longitude": -103.5775,
+    "time_offset": ["-05:00"]
+  },
+  {
+    "iata_code": ["BUE"],
+    "airport_name": ["BUENOS AIRES"],
+    "city_name": ["BUENOS AIRES"],
+    "country_name": ["ARGENTINA"],
+    "country_code": ["AR"],
+    "latitude": -34.61305,
+    "longitude": -58.37722,
+    "time_offset": ["-03:00"]
+  },
+  {
+    "iata_code": ["BAI"],
+    "airport_name": ["BUENOS AIRES"],
+    "city_name": ["BUENOS AIRES"],
+    "country_name": ["COSTA RICA"],
+    "country_code": ["CR"],
+    "latitude": 9.16362,
+    "longitude": -83.33,
+    "time_offset": ["-06:00"]
+  },
+  {
+    "iata_code": ["DNK"],
+    "airport_name": ["INTERNATIONAL"],
+    "city_name": ["DNIPRO"],
+    "country_name": ["UKRAINE"],
+    "country_code": ["UA"],
+    "latitude": 48.35723,
+    "longitude": 35.10056,
+    "time_offset": ["+03:00"]
+  },
+  {
+    "iata_code": ["YYC"],
+    "airport_name": ["CALGARY INTL"],
+    "city_name": ["CALGARY"],
+    "country_name": ["CANADA"],
+    "country_code": ["CA"],
+    "latitude": 51.12945,
+    "longitude": -114.0131,
+    "time_offset": ["-06:00"]
+  },
+  {
+    "iata_code": ["JNB"],
+    "airport_name": ["O.R. TAMBO INTL"],
+    "city_name": ["JOHANNESBURG"],
+    "country_name": ["SOUTH AFRICA"],
+    "country_code": ["ZA"],
+    "latitude": -26.13361,
+    "longitude": 28.23612,
+    "time_offset": ["+02:00"]
+  }
+]

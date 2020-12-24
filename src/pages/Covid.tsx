@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import Axios from "axios";
+// import Axios from "axios";
 import { Link } from "react-router-dom";
 import highlight from "../utility/getHighlightedText";
 import { covidSort } from "../utility/sorts";
 import PaginateTool from "../components/PaginateTool";
 import Error from "../components/Error";
+import CovidData from "../utility/Covid.json";
 
 import CovidHeader from "../modelComponents/CovidHeader";
 
@@ -40,17 +41,19 @@ export default class Covid extends Component {
   // fetches data and resets search values and filter values
   async getData() {
     try {
-      let json = await Axios.get(`https://api.travelwise.live/covid`);
-      this.setState({
-        pageCount: Math.ceil(json.data.length / this.state.perPage),
-        data: json.data,
-        searchActive: false,
-        searchVal: "",
-        filters: null,
-        currentPage: 0,
-        offset: 0,
-      });
-      this.sortData(this.state.sortType);
+      // let json = await Axios.get(`https://api.travelwise.live/covid`);
+      this.setState(
+        {
+          pageCount: Math.ceil(CovidData.length / this.state.perPage),
+          data: CovidData,
+          searchActive: false,
+          searchVal: "",
+          filters: null,
+          currentPage: 0,
+          offset: 0,
+        },
+        () => this.sortData(this.state.sortType)
+      );
     } catch (error) {
       this.setState({ error: "true" });
     }
@@ -134,17 +137,16 @@ export default class Covid extends Component {
   };
 
   handleViewChange = (x: any) => {
-    this.getData();
-    this.setState({ perPage: x ? x.value : 9 });
+    this.setState({ perPage: x ? x.value : 9 }, () => this.getData());
   };
 
   // on search enter, fetches data and queries search
   async handleSubmit(e: any) {
     try {
       e.preventDefault();
-      let json = await Axios.get(`https://api.travelwise.live/covid`);
+      // let json = await Axios.get(`https://api.travelwise.live/covid`);
       const { searchVal } = this.state;
-      let data = json.data.filter(
+      let data = CovidData.filter(
         (covid: any) =>
           covid.country[0].toLowerCase().includes(searchVal) ||
           covid.country_code[0].toLowerCase().includes(searchVal) ||
@@ -161,13 +163,15 @@ export default class Covid extends Component {
             .toString()
             .includes(searchVal)
       );
-      this.setState({
-        pageCount: Math.ceil(data.length / this.state.perPage),
-        data,
-        searchActive: true,
-        filters: null,
-      });
-      this.sortData(this.state.sortType);
+      this.setState(
+        {
+          pageCount: Math.ceil(data.length / this.state.perPage),
+          data,
+          searchActive: true,
+          filters: null,
+        },
+        () => this.sortData(this.state.sortType)
+      );
     } catch (error) {
       this.setState({ error: "true" });
     }
@@ -177,21 +181,23 @@ export default class Covid extends Component {
   async handleFilter(filters: any) {
     try {
       this.setState({ filters });
-      let json = await Axios.get(`https://api.travelwise.live/covid`);
+      // let json = await Axios.get(`https://api.travelwise.live/covid`);
       if (filters && filters.length > 0) {
-        let data = json.data.filter((covid: any) => {
+        let data = CovidData.filter((covid: any) => {
           for (let i = 0; i < filters.length; i++) {
             if (covid[filters[i].value[0]] > filters[i].value[1]) return true;
           }
           return false;
         });
-        this.setState({
-          pageCount: Math.ceil(data.length / this.state.perPage),
-          data,
-          searchVal: "",
-          searchActive: false,
-        });
-        this.sortData(this.state.sortType);
+        this.setState(
+          {
+            pageCount: Math.ceil(data.length / this.state.perPage),
+            data,
+            searchVal: "",
+            searchActive: false,
+          },
+          () => this.sortData(this.state.sortType)
+        );
       } else {
         this.getData();
       }
