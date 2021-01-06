@@ -1,6 +1,6 @@
 import React from "react";
 import { apps, apiSources } from "../utility/data";
-import { FaGitlab, FaVideo, FaUserAlt } from "react-icons/fa";
+import { FaGitlab, FaUserAlt } from "react-icons/fa";
 import { SiPostman } from "react-icons/si";
 
 // renders content of about page
@@ -63,12 +63,12 @@ export default function AboutLinks(props: any) {
             Our Presentation
           </a>
         </li>
-        <li className="mb-2">
+        {/* <li className="mb-2">
           <FaVideo className="mr-2 t-teal-700" />
           <a className="link" href="https://youtu.be/0PPNiYuDrIw">
             Easter Egg
           </a>
-        </li>
+        </li> */}
       </ul>
     </React.Fragment>
   );

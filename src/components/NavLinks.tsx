@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  FaCity,
-  FaEye,
-  FaPlane,
-  FaLeaf,
-  FaUsers,
-  FaGlobe,
-} from "react-icons/fa";
+import { FaCity, FaEye, FaPlane, FaUsers, FaGlobe } from "react-icons/fa";
 import { Link } from "react-router-dom";
 export default function NavLinks() {
   return (
@@ -40,7 +33,7 @@ export default function NavLinks() {
               Visuals
             </Link>
           </li>
-          <li className="nav-item active ">
+          {/* <li className="nav-item active ">
             <Link
               className="nav-link navlink-custom"
               to="/ProviderVisualizations"
@@ -48,7 +41,7 @@ export default function NavLinks() {
               <FaLeaf className="mr-1" />
               ProviderVisuals
             </Link>
-          </li>
+          </li> */}
           <li className="nav-item active ">
             <Link className="nav-link navlink-custom" to="/About">
               <FaUsers className="mr-1" />

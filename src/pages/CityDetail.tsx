@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import Axios from "axios";
 import Error from "../components/Error";
 import Loading from "../components/Loading";
-
+import CityData from "../utility/Cities.json";
+import AirportData from "../utility/Airports.json";
 import MapRender from "../components/MapRender";
 import CityContent from "../modelComponents/CityDetailContent";
 import AirportLinks from "../modelComponents/AirportLinks";
@@ -38,9 +39,8 @@ export default class CityDetail extends Component<myProps> {
 
   async componentDidMount() {
     try {
-      let json = await Axios.get(`https://api.travelwise.live/cities`);
-
-      let curCity = json.data.filter((city: any) => {
+      // let json = await Axios.get(`https://api.travelwise.live/cities`);
+      let curCity = CityData.filter((city: any) => {
         return (
           city.country_code[0].localeCompare(
             this.props.match.params.country_code
@@ -50,7 +50,6 @@ export default class CityDetail extends Component<myProps> {
             .localeCompare(this.props.match.params.city.toLowerCase()) === 0
         );
       });
-
       // get picture asset
       let picJson = await Axios.get(
         "https://api.unsplash.com/search/photos?client_id=Dj6xszn3N8x0A8n2a2O07Ns0IjeBGTameTQCpNVZMvI&" +
@@ -62,12 +61,21 @@ export default class CityDetail extends Component<myProps> {
       });
 
       //get airport data
-      let airportJson = await Axios.get(
-        `https://api.travelwise.live/airports/search?city_name=${curCity[0].name}`
-      );
+      // let airportJson = await Axios.get(
+      //   `https://api.travelwise.live/airports/search?city_name=${curCity[0].name}`
+      // );
+      let airportJson = AirportData.filter((airport: any) => {
+        return (
+          airport.city_name[0]
+            .toLowerCase()
+            .localeCompare(curCity[0].name[0].toLowerCase()) === 0
+        );
+      });
+
+      console.log(airportJson);
       this.setState({
         data: curCity[0],
-        airportData: airportJson.data,
+        airportData: airportJson,
         center: { lat: curCity[0].latitude, lng: curCity[0].longitude },
         loading: false,
       });

@@ -6,6 +6,9 @@ import MapRender from "../components/MapRender";
 import AirportLinks from "../modelComponents/AirportLinks";
 import CityLinks from "../modelComponents/CityLinks";
 import CovidContent from "../modelComponents/CovidDetailContent";
+import CityData from "../utility/Cities.json";
+import AirportData from "../utility/Airports.json";
+import CovidData from "../utility/Covid.json";
 
 type myProps = { match: any };
 
@@ -36,19 +39,34 @@ export default class CovidDetail extends Component<myProps> {
   async componentDidMount() {
     // get covid data
     try {
-      let json = await Axios.get(
-        `https://api.travelwise.live/covid/search?country_code=${this.props.match.params.country_code}`
-      );
-      let citiesJson = await Axios.get(`https://api.travelwise.live/cities`);
-      let airportJson = await Axios.get(
-        `https://api.travelwise.live/airports/search?country_code=${this.props.match.params.country_code}`
-      );
+      // let json = await Axios.get(
+      //   `https://api.travelwise.live/covid/search?country_code=${this.props.match.params.country_code}`
+      // );
+      // let citiesJson = await Axios.get(`https://api.travelwise.live/cities`);
+      // let airportJson = await Axios.get(
+      //   `https://api.travelwise.live/airports/search?country_code=${this.props.match.params.country_code}`
+      // );
+      let json = CovidData.filter((covid: any) => {
+        return (
+          covid.country_code[0].localeCompare(
+            this.props.match.params.country_code
+          ) === 0
+        );
+      });
 
-      let cityData = citiesJson.data.filter(
+      let cityData = CityData.filter(
         (city: any) =>
-          city.country_code[0].localeCompare(json.data[0].country_code[0]) === 0
+          city.country_code[0].localeCompare(json[0].country_code[0]) === 0
       );
-      let airportData = airportJson.data;
+      let airportData = AirportData.filter((covid: any) => {
+        return (
+          covid.country_code[0]
+            .toLowerCase()
+            .localeCompare(
+              this.props.match.params.country_code.toLowerCase()
+            ) === 0
+        );
+      });
 
       // get longitude/latitude
       let location = await Axios.get(
@@ -60,12 +78,12 @@ export default class CovidDetail extends Component<myProps> {
       // get picture asset
       let picJson = await Axios.get(
         "https://api.unsplash.com/search/photos?client_id=Dj6xszn3N8x0A8n2a2O07Ns0IjeBGTameTQCpNVZMvI&" +
-          `query=${json.data[0].country} city&page=1&per_page=10`
+          `query=${json[0].country} city&page=1&per_page=10`
       );
       let picString = picJson.data.results[0].urls.regular;
 
       this.setState({
-        data: json.data[0],
+        data: json[0],
         cityData,
         airportData,
         picture: picString,

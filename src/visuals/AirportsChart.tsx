@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import Axios from "axios";
+// import Axios from "axios";
 import { PieChart, Pie, Tooltip, Cell } from "recharts";
 import Error from "../components/Error";
+import AirportData from "../utility/Airports.json";
 
 const COLORS = [
   "#f56565",
@@ -26,18 +27,18 @@ export default class AirportsChart extends Component {
 
   async getData() {
     try {
-      let json = await Axios.get(`https://api.travelwise.live/airports`);
+      // let json = await Axios.get(`https://api.travelwise.live/airports`);
       this.setState({
-        data: json.data,
+        data: AirportData,
       });
       var dataTemp = new Map();
-      for (var airport in json.data) {
-        if (!dataTemp.has(json.data[airport]["country_name"][0])) {
-          dataTemp.set(json.data[airport]["country_name"][0], 1);
+      for (var airport in AirportData) {
+        if (!dataTemp.has(AirportData[airport]["country_name"][0])) {
+          dataTemp.set(AirportData[airport]["country_name"][0], 1);
         } else {
           dataTemp.set(
-            json.data[airport]["country_name"][0],
-            dataTemp.get(json.data[airport]["country_name"][0]) + 1
+            AirportData[airport]["country_name"][0],
+            dataTemp.get(AirportData[airport]["country_name"][0]) + 1
           );
         }
       }

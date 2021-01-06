@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
-import Axios from "axios";
+// import Axios from "axios";
 import PaginateTool from "../components/PaginateTool";
 import Select from "react-select";
 import { covidSort } from "../utility/sorts";
 import Error from "../components/Error";
+import CovidData from "../utility/Covid.json";
 
 const scale = 0.0001;
 const barThickness = 30;
@@ -35,12 +36,12 @@ export default class CovidChart extends Component {
 
   async getData() {
     try {
-      let json = await Axios.get(`https://api.travelwise.live/covid`);
+      // let json = await Axios.get(`https://api.travelwise.live/covid`);
 
       this.setState(
         {
-          pageCount: Math.ceil(json.data.length / this.state.perPage),
-          data: json.data,
+          pageCount: Math.ceil(CovidData.length / this.state.perPage),
+          data: CovidData,
           currentPage: 0,
           offset: 0,
         },

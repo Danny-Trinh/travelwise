@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
-import Axios from "axios";
+// import Axios from "axios";
 import Error from "../components/Error";
+import CitiesData from "../utility/Cities.json";
 
 export default class CitiesChart extends Component {
   state = {
@@ -19,9 +20,9 @@ export default class CitiesChart extends Component {
 
   async getData() {
     try {
-      let json = await Axios.get(`https://api.travelwise.live/cities`);
+      // let json = await Axios.get(`https://api.travelwise.live/cities`);
       this.setState({
-        data: json.data,
+        data: CitiesData,
       });
     } catch (error) {
       this.setState({ error: "true" });

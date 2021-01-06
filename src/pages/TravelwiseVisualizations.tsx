@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import CovidChart from "../visuals/CovidChart";
 import CitiesChart from "../visuals/CitiesChart";
 import AirportsChart from "../visuals/AirportsChart";

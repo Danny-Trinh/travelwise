@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import Paginate from "react-paginate";
 import { Link } from "react-router-dom";
-import Axios from "axios";
+// import Axios from "axios";
 import highlight from "../utility/getHighlightedText";
+import AirportData from "../utility/Airports.json";
+import CovidData from "../utility/Covid.json";
+import CityData from "../utility/Cities.json";
 
 const perPage = 4;
 const paginationSize = 8;
@@ -27,15 +30,15 @@ export default class Search extends Component<myProps> {
   async componentDidMount() {
     let searchQuery = this.props.match.params.searchQuery;
     searchQuery = searchQuery ? searchQuery.toLowerCase() : "";
-    let jsonC = await Axios.get(`https://api.travelwise.live/covid`);
-    let dataC = jsonC.data;
-    let jsonCi = await Axios.get(`https://api.travelwise.live/cities`);
-    let dataCi = jsonCi.data;
-    let jsonA = await Axios.get(`https://api.travelwise.live/airports`);
-    let dataA = jsonA.data;
+    // let jsonC = await Axios.get(`https://api.travelwise.live/covid`);
+    let dataC = CovidData;
+    // let jsonCi = await Axios.get(`https://api.travelwise.live/cities`);
+    let dataCi = CityData;
+    // let jsonA = await Axios.get(`https://api.travelwise.live/airports`);
+    let dataA = AirportData;
 
     if (searchQuery.localeCompare("") !== 0) {
-      dataC = jsonC.data.filter(
+      dataC = CovidData.filter(
         (covid: any) =>
           covid.country[0].toLowerCase().includes(searchQuery) ||
           covid.country_code[0].toLowerCase().includes(searchQuery) ||
@@ -52,7 +55,7 @@ export default class Search extends Component<myProps> {
             .toString()
             .includes(searchQuery)
       );
-      dataCi = jsonCi.data.filter(
+      dataCi = CityData.filter(
         (city: any) =>
           city.name[0].toLowerCase().includes(searchQuery) ||
           city.country[0].toLowerCase().includes(searchQuery) ||
@@ -69,7 +72,7 @@ export default class Search extends Component<myProps> {
           (city.theft ? city.theft : 0).toString().includes(searchQuery) ||
           (city.women ? city.women : 0).toString().includes(searchQuery)
       );
-      dataA = jsonA.data.filter(
+      dataA = AirportData.filter(
         (airports: any) =>
           airports.airport_name[0].toLowerCase().includes(searchQuery) ||
           airports.iata_code[0].toLowerCase().includes(searchQuery) ||
